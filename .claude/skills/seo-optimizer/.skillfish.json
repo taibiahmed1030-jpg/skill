@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "seo-optimizer",
+  "owner": "secondsky",
+  "repo": "claude-skills",
+  "path": "plugins/seo-optimizer/skills/seo-optimizer",
+  "branch": "main",
+  "sha": "44b0ca7da9f9007d8336887df028eaa99ff10750",
+  "source": "manual"
+}
