@@ -45,6 +45,7 @@
   }
   *, *::before, *::after { box-sizing: border-box; }
   * { margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; overscroll-behavior-x: none; }
   html { -webkit-text-size-adjust: 100%; }
   html.lenis, html.lenis body { height: auto; }
   body {
@@ -70,7 +71,7 @@
     position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: .06;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
-  #scene { position: fixed; inset: 0; z-index: 1; pointer-events: none; width: 100vw; height: 100dvh; }
+  #scene { position: fixed; inset: 0; z-index: 1; pointer-events: none; width: 100%; height: 100dvh; }
   main, footer { position: relative; z-index: 2; }
 
   .demo-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 45; background: var(--ink); color: var(--bg); text-align: center; font-size: .8rem; padding: 7px 16px; letter-spacing: .01em; }
@@ -200,6 +201,10 @@
   /* Mobile */
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    header { background: rgb(12 12 14 / .9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-bottom: 0; border-bottom: 1px solid var(--line); }
+    nav { height: 64px; }
+    .h2 { font-size: clamp(1.9rem, 8.4vw, 2.4rem); }
+    .shades-head .h2 { max-width: none; }
     .hero { align-items: end; padding-top: 55vh; }
     .hero-foot { grid-template-columns: 1fr; gap: 32px; }
     .picker p, .swatches { text-align: left; justify-content: flex-start; }
@@ -490,7 +495,7 @@ if (renderer) {
   });
 
   // Placement selon l'écran : à droite sur ordinateur, en haut sur mobile
-  const base = isMobile ? { x: 0, y: 0.75, s: 0.6 } : { x: 2.2, y: -0.3, s: 0.88 };
+  const base = isMobile ? { x: 0, y: 0.5, s: 0.52 } : { x: 2.2, y: -0.3, s: 0.88 };
   rig.position.set(base.x, base.y, 0);
   rig.scale.setScalar(base.s);
 
@@ -519,7 +524,7 @@ if (renderer) {
       bottle.position.y = -0.55 + Math.sin(t * 0.9) * 0.06;
       drops.forEach(d => { d.position.y = d.userData.y + Math.sin(t * 0.8 + d.userData.phase) * 0.18; });
     }
-    renderer.render(scene, camera);
+    if (canvas.style.opacity !== '0') renderer.render(scene, camera);
     requestAnimationFrame(loop);
   }
   renderer.compile(scene, camera);
@@ -529,11 +534,11 @@ if (renderer) {
   if (hasGsap && !reduce) {
     gsap.matchMedia().add({ desktop: '(min-width: 901px)', mobile: '(max-width: 900px)' }, ctx => {
       const { desktop } = ctx.conditions;
-      const tl = gsap.timeline({
-        scrollTrigger: { trigger: '#main', start: 'top top', end: 'bottom bottom', scrub: 1.2 },
-        defaults: { ease: 'none' },
-      });
       if (desktop) {
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: '#main', start: 'top top', end: 'bottom bottom', scrub: 1.2 },
+          defaults: { ease: 'none' },
+        });
         tl.to(rig.position, { x: -2.6, y: -0.2, duration: 1 })
           .to(rig.rotation, { y: Math.PI * 1.1, z: -0.15, duration: 1 }, 0)
           .to(rig.position, { x: 0, y: 1.9, duration: 1 })
@@ -544,10 +549,11 @@ if (renderer) {
           .to(rig.position, { x: 3.5, y: -0.3, duration: 1 })
           .to(rig.scale, { x: 1, y: 1, z: 1, duration: 1 }, '<');
       } else {
-        tl.to(rig.position, { y: 0.4, duration: 1 })
-          .to(rig.rotation, { y: Math.PI * 2, duration: 4 }, 0)
-          .to(canvas, { opacity: 0.28, duration: 0.6 }, 0.2)
-          .to(canvas, { opacity: 1, duration: 0.6 }, 3.4);
+        // Mobile : le flacon reste dans l'accueil puis s'efface, pour ne jamais gêner la lecture
+        gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 0.4 }, defaults: { ease: 'none' } })
+          .to(rig.position, { y: 3.4, duration: 1 })
+          .to(rig.rotation, { y: Math.PI, duration: 1 }, 0)
+          .to(canvas, { opacity: 0, duration: 0.5 }, 0.5);
       }
     });
   }
