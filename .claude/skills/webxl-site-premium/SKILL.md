@@ -8,7 +8,11 @@ description: Méthode WebXL pour créer un site web premium pour un client (vitr
 Objectif : livrer un site qui se vend cher parce qu'il est **beau, rapide, trouvable sur Google et irréprochable techniquement**. La 3D et les animations sont un bonus au service du client, jamais au détriment du SEO ou de la vitesse.
 
 Ce skill orchestre les autres skills du dépôt :
-- `frontend-design` : direction artistique unique (pas de look "template IA").
+- `design-taste-frontend` (Taste) : direction artistique unique, anti "look IA", landing pages et portfolios.
+- `redesign-existing-projects` (Taste) : refonte d'un site existant d'un client ou prospect.
+- `emil-design-eng`, `animate` (Emil Kowalski) : finitions d'interface et décisions d'animation.
+- `review-animations` (Emil Kowalski) : relecture exigeante des animations avant livraison.
+- `mobile-native` (Emil Kowalski) : sensation "app native" sur téléphone.
 - `3d-web-experience` : Three.js / React Three Fiber / Spline.
 - `gsap-core`, `gsap-timeline`, `gsap-scrolltrigger`, `gsap-plugins`, `gsap-performance`, `gsap-react`, `gsap-frameworks`, `gsap-utils` : animations.
 - Plugins (si installés) : `claude-seo` pour l'audit SEO, `playwright-skill` pour tester dans un vrai navigateur.
@@ -26,7 +30,7 @@ Si une info manque, poser la question plutôt que d'inventer.
 
 ## 2. Direction artistique
 
-Suivre `frontend-design` : plan de design (4–6 couleurs, typographies, layout en wireframe ASCII, principes), relecture contre le brief, puis code. Un seul élément "wow" par page ; le reste est calme et discipliné.
+Suivre `design-taste-frontend` (ou `redesign-existing-projects` pour une refonte) : plan de design (4–6 couleurs, typographies, layout en wireframe ASCII, principes), relecture contre le brief, puis code. Un seul élément "wow" par page ; le reste est calme et discipliné.
 
 ## 3. Stack
 
@@ -51,6 +55,7 @@ Privilégier le rendu statique ou côté serveur (SSG/SSR) : le HTML doit conten
 - Suivre `gsap-performance` : animer `transform` et `opacity` uniquement.
 - Respecter `prefers-reduced-motion` avec `gsap.matchMedia()`.
 - Une séquence d'entrée orchestrée plutôt que des fondus sur chaque section.
+- Décider chaque animation avec `animate` / `emil-design-eng` : faut-il animer, dans quel but, quelle courbe, quelle durée (UI < 300 ms, courbes personnalisées).
 
 ## 6. SEO (checklist obligatoire)
 
@@ -85,8 +90,9 @@ Privilégier le rendu statique ou côté serveur (SSG/SSR) : le HTML doit conten
 
 ## 10. Vérification avant livraison
 
-1. Tester en largeur mobile (375 px), tablette et bureau ; captures d'écran (via `playwright-skill` si disponible) et corriger ce qui cloche.
-2. Lighthouse mobile + vérification des données structurées (Rich Results Test).
-3. Tous les liens, formulaires et numéros cliquables (`tel:`, `mailto:`) fonctionnent.
-4. Aucune erreur dans la console du navigateur.
-5. Remettre au client : accès, mode d'emploi pour modifier les contenus, check-list Google Business Profile / Search Console.
+1. Passer les animations au crible de `review-animations` et appliquer `mobile-native`.
+2. Tester en largeur mobile (375 px), tablette et bureau ; captures d'écran (via `playwright-skill` si disponible) et corriger ce qui cloche.
+3. Lighthouse mobile + vérification des données structurées (Rich Results Test).
+4. Tous les liens, formulaires et numéros cliquables (`tel:`, `mailto:`) fonctionnent.
+5. Aucune erreur dans la console du navigateur.
+6. Remettre au client : accès, mode d'emploi pour modifier les contenus, check-list Google Business Profile / Search Console.
