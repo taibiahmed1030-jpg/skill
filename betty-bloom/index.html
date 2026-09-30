@@ -430,6 +430,20 @@
     .row2 { grid-template-columns: 1fr; }
     .gift-sum { grid-template-columns: 110px 1fr; }
   }
+  @media (max-width: 900px) {
+    .insta-head h2 { flex-direction: column; gap: 6px; font-size: 1.35rem; }
+    .insta-head p { font-size: .92rem; padding-inline: 8px; }
+    .reassure strong, .promise strong { font-size: .7rem; letter-spacing: .06em; line-height: 1.35; margin-bottom: 2px; }
+    .reassure small, .promise small { font-size: .8rem; line-height: 1.35; display: block; }
+    .reassure div, .promise div { align-items: flex-start; }
+    .reassure .ic, .promise .ic { width: 24px; height: 24px; margin-top: 2px; }
+    .title { font-size: 1.45rem; letter-spacing: .06em; padding-inline: 8px; }
+    .prod h3 { font-size: .74rem; letter-spacing: .06em; line-height: 1.35; min-height: 2.7em; }
+    .gift h2 { font-size: 1.6rem; }
+    .hero h1 { font-size: 1.85rem; }
+    .hero-kicker { font-size: .7rem; letter-spacing: .14em; }
+    .cat h3 { letter-spacing: .06em; }
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .rv { opacity: 1; transform: none; transition: none; }
