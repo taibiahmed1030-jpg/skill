@@ -444,6 +444,19 @@
     .hero-kicker { font-size: .7rem; letter-spacing: .14em; }
     .cat h3 { letter-spacing: .06em; }
   }
+  /* Anti-débordement mobile : rien ne peut dépasser la largeur de l'écran, même avec un texte agrandi */
+  @media (max-width: 900px) {
+    .gift, .cats, .grid, .info, .foot, .reassure .wrap, .promise .wrap, .hero-grid, .row2, .bases { grid-template-columns: minmax(0, 1fr); }
+    .cats, .grid, .reassure .wrap, .promise .wrap, .bases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gift > *, .steps li, .cat, .prod, .info > div { min-width: 0; }
+    .btn { white-space: normal; text-align: center; line-height: 1.25; padding-block: 12px; letter-spacing: .08em; max-width: 100%; }
+    h1, h2, h3, .title, .gift h2 { overflow-wrap: break-word; hyphens: auto; }
+    .gift { padding: 26px 18px; }
+    .gift h2 { font-size: clamp(1.3rem, 7vw, 1.6rem); }
+  }
+  @media (max-width: 360px) {
+    .cats, .grid { grid-template-columns: minmax(0, 1fr); }
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .rv { opacity: 1; transform: none; transition: none; }
