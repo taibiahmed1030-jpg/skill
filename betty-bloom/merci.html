@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merci | Betty Bloom Flowers</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/logo-disc.png" type="image/png">
+<style>
+  @font-face { font-family: 'Poiret One'; font-display: swap; src: url(assets/fonts/poiret-one.woff2) format('woff2'); }
+  @font-face { font-family: 'Jost'; font-weight: 300 600; font-display: swap; src: url(assets/fonts/jost.woff2) format('woff2'); }
+  @font-face { font-family: 'Great Vibes'; font-display: swap; src: url(assets/fonts/great-vibes.woff2) format('woff2'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Jost", system-ui, sans-serif; background: #fbf8f8; color: #1b1719; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  header { background: #0e0c0d; padding: 18px 0; text-align: center; }
+  header img { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto; display: block; }
+  .wrap { width: min(760px, 100% - 40px); margin-inline: auto; }
+  main { padding: 64px 0 96px; }
+  h1 { font-family: "Poiret One", sans-serif; font-weight: 400; text-transform: uppercase; letter-spacing: .08em; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.15; margin-bottom: 28px; }
+  h2 { font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; margin: 32px 0 8px; }
+  p, li { color: #5d5357; }
+  ul { padding-left: 20px; }
+  .btn { display: inline-flex; min-height: 50px; align-items: center; padding: 0 28px; background: #0e0c0d; color: #fff; text-decoration: none; letter-spacing: .12em; text-transform: uppercase; font-size: .88rem; margin-top: 28px; }
+  footer { text-align: center; padding: 28px; color: #9d9195; font-size: .85rem; background: #0e0c0d; }
+</style>
+</head>
+<body>
+<header><a href="./"><img src="assets/img/logo-disc.png" alt="Betty Bloom Flowers, retour à l'accueil" width="84" height="84"></a></header>
+<main class="wrap">
+<p style="font-family:'Great Vibes',cursive;font-size:3rem;color:#b8446b;line-height:1">Merci !</p>
+<h1 id="title">Votre commande est confirmée</h1>
+<p id="lead">Vous allez recevoir une confirmation par e-mail. Nous préparons vos fleurs avec amour.</p>
+<div id="sum" style="margin-top:28px"></div>
+<a class="btn" href="./">Retour à la boutique</a>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), o = null;
+  try { o = JSON.parse(sessionStorage.getItem('bb-last')); } catch (e) {}
+  try { localStorage.removeItem('bb-cart'); } catch (e) {}
+  var nl = o && o.lang === 'nl';
+  if (nl) {
+    document.documentElement.lang = 'nl-BE';
+    document.getElementById('title').textContent = 'Uw bestelling is bevestigd';
+    document.getElementById('lead').textContent = 'U ontvangt een bevestiging per e-mail. We maken uw bloemen met liefde klaar.';
+    document.querySelector('.btn').textContent = 'Terug naar de winkel';
+  }
+  if (q.get('demo')) document.getElementById('lead').textContent += nl ? ' (Demobestelling: er is niets betaald.)' : ' (Commande de démonstration : aucun paiement n’a été effectué.)';
+  if (!o) return;
+  var money = function (n) { return new Intl.NumberFormat(nl ? 'nl-BE' : 'fr-BE', { style: 'currency', currency: 'EUR' }).format(n); };
+  var esc = function (s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var d = o.order || {}, when = d.date ? new Date(d.date + 'T12:00').toLocaleDateString(nl ? 'nl-BE' : 'fr-BE', { weekday: 'long', day: 'numeric', month: 'long' }) : '';
+  var html = '<p><strong>' + (nl ? 'Bestelling' : 'Commande') + ' ' + esc(o.ref) + '</strong></p><ul style="margin:12px 0">';
+  o.lines.forEach(function (l) { html += '<li>' + l.qty + ' × ' + esc(l.name) + (l.detail ? ' (' + esc(l.detail) + ')' : '') + ' : ' + money(l.price) + '</li>'; });
+  html += '</ul><p><strong>' + (nl ? 'Totaal' : 'Total') + ' : ' + money(o.total) + '</strong></p>';
+  html += '<p>' + (d.mode === 'pickup' ? (nl ? 'Afhalen in de winkel' : 'Retrait en boutique') : (nl ? 'Levering' : 'Livraison') + ' : ' + esc((d.recipient || {}).address) + ', ' + esc((d.recipient || {}).zip) + ' ' + esc((d.recipient || {}).city)) + (when ? ', ' + esc(when) : '') + '</p>';
+  if (d.message) html += '<p style="font-family:Great Vibes,cursive;font-size:1.6rem;color:#b8446b">« ' + esc(d.message) + ' »</p>';
+  document.getElementById('sum').innerHTML = html;
+})();
+</script>
+</main>
+<footer>© 2026 Betty Bloom Flowers by Mavis, Avenue Louis Bertrand 20, 1030 Schaerbeek. BCE 0477.610.182</footer>
+</body>
+</html>
