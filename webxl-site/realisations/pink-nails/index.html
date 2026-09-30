@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pink Nails | Onglerie à Namur</title>
+<meta name="description" content="Pink Nails, onglerie à Namur : semi-permanent, gel, capsules, nail art et beauté des pieds. Réservez votre rendez-vous en ligne.">
+<!-- Démo WEBXL : retirer noindex et le bandeau .demo-bar à la mise en ligne réelle -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.pinknails-namur.be/">
+<meta name="theme-color" content="#f7e8ec">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_BE">
+<meta property="og:title" content="Pink Nails | Onglerie à Namur">
+<meta property="og:description" content="Semi-permanent, gel, capsules et nail art à Namur. Réservez en ligne.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<!-- Démo : Google Fonts. En production, auto-héberger les polices. -->
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NailSalon",
+  "name": "Pink Nails",
+  "url": "https://www.pinknails-namur.be/",
+  "areaServed": { "@type": "City", "name": "Namur" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Namur", "postalCode": "5000", "addressCountry": "BE" },
+  "priceRange": "€€"
+}
+</script>
+<style>
+  :root {
+    --bg: #f7e8ec;
+    --bg-2: #f1dbe1;
+    --ink: #22141a;
+    --muted: #6e5560;
+    --line: #e3c6cf;
+    --pink: #ff4f93;
+    --pink-soft: #ffc2d8;
+    --cta: #d4145c;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --display: "Unbounded", system-ui, sans-serif;
+    color-scheme: light;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; padding: 0; }
+  html { overflow-x: hidden; overscroll-behavior-x: none; }
+  body { overflow-x: clip; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Figtree", system-ui, sans-serif; background: var(--bg); color: var(--ink);
+    line-height: 1.6; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; touch-action: manipulation; }
+  :focus-visible { outline: 2px solid var(--cta); outline-offset: 4px; border-radius: 8px; }
+  .wrap { width: min(1280px, 100% - 40px); margin-inline: auto; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 16px; top: 44px; z-index: 60; background: var(--ink); color: var(--bg); padding: 8px 14px; }
+
+  .demo-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 45; background: var(--ink); color: #fff; text-align: center; font-size: .8rem; padding: 7px 16px; }
+  .demo-bar strong { font-family: var(--display); font-weight: 800; letter-spacing: .08em; }
+
+  header {
+    position: fixed; top: 33px; left: 0; right: 0; z-index: 40;
+    background: rgb(247 232 236 / .78); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border-bottom: 1px solid rgb(34 20 26 / .06);
+  }
+  nav { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+  .logo { font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: -.02em; display: inline-flex; align-items: center; gap: 10px; }
+  .logo i { width: 12px; height: 18px; border-radius: 10px 10px 6px 6px; background: var(--pink); display: inline-block; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); font-weight: 500; transition: color 200ms var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) { .nav-links a:hover { color: var(--ink); } }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px;
+    border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; user-select: none;
+    transition: transform 160ms var(--ease-out), background-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-cta { background: var(--cta); color: #fff; box-shadow: 0 10px 30px -10px rgb(212 20 92 / .55); }
+  .btn-soft { background: #fff; color: var(--ink); }
+  @media (hover: hover) and (pointer: fine) { .btn-cta:hover { background: #bd0f50; } .btn-soft:hover { box-shadow: 0 8px 24px -12px rgb(34 20 26 / .35); } }
+  nav .btn { min-height: 44px; padding: 0 22px; }
+
+  /* Hero épinglé : la fleur d'ongles s'ouvre au scroll */
+  .hero-scroll { height: 230vh; position: relative; }
+  .hero-sticky { position: sticky; top: 0; height: 100dvh; overflow: hidden; background: radial-gradient(80% 70% at 50% 45%, #fff3f7 0%, var(--bg) 60%, var(--bg-2) 100%); }
+  .giant {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -54%);
+    font-family: var(--display); font-weight: 800; font-size: clamp(9rem, 31vw, 30rem); letter-spacing: -.06em; line-height: 1;
+    color: var(--pink-soft); white-space: nowrap; user-select: none; pointer-events: none;
+  }
+  #scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .hero-content { position: absolute; inset: 0; padding: 130px 0 48px; pointer-events: none; }
+  .hero-content .wrap { height: 100%; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 32px; }
+  .hero-content .wrap > * { pointer-events: auto; }
+  .hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 4.4vw, 4rem); line-height: 1.02; letter-spacing: -.04em; max-width: 13ch; }
+  .hero-lead { color: var(--muted); font-size: 1.1rem; max-width: 36ch; margin-top: 18px; }
+  .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+
+  .finish { background: rgb(255 255 255 / .6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgb(255 255 255 / .8); border-radius: 26px; padding: 16px; }
+  .finish p { font-size: .88rem; color: var(--muted); margin: 0 4px 10px; }
+  .finish-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; list-style: none; }
+  .finish-options button { min-height: 44px; padding: 0 18px; border-radius: 14px; font-weight: 600; font-size: .95rem; text-align: left; transition: background-color 200ms var(--ease-out), color 200ms var(--ease-out); }
+  .finish-options button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  @media (hover: hover) and (pointer: fine) { .finish-options button[aria-pressed="false"]:hover { background: rgb(34 20 26 / .06); } }
+
+  section { padding: 140px 0; }
+  .h2 { font-family: var(--display); font-weight: 800; font-size: clamp(2rem, 4.6vw, 4rem); line-height: 1.02; letter-spacing: -.045em; max-width: 14ch; }
+
+  /* Manifeste : les mots s'allument au scroll */
+  .statement p { font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 3.6vw, 3.1rem); line-height: 1.18; letter-spacing: -.035em; max-width: 24ch; }
+  .statement .w { opacity: .16; }
+  .statement .hl { color: var(--cta); }
+
+  /* Prestations : cartes empilées (sticky) */
+  .stack { margin-top: 64px; display: grid; gap: 22px; }
+  .card {
+    position: sticky; top: calc(130px + var(--i) * 16px);
+    min-height: 380px; border-radius: 34px; padding: clamp(28px, 4vw, 52px);
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: end;
+    box-shadow: 0 -12px 40px -24px rgb(34 20 26 / .35);
+  }
+  .card h3 { font-family: var(--display); font-weight: 800; font-size: clamp(1.9rem, 4vw, 3.4rem); letter-spacing: -.045em; line-height: 1; }
+  .card p { font-size: 1.08rem; max-width: 40ch; }
+  .card .meta { display: flex; gap: 28px; margin-top: 22px; font-weight: 600; }
+  .card .meta span { display: block; font-weight: 400; font-size: .88rem; opacity: .75; }
+  .c1 { background: var(--pink); color: #fff; }
+  .c2 { background: #fff; }
+  .c3 { background: var(--ink); color: #fff; }
+  .c4 { background: var(--pink-soft); }
+
+  /* Tarifs */
+  .prices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 64px; margin-top: 56px; }
+  .price-col h3 { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 0 0 12px; letter-spacing: -.02em; }
+  .price-col + .price-col h3 { margin-top: 0; }
+  .price-col dl .row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+  .price-col dl .row:last-child { border-bottom: 0; }
+  .price-col dt { color: var(--muted); }
+  .price-col dd { font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .note { color: var(--muted); font-size: .9rem; margin-top: 26px; }
+
+  /* Infos */
+  .info { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 56px; }
+  .info-tile { background: #fff; border-radius: 28px; padding: 30px; }
+  .info-tile.big { grid-row: span 2; background: var(--pink-soft); display: flex; flex-direction: column; justify-content: space-between; min-height: 320px; }
+  .info-tile h3 { font-size: .95rem; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
+  .info-tile address { font-style: normal; font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem, 2.6vw, 2.1rem); letter-spacing: -.03em; line-height: 1.15; }
+  .hours { display: grid; grid-template-columns: auto 1fr; gap: 6px 28px; font-variant-numeric: tabular-nums; }
+  .tel { font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.02em; }
+
+  /* Réservation */
+  .book { padding: 60px 0 140px; }
+  .book-card { background: var(--ink); color: #fff; border-radius: 40px; padding: clamp(40px, 7vw, 96px); position: relative; overflow: hidden; }
+  .book-card::before { content: "Pink"; position: absolute; right: -2%; bottom: -18%; font-family: var(--display); font-weight: 800; font-size: clamp(8rem, 22vw, 20rem); letter-spacing: -.06em; color: rgb(255 79 147 / .16); line-height: 1; pointer-events: none; }
+  .book-card h2 { position: relative; font-family: var(--display); font-weight: 800; font-size: clamp(2.2rem, 6vw, 5.4rem); line-height: 1; letter-spacing: -.05em; max-width: 12ch; }
+  .book-card p { position: relative; color: rgb(255 255 255 / .72); margin: 20px 0 32px; max-width: 40ch; font-size: 1.1rem; }
+  .book-card .btn { position: relative; }
+
+  footer { padding: 32px 0 calc(32px + env(safe-area-inset-bottom)); color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer .credit strong { color: var(--ink); font-family: var(--display); font-weight: 800; letter-spacing: .08em; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    nav { height: 62px; }
+    .hero-scroll { height: 190vh; }
+    .giant { top: 38%; font-size: 44vw; }
+    .hero-content { padding: 110px 0 28px; }
+    .hero-content .wrap { grid-template-columns: 1fr; align-content: end; gap: 18px; }
+    .hero h1 { font-size: clamp(1.9rem, 8.6vw, 2.5rem); }
+    .hero-lead { font-size: 1rem; margin-top: 12px; }
+    .hero-cta { margin-top: 18px; }
+    .hero-cta .btn { min-height: 48px; padding: 0 22px; }
+    .finish { padding: 10px; border-radius: 20px; }
+    .finish p { display: none; }
+    .finish-options { grid-template-columns: repeat(4, 1fr); }
+    .finish-options button { padding: 0 6px; text-align: center; font-size: .85rem; min-height: 40px; }
+    section { padding: 96px 0; }
+    .card { grid-template-columns: 1fr; min-height: 340px; top: calc(110px + var(--i) * 12px); align-content: end; }
+    .prices, .info { grid-template-columns: 1fr; }
+    .prices { gap: 28px; }
+    .info-tile.big { grid-row: auto; min-height: 220px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .statement .w { opacity: 1; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="demo-bar">Maquette conçue par <strong>WEBXL</strong>. Contenus provisoires.</div>
+
+<header>
+  <nav class="wrap" aria-label="Navigation principale">
+    <a href="#" class="logo"><i aria-hidden="true"></i>Pink Nails</a>
+    <ul class="nav-links">
+      <li><a href="#prestations">Prestations</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#infos">Infos</a></li>
+    </ul>
+    <a href="#reserver" class="btn btn-cta">Réserver</a>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="hero-scroll hero">
+    <div class="hero-sticky">
+      <div class="giant" aria-hidden="true">Pink</div>
+      <canvas id="scene" aria-hidden="true"></canvas>
+      <div class="hero-content">
+        <div class="wrap">
+          <div>
+            <h1>Vos ongles, en version haute couture.</h1>
+            <p class="hero-lead">L'onglerie de Namur pour le semi-permanent, le gel et le nail art qui ne passe pas inaperçu.</p>
+            <div class="hero-cta">
+              <a href="#reserver" class="btn btn-cta">Réserver</a>
+              <a href="#prestations" class="btn btn-soft">Nos prestations</a>
+            </div>
+          </div>
+          <div class="finish">
+            <p id="finish-label">Essayez une finition</p>
+            <ul class="finish-options" aria-labelledby="finish-label">
+              <li><button data-finish="laque" aria-pressed="true">Laque</button></li>
+              <li><button data-finish="chrome" aria-pressed="false">Chrome</button></li>
+              <li><button data-finish="paillete" aria-pressed="false">Pailleté</button></li>
+              <li><button data-finish="mat" aria-pressed="false">Mat</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="statement" aria-label="Notre approche">
+    <div class="wrap">
+      <p class="split">Chez Pink Nails, chaque pose commence par une <span class="hl">préparation soignée</span> de l'ongle. Des produits de qualité, des gestes précis et le temps qu'il faut pour un résultat qui <span class="hl">tient trois semaines</span>.</p>
+    </div>
+  </section>
+
+  <section id="prestations" aria-labelledby="prest-title" style="padding-top:40px">
+    <div class="wrap">
+      <h2 class="h2" id="prest-title">Nos prestations</h2>
+      <!-- Prix et durées d'exemple pour la démo -->
+      <div class="stack">
+        <article class="card c1" style="--i:0">
+          <h3>Semi-<br>permanent</h3>
+          <div><p>Une couleur brillante et impeccable, sans éclat ni temps de séchage.</p><div class="meta"><div><span>Dès</span>35 €</div><div><span>Durée</span>45 min</div></div></div>
+        </article>
+        <article class="card c2" style="--i:1">
+          <h3>Gel et<br>capsules</h3>
+          <div><p>Allongement et renfort pour des ongles solides, en amande, carré ou ballerine.</p><div class="meta"><div><span>Dès</span>50 €</div><div><span>Durée</span>1 h 30</div></div></div>
+        </article>
+        <article class="card c3" style="--i:2">
+          <h3>Nail art</h3>
+          <div><p>Chrome, baby boomer, french colorée ou motifs à la main. Montrez-nous votre inspiration.</p><div class="meta"><div><span>Dès</span>3 € / ongle</div><div><span>Sur mesure</span>selon le motif</div></div></div>
+        </article>
+        <article class="card c4" style="--i:3">
+          <h3>Beauté<br>des pieds</h3>
+          <div><p>Soin complet, cuticules et pose de vernis ou de semi-permanent.</p><div class="meta"><div><span>Dès</span>35 €</div><div><span>Durée</span>50 min</div></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs" aria-labelledby="tarifs-title">
+    <div class="wrap">
+      <h2 class="h2" id="tarifs-title">Tarifs</h2>
+      <!-- Prix d'exemple pour la démo : à remplacer par la grille réelle -->
+      <div class="prices">
+        <div class="price-col">
+          <h3>Mains</h3>
+          <dl>
+            <div class="row"><dt>Manucure simple</dt><dd>25 €</dd></div>
+            <div class="row"><dt>Semi-permanent</dt><dd>35 €</dd></div>
+            <div class="row"><dt>Pose gel</dt><dd>50 €</dd></div>
+            <div class="row"><dt>Capsules et gel</dt><dd>60 €</dd></div>
+            <div class="row"><dt>Remplissage</dt><dd>42 €</dd></div>
+          </dl>
+        </div>
+        <div class="price-col">
+          <h3>Pieds et options</h3>
+          <dl>
+            <div class="row"><dt>Beauté des pieds</dt><dd>35 €</dd></div>
+            <div class="row"><dt>Semi-permanent pieds</dt><dd>40 €</dd></div>
+            <div class="row"><dt>Nail art, par ongle</dt><dd>dès 3 €</dd></div>
+            <div class="row"><dt>Effet chrome</dt><dd>+ 8 €</dd></div>
+            <div class="row"><dt>Dépose</dt><dd>10 €</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="note">Tarifs indicatifs, confirmés lors de la réservation.</p>
+    </div>
+  </section>
+
+  <section id="infos" aria-labelledby="infos-title" style="padding-top:40px">
+    <div class="wrap">
+      <h2 class="h2" id="infos-title">Nous trouver à Namur</h2>
+      <div class="info">
+        <div class="info-tile big">
+          <h3>Adresse</h3>
+          <!-- TODO : adresse exacte -->
+          <address>Rue à compléter,<br>5000 Namur</address>
+        </div>
+        <div class="info-tile">
+          <h3>Horaires</h3>
+          <!-- TODO : horaires réels -->
+          <div class="hours">
+            <span>Mardi au vendredi</span><span>9h30 à 18h30</span>
+            <span>Samedi</span><span>9h à 17h</span>
+            <span>Dimanche et lundi</span><span>Fermé</span>
+          </div>
+        </div>
+        <div class="info-tile">
+          <h3>Téléphone</h3>
+          <!-- TODO : numéro réel -->
+          <a class="tel" href="tel:+32000000000">+32 0 000 00 00</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reserver" class="book" aria-labelledby="book-title">
+    <div class="wrap">
+      <div class="book-card">
+        <h2 id="book-title">On s'occupe de vos mains ?</h2>
+        <p>Choisissez votre prestation et votre créneau en ligne. Confirmation immédiate.</p>
+        <!-- TODO : lien vers l'outil de réservation (Planity, Fresha, Treatwell...) -->
+        <a href="#" class="btn btn-cta">Réserver</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Pink Nails, Namur</span>
+    <span><a href="#">Mentions légales</a> &nbsp; <a href="#">Confidentialité</a></span>
+    <span class="credit">Site conçu par <strong>WEBXL</strong></span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = matchMedia('(max-width: 900px)').matches;
+const hasGsap = typeof window.gsap !== 'undefined';
+if (hasGsap) gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- Scène 3D : une fleur de faux ongles ---------- */
+const canvas = document.getElementById('scene');
+const holder = canvas.parentElement;
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+catch (e) { canvas.remove(); }
+
+let nailMat, flower, petals = [], state = { spread: 0 };
+
+if (renderer) {
+  renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.5 : 1.75));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
+  pmrem.dispose();
+
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+  camera.position.set(0, 0, isMobile ? 13 : 10);
+
+  const key = new THREE.DirectionalLight(0xffffff, 2.4); key.position.set(2, 4, 5); scene.add(key);
+  const pinkLight = new THREE.PointLight(0xff4f93, 40, 14); pinkLight.position.set(-3, -2, 3); scene.add(pinkLight);
+
+  // Texture de paillettes : normales aléatoires qui scintillent sous la lumière
+  const size = 256, data = new Uint8Array(size * size * 4);
+  for (let i = 0; i < size * size; i++) {
+    const on = Math.random() < 0.35;
+    data[i * 4] = on ? Math.random() * 255 : 128;
+    data[i * 4 + 1] = on ? Math.random() * 255 : 128;
+    data[i * 4 + 2] = 255; data[i * 4 + 3] = 255;
+  }
+  const glitter = new THREE.DataTexture(data, size, size);
+  glitter.wrapS = glitter.wrapT = THREE.RepeatWrapping; glitter.repeat.set(3, 3); glitter.needsUpdate = true;
+
+  nailMat = new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#ff3f8a'), roughness: 0.08, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.03,
+    iridescence: 0, iridescenceIOR: 1.6, normalMap: glitter, normalScale: new THREE.Vector2(0, 0),
+    side: THREE.DoubleSide, envMapIntensity: 1.2,
+  });
+
+  // Un ongle = une coque d'ellipsoïde allongée et bombée
+  const nailGeo = new THREE.SphereGeometry(1, 64, 48, 0, Math.PI, 0, Math.PI * 0.62);
+  nailGeo.rotateX(-Math.PI / 2);
+  nailGeo.scale(0.52, 1.25, 0.22);
+
+  flower = new THREE.Group();
+  const count = 7;
+  for (let i = 0; i < count; i++) {
+    const pivot = new THREE.Group();
+    pivot.rotation.z = (i / count) * Math.PI * 2;
+    const nail = new THREE.Mesh(nailGeo, nailMat);
+    nail.rotation.x = 0.35;
+    pivot.add(nail);
+    pivot.userData = { nail, phase: i * 0.9 };
+    flower.add(pivot); petals.push(pivot);
+  }
+  const pearl = new THREE.Mesh(new THREE.SphereGeometry(0.42, 64, 48), new THREE.MeshPhysicalMaterial({ color: 0xfff4f7, roughness: 0.18, metalness: 0.1, iridescence: 1, iridescenceIOR: 1.8, clearcoat: 1 }));
+  flower.add(pearl);
+  flower.rotation.x = -0.35;
+  scene.add(flower);
+
+  function layout() { petals.forEach(p => { p.userData.nail.position.y = 1.25 + state.spread * 0.75; }); }
+  layout();
+
+  function resize() {
+    const w = holder.clientWidth, h = holder.clientHeight;
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+    flower.position.set(isMobile ? 0 : 2.05, isMobile ? 1.45 : 0.1, 0);
+    flower.scale.setScalar(isMobile ? 0.58 : 0.86);
+  }
+  resize(); addEventListener('resize', resize);
+
+  const pointer = { x: 0, y: 0 };
+  addEventListener('pointermove', e => { pointer.x = (e.clientX / innerWidth) * 2 - 1; pointer.y = (e.clientY / innerHeight) * 2 - 1; }, { passive: true });
+
+  // On ne dessine que lorsque le hero est à l'écran
+  let visible = true;
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(holder);
+
+  const clock = new THREE.Clock();
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (!visible || document.hidden) return;
+    const t = clock.getElapsedTime();
+    if (!reduce) {
+      flower.rotation.z = t * 0.18 + state.spread * 1.4;
+      flower.rotation.y += ((pointer.x * 0.35) - flower.rotation.y) * 0.05;
+      flower.rotation.x += ((-0.35 + pointer.y * 0.2) - flower.rotation.x) * 0.05;
+      petals.forEach(p => { p.userData.nail.rotation.x = 0.35 + Math.sin(t * 1.2 + p.userData.phase) * 0.08 + state.spread * 0.5; });
+    }
+    layout();
+    renderer.render(scene, camera);
+  })();
+
+  // Scroll : la fleur s'ouvre pendant que le hero est épinglé
+  if (hasGsap && !reduce) {
+    gsap.to(state, { spread: 1, ease: 'none', scrollTrigger: { trigger: '.hero-scroll', start: 'top top', end: 'bottom bottom', scrub: 0.8 } });
+    gsap.to('.giant', { yPercent: -18, scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.hero-scroll', start: 'top top', end: 'bottom bottom', scrub: 0.8 } });
+  }
+}
+
+/* ---------- Finitions ---------- */
+const finishes = {
+  laque:    { color: '#ff3f8a', roughness: 0.08, metalness: 0,   clearcoat: 1, iridescence: 0,   glitter: 0 },
+  chrome:   { color: '#ffc3da', roughness: 0.1,  metalness: 1,   clearcoat: 1, iridescence: 1,   glitter: 0 },
+  paillete: { color: '#ff6aa6', roughness: 0.32, metalness: 0.7, clearcoat: 1, iridescence: 0.4, glitter: 1 },
+  mat:      { color: '#e25583', roughness: 0.85, metalness: 0,   clearcoat: 0, iridescence: 0,   glitter: 0 },
+};
+document.querySelectorAll('[data-finish]').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('[data-finish]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  if (!nailMat) return;
+  const f = finishes[btn.dataset.finish], c = new THREE.Color(f.color);
+  const d = reduce || !hasGsap ? 0 : 0.6;
+  if (d === 0) {
+    Object.assign(nailMat, { roughness: f.roughness, metalness: f.metalness, clearcoat: f.clearcoat, iridescence: f.iridescence });
+    nailMat.color.copy(c); nailMat.normalScale.set(f.glitter, f.glitter); return;
+  }
+  gsap.to(nailMat, { roughness: f.roughness, metalness: f.metalness, clearcoat: f.clearcoat, iridescence: f.iridescence, duration: d, ease: 'power3.out' });
+  gsap.to(nailMat.color, { r: c.r, g: c.g, b: c.b, duration: d, ease: 'power3.out' });
+  gsap.to(nailMat.normalScale, { x: f.glitter, y: f.glitter, duration: d, ease: 'power3.out' });
+  gsap.fromTo(flower.scale, { x: flower.scale.x * 0.94, y: flower.scale.y * 0.94, z: flower.scale.z * 0.94 }, { x: flower.scale.x, y: flower.scale.y, z: flower.scale.z, duration: 0.6, ease: 'back.out(2.5)' });
+}));
+
+/* ---------- Défilement fluide et animations de page ---------- */
+if (hasGsap && !reduce) {
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.09 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length < 2) return;
+      e.preventDefault(); lenis.scrollTo(id, { offset: -100 });
+    }));
+  }
+
+  // Manifeste : découpage en mots, qui s'allument au fil du scroll
+  document.querySelectorAll('.split').forEach(p => {
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part.trim()) { frag.append(part); return; }
+          const s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.append(s);
+        });
+        n.replaceWith(frag);
+      } else walk(n);
+    });
+    walk(p);
+    gsap.to(p.querySelectorAll('.w'), { opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: p, start: 'top 80%', end: 'bottom 45%', scrub: true } });
+  });
+
+  // Entrée du hero
+  gsap.from('.hero h1, .hero-lead, .hero-cta, .finish', { y: 28, opacity: 0, duration: 1, ease: 'expo.out', stagger: 0.08, delay: 0.1 });
+  gsap.from('.giant', { yPercent: 20, opacity: 0, duration: 1.4, ease: 'expo.out' });
+
+  // Apparitions douces des sections
+  gsap.utils.toArray('.h2, .price-col, .info-tile, .book-card').forEach(el =>
+    gsap.from(el, { y: 40, opacity: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
+}
+document.fonts.ready.then(() => { if (hasGsap) ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>

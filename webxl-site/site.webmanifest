@@ -1,0 +1,1 @@
+{ "name": "WEBXL", "short_name": "WEBXL", "icons": [ { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }, { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" } ], "theme_color": "#121214", "background_color": "#121214", "display": "standalone", "start_url": "/" }

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /realisations/
+
+Sitemap: https://webxl.be/sitemap.xml
