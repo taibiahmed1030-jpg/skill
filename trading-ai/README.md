@@ -32,12 +32,16 @@ pipeline automatisé plutôt qu'à un humain.
 trading-ai/
 ├── PROJECT_MEMORY.md     Mémoire centrale — à lire en premier
 ├── MISSING_CONTEXT.md    Résultat de l'audit de contexte (2026-10-02)
-├── research/             Comparaison marchés, architecture, approches, protocoles, roadmap
+├── research/             Comparaison marchés, architecture, approches, protocoles, roadmap, sources multi-domaines
 │   ├── 01_market_comparison.md
 │   ├── 02_architecture.md
 │   ├── 03_model_approaches.md
 │   ├── 04_protocols.md
-│   └── 05_roadmap.md
+│   ├── 05_roadmap.md
+│   ├── 06_domain_coverage.md    Audit des 35 domaines demandés vs connaissances existantes
+│   ├── 07_knowledge_pipeline.md Pipeline SOURCE→CLAIM→HYPOTHÈSE, registres, statuts
+│   ├── SOURCE_REGISTRY.md       Sources candidates (en attente de validation)
+│   └── CLAIMS_REGISTRY.md       Registre de claims (squelette, vide)
 ├── ingestion/          Process réutilisable : vidéo → hypothèses structurées
 │   └── SKILL.md
 ├── hypotheses/          Le registre persistant — la mémoire qui compound

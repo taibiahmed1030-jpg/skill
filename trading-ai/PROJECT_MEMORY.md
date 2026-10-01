@@ -52,6 +52,10 @@ présupposé comme cible finale (changement explicite de consigne le
 | `trading-ai/research/04_protocols.md` | Protocole de recherche + protocole de validation, formalisés à partir de ce qui a été appris sur H003 | **Terminé** |
 | `trading-ai/research/05_roadmap.md` | Ce qui peut avancer maintenant (indépendant du marché) vs ce qui attend un choix de marché | **Terminé** |
 | `trading-ai/MISSING_CONTEXT.md` | Résultat de l'audit du 2026-10-02 | **Terminé** |
+| `trading-ai/research/06_domain_coverage.md` | Audit des 35 domaines de recherche demandés : 6 bien couverts, 16 effleurés, 10 totalement absents de la KB actuelle (microstructure, mean reversion, volume, order flow, market profile, liquidité, COT, options/IV, stat arb, pairs trading, factor investing, construction de portefeuille, market impact) | **Terminé** (2026-10) |
+| `trading-ai/research/07_knowledge_pipeline.md` | Formalise le pipeline SOURCE→CLAIM→HYPOTHÈSE, le rôle du registre de claims, la règle de dédoublonnage/préservation des contradictions, et la taxonomie de statut anglaise (UNTESTED/TESTABLE/TESTING/REJECTED/INCONCLUSIVE/PROMISING/ROBUST/RETIRED) | **Terminé** (2026-10) — aucune hypothèse encore créée via ce pipeline |
+| `trading-ai/research/SOURCE_REGISTRY.md` | 26 sources candidates réelles (papiers académiques, livres de référence, recherche institutionnelle, 1 cours MIT OCW), ciblées sur les domaines absents/effleurés, avec justification et évaluation de redondance par source | **Candidat — en attente de validation utilisateur**, aucune source encore lue en profondeur |
+| `trading-ai/research/CLAIMS_REGISTRY.md` | Squelette vide, format défini | **Pas encore rempli** — attend la validation du registre de sources |
 | `.claude/skills/watch/` | Skill vidéo (yt-dlp + frames + transcript) utilisé pour ingérer la formation Elliot | Fonctionnel, indépendant du projet trading |
 | `/home/user/skill/main.py` + `gemini_analyze.py` | Analyseur YouTube générique via Gemini (hors-sujet trading, projet séparé de la même conversation) | Fonctionnel, sans lien avec `trading-ai/` |
 
@@ -90,6 +94,10 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ### Décisions explicitement en attente de l'utilisateur
 
+- **Valider ou ajuster la liste de 26 sources candidates**
+  (`research/SOURCE_REGISTRY.md`) avant toute lecture approfondie /
+  extraction de claims — consigne explicite du 2026-10 : montrer le plan et
+  la liste avant toute collecte massive.
 - **Quelle(s) catégorie(s) de marché étudier en premier** — voir
   `research/01_market_comparison.md` pour les éléments factuels, aucune
   recommandation n'y est donnée par consigne explicite.
@@ -129,6 +137,24 @@ présupposé comme cible finale (changement explicite de consigne le
 ---
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
+
+### 2026-10 — Phase multi-sources (avant choix de marché)
+- Audit de couverture des 35 domaines demandés par l'utilisateur vs la
+  seule source ingérée à ce jour (formation Elliot) :
+  `research/06_domain_coverage.md`.
+- Pipeline SOURCE→CLAIM→HYPOTHÈSE formalisé, avec registre de claims
+  intermédiaire (nouveau), règle de dédoublonnage et de préservation des
+  contradictions, taxonomie de statut anglaise à 8 états :
+  `research/07_knowledge_pipeline.md`.
+- 26 sources candidates réelles identifiées par recherche web, ciblées sur
+  les domaines absents/effleurés (microstructure, order flow, market
+  profile, mean reversion/pairs trading, factor investing, options/IV,
+  COT/positioning, intermarché, ML financier, exécution/market impact,
+  finance comportementale) : `research/SOURCE_REGISTRY.md`.
+- **Aucune source n'a encore été lue en profondeur, aucun claim extrait,
+  aucune nouvelle hypothèse créée, aucun backtest lancé** — conforme à la
+  consigne explicite de présenter le plan + la liste avant toute collecte
+  massive. Prochaine étape bloquée sur validation utilisateur.
 
 ### 2026-10-02 — Audit + recherche marché/architecture/approches
 - Audit complet : aucun projet antérieur trouvé (voir `MISSING_CONTEXT.md`).

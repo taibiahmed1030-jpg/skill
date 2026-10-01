@@ -3,6 +3,7 @@
 **Source** : "Apprendre le Trading de A à Z — La Formation Gratuite Ultime (12h00)", YouTube, Elliot (https://youtu.be/DXm9BF5vLVE). Durée réelle traitée : 11h46 (00:00:00 → 11:46:07), intégralité des sous-titres auto-générés (français).
 **Légende des tags utilisés dans les notes sources** : [A] affirmation du formateur · [B] règle explicite enseignée · [C] hypothèse testable implicite · [D] opinion/interprétation du formateur · [E] information nécessitant une validation indépendante.
 **Avertissement** : ce document résume ce qu'enseigne le formateur. Aucune affirmation de rentabilité n'est validée ici. Rien dans ce document ne constitue une stratégie Polymarket — la section 13 ne fait que classer la transférabilité *potentielle* de concepts, sans en construire.
+**Note (2026-10)** : cette base ne couvre qu'une seule source généraliste. Un audit de couverture par domaine (`trading-ai/research/06_domain_coverage.md`) et une liste de sources candidates multi-domaines (`trading-ai/research/SOURCE_REGISTRY.md`) existent désormais pour étendre cette base — en attente de validation avant toute nouvelle extraction.
 
 ---
 
