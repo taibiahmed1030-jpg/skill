@@ -1,0 +1,56 @@
+{
+  "periode_testee": "1990-01-02 / 2026-10-01",
+  "nb_occurrences": 21,
+  "evenements": [
+    "1998-09-10",
+    "1998-10-08",
+    "2002-08-05",
+    "2008-09-29",
+    "2008-10-14",
+    "2008-10-29",
+    "2008-11-13",
+    "2008-12-01",
+    "2008-12-16",
+    "2009-01-12",
+    "2009-02-02",
+    "2009-02-18",
+    "2009-03-05",
+    "2009-03-20",
+    "2010-05-20",
+    "2011-08-08",
+    "2011-10-03",
+    "2020-03-09",
+    "2020-03-24",
+    "2020-04-21",
+    "2025-04-04"
+  ],
+  "resultats_par_horizon": {
+    "1_mois": {
+      "nb_occurrences": 21,
+      "rendement_moyen_pct": 2.853,
+      "rendement_median_pct": 3.883,
+      "pct_positif": 57.1,
+      "sharpe": 4.206,
+      "rendement_moyen_baseline_pct": 0.813,
+      "p_value_permutation": 0.0143
+    },
+    "3_mois": {
+      "nb_occurrences": 21,
+      "rendement_moyen_pct": 8.038,
+      "rendement_median_pct": 11.95,
+      "pct_positif": 66.7,
+      "sharpe": 7.279,
+      "rendement_moyen_baseline_pct": 2.437,
+      "p_value_permutation": 0.0
+    },
+    "6_mois": {
+      "nb_occurrences": 21,
+      "rendement_moyen_pct": 16.955,
+      "rendement_median_pct": 21.466,
+      "pct_positif": 81.0,
+      "sharpe": 13.833,
+      "rendement_moyen_baseline_pct": 4.915,
+      "p_value_permutation": 0.0
+    }
+  }
+}
