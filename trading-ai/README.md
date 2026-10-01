@@ -1,5 +1,10 @@
 # Trading AI — pipeline connaissance → hypothèse → validation empirique
 
+> **Reprise de travail ou nouvelle session : lire `PROJECT_MEMORY.md` en
+> premier.** Ce README donne le pitch général ; `PROJECT_MEMORY.md` est la
+> source de vérité à jour sur l'état du projet, les décisions prises et ce
+> qui reste en attente.
+
 ## Le problème que ce projet résout
 
 Donner à une IA des heures de formations/vidéos de trading pour qu'elle
@@ -25,6 +30,14 @@ pipeline automatisé plutôt qu'à un humain.
 
 ```
 trading-ai/
+├── PROJECT_MEMORY.md     Mémoire centrale — à lire en premier
+├── MISSING_CONTEXT.md    Résultat de l'audit de contexte (2026-10-02)
+├── research/             Comparaison marchés, architecture, approches, protocoles, roadmap
+│   ├── 01_market_comparison.md
+│   ├── 02_architecture.md
+│   ├── 03_model_approaches.md
+│   ├── 04_protocols.md
+│   └── 05_roadmap.md
 ├── ingestion/          Process réutilisable : vidéo → hypothèses structurées
 │   └── SKILL.md
 ├── hypotheses/          Le registre persistant — la mémoire qui compound
@@ -38,28 +51,11 @@ trading-ai/
     └── README.md           Règles de rigueur + procédure paper trading
 ```
 
-## État actuel (2026-10-01)
+## État actuel — voir `PROJECT_MEMORY.md`
 
-- 10 hypothèses dans le registre, extraites de *"Apprendre le Trading de A à
-  Z"* (Elliot, 11h46, intégralement traitée).
-- 1 hypothèse (H003 — spike VIX > 45) déjà backtestée sur données réelles
-  1990-2026 : résultat brut trompeur (biais de clustering corrigé), statut
-  `en_test` avec un signal directionnel à N=7 épisodes indépendants — **pas
-  encore assez pour valider**, à surveiller sur les prochaines crises.
-- Marché cible pas encore tranché par l'utilisateur (Forex/actions/crypto vs
-  Polymarket vs les deux) — le pipeline d'ingestion et le registre sont
-  agnostiques au marché ; seul `backtest/data_loader.py` doit changer selon
-  la décision.
-
-## Prochaines étapes possibles
-
-1. Trancher le marché cible pour orienter le moteur de backtest (voir
-   `TRADING_KNOWLEDGE_BASE.md` section 13 pour la grille de transférabilité
-   Polymarket déjà établie).
-2. Backtester les hypothèses restantes qui ont des données librement
-   disponibles (H001 yield curve, H002 Global M2, H008 sentiment retail si
-   une source de données est trouvée).
-3. Construire le harnais de paper trading une fois une première hypothèse
-   atteint `validee`.
-4. Industrialiser l'ingestion (étape manuelle aujourd'hui) en skill
-   invocable directement sur une nouvelle URL YouTube.
+Ce fichier contient l'état détaillé et à jour (ce qui est fait, ce qui
+manque, les décisions prises/en attente). Résumé ultra-court : pipeline
+construit et fonctionnel sur un marché (actions US, via H003), **aucun
+marché cible n'est présupposé** (changement de consigne du 2026-10-02 —
+Polymarket n'est qu'une option parmi d'autres, voir `research/01_market_comparison.md`),
+aucun paper trading ni exécution activés.
