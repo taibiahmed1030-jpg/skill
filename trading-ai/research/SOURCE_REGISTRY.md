@@ -28,8 +28,8 @@ Légende Type : `papier` (article académique/working paper), `livre`,
 
 | SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi l'analyser | Qualité apparente | Redondance |
 |---|---|---|---|---|---|---|---|---|
-| S001 | Market Microstructure Theory | Maureen O'Hara (1995) | livre | (référence académique standard, pas de lien unique officiel) | Microstructure | Ouvrage fondateur du champ, définit le vocabulaire (formation du prix, spread, asymétrie d'info) qu'aucune autre source du projet ne couvre | Élevée — référence académique standard, citée par tout le champ | Nulle — domaine actuellement ❌ absent du projet |
-| S002 | Trades, Quotes and Prices: Financial Markets Under the Microscope | Bouchaud, Bonart, Donier, Gould (2018) | livre | https://www.cambridge.org/core/books/trades-quotes-and-prices/ | Microstructure, order flow | Synthèse moderne et empirique (pas seulement théorique) de la formation du prix ordre par ordre — complément direct à O'Hara | Élevée — Bouchaud est un chercheur reconnu (physique statistique appliquée aux marchés) | Nulle |
+| S001 | Market Microstructure Theory | Maureen O'Hara (1995) | livre | https://openlibrary.org/books/OL1103097M/Market_microstructure_theory | Microstructure | Ouvrage fondateur du champ, définit le vocabulaire (formation du prix, spread, asymétrie d'info) qu'aucune autre source du projet ne couvre | Élevée — référence académique standard, citée par tout le champ | Nulle — domaine actuellement ❌ absent du projet |
+| S002 | Trades, Quotes and Prices: Financial Markets Under the Microscope | Bouchaud, Bonart, Donier, Gould (2018) | livre | https://www.amazon.com/Trades-Quotes-Prices-Financial-Microscope/dp/110715605X *(corrigé le 2026-10-02 : l'URL Cambridge initiale était un lien mort/404 — voir note de vérification en fin de fichier)* | Microstructure, order flow | Synthèse moderne et empirique (pas seulement théorique) de la formation du prix ordre par ordre — complément direct à O'Hara | Élevée — Bouchaud est un chercheur reconnu (physique statistique appliquée aux marchés) | Nulle |
 | S003 | Market microstructure (survey) | Hans R. Stoll | papier | https://www.acsu.buffalo.edu/~keechung/MGF743/Readings/Hans%20Stoll,%202003,%20Market%20microstructure.pdf | Microstructure, liquidité | Survey académique condensé, bon point d'entrée avant les ouvrages complets ci-dessus | Moyenne-élevée — papier de synthèse, pas une recherche originale récente | Nulle |
 | S004 | Empirical Study of Market Impact Conditional on Order-Flow Imbalance | (arXiv 2004.08290) | papier | https://arxiv.org/pdf/2004.08290 | Order flow, market impact | Donnée empirique récente et quantifiée sur la relation déséquilibre de flux ↔ impact prix — directement formalisable en hypothèse testable | Moyenne — arXiv, non peer-reviewed confirmé, à vérifier avant usage | Nulle |
 | S005 | Market Microstructure Knowledge Needed for Controlling an Intra-Day Trading Process | (arXiv 1302.4592) | papier | https://arxiv.org/pdf/1302.4592 | Microstructure appliquée à l'exécution intraday | Angle pratique (quelles infos de microstructure sont réellement actionnables intraday) plutôt que purement théorique | Moyenne | Nulle |
@@ -66,7 +66,7 @@ Légende Type : `papier` (article académique/working paper), `livre`,
 
 | SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi l'analyser | Qualité apparente | Redondance |
 |---|---|---|---|---|---|---|---|---|
-| S014 | Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency | Jegadeesh & Titman (1993), Journal of Finance | papier | (référence académique standard JF 1993, vol. 48) | Momentum (cross-sectional) | Papier fondateur de l'anomalie momentum, la plus répliquée en finance empirique — base de comparaison obligatoire pour toute hypothèse momentum | Élevée — un des papiers les plus cités en finance | Faible chevauchement avec section 3 KB (trendlines), mécanisme différent (cross-sectional vs technique) |
+| S014 | Returns to Buying Winners and Selling Losers: Implications for Stock Market Efficiency | Jegadeesh & Titman (1993), Journal of Finance | papier | https://econpapers.repec.org/RePEc:bla:jfinan:v:48:y:1993:i:1:p:65-91 (page Wiley officielle derrière paywall : DOI 10.1111/j.1540-6261.1993.tb04702.x) | Momentum (cross-sectional) | Papier fondateur de l'anomalie momentum, la plus répliquée en finance empirique — base de comparaison obligatoire pour toute hypothèse momentum | Élevée — un des papiers les plus cités en finance | Faible chevauchement avec section 3 KB (trendlines), mécanisme différent (cross-sectional vs technique) |
 | S015 | Time Series Momentum | Moskowitz, Ooi, Pedersen (2012) | papier | https://w4.stern.nyu.edu/facdir/lpederse/papers/TimeSeriesMomentum.pdf | Momentum (séries temporelles, multi-actifs) | Contrairement à S014 (relatif entre actifs), teste le momentum absolu d'un seul actif sur 58 instruments — format event-study proche de ce que le projet sait déjà exécuter (cf. H003) | Élevée — très cité, méthodologie transparente et réplicable | Faible |
 | S016 | A Century of Evidence on Trend-Following Investing | Hurst, Ooi, Pedersen (AQR) | recherche_institutionnelle | https://fairmodel.econ.yale.edu/ec439/hurst.pdf | Trend following, robustesse long terme | Teste la robustesse du trend-following sur ~100 ans et plusieurs crises — pertinent pour la discipline "stabilité par sous-période" déjà posée dans `04_protocols.md` | Élevée | Faible — complète les hypothèses de trend déjà présentes dans la KB (section 3) sans les dupliquer |
 
@@ -99,8 +99,8 @@ Légende Type : `papier` (article académique/working paper), `livre`,
 
 | SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi l'analyser | Qualité apparente | Redondance |
 |---|---|---|---|---|---|---|---|---|
-| S022 | Prospect Theory: An Analysis of Decision under Risk | Kahneman & Tversky (1979), Econometrica | papier | (référence académique standard, Econometrica vol. 47) | Finance comportementale, aversion à la perte | Base théorique de tous les biais déjà listés section 11 de la KB (erreurs à éviter) — permet de les relier à un cadre explicatif plutôt que de rester une simple liste empirique | Élevée — un des papiers fondateurs de l'économie comportementale (Nobel) | Faible — formalise un domaine déjà effleuré au niveau "erreurs du trader", pas au niveau "biais agrégé de marché" |
-| S023 | The Disposition to Sell Winners Too Early and Ride Losers Too Long | Shefrin & Statman (1985), Journal of Finance | papier | (référence académique standard JF 1985, vol. 40) | Finance comportementale, disposition effect | Teste un biais précis et nommé, potentiellement formalisable en hypothèse testable sur données de prix (ex: autocorrélation négative après forte perte latente) | Élevée | Faible |
+| S022 | Prospect Theory: An Analysis of Decision under Risk | Kahneman & Tversky (1979), Econometrica | papier | https://www.econometricsociety.org/publications/econometrica/1979/03/01/prospect-theory-analysis-decision-under-risk | Finance comportementale, aversion à la perte | Base théorique de tous les biais déjà listés section 11 de la KB (erreurs à éviter) — permet de les relier à un cadre explicatif plutôt que de rester une simple liste empirique | Élevée — un des papiers fondateurs de l'économie comportementale (Nobel) | Faible — formalise un domaine déjà effleuré au niveau "erreurs du trader", pas au niveau "biais agrégé de marché" |
+| S023 | The Disposition to Sell Winners Too Early and Ride Losers Too Long | Shefrin & Statman (1985), Journal of Finance | papier | https://ideas.repec.org/a/bla/jfinan/v40y1985i3p777-90.html (page Wiley officielle derrière paywall : DOI 10.1111/j.1540-6261.1985.tb05002.x) | Finance comportementale, disposition effect | Teste un biais précis et nommé, potentiellement formalisable en hypothèse testable sur données de prix (ex: autocorrélation négative après forte perte latente) | Élevée | Faible |
 
 ## Infrastructure / méthode générale (quantitative trading)
 
@@ -117,14 +117,59 @@ Légende Type : `papier` (article académique/working paper), `livre`,
 
 ---
 
+## Sources supplémentaires proposées à l'issue de la revue du 2026-10-02 (non encore validées)
+
+Deux lacunes critiques signalées par l'utilisateur n'avaient aucune source
+dans le lot initial de 26. Deux sources réelles, vérifiées, ont été
+identifiées pour les combler — ajoutées ici en **statut proposé**, pas
+encore actées comme membres du registre tant que l'utilisateur ne valide
+pas.
+
+| SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi l'analyser | Qualité apparente | Redondance |
+|---|---|---|---|---|---|---|---|---|
+| S027 (proposé) | The Probability of Backtest Overfitting | Bailey, Borwein, López de Prado, Zhu (2017), Journal of Computational Finance | papier | https://escholarship.org/uc/item/4w1110bb (miroir ouvert ; version citable aussi sur https://www.semanticscholar.org/paper/The-Probability-of-Backtest-Overfitting-Bailey-Borwein/b1233b4f5384f003e85c2e0eec1a2dfc08f624c5) | Overfitting, data snooping, validation statistique | **Directement lié à la leçon déjà apprise sur H003** (biais de clustering) — formalise un cadre général (PBO, cross-validation combinatoire) pour quantifier le risque d'avoir "trouvé" une stratégie par pur hasard de recherche multiple. Comble une lacune méthodologique critique non couverte par aucune des 26 sources initiales | Élevée — Lopez de Prado déjà retenu (S020), méthode largement implémentée (packages R/Python) | Nulle — aucune autre source du registre ne traite spécifiquement l'overfitting de backtest |
+| S028 (proposé) | High-Frequency Trading in a Limit Order Book | Avellaneda & Stoikov (2008), Quantitative Finance | papier | https://doi.org/10.1080/14697680701381228 (page éditeur payante — résumé libre ; voir GitHub d'implémentation : https://github.com/Ahkylez/Avellaneda-Stoikov-Market-Making-Model) | Market making | **Market making n'était couvert par aucune des 26 sources initiales** malgré sa mention explicite dans `03_model_approaches.md` comme un des rares cas d'usage réel et audité du RL/ML en trading — ce papier est le modèle de référence (gestion d'inventaire, cotation bid/ask optimale) sur lequel toute évaluation future de cette famille devra s'appuyer | Élevée — un des papiers fondateurs du market making algorithmique, très cité | Nulle |
+
 ## Domaines encore sans source candidate identifiée (à rechercher dans un prochain tour si validé)
 
 - **Sentiment de marché formalisé** (put/call ratio, AAII survey, indices de sentiment construits) — aucune source trouvée dans cette recherche qui soit à la fois rigoureuse et spécifique (différente du simple risk-on/risk-off déjà dans la KB).
 - **Options/IV au-delà de Natenberg** (ex. recherche académique récente sur la prime de risque de variance) — S013 couvre la base, un deuxième angle plus quantitatif serait utile mais n'a pas été cherché pour ne pas surcharger ce premier tour.
-- **Construction de portefeuille multi-actifs dédiée** (au-delà de ce que S020/S026 effleurent) — à chercher spécifiquement si un marché multi-actifs est un jour retenu.
+- **Construction de portefeuille multi-actifs dédiée** (au-delà de ce que S020/S026 effleurent) — Markowitz/Black-Litterman non représentés ; S010/S011/S012/S026 n'effleurent le sujet qu'indirectement (facteurs, cours général). À chercher spécifiquement si un marché multi-actifs est retenu.
+- **Liquidité comme mesure dédiée** (bid-ask spread decomposition, Amihud illiquidity ratio) — S001/S003 couvrent la microstructure générale mais aucune source ne porte spécifiquement sur la *mesure* de la liquidité.
+- **Régime detection formalisé** (modèles de changement de régime de type Markov-switching, Hamilton 1989) — `03_model_approaches.md` section 4 nomme la famille, aucune source dédiée n'a encore été cherchée.
 
 Ces manques sont documentés plutôt qu'ignorés, conformément à la logique
 déjà appliquée dans `MISSING_CONTEXT.md`.
+
+## Vérification technique des liens (2026-10-02)
+
+Chaque URL du registre a été testée (code HTTP + confirmation du titre
+quand la page le permettait). Résultats :
+
+| Résultat | SOURCE_ID concernés | Détail |
+|---|---|---|
+| **200 OK, contenu confirmé** | S002(nouvelle URL), S004, S005, S006, S007, S009, S010, S011, S012, S013, S015, S016, S019, S020, S021, S024, S025, S026 | Accès direct réussi ; pour S004/S005/S009 le titre exact de la page a été extrait et correspond mot pour mot au titre annoncé |
+| **200 OK, PDF non parsable automatiquement mais nom de fichier/contexte de recherche concordant** | S003 | Le PDF se charge (code 200) ; son contenu n'a pas pu être extrait automatiquement (flux binaire), mais le nom de fichier et le snippet de recherche correspondent précisément à "Hans Stoll, 2003, Market microstructure" — concordance forte mais pas une lecture ligne à ligne |
+| **403 à la requête automatisée — probable protection anti-bot, pas nécessairement un lien mort** | S008 (Wiley), S017 (SSRN), S018 (ScienceDirect), S028 (DOI/Tandfonline) | Ces éditeurs bloquent systématiquement les requêtes non-navigateur ; les mêmes titres sont confirmés indexés par les moteurs de recherche avec métadonnées exactes. **Contenu intégral payant dans tous les cas** (abstract libre, texte complet sur abonnement institutionnel) — à signaler comme limite réelle si personne n'a d'accès institutionnel |
+| **URL initiale morte (404), remplacée** | S001, S002, S014, S022, S023 | L'URL d'origine était soit absente (S001/S014/S022/S023 n'avaient qu'une référence bibliographique, pas de lien), soit un lien Cambridge cassé (S002). Remplacées ci-dessus par des liens fonctionnels vérifiés (OpenLibrary, Amazon, RePEc/EconPapers, Econometric Society) |
+
+**Aucune source du registre ne s'est révélée inventée ou inexistante** —
+le seul problème réel était des URL manquantes/mortes (5 sources), toutes
+corrigées ci-dessus avec un lien fonctionnel. Les 4 sources en 403
+(S008, S017, S018, S028) existent bien et sont indexées avec les bonnes
+métadonnées, mais leur texte intégral n'est pas librement accessible —
+différent d'un lien mort.
+
+## Classification en trois catégories
+
+**A — Prioritaires** (comblent un domaine actuellement à 0 % de couverture avec une source fondatrice et directement actionnable) :
+S001 (microstructure, texte fondateur), S007 (pairs trading, méthodologie réplicable), S010 (factor investing, base conceptuelle), S013 (options/IV, seule source du domaine), S017 (COT, seul test direct en stratégie), S021 (exécution/impact, modèle fondateur quantifié), S027 proposé (overfitting — lié directement à la leçon H003 déjà vécue par ce projet), S028 proposé (market making — domaine à 0 %, modèle de référence).
+
+**B — Importantes** (complètent un domaine prioritaire avec un angle méthodologique différent, ou structurent un domaine effleuré) :
+S002, S003, S004, S005 (microstructure/order flow, approfondissent S001), S006 (market profile, seule source mais praticien donc classé B plutôt que A), S008, S009 (stat arb/mean reversion, complètent S007), S011, S012 (factor/momentum, complètent S010), S015, S016 (momentum séries temporelles, directement testables avec l'outillage event-study existant), S018 (COT, complète S017), S020 (ML financier, pertinent mais pas urgent tant qu'aucune hypothèse n'exige du ML), S022, S023 (finance comportementale, fondateurs mais pas encore reliés à une hypothèse de prix formalisable).
+
+**C — Complémentaires** (utiles mais redondants avec une source déjà classée A/B du même cluster, ou de nature méthodologique générale plutôt que porteurs d'un domaine de marché nouveau) :
+S014 (momentum cross-sectional — fondateur historiquement mais S015/S016 sont plus directement actionnables avec l'outillage déjà construit), S019 (intermarché — étend une ligne déjà présente dans la KB, praticien non académique), S024, S025 (Ernest Chan — renforcent une méthodologie déjà posée dans `04_protocols.md`, n'apportent pas de domaine de marché nouveau), S026 (MIT OCW — base mathématique large et utile mais pas une source de claims de marché spécifiques au même titre que les autres).
 
 ## Prochaine étape (à valider, pas encore exécutée)
 

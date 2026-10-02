@@ -52,7 +52,7 @@ présupposé comme cible finale (changement explicite de consigne le
 | `trading-ai/research/04_protocols.md` | Protocole de recherche + protocole de validation, formalisés à partir de ce qui a été appris sur H003 | **Terminé** |
 | `trading-ai/research/05_roadmap.md` | Ce qui peut avancer maintenant (indépendant du marché) vs ce qui attend un choix de marché | **Terminé** |
 | `trading-ai/MISSING_CONTEXT.md` | Résultat de l'audit du 2026-10-02 | **Terminé** |
-| `trading-ai/research/06_domain_coverage.md` | Audit des 35 domaines de recherche demandés : 6 bien couverts, 16 effleurés, 10 totalement absents de la KB actuelle (microstructure, mean reversion, volume, order flow, market profile, liquidité, COT, options/IV, stat arb, pairs trading, factor investing, construction de portefeuille, market impact) | **Terminé** (2026-10) |
+| `trading-ai/research/06_domain_coverage.md` | Audit des 32 domaines de recherche demandés : 6 bien couverts, 16 effleurés, 10 totalement absents de la KB actuelle (microstructure, mean reversion, volume, order flow, market profile, liquidité, COT, options/IV, stat arb, pairs trading, factor investing, construction de portefeuille, market impact) | **Terminé** (2026-10) |
 | `trading-ai/research/07_knowledge_pipeline.md` | Formalise le pipeline SOURCE→CLAIM→HYPOTHÈSE, le rôle du registre de claims, la règle de dédoublonnage/préservation des contradictions, et la taxonomie de statut anglaise (UNTESTED/TESTABLE/TESTING/REJECTED/INCONCLUSIVE/PROMISING/ROBUST/RETIRED) | **Terminé** (2026-10) — aucune hypothèse encore créée via ce pipeline |
 | `trading-ai/research/SOURCE_REGISTRY.md` | 26 sources candidates réelles (papiers académiques, livres de référence, recherche institutionnelle, 1 cours MIT OCW), ciblées sur les domaines absents/effleurés, avec justification et évaluation de redondance par source | **Candidat — en attente de validation utilisateur**, aucune source encore lue en profondeur |
 | `trading-ai/research/CLAIMS_REGISTRY.md` | Squelette vide, format défini | **Pas encore rempli** — attend la validation du registre de sources |
@@ -138,8 +138,27 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
 
+### 2026-10-02 — Revue de validation du registre de sources
+- Correction d'une erreur de comptage : le document annonçait "35
+  domaines", le message original de l'utilisateur en nomme 32 — corrigé
+  dans `06_domain_coverage.md`, `README.md`, et ce fichier.
+- Vérification technique de chaque URL des 26 sources (code HTTP +
+  confirmation de titre) : 5 liens morts/manquants corrigés (S001, S002,
+  S014, S022, S023), 4 sources confirmées existantes mais bloquant les
+  requêtes automatisées (403 — paywall/anti-bot, pas des liens morts :
+  S008, S017, S018). Aucune source inventée détectée.
+- Deux lacunes critiques comblées par deux sources supplémentaires
+  **proposées** (pas encore validées) : S027 (overfitting de backtest —
+  Bailey/Lopez de Prado, lié directement à la leçon H003) et S028 (market
+  making — Avellaneda-Stoikov, domaine à 0 % de couverture).
+- Classification des 26+2 sources en A (prioritaires)/B (importantes)/
+  C (complémentaires) — détail dans `research/SOURCE_REGISTRY.md`.
+- **Aucune extraction de claims, aucune hypothèse, aucun backtest** —
+  toujours en attente de validation explicite de l'utilisateur sur la
+  liste finale de sources avant de passer à l'étape suivante.
+
 ### 2026-10 — Phase multi-sources (avant choix de marché)
-- Audit de couverture des 35 domaines demandés par l'utilisateur vs la
+- Audit de couverture des 32 domaines demandés par l'utilisateur vs la
   seule source ingérée à ce jour (formation Elliot) :
   `research/06_domain_coverage.md`.
 - Pipeline SOURCE→CLAIM→HYPOTHÈSE formalisé, avec registre de claims

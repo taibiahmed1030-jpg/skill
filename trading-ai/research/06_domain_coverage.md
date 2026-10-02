@@ -1,4 +1,12 @@
-# Audit de couverture — 35 domaines demandés vs connaissances existantes
+# Audit de couverture — 32 domaines demandés vs connaissances existantes
+
+**Correction du 2026-10-02** : ce document annonçait initialement "35
+domaines" par erreur (artefact d'un résumé intermédiaire de session).
+Vérification faite sur le message original verbatim de l'utilisateur
+(phase "pipeline SOURCE→CLAIM→HYPOTHÈSE") : la liste contient exactement
+**32 domaines nommés**, pas 35. Les 32 lignes du tableau ci-dessous
+correspondent terme à terme à cette liste originale — aucun domaine n'a
+été omis, le chiffre "35" était simplement faux.
 
 **But** : avant de chercher de nouvelles sources, savoir précisément ce qui
 est déjà couvert par `TRADING_KNOWLEDGE_BASE.md` (formation Elliot, seule
@@ -44,11 +52,6 @@ indépendante) · ❌ absent.
 | 30 | Coûts de transaction | 🟡 | Mentionné uniquement comme principe général dans `04_protocols.md` étape C, pas de données chiffrées par marché pour la plupart des catégories (voir `01_market_comparison.md` pour les quelques ordres de grandeur déjà réunis) |
 | 31 | Market impact | ❌ | Absent |
 | 32 | Finance comportementale | 🟡 | Section 11 (erreurs à éviter) traite les biais du *trader*, pas les biais de marché agrégés (disposition effect au niveau prix, etc.) |
-
-(32 points listés — les 35 domaines du message utilisateur incluent 3
-libellés qui se recoupent avec d'autres lignes ci-dessus dans cette source :
-"trading systématique" / "quantitative trading" se chevauchent avec la
-ligne 1-2 ; comptés une fois chacun ici plutôt que artificiellement séparés.)
 
 ## Synthèse
 

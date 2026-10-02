@@ -38,7 +38,7 @@ trading-ai/
 │   ├── 03_model_approaches.md
 │   ├── 04_protocols.md
 │   ├── 05_roadmap.md
-│   ├── 06_domain_coverage.md    Audit des 35 domaines demandés vs connaissances existantes
+│   ├── 06_domain_coverage.md    Audit des 32 domaines demandés vs connaissances existantes
 │   ├── 07_knowledge_pipeline.md Pipeline SOURCE→CLAIM→HYPOTHÈSE, registres, statuts
 │   ├── SOURCE_REGISTRY.md       Sources candidates (en attente de validation)
 │   └── CLAIMS_REGISTRY.md       Registre de claims (squelette, vide)
