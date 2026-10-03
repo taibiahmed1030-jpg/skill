@@ -157,6 +157,26 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
 
+### 2026-10-03 (suite 2) — H029/H031 et audit du registre
+- Consigne utilisateur : discipline stricte, pas de nouvelle collecte vidéo,
+  pas d'achat de données ; tester H029/H031 puis auditer H011-H031.
+- Chevauchement mesuré **avant** test (COT seul,
+  `backtest/results/H029_H031_overlap.json`) : H029 contradictoire en
+  interne → scindée en H029-NC / H029-C ; H031 quasi indépendante de H028.
+- **H029** INCONCLUSIVE (NC +0,9 % à 8 semaines, Holm 0,11, limité à
+  2000-2012 ; C en miroir). **H031** INCONCLUSIVE : amélioration t=2,24
+  mais placebo p=0,65 (non attribuable au COT), Sharpe net ≈ 0 ; le
+  look-ahead de V003 gonfle le maïs de -0,3 % à +3,5 %/an.
+- Audit : `research/12_registry_audit.md` ; règles R16-R19 (puissance,
+  futilité, démeanage sans information future, empreinte des données et
+  compteur de tests) ajoutées pour les tests futurs ;
+  `backtest/results/TEST_LOG.md` (10 tests principaux).
+- Données intraday Market Profile spécifiées (ES 1 minute, règlement
+  officiel, idéalement depuis 1998) ; FirstRate ES disponible depuis 2008
+  (prix initial non affiché) ; **aucun achat**, décision utilisateur requise.
+- Prochaine action recommandée : H030 (variante hebdomadaire) et H008
+  (non reportables) avec R16-R19, chevauchement mesuré d'abord.
+
 ### 2026-10-03 (suite) — Premier cycle de tests : H011, H022, H027/H028
 - Méthode commune : protocole pré-enregistré et commité **avant** tout
   chargement de prix (`backtest/results/*_preregistration.md`), journal des

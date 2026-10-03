@@ -257,7 +257,8 @@
           "accord": "confirme"
         }
       ],
-      "note_dedoublonnage": "Même mécanisme (petits traders du mauvais côté) affirmé par V002 pour les futures ; opérationnalisation alternative gratuite : catégorie « non reportables » du COT Legacy (proxy imparfait). Ajouté au lieu de créer une hypothèse distincte (07_knowledge_pipeline.md §5)."
+      "note_dedoublonnage": "Même mécanisme (petits traders du mauvais côté) affirmé par V002 pour les futures ; opérationnalisation alternative gratuite : catégorie « non reportables » du COT Legacy (proxy imparfait). Ajouté au lieu de créer une hypothèse distincte (07_knowledge_pipeline.md §5).",
+      "note_audit": "Audit 2026-10-03 : opérationnalisation gratuite possible via les « non reportables » du COT Legacy ; mesurer d'abord le chevauchement avec H028 (contrepartie comptable des deux autres catégories)."
     },
     {
       "id": "H009",
@@ -370,7 +371,8 @@
       },
       "derniere_maj": "2026-10-03",
       "concurrente_de": "H003",
-      "note_conflit": "C-S029-04 : le niveau d'IV seul ne prédit pas, seule la différence IV−RV prédit — spécification concurrente de H003 (niveau du VIX), à comparer sur les mêmes données."
+      "note_conflit": "C-S029-04 : le niveau d'IV seul ne prédit pas, seule la différence IV−RV prédit — spécification concurrente de H003 (niveau du VIX), à comparer sur les mêmes données.",
+      "note_audit": "Audit 2026-10-03 : puissance a posteriori ≈ 65 % pour l'effet publié (t attendu ≈ 2,4) ; non-concluance informative mais non décisive."
     },
     {
       "id": "H012",
@@ -526,7 +528,8 @@
         "verdict": "REJECTED selon la règle pré-enregistrée (ratio de drawdown 1,17 > 0,8) : réplication 1927-2013 conforme à S011 (-44 %, -78 %, -31 %), mais sur 2014-2026 le drawdown de la combinaison (-30 %) dépasse celui d'UMD seul (-25 %) et son Sharpe (0,07) est inférieur à celui d'UMD (0,17).",
         "limites": "Rejet de la propriété telle que formalisée (combinaison nettement moins risquée qu'UMD seul). La combinaison a bien réduit le drawdown par rapport à HML (-30 % vs -51 %) : l'effet de diversification dépend de l'actif qui subit la crise de la période (krach du momentum en 2009 dans l'échantillon de la source, décennie perdue de la value ensuite). 152 mois ; facteurs bruts non investissables."
       },
-      "derniere_maj": "2026-10-03"
+      "derniere_maj": "2026-10-03",
+      "note_audit": "Audit 2026-10-03 : la propriété dépend d'événements rares (krach du momentum) absents de 2014-2026 ; REJECTED tel que formalisé, propriété sous-jacente non réellement mise à l'épreuve hors échantillon."
     },
     {
       "id": "H015",
@@ -1212,9 +1215,9 @@
       "mecanisme": "OI = engagement d'argent nouveau (V002).",
       "complexite": "faible",
       "biais_potentiel": "Règle classique largement diffusée ; famille volume avec preuves négatives (S031).",
-      "testabilite": "OI quotidien historique : disponibilité gratuite à vérifier (le COT donne l'OI hebdomadaire gratuitement — variante hebdomadaire possible).",
+      "testabilite": "Variante hebdomadaire testable gratuitement : 'Open Interest (All)' du rapport COT (données en cache) + prix Yahoo (R3, R15). OI quotidien : non gratuit. Audit 2026-10-03.",
       "statut": "non_testee",
-      "statut_en": "UNTESTED",
+      "statut_en": "TESTABLE",
       "backtest": null,
       "derniere_maj": "2026-10-03"
     },

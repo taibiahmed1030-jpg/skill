@@ -116,6 +116,15 @@ A-E ci-dessus et s'appliquent à toute hypothèse issue du corpus.
 **Critère de passage**
 - **R14 — Gabarit à cinq critères** (N12 ; C-S031-01) : t ≥ 2 sur rendements **nets** hors échantillon ; effectif minimal par pli ; rendement net positif après friction ; **même signe sur chaque année de test** ; p-value de permutation < 0,05. S'ajoute aux critères de l'étape D (indépendance des observations, ≥ 20 occurrences indépendantes, perturbation de paramètres).
 
+## Règles ajoutées après l'audit du 2026-10-03 (tests futurs uniquement)
+
+Source : `12_registry_audit.md` §6. Non rétroactives : les verdicts déjà rendus ne sont pas recalculés.
+
+- **R16 — Puissance ex ante** : chaque pré-enregistrement indique le t attendu si l'effet publié persistait (t source × √(durée test / durée source)) et la puissance approximative ; si la puissance est < 50 %, le test est signalé « faible puissance » avant d'être lancé.
+- **R17 — Futilité / équivalence** : chaque pré-enregistrement fixe une taille d'effet économiquement minimale ; si l'intervalle de confiance à 90 % de l'effet est entièrement sous cette borne, le verdict est `REJECTED` (effet absent ou négligeable), même sans effet significatif de signe opposé.
+- **R18 — Démeanage sans information future** : quand des rendements sont démeanés (dérive des séries de futures), la moyenne utilisée est calculée en fenêtre croissante (données antérieures uniquement).
+- **R19 — Empreinte des données et compteur de tests** : chaque `*_results.json` consigne, pour chaque série téléchargée, la période, le nombre de lignes et un hash du contenu ; un compteur cumulé des tests principaux réalisés est tenu dans `backtest/results/TEST_LOG.md`.
+
 ## Ce que ces deux protocoles garantissent ensemble
 
 Une hypothèse ne peut jamais passer de "idée entendue dans une vidéo" à
