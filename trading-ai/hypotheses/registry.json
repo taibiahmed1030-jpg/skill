@@ -409,9 +409,35 @@
       "complexite": "moyenne",
       "biais_potentiel": "Approximation futures→ETF ; S015/S016 non indépendants (AQR) ; critique d'exposition nette (C-S012-07).",
       "testabilite": "Données gratuites ; historique ETF limité (~2005+). Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H012_preregistration.md",
+        "script": "backtest/strategies/h012_tsmom_etf.py",
+        "resultats_bruts": "backtest/results/H012_results.json",
+        "periode_testee": "2010-01 / 2026-09",
+        "nb_occurrences": 201,
+        "metriques": {
+          "moyenne_nette_mensuelle_pct": 0.529,
+          "t_nw": 1.51,
+          "sharpe_net": 0.34,
+          "t_2010_2017": 1.95,
+          "t_2018_fin": 0.33,
+          "t_exposition_neutralisee": 0.42,
+          "t_passif_risque_egal": 2.63,
+          "annees_negatives": [
+            "2016",
+            "2018",
+            "2023",
+            "2024",
+            "2025"
+          ]
+        },
+        "p_value_permutation": 0.325,
+        "verdict": "INCONCLUSIVE : +0,53 %/mois net après 2009 (t=1,51 < 2) ; fort en 2010-2017 (t=1,95), quasi nul depuis 2018 (t=0,33) ; permutation p=0,33. Exposition nette neutralisée : t=0,42 — l'essentiel du rendement vient de l'exposition nette, ce qui va dans le sens de la critique C-S012-07. Un portefeuille passif à risque égal fait mieux (t=2,6).",
+        "limites": "ETF au lieu de futures (approximation pré-déclarée) ; 12 actifs ; un seul jeu de paramètres (ceux de S015) ; R14 non satisfait (6 années négatives sur 17)."
+      },
       "derniere_maj": "2026-10-03"
     },
     {
@@ -444,7 +470,8 @@
       "statut_en": "UNTESTED",
       "backtest": null,
       "derniere_maj": "2026-10-03",
-      "depend_de": "H012"
+      "depend_de": "H012",
+      "note_priorisation": "2026-10-03 : H012 n'ayant pas atteint PROMISING, tester H013 (conditionnement de la performance TSMOM) a une valeur faible ; reporté."
     },
     {
       "id": "H014",

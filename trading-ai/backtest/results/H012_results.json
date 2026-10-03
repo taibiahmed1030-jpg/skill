@@ -1,0 +1,103 @@
+{
+  "runs": [
+    {
+      "horodatage_utc": "2026-10-03T12:35:06+00:00",
+      "resultat": {
+        "hypothese": "H012",
+        "preenregistrement": "results/H012_preregistration.md",
+        "donnees": {
+          "SPY": "1999-01-04",
+          "IWM": "2000-05-26",
+          "EFA": "2001-08-27",
+          "EEM": "2003-04-14",
+          "VNQ": "2004-09-29",
+          "TLT": "2002-07-30",
+          "IEF": "2002-07-30",
+          "LQD": "2002-07-30",
+          "TIP": "2003-12-05",
+          "GLD": "2004-11-18",
+          "DBC": "2006-02-06",
+          "UUP": "2007-03-01"
+        },
+        "controle_avant_2010": {
+          "periode": "2003-08 / 2009-12",
+          "n_mois": 77,
+          "moyenne_nette_mensuelle_pct": 1.4066051749565491,
+          "t_nw": 2.029491725009205,
+          "sharpe_net_annualise": 0.8952449807649238,
+          "moyenne_brute_mensuelle_pct": 1.460675776166171,
+          "rotation_mensuelle_moyenne": 1.0814120241924432
+        },
+        "principal_2010_fin": {
+          "periode": "2010-01 / 2026-09",
+          "n_mois": 201,
+          "moyenne_nette_mensuelle_pct": 0.5289199832509649,
+          "t_nw": 1.5136201483723417,
+          "sharpe_net_annualise": 0.3437045551411298,
+          "moyenne_brute_mensuelle_pct": 0.589503503027993,
+          "rotation_mensuelle_moyenne": 1.211670395540561
+        },
+        "moitie_2010_2017": {
+          "periode": "2010-01 / 2017-12",
+          "n_mois": 96,
+          "moyenne_nette_mensuelle_pct": 0.9271058587668339,
+          "t_nw": 1.947345777979751,
+          "sharpe_net_annualise": 0.6235790206562511,
+          "moyenne_brute_mensuelle_pct": 0.9797889412137732,
+          "rotation_mensuelle_moyenne": 1.0536616489387851
+        },
+        "moitie_2018_fin": {
+          "periode": "2018-01 / 2026-09",
+          "n_mois": 105,
+          "moyenne_nette_mensuelle_pct": 0.16486432563645617,
+          "t_nw": 0.3301618023122509,
+          "sharpe_net_annualise": 0.10402722165980602,
+          "moyenne_brute_mensuelle_pct": 0.23267110240099398,
+          "rotation_mensuelle_moyenne": 1.3561355352907558
+        },
+        "exposition_nette_neutralisee_2010_fin": {
+          "periode": "2010-01 / 2026-09",
+          "n_mois": 201,
+          "moyenne_nette_mensuelle_pct": 0.141797237782975,
+          "t_nw": 0.4173303912573901,
+          "sharpe_net_annualise": 0.10008098404960938,
+          "moyenne_brute_mensuelle_pct": 0.21715163147573024,
+          "rotation_mensuelle_moyenne": 1.5070878738551052
+        },
+        "passif_risque_egal_2010_fin": {
+          "periode": "2010-01 / 2026-09",
+          "n_mois": 201,
+          "moyenne_nette_mensuelle_pct": 1.0312382579663766,
+          "t_nw": 2.6273438676296768,
+          "sharpe_net_annualise": 0.5988492236751177,
+          "moyenne_brute_mensuelle_pct": 1.0448112349362009,
+          "rotation_mensuelle_moyenne": 0.2714595393964893
+        },
+        "permutation": {
+          "moyenne_observee": 0.005289199832509649,
+          "p_bilateral": 0.325
+        },
+        "r14_signe_par_annee": {
+          "2010": 0.12949271029797516,
+          "2011": 0.17435477657819146,
+          "2012": 0.12671936360418648,
+          "2013": 0.20479046320155025,
+          "2014": 0.09216952037754714,
+          "2015": 0.13438192272548105,
+          "2016": -0.22776892536455548,
+          "2017": 0.2558817929957846,
+          "2018": -0.25150709182098696,
+          "2019": 0.10812922663493246,
+          "2020": 0.057302199537500736,
+          "2021": 0.09481342420905448,
+          "2022": 0.2430190224779506,
+          "2023": -0.16896902733004585,
+          "2024": -0.10267572389013936,
+          "2025": -0.006094041092736554,
+          "2026": 0.1990895531927495
+        },
+        "verdict_regle_preenregistree": "INCONCLUSIVE"
+      }
+    }
+  ]
+}

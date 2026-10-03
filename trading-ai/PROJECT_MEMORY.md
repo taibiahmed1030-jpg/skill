@@ -177,7 +177,12 @@ présupposé comme cible finale (changement explicite de consigne le
 - Aucune hypothèse n'atteint PROMISING. Aucune conclusion de rentabilité.
   Constat transversal : les effets publiés se répliquent sur leur période
   d'origine (H011, H014) mais pas hors échantillon.
-- Prochaine étape : H012 (TSMOM sur ETF), puis H013, H029, H031.
+- **H012** (TSMOM sur 12 ETF, S015) : INCONCLUSIVE — t=1,51 net après
+  2009, rendement porté par l'exposition nette (variante neutralisée
+  t=0,42, cohérent avec C-S012-07). H013 reportée (dépend de H012).
+- Bilan du cycle : 7 hypothèses testées, 0 PROMISING, 1 REJECTED (H014),
+  6 INCONCLUSIVE. Restent testables sur données gratuites : H029, H031
+  (COT, a priori faible après H027/H028).
 
 ### 2026-10-03 (date système) — Pipeline vidéo terminé ; formalisation H011-H031 et priorisation
 - **Note de datation** : les entrées libellées « 2026-10-04 » ci-dessous
