@@ -1,0 +1,87 @@
+{
+  "runs": [
+    {
+      "horodatage_utc": "2026-10-03T12:33:21+00:00",
+      "resultat": {
+        "donnees": {
+          "premier_mois": "1926-07",
+          "dernier_mois": "2026-08"
+        },
+        "H014": {
+          "replication_1927_2013": {
+            "periode": "1927-01 / 2013-12",
+            "n_mois": 1044,
+            "dd_HML": -0.4366943212739629,
+            "dd_UMD": -0.7843714812680127,
+            "dd_C": -0.30642367838358897,
+            "sharpe_HML": 0.40101537883260846,
+            "sharpe_UMD": 0.48655731893040455,
+            "sharpe_C": 0.8199699717726873
+          },
+          "test_2014_fin": {
+            "periode": "2014-01 / 2026-08",
+            "n_mois": 152,
+            "dd_HML": -0.5135426726286166,
+            "dd_UMD": -0.25379354812581867,
+            "dd_C": -0.29568972995961107,
+            "sharpe_HML": -0.05365252644026265,
+            "sharpe_UMD": 0.1741612870685083,
+            "sharpe_C": 0.07124909654912076
+          },
+          "bootstrap_C_vs_HML": {
+            "diff_sharpe": 0.12490162298938341,
+            "p_unilateral_diff_positive": 0.177,
+            "p_unilateral_diff_negative": 0.823
+          },
+          "bootstrap_C_vs_UMD": {
+            "diff_sharpe": -0.10291219051938755,
+            "p_unilateral_diff_positive": 0.6852,
+            "p_unilateral_diff_negative": 0.3148
+          },
+          "ratio_dd_C_sur_UMD": 1.1650797750501611,
+          "verdict_regle_preenregistree": "REJECTED"
+        },
+        "H015": {
+          "controle_debut_2015": {
+            "periode": "1927-07 / 2015-12",
+            "n_mois": 1062,
+            "moyenne_mensuelle_pct": 0.44280720338983054,
+            "t_nw": 6.5937314388478505,
+            "moyenne_passif_pct": 0.5341670590081606,
+            "t_nw_strat_moins_passif": -1.6718147274495228
+          },
+          "test_2016_fin": {
+            "periode": "2016-01 / 2026-08",
+            "n_mois": 128,
+            "moyenne_mensuelle_pct": 0.145546875,
+            "t_nw": 1.1064046075325564,
+            "moyenne_passif_pct": 0.1407421875,
+            "t_nw_strat_moins_passif": 0.03352684396452893
+          },
+          "test_2016_2020": {
+            "periode": "2016-01 / 2020-12",
+            "n_mois": 60,
+            "moyenne_mensuelle_pct": 0.06872916666666669,
+            "t_nw": 0.42672655684642646,
+            "moyenne_passif_pct": 0.00777083333333333,
+            "t_nw_strat_moins_passif": 0.29555418223480484
+          },
+          "test_2021_fin": {
+            "periode": "2021-01 / 2026-08",
+            "n_mois": 68,
+            "moyenne_mensuelle_pct": 0.21332720588235293,
+            "t_nw": 1.0615459229450404,
+            "moyenne_passif_pct": 0.25806985294117646,
+            "t_nw_strat_moins_passif": -0.2314504033840569
+          },
+          "permutation": {
+            "moyenne_observee": 0.14554687499999996,
+            "p_bilateral": 0.8028
+          },
+          "partie_sentiment": "non testée : indice Baker-Wurgler public arrêté fin 2018",
+          "verdict_regle_preenregistree": "INCONCLUSIVE"
+        }
+      }
+    }
+  ]
+}

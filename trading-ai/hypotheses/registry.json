@@ -472,9 +472,33 @@
       "complexite": "faible",
       "biais_potentiel": "Facteurs bruts non investissables ; source AQR (intérêt commercial).",
       "testabilite": "Données gratuites ; teste une propriété, pas une stratégie exploitable. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "rejetee",
+      "statut_en": "REJECTED",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H014_H015_preregistration.md",
+        "script": "backtest/strategies/h014_h015_factors.py",
+        "resultats_bruts": "backtest/results/H014_H015_results.json",
+        "periode_testee": "2014-01 / 2026-08",
+        "nb_occurrences": 152,
+        "metriques": {
+          "dd_HML": -0.514,
+          "dd_UMD": -0.254,
+          "dd_combinaison": -0.296,
+          "ratio_dd_combinaison_sur_UMD": 1.17,
+          "sharpe_HML": -0.05,
+          "sharpe_UMD": 0.17,
+          "sharpe_combinaison": 0.07,
+          "replication_1927_2013_dd": [
+            -0.437,
+            -0.784,
+            -0.306
+          ]
+        },
+        "p_value_permutation": null,
+        "verdict": "REJECTED selon la règle pré-enregistrée (ratio de drawdown 1,17 > 0,8) : réplication 1927-2013 conforme à S011 (-44 %, -78 %, -31 %), mais sur 2014-2026 le drawdown de la combinaison (-30 %) dépasse celui d'UMD seul (-25 %) et son Sharpe (0,07) est inférieur à celui d'UMD (0,17).",
+        "limites": "Rejet de la propriété telle que formalisée (combinaison nettement moins risquée qu'UMD seul). La combinaison a bien réduit le drawdown par rapport à HML (-30 % vs -51 %) : l'effet de diversification dépend de l'actif qui subit la crise de la période (krach du momentum en 2009 dans l'échantillon de la source, décennie perdue de la value ensuite). 152 mois ; facteurs bruts non investissables."
+      },
       "derniere_maj": "2026-10-03"
     },
     {
@@ -504,9 +528,27 @@
       "complexite": "faible",
       "biais_potentiel": "Working paper non revu ; disponibilité retardée de l'indice de sentiment (R15).",
       "testabilite": "Données gratuites. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H014_H015_preregistration.md",
+        "script": "backtest/strategies/h014_h015_factors.py",
+        "resultats_bruts": "backtest/results/H014_H015_results.json",
+        "periode_testee": "2016-01 / 2026-08",
+        "nb_occurrences": 128,
+        "metriques": {
+          "moyenne_mensuelle_pct": 0.146,
+          "t_nw": 1.11,
+          "moyenne_passif_pct": 0.141,
+          "t_strat_moins_passif": 0.03,
+          "controle_avant_2016_t": 6.59,
+          "controle_avant_2016_t_vs_passif": -1.67
+        },
+        "p_value_permutation": 0.8028,
+        "verdict": "INCONCLUSIVE : après 2015, momentum temporel sur 8 facteurs publics = +0,15 %/mois (t=1,1), pas mieux que la détention passive des mêmes facteurs (t=0,03), permutation p=0,80. Partie conditionnelle au sentiment non testée (indice Baker-Wurgler public arrêté fin 2018).",
+        "limites": "Univers de 8 facteurs standard au lieu des 20 facteurs déciles de S012 (déviation pré-déclarée) ; même avant 2016 notre version ne bat pas la détention passive (t=-1,67), ce qui suggère que le résultat de S012 dépend de son univers de facteurs ; 128 mois hors échantillon."
+      },
       "derniere_maj": "2026-10-03"
     },
     {
