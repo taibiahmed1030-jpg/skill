@@ -41,6 +41,8 @@ attaché à son échantillon d'origine.
 | S021 | `claims/S021.md` | Intégral (42 p., version déc. 2000) | 10 | 0 | 2 |
 | S015 | `claims/S015.md` | Intégral (JFE 2012, 23 p.) | 11 | 1 candidat | 3 |
 | S016 | `claims/S016.md` | Texte intégral ; **tableaux en image non extractibles** | 13 | 1 candidat | 3 |
+| S011 | `claims/S011.md` | Intégral (texte) ; **texte de plaidoyer d'auteurs AQR** | 11 | 1 candidat | 3 |
+| S012 | `claims/S012.md` | Intégral (NBER WP, non revu par les pairs) | 8 | 1 candidat | 3 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -59,6 +61,10 @@ attaché à son échantillon d'origine.
 | H003 (registre, niveau du VIX > 45 → achat) | C-S029-04 (le niveau d'IV seul ne prédit pas ; seule la différence IV−RV prédit) | **Tension / spécification concurrente**, pas contradiction stricte : H003 porte sur des pics extrêmes (event study), S029 sur une régression linéaire continue. Les deux pointent dans le même sens (volatilité implicite élevée ↔ rendements futurs plus élevés) mais divergent sur la variable pertinente | **Ouvert** — à départager uniquement par test (H003 vs C-S029-11 sur mêmes données) |
 | C-S007-10 (a) concurrence a érodé les profits | C-S007-10 (b) profits plus élevés quand le marché baisse | Explications concurrentes au sein d'une même source | **Ouvert** — conservées toutes deux |
 | C-S010-06 (a) prime = risque systématique | C-S010-06 (b) prime = erreurs/contraintes | Explications concurrentes des primes factorielles | **Ouvert** — conservées toutes deux |
+| C-S011-06 (FIM 2013, données AQR : le momentum survit facilement aux coûts) | C-S011-06 (Korajczyk & Sadka 2004 ; Lesmond et al. 2003 : coûts bien plus élevés, viabilité compromise) | **Contradiction réelle**, réconciliée par S011 via la taille de l'investisseur (coûts de l'investisseur moyen ≈ 10× ceux d'un grand institutionnel). **Pour ce projet, petite taille → la littérature pessimiste est la plus pertinente** | **Ouvert** — à départager par nos propres coûts réels mesurés, pas par l'une ou l'autre source |
+| C-S011-05 (Novy-Marx 2012 : momentum US mieux mesuré sur t−12 à t−7) | C-S011-05 (Goyal & Wahal 2013 : 12 mois supérieur dans 35 pays sur 36) | Contradiction entre deux études citées de seconde main | **Ouvert** — à fixer *a priori* (12 mois, convention) plutôt qu'à choisir après test |
+| C-S015-05/06 (TSMOM rentable sur 58 contrats) | C-S012-07 (Goyal & Jegadeesh 2017 ; Huang et al. 2018 : TSMOM moins rentable qu'il n'y paraît, exposition nette au marché non nulle) | **Contradiction citée de seconde main** contre S015 | **Ouvert** — tout test de C-S015-11 devra comparer le TSMOM à une exposition passive de même volatilité et neutraliser l'exposition nette |
+| C-S011-03 (krachs du momentum = exposition conditionnelle au bêta, jambe short) | C-S012-04 (krachs = retournement simultané des autocorrélations des facteurs) | Explications concurrentes (non exclusives) | **Ouvert** |
 | C-S015-08 (les spéculateurs **suivent** la tendance et profitent au détriment des hedgers, horizon 12 mois) | Lecture "contrarienne" du COT (C-S017-01 : stratégie de **renversement** court terme sur données COT, résumé seulement) | **Tension d'horizon**, pas contradiction démontrée : trend sur 12 mois vs renversement à court terme. Impossible à préciser sans le texte intégral de S017 | **Ouvert** — à départager par test (position spéculative nette comme signal de continuation vs de renversement, à plusieurs horizons) |
 
 ## Sources inaccessibles ou limitées
