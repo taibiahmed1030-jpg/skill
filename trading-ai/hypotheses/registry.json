@@ -118,7 +118,8 @@
         "limites": "Échantillon de 7 crises sur 36 ans : impossible d'exclure que le résultat soit porté par 1-2 épisodes extrêmes (2008-09, 2020) qui dominent la moyenne. Pas de test de robustesse par sous-période (ex: exclure 2008-09 et retester) effectué à ce stade. Aucun coût de transaction/slippage modélisé. Ne jamais utiliser en position réelle sur cette seule base."
       },
       "derniere_maj": "2026-10-01",
-      "concurrente_de": "H011"
+      "concurrente_de": "H011",
+      "note_h011": "2026-10-03 : sur 2008+, le niveau IV seul (VIX²/12) ne prédit pas le rendement à 3 mois en régression linéaire (t Hodrick 0,21), en accord avec C-S029-04. Ne teste pas directement H003 (étude d'événements sur pics > 45) ; statut de H003 inchangé."
     },
     {
       "id": "H004",
@@ -343,9 +344,30 @@
       "complexite": "faible",
       "biais_potentiel": "Prédicteur persistant + horizons chevauchants (R9) ; période post-2007 dominée par 2008 et 2020 (étape B : exclure chaque crise).",
       "testabilite": "Données gratuites (yfinance), infrastructure existante. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H011_preregistration.md",
+        "script": "backtest/strategies/h011_variance_premium.py",
+        "resultats_bruts": "backtest/results/H011_results.json",
+        "periode_testee": "2008-01 / 2026-06",
+        "nb_occurrences": 222,
+        "nb_observations_independantes": "≈74 trimestres non chevauchants",
+        "metriques": {
+          "b": 0.0173,
+          "t_hodrick_1b": 0.94,
+          "r2": 0.011,
+          "replication_1990_2007_t_hodrick": 2.31,
+          "t_2008_2016": 2.4,
+          "t_2017_fin": -1.38,
+          "t_sans_2008_2009": -0.99,
+          "r2_oos": -0.22
+        },
+        "p_value_permutation": 0.157,
+        "verdict": "INCONCLUSIVE selon la règle pré-enregistrée : la relation est répliquée sur 1990-2007 (t=2,31, proche de C-S029-08) mais n'est pas significative après 2008 (t=0,94) ; signe inversé après 2017 ; disparaît sans la crise 2008-2009 ; R² hors échantillon négatif (-0,22).",
+        "limites": "RV quotidienne au lieu de 5 min (version plus faible selon C-S029-08) ; indice prix sans dividendes ; relation prédictive, pas une stratégie. Le non-rejet formel (b>0 non significatif) ne vaut pas confirmation : aucune capacité prédictive hors échantillon détectée."
+      },
       "derniere_maj": "2026-10-03",
       "concurrente_de": "H003",
       "note_conflit": "C-S029-04 : le niveau d'IV seul ne prédit pas, seule la différence IV−RV prédit — spécification concurrente de H003 (niveau du VIX), à comparer sur les mêmes données."
