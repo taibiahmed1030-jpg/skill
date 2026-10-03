@@ -758,9 +758,27 @@
       "complexite": "faible",
       "biais_potentiel": "Persistance de la volatilité (le gap est lui-même un indicateur de volatilité) — contrôle obligatoire ; pour un indice cash, l'open peut être périmé (R1).",
       "testabilite": "Données gratuites, infrastructure existante. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H022_preregistration.md",
+        "script": "backtest/strategies/h022_open_location_range.py",
+        "resultats_bruts": "backtest/results/H022_results.json",
+        "periode_testee": "1998-01-02 / 2026-10-02",
+        "nb_occurrences": 6374,
+        "metriques": {
+          "b": 0.1563,
+          "t_hac": 10.18,
+          "ratio_amplitude_extreme_vs_centre": 1.081,
+          "b_sous_periodes_tous_positifs": true,
+          "b_controle_taille_du_gap": -0.0282,
+          "t_controle_taille_du_gap": -1.61
+        },
+        "p_value_permutation": 0.0,
+        "verdict": "INCONCLUSIVE selon la règle pré-enregistrée : effet positif très significatif et stable (ouverture à un extrême → amplitude +8 %), mais sous le seuil de 10 % fixé pour « grande opportunité ». Interprétation : une fois la taille du gap de nuit contrôlée, la position de l'ouverture dans le range de la veille n'apporte plus d'information (b = -0,03, t = -1,6) ; seul le quintile supérieur (ouverture hors du range) se distingue. L'observable de V001 tient en petit ordre de grandeur et s'explique par un effet connu (gap = nouvelle information = volatilité).",
+        "limites": "Filtre d'ouverture périmée pré-enregistré (> 2 % des jours) : 8 années exclues (1993-1997, 2006, 2016, 2017), seuil probablement trop strict pour un ETF au centime — non relancé pour ne pas multiplier les essais ; SPY uniquement ; amplitude ≠ rendement : aucune conclusion de rentabilité."
+      },
       "derniere_maj": "2026-10-03"
     },
     {

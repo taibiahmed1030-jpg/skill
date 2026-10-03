@@ -1,0 +1,149 @@
+{
+  "runs": [
+    {
+      "horodatage_utc": "2026-10-03T12:26:14+00:00",
+      "resultat": {
+        "hypothese": "H022",
+        "preenregistrement": "results/H022_preregistration.md",
+        "donnees": {
+          "ticker": "SPY",
+          "jours_exclus_dividende": 136,
+          "annees_exclues_ouverture_perimee": [
+            1993,
+            1994,
+            1995,
+            1996,
+            1997,
+            2006,
+            2016,
+            2017
+          ],
+          "taux_ouverture_perimee_max_annuel": 0.14102564102564102,
+          "n_jours": 6374
+        },
+        "principal": {
+          "n": 6374,
+          "periode": "1998-01-02 / 2026-10-02",
+          "b": 0.15629535922740495,
+          "t_hac": 10.180644194556669,
+          "r2": 0.5173169717868537,
+          "ratio_amplitude_extreme_vs_centre": 1.081282330236508
+        },
+        "sous_periodes": {
+          "1993_1999": {
+            "n": 496,
+            "periode": "1998-01-02 / 1999-12-31",
+            "b": 0.08270784596321895,
+            "t_hac": 1.713405777331498,
+            "r2": 0.2491669853446592,
+            "ratio_amplitude_extreme_vs_centre": 1.0422209062087358
+          },
+          "2000_2007": {
+            "n": 1730,
+            "periode": "2000-01-03 / 2007-12-31",
+            "b": 0.20606697872764895,
+            "t_hac": 5.829716922153298,
+            "r2": 0.477447817359236,
+            "ratio_amplitude_extreme_vs_centre": 1.1085285323697163
+          },
+          "2008_2016": {
+            "n": 1983,
+            "periode": "2008-01-02 / 2015-12-31",
+            "b": 0.17052877390954996,
+            "t_hac": 6.443559271094856,
+            "r2": 0.5791820986077556,
+            "ratio_amplitude_extreme_vs_centre": 1.0890049473425412
+          },
+          "2017_fin": {
+            "n": 2165,
+            "periode": "2018-01-02 / 2026-10-02",
+            "b": 0.1643447072038311,
+            "t_hac": 6.886013863398003,
+            "r2": 0.47538855910810374,
+            "ratio_amplitude_extreme_vs_centre": 1.0856429081711667
+          }
+        },
+        "variante_binaire_D": {
+          "n": 6374,
+          "periode": "1998-01-02 / 2026-10-02",
+          "b": 0.0693943583711275,
+          "t_hac": 5.950549188630016,
+          "r2": 0.5103961717671661,
+          "ratio_amplitude_hors_range": 1.0718588223115952
+        },
+        "controle_strict_gap": {
+          "n": 6374,
+          "periode": "1998-01-02 / 2026-10-02",
+          "b": -0.028224212564777806,
+          "t_hac": -1.6087945875102108,
+          "r2": 0.5361949016853647,
+          "ratio_amplitude_extreme_vs_centre": 0.9859870027294177
+        },
+        "perturbation_fenetre": {
+          "win=10": {
+            "n": 6374,
+            "periode": "1998-01-02 / 2026-10-02",
+            "b": 0.14660300348761623,
+            "t_hac": 9.704724257018118,
+            "r2": 0.5267630847186032,
+            "ratio_amplitude_extreme_vs_centre": 1.0760549204460939
+          },
+          "win=20": {
+            "n": 6374,
+            "periode": "1998-01-02 / 2026-10-02",
+            "b": 0.15629535922740495,
+            "t_hac": 10.180644194556669,
+            "r2": 0.5173169717868537,
+            "ratio_amplitude_extreme_vs_centre": 1.081282330236508
+          },
+          "win=60": {
+            "n": 6374,
+            "periode": "1998-01-02 / 2026-10-02",
+            "b": 0.18076731161244697,
+            "t_hac": 11.478725475241003,
+            "r2": 0.4902776185133353,
+            "ratio_amplitude_extreme_vs_centre": 1.0945941505592023
+          }
+        },
+        "quintiles_x": [
+          {
+            "quintile": 0,
+            "x_median": 0.08108117396384631,
+            "amplitude_normalisee_moyenne": 1.0176844807506795,
+            "n": 1275
+          },
+          {
+            "quintile": 1,
+            "x_median": 0.23333333333333334,
+            "amplitude_normalisee_moyenne": 1.0009222067169725,
+            "n": 1275
+          },
+          {
+            "quintile": 2,
+            "x_median": 0.38877678792965364,
+            "amplitude_normalisee_moyenne": 1.0206201012316365,
+            "n": 1274
+          },
+          {
+            "quintile": 3,
+            "x_median": 0.5760950690793293,
+            "amplitude_normalisee_moyenne": 1.0030886580934248,
+            "n": 1275
+          },
+          {
+            "quintile": 4,
+            "x_median": 0.9516129032258065,
+            "amplitude_normalisee_moyenne": 1.0909705200044089,
+            "n": 1275
+          }
+        ],
+        "permutation_par_blocs": {
+          "b_observe": 0.15629535922740403,
+          "p_bilateral": 0.0,
+          "n_permutations": 1000
+        },
+        "verdict_regle_preenregistree": "INCONCLUSIVE"
+      }
+    }
+  ]
+}
