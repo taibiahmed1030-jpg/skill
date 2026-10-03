@@ -50,6 +50,10 @@ attaché à son échantillon d'origine.
 | S018 | `claims/S018.md` | **Résumé seulement** (ScienceDirect payant) ; références corrigées | 2 | 0 | 3 |
 | S022 | `claims/S022.md` | **Résumé officiel seulement** (JSTOR) | 3 | 0 | 3 |
 | S023 | `claims/S023.md` | **Très limité** — résumé indexé par moteur de recherche uniquement | 2 | 0 | 3 |
+| S002 | `claims/S002.md` | **Aucun** — livre sous copyright | 0 | 0 | 3 |
+| S030 | `claims/S030.md` | Intégral (111 p.) — **source ajoutée** pour remplacer S002 | 8 | 0 | 3 |
+| S006 | `claims/S006.md` | **Aucun** — livre sous copyright ; guide CBOT écarté (diffusion non autorisée apparente) | 0 | 0 | 3 |
+| S031 | `claims/S031.md` | Intégral (17 p.) — **source ajoutée**, préprint indépendant de qualité modérée | 7 | 0 | 3 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -76,7 +80,8 @@ attaché à son échantillon d'origine.
 | C-S007-06 (version 1999 : profits nets positifs et significatifs après coûts) | C-S008-04 (Do & Faff, données jusqu'en 2009 : méthode GGR de base **largement non rentable** après coûts) | **Contradiction temporelle** : la conclusion de S007 ne tient pas sur la période ultérieure | **Ouvert** — favorise une formulation de C-S007-15 qui teste explicitement la persistance après 2009 |
 | C-S008-04 (déclin, non rentable après coûts) | C-S008-09 (Jacobs & Weber : phénomène persistant sur 34 marchés ; Jacobs 2015 : top 5 des anomalies) | Contradiction entre études citées par la même revue — dépend des variantes, marchés et traitement des coûts | **Ouvert** |
 | C-S007-01/02 (période de formation de 12 mois) | C-S008-07 (Huck 2013 : 12 mois = creux de performance, 6/18/24 mois forts) | **Fragilité paramétrique** de la règle d'origine | **Ouvert** — à intégrer comme test de perturbation de paramètre, sans optimiser la durée |
-| C-S021-02/04 (impact modélisé **linéaire** dans le rythme de trading, Almgren-Chriss) | C-S004-01 (impact **concave**, loi de la racine carrée σ·√(Q/V), Bouchaud et al. — cité de seconde main) | **Contradiction de modèle** ; S021 reconnaît lui-même que son approximation linéaire est "la plus douteuse" pour la composante η (C-S021-03) | **Ouvert, faible enjeu à notre échelle** : à petite taille, seul le coût fixe ε compte (N7) ; à trancher seulement si la taille des positions devient significative |
+| C-S021-02/04 (impact modélisé **linéaire** dans le rythme de trading, Almgren-Chriss) | C-S004-01 / C-S030-02 (impact **concave**, loi de la racine carrée σ·√(Q/V), désormais en source primaire via S030) | **Contradiction de modèle partiellement réconciliée par C-S030-03** : impact concave au niveau de la transaction / du méta-ordre, approximativement linéaire avec composante permanente au niveau agrégé | **Partiellement résolu** (dépendance d'échelle) ; faible enjeu à notre échelle — seul le coût fixe ε compte (N7) |
+| C-S003-03 (spread d'information : les traders informés imposent un coût d'antisélection, Glosten-Milgrom) | C-S030-04 (sur marché anonyme, pas de distinction informé/non informé ; impact d'origine mécanique) | **Visions concurrentes de l'origine de l'impact et du spread** ; S030 reconnaît aller "à l'encontre de la vision dominante" | **Ouvert** — sans conséquence directe sur nos tests quotidiens |
 | C-S011-03 (krachs du momentum = exposition conditionnelle au bêta, jambe short) | C-S012-04 (krachs = retournement simultané des autocorrélations des facteurs) | Explications concurrentes (non exclusives) | **Ouvert** |
 | C-S015-08 (les spéculateurs **suivent** la tendance et profitent au détriment des hedgers, horizon 12 mois) | Lecture "contrarienne" du COT (C-S017-01 : stratégie de **renversement** court terme sur données COT, résumé seulement) | **Tension d'horizon**, pas contradiction démontrée : trend sur 12 mois vs renversement à court terme. Impossible à préciser sans le texte intégral de S017 | **Ouvert** — à départager par test (position spéculative nette comme signal de continuation vs de renversement, à plusieurs horizons) |
 
@@ -90,6 +95,8 @@ attaché à son échantillon d'origine.
 | S018 | Texte intégral payant ; dépôt institutionnel sans fichier | 2 claims au niveau résumé ; domaine COT désormais signalé comme faiblement couvert en accès réel |
 | S022 | Texte sur JSTOR (accès membre) | 3 claims depuis le résumé officiel ; copies de sites de cours non utilisées |
 | S023 | Texte payant, pas de résumé sur RePEc, éditeur bloque | 2 claims depuis un résumé indexé, signalés comme tels ; candidat initial du registre abandonné faute de lecture |
+| S002 | Livre sous copyright | Remplacé par S030 (même auteur principal, accès libre) |
+| S006 | Livre sous copyright ; guide CBOT de diffusion non autorisée apparente | Guide écarté et supprimé du scratchpad ; volume couvert par S031 ; **Market Profile sans source** |
 
 ## Notes méthodologiques transversales (à reporter dans `04_protocols.md` lors de la synthèse)
 
@@ -105,3 +112,7 @@ attaché à son échantillon d'origine.
 | N8 | C-S009-04 | La période de test ne doit intervenir dans **aucune** décision de sélection (paires, paramètres, sous-univers) — sinon elle cesse d'être hors échantillon |
 | N9 | C-S004-06, C-S020-04 | Pas de k-fold standard sur séries temporelles : validation chronologique, avec purge/embargo dès que les labels chevauchent |
 | N10 | C-S005-05 | Mouvements intrajournaliers extrêmes sans information (type flash crash) : à signaler dans l'étage DATA VALIDATION plutôt qu'à interpréter comme signaux |
+| N11 | C-S030-06 | Rendements quotidiens à queues épaisses : préférer les tests de permutation/bootstrap aux tests supposant la normalité |
+| N12 | C-S031-01 | Gabarit de validation à adopter : t ≥ 2 sur rendements **nets** hors échantillon, effectif minimal par pli, net positif après friction, **même signe chaque année de test**, permutation p < 0,05 |
+| N13 | C-S031-04, C-S021-10 | Vérifier d'abord que le **rendement brut par trade** dépasse le coût aller-retour avant toute analyse statistique — la plupart des signaux intrajournaliers échouent dès ce filtre |
+| N14 | C-S031-07 | Tout contrat continu doit documenter sa méthode de raccordement aux dates de roulement |
