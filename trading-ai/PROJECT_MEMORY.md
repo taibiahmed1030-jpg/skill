@@ -170,9 +170,14 @@ présupposé comme cible finale (changement explicite de consigne le
   expliqué par la taille du gap.
 - **H027/H028** (COT, lectures opposées de V002/V003) : INCONCLUSIVE toutes
   deux — aucun pouvoir prédictif sur 15 marchés 2000-2026.
+- **H014** (diversification HML/UMD, S011) : REJECTED — réplication
+  conforme, mais après 2013 la combinaison a un drawdown supérieur à UMD
+  seul. **H015** (momentum de facteurs, S012) : INCONCLUSIVE (t=1,1, pas
+  mieux que la détention passive) ; partie sentiment non testable.
 - Aucune hypothèse n'atteint PROMISING. Aucune conclusion de rentabilité.
-- Prochaine étape : H014/H015 (facteurs publics, données gratuites), puis
-  H012 (TSMOM ETF).
+  Constat transversal : les effets publiés se répliquent sur leur période
+  d'origine (H011, H014) mais pas hors échantillon.
+- Prochaine étape : H012 (TSMOM sur ETF), puis H013, H029, H031.
 
 ### 2026-10-03 (date système) — Pipeline vidéo terminé ; formalisation H011-H031 et priorisation
 - **Note de datation** : les entrées libellées « 2026-10-04 » ci-dessous
