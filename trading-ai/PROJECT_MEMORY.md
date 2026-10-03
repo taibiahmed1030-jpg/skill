@@ -157,6 +157,23 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
 
+### 2026-10-03 (suite) — Premier cycle de tests : H011, H022, H027/H028
+- Méthode commune : protocole pré-enregistré et commité **avant** tout
+  chargement de prix (`backtest/results/*_preregistration.md`), journal des
+  exécutions dans `*_results.json` (champ `runs`), verdict appliqué
+  mécaniquement selon la règle écrite.
+- **H011** (prime de variance, S029) : INCONCLUSIVE — réplication 1990-2007
+  conforme (t=2,31), aucune prédictibilité après 2008 (t=0,94, R² hors
+  échantillon −0,22). Erreurs de Hodrick validées par simulation.
+- **H022** (ouverture/amplitude, Dalton) : INCONCLUSIVE — +8 % d'amplitude
+  quand l'ouverture est à un extrême (seuil fixé : 10 %), entièrement
+  expliqué par la taille du gap.
+- **H027/H028** (COT, lectures opposées de V002/V003) : INCONCLUSIVE toutes
+  deux — aucun pouvoir prédictif sur 15 marchés 2000-2026.
+- Aucune hypothèse n'atteint PROMISING. Aucune conclusion de rentabilité.
+- Prochaine étape : H014/H015 (facteurs publics, données gratuites), puis
+  H012 (TSMOM ETF).
+
 ### 2026-10-03 (date système) — Pipeline vidéo terminé ; formalisation H011-H031 et priorisation
 - **Note de datation** : les entrées libellées « 2026-10-04 » ci-dessous
   ont été rédigées le 2026-10-03 selon l'horloge système ; à partir d'ici,
