@@ -39,6 +39,8 @@ attaché à son échantillon d'origine.
 | S029 | `claims/S029.md` | Intégral (30 p.) — **source ajoutée** pour remplacer S013 | 11 | 1 candidat | 2 |
 | S017 | `claims/S017.md` | **Résumé seulement** (SSRN, éditeur et dépôt institutionnel bloqués/sans fichier) | 4 | 0 | 2 |
 | S021 | `claims/S021.md` | Intégral (42 p., version déc. 2000) | 10 | 0 | 2 |
+| S015 | `claims/S015.md` | Intégral (JFE 2012, 23 p.) | 11 | 1 candidat | 3 |
+| S016 | `claims/S016.md` | Texte intégral ; **tableaux en image non extractibles** | 13 | 1 candidat | 3 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -47,6 +49,8 @@ attaché à son échantillon d'origine.
 | C-S027-09 | C-S020-09 | Même argument mathématique (le max de nombreux essais IID gonfle la performance apparente sans edge), même lignée d'auteurs, S020 ch.12 cite explicitement le papier | 1 (même auteur principal) |
 | C-S003-07 | C-S007-05 (corroboration, pas fusion) | Même mécanisme (rebond bid-ask gonflant les profits des stratégies contrariantes) : déduit de la théorie chez Stoll, mesuré empiriquement (~200 bp/semestre) chez Gatev et al. | **2** (auteurs et méthodes différents) |
 | C-S010-08 | C-S007-06 (corroboration) | Rendement théorique/académique ≠ rendement capturable après coûts : rotation, illiquidité et spreads réduisent fortement la prime affichée | **2** |
+| C-S003-07 | C-S015-10 (corroboration) | Artefacts de microstructure (prix périmés, rebond) contaminant la prédictibilité à haute fréquence | **3** au total avec C-S007-05 (Stoll ; Gatev et al. ; Moskowitz et al.) |
+| C-S015-07 | C-S016-07 (corroboration **non indépendante**) | Profil en "sourire" du trend-following face aux mouvements extrêmes du marché | **1** (équipe AQR commune, Ooi et Pedersen co-auteurs des deux) — la période 1880-1984 de S016 est en revanche un test hors échantillon *temporel* |
 
 ## Journal des conflits inter-sources
 
@@ -55,6 +59,7 @@ attaché à son échantillon d'origine.
 | H003 (registre, niveau du VIX > 45 → achat) | C-S029-04 (le niveau d'IV seul ne prédit pas ; seule la différence IV−RV prédit) | **Tension / spécification concurrente**, pas contradiction stricte : H003 porte sur des pics extrêmes (event study), S029 sur une régression linéaire continue. Les deux pointent dans le même sens (volatilité implicite élevée ↔ rendements futurs plus élevés) mais divergent sur la variable pertinente | **Ouvert** — à départager uniquement par test (H003 vs C-S029-11 sur mêmes données) |
 | C-S007-10 (a) concurrence a érodé les profits | C-S007-10 (b) profits plus élevés quand le marché baisse | Explications concurrentes au sein d'une même source | **Ouvert** — conservées toutes deux |
 | C-S010-06 (a) prime = risque systématique | C-S010-06 (b) prime = erreurs/contraintes | Explications concurrentes des primes factorielles | **Ouvert** — conservées toutes deux |
+| C-S015-08 (les spéculateurs **suivent** la tendance et profitent au détriment des hedgers, horizon 12 mois) | Lecture "contrarienne" du COT (C-S017-01 : stratégie de **renversement** court terme sur données COT, résumé seulement) | **Tension d'horizon**, pas contradiction démontrée : trend sur 12 mois vs renversement à court terme. Impossible à préciser sans le texte intégral de S017 | **Ouvert** — à départager par test (position spéculative nette comme signal de continuation vs de renversement, à plusieurs horizons) |
 
 ## Sources inaccessibles ou limitées
 
