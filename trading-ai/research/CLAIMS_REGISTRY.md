@@ -34,6 +34,7 @@ attaché à son échantillon d'origine.
 | S001 | `claims/S001.md` | **Limité** — table des matières seulement (copies non autorisées écartées) | 1 | 0 | 2 |
 | S003 | `claims/S003.md` | Intégral (working paper 66 p.) | 14 | 1 candidat | 2 |
 | S007 | `claims/S007.md` | Intégral — **version NBER 1999** (1962-1997), pas la version RFS 2006 | 15 | 1 candidat | 2 |
+| S010 | `claims/S010.md` | Intégral (33 p.) — biais signalés : conflit d'intérêts commercial, historique probablement rétro-calculé | 13 | 1 candidat | 2 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -41,6 +42,7 @@ attaché à son échantillon d'origine.
 |---|---|---|---|
 | C-S027-09 | C-S020-09 | Même argument mathématique (le max de nombreux essais IID gonfle la performance apparente sans edge), même lignée d'auteurs, S020 ch.12 cite explicitement le papier | 1 (même auteur principal) |
 | C-S003-07 | C-S007-05 (corroboration, pas fusion) | Même mécanisme (rebond bid-ask gonflant les profits des stratégies contrariantes) : déduit de la théorie chez Stoll, mesuré empiriquement (~200 bp/semestre) chez Gatev et al. | **2** (auteurs et méthodes différents) |
+| C-S010-08 | C-S007-06 (corroboration) | Rendement théorique/académique ≠ rendement capturable après coûts : rotation, illiquidité et spreads réduisent fortement la prime affichée | **2** |
 
 ## Journal des conflits inter-sources
 
