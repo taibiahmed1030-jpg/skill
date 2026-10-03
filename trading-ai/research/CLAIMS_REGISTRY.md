@@ -46,6 +46,10 @@ attaché à son échantillon d'origine.
 | S004 | `claims/S004.md` | Intégral — **requalifié : mémoire de Master**, k-fold non temporel | 6 | 0 | 3 |
 | S005 | `claims/S005.md` | Intégral — **pertinence faible** à notre échelle, extraction limitée | 5 | 0 | 3 |
 | S009 | `claims/S009.md` | Intégral — **résultats non recevables** (sélection sur la période de test) | 4 | 0 | 3 |
+| S008 | `claims/S008.md` | Intégral (discussion paper FAU 2015, version libre de l'article JES 2017) | 14 | 1 candidat | 3 |
+| S018 | `claims/S018.md` | **Résumé seulement** (ScienceDirect payant) ; références corrigées | 2 | 0 | 3 |
+| S022 | `claims/S022.md` | **Résumé officiel seulement** (JSTOR) | 3 | 0 | 3 |
+| S023 | `claims/S023.md` | **Très limité** — résumé indexé par moteur de recherche uniquement | 2 | 0 | 3 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -55,6 +59,8 @@ attaché à son échantillon d'origine.
 | C-S003-07 | C-S007-05 (corroboration, pas fusion) | Même mécanisme (rebond bid-ask gonflant les profits des stratégies contrariantes) : déduit de la théorie chez Stoll, mesuré empiriquement (~200 bp/semestre) chez Gatev et al. | **2** (auteurs et méthodes différents) |
 | C-S010-08 | C-S007-06 (corroboration) | Rendement théorique/académique ≠ rendement capturable après coûts : rotation, illiquidité et spreads réduisent fortement la prime affichée | **2** |
 | C-S003-07 | C-S015-10 (corroboration) | Artefacts de microstructure (prix périmés, rebond) contaminant la prédictibilité à haute fréquence | **3** au total avec C-S007-05 (Stoll ; Gatev et al. ; Moskowitz et al.) |
+| C-S027-09 (tests multiples → faux positifs) | C-S008-12 (cointégration testée paire par paire sans contrôle du taux d'erreur familial) | Corroboration **indépendante** du problème des comparaisons multiples dans la littérature pairs trading | **2** (Krauss sans lien avec Bailey/López de Prado) |
+| C-S007-09 (déclin de rentabilité jusqu'en 1997) | C-S008-04, C-S008-10 (déclin confirmé jusqu'en 2009 ; effet REIT disparu après 2000) | Corroboration et prolongation du déclin | **2** (Do & Faff indépendants de GGR) |
 | C-S015-07 | C-S016-07 (corroboration **non indépendante**) | Profil en "sourire" du trend-following face aux mouvements extrêmes du marché | **1** (équipe AQR commune, Ooi et Pedersen co-auteurs des deux) — la période 1880-1984 de S016 est en revanche un test hors échantillon *temporel* |
 
 ## Journal des conflits inter-sources
@@ -67,6 +73,9 @@ attaché à son échantillon d'origine.
 | C-S011-06 (FIM 2013, données AQR : le momentum survit facilement aux coûts) | C-S011-06 (Korajczyk & Sadka 2004 ; Lesmond et al. 2003 : coûts bien plus élevés, viabilité compromise) | **Contradiction réelle**, réconciliée par S011 via la taille de l'investisseur (coûts de l'investisseur moyen ≈ 10× ceux d'un grand institutionnel). **Pour ce projet, petite taille → la littérature pessimiste est la plus pertinente** | **Ouvert** — à départager par nos propres coûts réels mesurés, pas par l'une ou l'autre source |
 | C-S011-05 (Novy-Marx 2012 : momentum US mieux mesuré sur t−12 à t−7) | C-S011-05 (Goyal & Wahal 2013 : 12 mois supérieur dans 35 pays sur 36) | Contradiction entre deux études citées de seconde main | **Ouvert** — à fixer *a priori* (12 mois, convention) plutôt qu'à choisir après test |
 | C-S015-05/06 (TSMOM rentable sur 58 contrats) | C-S012-07 (Goyal & Jegadeesh 2017 ; Huang et al. 2018 : TSMOM moins rentable qu'il n'y paraît, exposition nette au marché non nulle) | **Contradiction citée de seconde main** contre S015 | **Ouvert** — tout test de C-S015-11 devra comparer le TSMOM à une exposition passive de même volatilité et neutraliser l'exposition nette |
+| C-S007-06 (version 1999 : profits nets positifs et significatifs après coûts) | C-S008-04 (Do & Faff, données jusqu'en 2009 : méthode GGR de base **largement non rentable** après coûts) | **Contradiction temporelle** : la conclusion de S007 ne tient pas sur la période ultérieure | **Ouvert** — favorise une formulation de C-S007-15 qui teste explicitement la persistance après 2009 |
+| C-S008-04 (déclin, non rentable après coûts) | C-S008-09 (Jacobs & Weber : phénomène persistant sur 34 marchés ; Jacobs 2015 : top 5 des anomalies) | Contradiction entre études citées par la même revue — dépend des variantes, marchés et traitement des coûts | **Ouvert** |
+| C-S007-01/02 (période de formation de 12 mois) | C-S008-07 (Huck 2013 : 12 mois = creux de performance, 6/18/24 mois forts) | **Fragilité paramétrique** de la règle d'origine | **Ouvert** — à intégrer comme test de perturbation de paramètre, sans optimiser la durée |
 | C-S021-02/04 (impact modélisé **linéaire** dans le rythme de trading, Almgren-Chriss) | C-S004-01 (impact **concave**, loi de la racine carrée σ·√(Q/V), Bouchaud et al. — cité de seconde main) | **Contradiction de modèle** ; S021 reconnaît lui-même que son approximation linéaire est "la plus douteuse" pour la composante η (C-S021-03) | **Ouvert, faible enjeu à notre échelle** : à petite taille, seul le coût fixe ε compte (N7) ; à trancher seulement si la taille des positions devient significative |
 | C-S011-03 (krachs du momentum = exposition conditionnelle au bêta, jambe short) | C-S012-04 (krachs = retournement simultané des autocorrélations des facteurs) | Explications concurrentes (non exclusives) | **Ouvert** |
 | C-S015-08 (les spéculateurs **suivent** la tendance et profitent au détriment des hedgers, horizon 12 mois) | Lecture "contrarienne" du COT (C-S017-01 : stratégie de **renversement** court terme sur données COT, résumé seulement) | **Tension d'horizon**, pas contradiction démontrée : trend sur 12 mois vs renversement à court terme. Impossible à préciser sans le texte intégral de S017 | **Ouvert** — à départager par test (position spéculative nette comme signal de continuation vs de renversement, à plusieurs horizons) |
@@ -78,6 +87,9 @@ attaché à son échantillon d'origine.
 | S001 | Livre sous droit d'auteur ; seules des copies non autorisées existent en ligne | Copies écartées ; 1 claim structurel depuis la table des matières ; substance confiée à S003, remonté dans l'ordre de lecture |
 | S013 | Livre sous droit d'auteur, aucune version légitime | Aucun claim ; remplacé par S029 (nouvelle source, justification dans `claims/S029.md`) |
 | S017 | Texte intégral inaccessible (SSRN bloque, Inderscience bloque, dépôt Bamberg sans fichier) | 4 claims au niveau résumé uniquement, marqués comme tels ; aucun candidat HYPOTHESIS tant que le texte n'est pas lu |
+| S018 | Texte intégral payant ; dépôt institutionnel sans fichier | 2 claims au niveau résumé ; domaine COT désormais signalé comme faiblement couvert en accès réel |
+| S022 | Texte sur JSTOR (accès membre) | 3 claims depuis le résumé officiel ; copies de sites de cours non utilisées |
+| S023 | Texte payant, pas de résumé sur RePEc, éditeur bloque | 2 claims depuis un résumé indexé, signalés comme tels ; candidat initial du registre abandonné faute de lecture |
 
 ## Notes méthodologiques transversales (à reporter dans `04_protocols.md` lors de la synthèse)
 
