@@ -65,6 +65,7 @@ attaché à son échantillon d'origine.
 | V001 | `claims/V001.md` | Sous-titres auto intégraux (client officiel), 1:25:48 | 25 | 11 candidats (dont C-V001-16 [E] chiffré) | #13 Market Profile |
 | V002 | `claims/V002.md` | Sous-titres auto intégraux (client officiel), 1:01:54 | 15 | 4 candidats | #17-18 COT |
 | V003 | `claims/V003.md` | Sous-titres auto intégraux (client officiel), 43:19 | 10 | 1 candidat (+ 1 backtest non recevable) | #17-18 COT |
+| V004 | `claims/V004.md` | Sous-titres auto intégraux (client officiel), 57:53 | 13 | 2 candidats | #13 Market Profile (inventeur) |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -102,6 +103,8 @@ attaché à son échantillon d'origine.
 | C-V002-07 (a) positions des commerciaux = information sur la valeur | C-V002-07 (b) = couverture mécanique d'un stock physique | Explications concurrentes données **par la même source** ; (a) rejoint C-S018-02, (b) rejoint la prime payée par les hedgers (S015) | **Ouvert** |
 | C-V002-05 (OI en hausse confirme la tendance) | C-S031 (preuves négatives sur les signaux de volume, un marché, 5 min) | Famille volume/OI : affirmation de praticien vs résultat négatif sur un autre signal et une autre fréquence | **Tension faible** (objets différents) — signalée, non arbitrée |
 | C-V002-07 / C-V002-09 (commerciaux informés ; commerciaux au plus court = prix trop hauts) | C-V003-05 / C-V003-06 (non-commerciaux = "smart money" ; commerciaux nets courts = haussier) | **Contradiction directe entre praticiens** sur la même donnée | **Ouvert** — à départager uniquement par test ; ni l'une ni l'autre lecture n'est retenue par défaut |
+| Règles de V001 fondées sur des niveaux de référence (C-V001-08/09/11/17/22, Dalton 2014) | C-V004-01/03 (Steidlmayer 2013 : le profil classique est devenu "almost entirely subjective" ; les relations de retracement aux plus hauts/bas "don't have any meaning as in the past") | **Contradiction entre praticiens de la même lignée** (l'inventeur contre la lecture classique) ; suggère une **non-stationnarité** liée à la cotation 24 h | **Ouvert** — tests Market Profile obligatoirement découpés par sous-période |
+| Notre règle de spécification figée a priori (R5, R6) | C-V004-13 ("changer de méthode en permanence" comme clé du succès) | Tension méthodologique, pas empirique | **Tranché pour notre pipeline** : une méthode adaptative n'est testable que si sa règle d'adaptation est spécifiée et testée en walk-forward |
 
 ## Sources inaccessibles ou limitées
 

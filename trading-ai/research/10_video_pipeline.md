@@ -65,6 +65,7 @@ l'intérêt commercial dans le fichier de claims.
 | — | Andy Waldock / MoneyShow (KKxtOZOBpH4) | MoneyShow | 4:36 | #17-18 | Trop court — candidat de dernier recours |
 | — | VSA (3YghcVbsab4) | ERA | 12:41 | #11 | Faible qualité attendue — non prioritaire |
 | — | Conférence française 2012 (fx8x7LdaNIw) | — | — | #13 | Métadonnées non récupérables — écarté |
+| V004 | Today's Market Profile – Adapting to a Changing Trading Environment (M-Nx0siHqNI, 2013) | J. Peter Steidlmayer (chaîne de sa société) | 57:53 | #13 | **Traitée** — `claims/V004.md`, 13 claims ; seconde source MP d'un auteur différent |
 | — | Livre audio de Dalton réuploadé (naCG2eUtLg0) | tiers | — | #13 | **Exclu** : copie non autorisée d'une œuvre sous droit d'auteur |
 
 ## 5. Ce que le pipeline vidéo ne fait pas
