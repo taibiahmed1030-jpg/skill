@@ -37,6 +37,8 @@ attaché à son échantillon d'origine.
 | S010 | `claims/S010.md` | Intégral (33 p.) — biais signalés : conflit d'intérêts commercial, historique probablement rétro-calculé | 13 | 1 candidat | 2 |
 | S013 | `claims/S013.md` | **Aucun** — livre sous copyright, aucune version légitime | 0 | 0 | 2 |
 | S029 | `claims/S029.md` | Intégral (30 p.) — **source ajoutée** pour remplacer S013 | 11 | 1 candidat | 2 |
+| S017 | `claims/S017.md` | **Résumé seulement** (SSRN, éditeur et dépôt institutionnel bloqués/sans fichier) | 4 | 0 | 2 |
+| S021 | `claims/S021.md` | Intégral (42 p., version déc. 2000) | 10 | 0 | 2 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -60,6 +62,7 @@ attaché à son échantillon d'origine.
 |---|---|---|
 | S001 | Livre sous droit d'auteur ; seules des copies non autorisées existent en ligne | Copies écartées ; 1 claim structurel depuis la table des matières ; substance confiée à S003, remonté dans l'ordre de lecture |
 | S013 | Livre sous droit d'auteur, aucune version légitime | Aucun claim ; remplacé par S029 (nouvelle source, justification dans `claims/S029.md`) |
+| S017 | Texte intégral inaccessible (SSRN bloque, Inderscience bloque, dépôt Bamberg sans fichier) | 4 claims au niveau résumé uniquement, marqués comme tels ; aucun candidat HYPOTHESIS tant que le texte n'est pas lu |
 
 ## Notes méthodologiques transversales (à reporter dans `04_protocols.md` lors de la synthèse)
 
@@ -71,3 +74,4 @@ attaché à son échantillon d'origine.
 | N4 | C-S029-06 | Régressions à horizons chevauchants : erreurs standard de Hodrick (1992) ; ne jamais interpréter un R² qui croît avec l'horizon sur un prédicteur persistant comme une preuve |
 | N5 | C-S007-12 | Benchmark placebo : comparer toute stratégie à la même règle appliquée à des sélections aléatoires (bootstrap) |
 | N6 | C-S010-08, C-S007-06 | Toute prime "académique" doit être recalculée nette de coûts, rotation et contraintes d'investissabilité avant toute conclusion |
+| N7 | C-S021-02/03/10 | Modèle de coûts minimal pour l'étape C : coût fixe ε = demi-spread + frais par transaction (dominant à petite taille) ; termes d'impact γ, η à ajouter seulement si la taille dépasse ~1 % du volume journalier |
