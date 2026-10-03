@@ -54,6 +54,9 @@ attaché à son échantillon d'origine.
 | S030 | `claims/S030.md` | Intégral (111 p.) — **source ajoutée** pour remplacer S002 | 8 | 0 | 3 |
 | S006 | `claims/S006.md` | **Aucun** — livre sous copyright ; guide CBOT écarté (diffusion non autorisée apparente) | 0 | 0 | 3 |
 | S031 | `claims/S031.md` | Intégral (17 p.) — **source ajoutée**, préprint indépendant de qualité modérée | 7 | 0 | 3 |
+| S014 | `claims/S014.md` | **Résumé seulement** (JSTOR) | 2 | 0 | 4 |
+| S019 | `claims/S019.md` | **Aucun** — livre ; pas de remplacement (non bloquant, partiellement couvert ailleurs) | 0 | 0 | 4 |
+| S024, S025 | `claims/S024_S025.md` | **Aucun** — livres ; **redondance documentée** avec S020/S027/S031 | 0 | 0 | 4 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -97,6 +100,9 @@ attaché à son échantillon d'origine.
 | S023 | Texte payant, pas de résumé sur RePEc, éditeur bloque | 2 claims depuis un résumé indexé, signalés comme tels ; candidat initial du registre abandonné faute de lecture |
 | S002 | Livre sous copyright | Remplacé par S030 (même auteur principal, accès libre) |
 | S006 | Livre sous copyright ; guide CBOT de diffusion non autorisée apparente | Guide écarté et supprimé du scratchpad ; volume couvert par S031 ; **Market Profile sans source** |
+| S014 | Texte JSTOR (abonnés) | 2 claims depuis le résumé ; corroboré hors échantillon par S011 |
+| S019 | Livre | Pas de remplacement : domaine non bloquant, déjà alimenté par S007, S016, S029 et la KB Elliot |
+| S024, S025 | Livres | Pas de remplacement : rôle méthodologique redondant avec S020, S027, S031 |
 
 ## Notes méthodologiques transversales (à reporter dans `04_protocols.md` lors de la synthèse)
 
