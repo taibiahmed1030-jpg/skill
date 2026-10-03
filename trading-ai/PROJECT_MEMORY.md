@@ -157,6 +157,32 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
 
+### 2026-10-03 (date système) — Pipeline vidéo terminé ; formalisation H011-H031 et priorisation
+- **Note de datation** : les entrées libellées « 2026-10-04 » ci-dessous
+  ont été rédigées le 2026-10-03 selon l'horloge système ; à partir d'ici,
+  la date système est utilisée.
+- **Vidéos traitées** (sous-titres via clients officiels yt-dlp, sans
+  cookies) : V001 Dalton (Market Profile, 2014), V002 Barchart (COT, 2022),
+  V003 TradeStation (OI/COT, 2025), V004 Steidlmayer (évolution du Market
+  Profile, 2013). 63 claims, 18 candidats [C]. Collecte vidéo **close**
+  (sentiment/régimes reportés : motif dans `research/10_video_pipeline.md` §6).
+- **Faits marquants** : l'inventeur du Market Profile affirme que la
+  lecture classique est devenue subjective avec la cotation 24 h (conflit
+  avec V001) ; deux praticiens COT donnent des lectures opposées des
+  commerciaux (H027 ↔ H028) ; un courtier antidate la donnée COT au
+  mercredi alors qu'elle est publiée le vendredi → règle **R15**
+  (datation à la publication) ajoutée à `research/04_protocols.md`.
+- **Formalisation** : H011-H031 ajoutées à `hypotheses/registry.json`
+  (sources multiples, `statut_en`, contradictions liées) ; H008 enrichie
+  d'une source ; dédoublonnage, testabilité et priorisation documentés
+  dans `research/11_formalization.md`. 9 hypothèses `TESTABLE` (accès
+  CFTC, K. French, Yahoo vérifié) ; 7 des 8 hypothèses Market Profile
+  bloquées par les données intraday (non gratuites) ; H018 `RETIRED`.
+- **Priorisation** : 1) H011 prime de variance (arbitre H003), 2) H022
+  ouverture/amplitude, 3) H027 ↔ H028 COT. Tests précédés d'un
+  pré-enregistrement écrit avant chargement des données.
+- `ingestion/SKILL.md` aligné : l'ingestion s'arrête aux claims tracés.
+
 ### 2026-10-04 (3) — Autonomie complète ; extraction du corpus écrit terminée
 - **Nouvelle consigne permanente** : l'utilisateur délègue toutes les
   décisions de recherche/développement déjà autorisées (choix de sources,

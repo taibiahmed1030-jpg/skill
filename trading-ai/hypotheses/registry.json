@@ -2,20 +2,29 @@
   "_meta": {
     "description": "Registre persistant d'hypothèses de trading extraites de contenu éducatif, en attente ou en cours de validation empirique.",
     "schema": "voir schema.md",
-    "derniere_maj": "2026-10-01"
+    "derniere_maj": "2026-10-03",
+    "champs_ajoutes_2026_10": "sources, nb_sources, nb_sources_independantes, mecanisme, complexite, biais_potentiel, testabilite, statut_en, contredit_hypothese, concurrente_de, depend_de (voir research/07_knowledge_pipeline.md §3-5)",
+    "regle_nb_sources_independantes": "Compte uniquement les sources d'auteurs/organisations distincts dont l'accord est 'confirme' ou 'confirme_partiellement' ; les sources contradictoires sont listées dans 'sources' mais non comptées. Métadonnée de traçabilité, jamais critère de promotion."
   },
   "hypotheses": [
     {
       "id": "H001",
       "idee": "L'inversion de la yield curve (spread 10Y-2Y ou 10Y-3M des obligations US) précède les récessions économiques.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "03:40-04:20"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "03:40-04:20"
+      },
       "marche": "general",
       "conditions": "Spread de rendement obligataire US négatif (maturité courte > maturité longue) sur une période soutenue.",
       "entree": null,
       "sortie": null,
       "no_trade": "Ne pas trader l'inversion elle-même ; attendre le retour à la normale de la courbe.",
       "timeframe": "Macro, 1 à 1.5 an après le début de l'inversion",
-      "donnees_necessaires": ["US Treasury yields toutes maturités", "dates officielles de récession (NBER)"],
+      "donnees_necessaires": [
+        "US Treasury yields toutes maturités",
+        "dates officielles de récession (NBER)"
+      ],
       "resultat_attendu": "Probabilité accrue de récession 12-18 mois après le début de l'inversion.",
       "statut": "non_testee",
       "backtest": null,
@@ -24,14 +33,21 @@
     {
       "id": "H002",
       "idee": "Le Global M2 Money Supply précède les actifs à risque (actions, cryptos) avec un décalage de 2 à 4 mois.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "04:40-05:20"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "04:40-05:20"
+      },
       "marche": "actions,crypto",
       "conditions": "Variation significative du Global M2.",
       "entree": "Position dans le sens de la variation du M2, décalée de ~90 jours.",
       "sortie": null,
       "no_trade": "M2 stable sans tendance claire.",
       "timeframe": "Plusieurs semaines à mois",
-      "donnees_necessaires": ["M2 agrégé (US, Chine, zone euro, Japon)", "S&P500/Bitcoin"],
+      "donnees_necessaires": [
+        "M2 agrégé (US, Chine, zone euro, Japon)",
+        "S&P500/Bitcoin"
+      ],
       "resultat_attendu": "Corrélation positive entre variation du M2 (décalée ~3 mois) et performance des actifs à risque.",
       "statut": "non_testee",
       "backtest": null,
@@ -40,14 +56,21 @@
     {
       "id": "H003",
       "idee": "Un spike du VIX au-dessus de 45 constitue un point d'achat favorable sur les indices actions US.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "04:20-04:40"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "04:20-04:40"
+      },
       "marche": "actions",
       "conditions": "VIX clôture au-dessus de 45.",
       "entree": "Achat S&P500 au moment ou peu après le spike.",
       "sortie": "Non spécifiée par le formateur — à définir pour le test (horizons fixes: 1, 3, 6 mois).",
       "no_trade": "VIX élevé sans spike rapide (régime chronique, pas un pic de panique).",
       "timeframe": "Position de plusieurs semaines à mois",
-      "donnees_necessaires": ["VIX (^VIX)", "S&P500 (^GSPC)"],
+      "donnees_necessaires": [
+        "VIX (^VIX)",
+        "S&P500 (^GSPC)"
+      ],
       "resultat_attendu": "Rendement moyen positif significatif sur les positions ouvertes après un spike VIX > 45.",
       "statut": "en_test",
       "backtest": {
@@ -57,46 +80,95 @@
         "nb_episodes_independants": 7,
         "metriques_brutes_biaisees": {
           "note": "Calcul naïf comptant chaque jour de clôture VIX>45 comme un événement séparé -- gonfle artificiellement N et la significativité. Conservé ici pour traçabilité, à ne jamais citer seul.",
-          "1_mois": {"rendement_moyen_pct": 2.853, "p_value_permutation": 0.0143},
-          "3_mois": {"rendement_moyen_pct": 8.038, "p_value_permutation": 0.0001},
-          "6_mois": {"rendement_moyen_pct": 16.955, "p_value_permutation": 0.0001}
+          "1_mois": {
+            "rendement_moyen_pct": 2.853,
+            "p_value_permutation": 0.0143
+          },
+          "3_mois": {
+            "rendement_moyen_pct": 8.038,
+            "p_value_permutation": 0.0001
+          },
+          "6_mois": {
+            "rendement_moyen_pct": 16.955,
+            "p_value_permutation": 0.0001
+          }
         },
         "metriques_corrigees_clustering": {
           "note": "Un seul événement par épisode de crise distinct (cooldown 180j) : 1998 LTCM, 2002, 2008-09 GFC, 2010, 2011, 2020 Covid, 2025 -- N=7 réellement indépendant.",
-          "1_mois": {"rendement_moyen_pct": 1.537, "pct_positif": 71.4, "sharpe": 2.838, "p_value_permutation": 0.4173},
-          "3_mois": {"rendement_moyen_pct": 8.568, "pct_positif": 85.7, "sharpe": 8.876, "p_value_permutation": 0.0095},
-          "6_mois": {"rendement_moyen_pct": 13.392, "pct_positif": 85.7, "sharpe": 9.914, "p_value_permutation": 0.0115}
+          "1_mois": {
+            "rendement_moyen_pct": 1.537,
+            "pct_positif": 71.4,
+            "sharpe": 2.838,
+            "p_value_permutation": 0.4173
+          },
+          "3_mois": {
+            "rendement_moyen_pct": 8.568,
+            "pct_positif": 85.7,
+            "sharpe": 8.876,
+            "p_value_permutation": 0.0095
+          },
+          "6_mois": {
+            "rendement_moyen_pct": 13.392,
+            "pct_positif": 85.7,
+            "sharpe": 9.914,
+            "p_value_permutation": 0.0115
+          }
         },
         "verdict": "Une fois le biais de clustering corrigé (N=7 épisodes indépendants au lieu de 21 jours), l'horizon 1 mois perd toute significativité (p=0.42) -- le résultat brut initial était un artefact statistique. Les horizons 3 et 6 mois restent significatifs (p<0.05) même à N=7, avec 6 des 7 épisodes positifs : signal directionnellement intéressant, mais N=7 reste sous le seuil de promotion fixé (≥20 occurrences indépendantes). Ne constitue PAS une validation -- juste une piste à surveiller sur les prochaines crises.",
         "limites": "Échantillon de 7 crises sur 36 ans : impossible d'exclure que le résultat soit porté par 1-2 épisodes extrêmes (2008-09, 2020) qui dominent la moyenne. Pas de test de robustesse par sous-période (ex: exclure 2008-09 et retester) effectué à ce stade. Aucun coût de transaction/slippage modélisé. Ne jamais utiliser en position réelle sur cette seule base."
       },
-      "derniere_maj": "2026-10-01"
+      "derniere_maj": "2026-10-01",
+      "concurrente_de": "H011"
     },
     {
       "id": "H004",
       "idee": "Une divergence prolongée entre yield spread et prix FX annonce un retour vers la 'juste valeur', mais sans délai prévisible.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "04:00-04:20"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "04:00-04:20"
+      },
       "marche": "forex",
       "conditions": "Décorrélation visible entre yield spread et prix FX.",
       "entree": "Non spécifiée sans confirmation technique additionnelle.",
       "sortie": null,
       "no_trade": "Trader la seule divergence sans catalyseur/confirmation technique.",
       "timeframe": "Variable, non borné (délai observé jusqu'à 167 jours dans un exemple)",
-      "donnees_necessaires": ["Rendements obligataires 10 ans des deux pays", "prix de la paire FX"],
+      "donnees_necessaires": [
+        "Rendements obligataires 10 ans des deux pays",
+        "prix de la paire FX"
+      ],
       "resultat_attendu": "Le prix finit par converger vers la direction indiquée par le spread, délai trop variable pour un signal de timing seul.",
       "statut": "non_testable",
-      "backtest": {"date_execution": "2026-10-01", "periode_testee": null, "nb_occurrences": null, "metriques": null, "p_value_permutation": null, "verdict": "Hypothèse non falsifiable telle quelle : aucun seuil de 'divergence prolongée' ni de 'retour à la juste valeur' n'est défini par la source. Nécessite d'abord une opérationnalisation (ex: seuil en écarts-types, fenêtre de mesure) avant tout test.", "limites": "Pas un rejet empirique — un blocage de formulation."},
+      "backtest": {
+        "date_execution": "2026-10-01",
+        "periode_testee": null,
+        "nb_occurrences": null,
+        "metriques": null,
+        "p_value_permutation": null,
+        "verdict": "Hypothèse non falsifiable telle quelle : aucun seuil de 'divergence prolongée' ni de 'retour à la juste valeur' n'est défini par la source. Nécessite d'abord une opérationnalisation (ex: seuil en écarts-types, fenêtre de mesure) avant tout test.",
+        "limites": "Pas un rejet empirique — un blocage de formulation."
+      },
       "derniere_maj": "2026-10-01"
     },
     {
       "id": "H005",
       "idee": "La profondeur de retracement Fibonacci (38.2/50/61.8%) est corrélée au degré de 'crowding' du trade.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "01:40-02:00"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "01:40-02:00"
+      },
       "marche": "forex",
       "conditions": "Impulsion suivie d'une correction, avec connaissance du positionnement (COT report, sentiment retail).",
-      "entree": null, "sortie": null, "no_trade": null,
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
       "timeframe": "Court à moyen terme",
-      "donnees_necessaires": ["COT report / sentiment retail", "niveaux Fibonacci réalisés historiquement"],
+      "donnees_necessaires": [
+        "COT report / sentiment retail",
+        "niveaux Fibonacci réalisés historiquement"
+      ],
       "resultat_attendu": "Les corrections sur trades 'overcrowded' s'arrêtent plus souvent proche de 38.2% que de 61.8%.",
       "statut": "non_testee",
       "backtest": null,
@@ -105,14 +177,20 @@
     {
       "id": "H006",
       "idee": "La gestion active du Risk:Reward courant (resserrement de stop, sorties étagées) améliore l'espérance de gain vs une stratégie passive.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "06:20-06:40"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "06:20-06:40"
+      },
       "marche": "general",
       "conditions": "Position ouverte avec stop et target définis à l'entrée.",
       "entree": null,
       "sortie": "Sorties partielles/ajustement de stop dès que le R:R courant devient défavorable.",
       "no_trade": null,
       "timeframe": "Toute la durée de vie de la position",
-      "donnees_necessaires": ["Historique de trades comparant gestion active vs passive sur un même univers de setups"],
+      "donnees_necessaires": [
+        "Historique de trades comparant gestion active vs passive sur un même univers de setups"
+      ],
       "resultat_attendu": "Rendement ajusté du risque supérieur avec gestion active.",
       "statut": "non_testee",
       "backtest": null,
@@ -121,45 +199,84 @@
     {
       "id": "H007",
       "idee": "L'angle/la pente d'une trendline est inversement corrélé à sa probabilité de tenir.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "01:20-01:40"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "01:20-01:40"
+      },
       "marche": "forex,actions",
       "conditions": "Trendline valide (≥3 touches) tracée sur un mouvement directionnel.",
-      "entree": null, "sortie": null,
+      "entree": null,
+      "sortie": null,
       "no_trade": "Fonder une thèse de continuation sur une trendline jugée trop verticale.",
       "timeframe": "Variable",
-      "donnees_necessaires": ["Mesure quantitative de la pente (normalisée)", "taux de cassure/tenue observé"],
+      "donnees_necessaires": [
+        "Mesure quantitative de la pente (normalisée)",
+        "taux de cassure/tenue observé"
+      ],
       "resultat_attendu": "Corrélation négative entre pente et durée de validité avant cassure.",
       "statut": "non_testable",
-      "backtest": {"date_execution": "2026-10-01", "periode_testee": null, "nb_occurrences": null, "metriques": null, "p_value_permutation": null, "verdict": "Aucune métrique de pente n'est définie par la source (observation purement visuelle). Nécessite une opérationnalisation (ex: pente normalisée = Δprix / (ATR × Δtemps)) avant tout test.", "limites": "Blocage de formulation, pas un rejet empirique."},
+      "backtest": {
+        "date_execution": "2026-10-01",
+        "periode_testee": null,
+        "nb_occurrences": null,
+        "metriques": null,
+        "p_value_permutation": null,
+        "verdict": "Aucune métrique de pente n'est définie par la source (observation purement visuelle). Nécessite une opérationnalisation (ex: pente normalisée = Δprix / (ATR × Δtemps)) avant tout test.",
+        "limites": "Blocage de formulation, pas un rejet empirique."
+      },
       "derniere_maj": "2026-10-01"
     },
     {
       "id": "H008",
       "idee": "Un positionnement retail extrême (>75% dans un sens) sur une paire constitue un signal contrarian.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "multiple (blocs 022, 025, 026, 030)"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "multiple (blocs 022, 025, 026, 030)"
+      },
       "marche": "forex",
       "conditions": "Données de sentiment retail montrant ≥75% de positions dans un même sens.",
       "entree": "Position dans le sens opposé au retail, combinée à une confirmation technique/macro indépendante.",
       "sortie": null,
       "no_trade": "Positionnement retail équilibré (proche de 50/50).",
       "timeframe": "Variable",
-      "donnees_necessaires": ["Historique de sentiment retail par courtier/agrégateur", "prix"],
+      "donnees_necessaires": [
+        "Historique de sentiment retail par courtier/agrégateur",
+        "prix"
+      ],
       "resultat_attendu": "Rendement positif des positions prises à contre-sens du retail aux extrêmes de positionnement.",
       "statut": "non_testee",
       "backtest": null,
-      "derniere_maj": "2026-10-01"
+      "derniere_maj": "2026-10-03",
+      "sources_supplementaires": [
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-14",
+          "accord": "confirme"
+        }
+      ],
+      "note_dedoublonnage": "Même mécanisme (petits traders du mauvais côté) affirmé par V002 pour les futures ; opérationnalisation alternative gratuite : catégorie « non reportables » du COT Legacy (proxy imparfait). Ajouté au lieu de créer une hypothèse distincte (07_knowledge_pipeline.md §5)."
     },
     {
       "id": "H009",
       "idee": "L'ampleur de la réaction du marché à une publication économique dépend de l'écart au range complet des estimations, pas seulement au consensus médian.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "10:00-10:20"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "10:00-10:20"
+      },
       "marche": "forex",
       "conditions": "Publication économique avec consensus ET range min-max disponibles.",
       "entree": "Position dans le sens de la surprise, uniquement si le résultat sort hors du range.",
       "sortie": null,
       "no_trade": "Résultat publié à l'intérieur du range des attentes, même si différent du consensus.",
       "timeframe": "Court terme (minutes à heures autour de la publication)",
-      "donnees_necessaires": ["Range complet des estimations d'analystes (pas seulement le consensus)", "résultat publié", "réaction de prix immédiate"],
+      "donnees_necessaires": [
+        "Range complet des estimations d'analystes (pas seulement le consensus)",
+        "résultat publié",
+        "réaction de prix immédiate"
+      ],
       "resultat_attendu": "Réaction significativement plus forte hors range qu'à l'intérieur, même pour un écart au consensus identique.",
       "statut": "non_testee",
       "backtest": null,
@@ -168,18 +285,811 @@
     {
       "id": "H010",
       "idee": "Les événements géopolitiques négatifs provoquent une réaction rapide et forte suivie d'une stabilisation ; les positifs une absorption lente suivie d'une tendance prolongée.",
-      "source": {"title": "Apprendre le Trading de A à Z (Elliot)", "url": "https://youtu.be/DXm9BF5vLVE", "timestamp": "05:20-05:40"},
+      "source": {
+        "title": "Apprendre le Trading de A à Z (Elliot)",
+        "url": "https://youtu.be/DXm9BF5vLVE",
+        "timestamp": "05:20-05:40"
+      },
       "marche": "forex,actions",
       "conditions": "Événement géopolitique identifiable affectant des fondamentaux économiques réels.",
       "entree": null,
       "sortie": "Horizon 1 à 3 mois.",
       "no_trade": "Événement géopolitique sans impact fondamental identifiable.",
       "timeframe": "2 jours (réaction initiale) à 1 mois (effet cumulé)",
-      "donnees_necessaires": ["Base d'événements géopolitiques classés positif/négatif par devise/actif", "rendements à 2j et 1 mois"],
+      "donnees_necessaires": [
+        "Base d'événements géopolitiques classés positif/négatif par devise/actif",
+        "rendements à 2j et 1 mois"
+      ],
       "resultat_attendu": "~-0.64% à 2j après choc négatif vs quasi nul à 2j mais +0.73% à 1 mois après choc positif (chiffres formateur, à revérifier).",
       "statut": "non_testee",
       "backtest": null,
       "derniere_maj": "2026-10-01"
+    },
+    {
+      "id": "H011",
+      "idee": "La prime de variance (VIX²/12 − variance réalisée du mois écoulé) prédit positivement le rendement excédentaire du S&P 500 à 3 mois, hors échantillon après 2007.",
+      "sources": [
+        {
+          "source_id": "S029",
+          "claim_id": "C-S029-11",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S029",
+          "claim_id": "C-S029-03",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S029",
+          "claim_id": "C-S029-04",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "actions (indice US)",
+      "conditions": "Fin de mois t : VRP_t = VIX_t²/12 − Σ r²_jour (mois t), VIX en points de pourcentage annualisés, rendements log quotidiens du S&P 500.",
+      "entree": "Pas une règle de trading : régression prédictive r_{t→t+3} = a + b·VRP_t.",
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Mensuel, horizon 3 mois",
+      "donnees_necessaires": [
+        "^VIX quotidien",
+        "^GSPC quotidien",
+        "taux sans risque 3 mois (^IRX)"
+      ],
+      "resultat_attendu": "b > 0 et significatif hors échantillon (2008-…), erreurs standard Hodrick/Newey-West corrigées du chevauchement (R9) ; 1990-2007 = contrôle de réplication uniquement.",
+      "mecanisme": "Compensation du risque de variance demandée par les investisseurs (S029).",
+      "complexite": "faible",
+      "biais_potentiel": "Prédicteur persistant + horizons chevauchants (R9) ; période post-2007 dominée par 2008 et 2020 (étape B : exclure chaque crise).",
+      "testabilite": "Données gratuites (yfinance), infrastructure existante. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03",
+      "concurrente_de": "H003",
+      "note_conflit": "C-S029-04 : le niveau d'IV seul ne prédit pas, seule la différence IV−RV prédit — spécification concurrente de H003 (niveau du VIX), à comparer sur les mêmes données."
+    },
+    {
+      "id": "H012",
+      "idee": "Une règle TSMOM figée a priori (signe du rendement sur 12 mois, détention 1 mois, volatilité cible 40 %/an par actif, volatilité ex ante estimée en t−1) produit un rendement net de coûts positif et significatif après 2009 sur un univers multi-classes d'ETF liquides.",
+      "sources": [
+        {
+          "source_id": "S015",
+          "claim_id": "C-S015-11",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S016",
+          "claim_id": "C-S016-01",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S012",
+          "claim_id": "C-S012-07",
+          "accord": "contredit_partiellement"
+        }
+      ],
+      "nb_sources": 3,
+      "nb_sources_independantes": 1,
+      "marche": "multi-actifs (ETF)",
+      "conditions": "Signal mensuel par actif : signe(r_{t−12→t}). Pondération ∝ 1/σ_{t−1}. Univers figé avant le test (liste publiée dans le fichier de test).",
+      "entree": "Long si signal > 0, court sinon, à la clôture du dernier jour du mois (exécution le jour suivant).",
+      "sortie": "Rebalancement mensuel.",
+      "no_trade": null,
+      "timeframe": "Mensuel",
+      "donnees_necessaires": [
+        "ETF multi-classes quotidiens (yfinance)",
+        "coûts : demi-spread + frais (R12)"
+      ],
+      "resultat_attendu": "Rendement net mensuel moyen > 0, t ≥ 2 hors échantillon (R14) ; contrôle obligatoire : variante à exposition nette neutralisée (critique C-S012-07).",
+      "mecanisme": "Sous-réaction puis sur-réaction des prix (S015).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Approximation futures→ETF ; S015/S016 non indépendants (AQR) ; critique d'exposition nette (C-S012-07).",
+      "testabilite": "Données gratuites ; historique ETF limité (~2005+). Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H013",
+      "idee": "La corrélation moyenne absolue entre marchés (fenêtre glissante 36 mois, connue en t) prédit négativement le rendement du mois suivant de la stratégie H012.",
+      "sources": [
+        {
+          "source_id": "S016",
+          "claim_id": "C-S016-13",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "multi-actifs (ETF)",
+      "conditions": "Corrélation moyenne des rendements mensuels des actifs de H012 sur 36 mois finissant en t.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Mensuel",
+      "donnees_necessaires": [
+        "Mêmes données que H012"
+      ],
+      "resultat_attendu": "Coefficient négatif significatif (R9 si chevauchement).",
+      "mecanisme": "Moins de diversification entre signaux quand les marchés sont corrélés (S016).",
+      "complexite": "faible",
+      "biais_potentiel": "Dépend de H012 ; peu d'observations mensuelles post-2009.",
+      "testabilite": "Testable seulement après H012.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03",
+      "depend_de": "H012"
+    },
+    {
+      "id": "H014",
+      "idee": "Sur les facteurs publics de K. French après décembre 2013, la combinaison 60 % HML / 40 % UMD conserve un drawdown maximal nettement inférieur à UMD seul et un Sharpe supérieur à chacun des deux facteurs.",
+      "sources": [
+        {
+          "source_id": "S011",
+          "claim_id": "C-S011-11",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "actions (facteurs long-short)",
+      "conditions": "Rendements mensuels HML et UMD, combinaison fixe 60/40 rebalancée mensuellement.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Mensuel",
+      "donnees_necessaires": [
+        "Bibliothèque K. French (gratuite)"
+      ],
+      "resultat_attendu": "Propriété de diversification maintenue hors échantillon.",
+      "mecanisme": "Corrélation négative value/momentum (S011).",
+      "complexite": "faible",
+      "biais_potentiel": "Facteurs bruts non investissables ; source AQR (intérêt commercial).",
+      "testabilite": "Données gratuites ; teste une propriété, pas une stratégie exploitable. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H015",
+      "idee": "Le momentum temporel appliqué aux facteurs publics (signe du rendement sur 12 mois) reste positif et significatif après décembre 2015, et plus fort quand le sentiment (Baker-Wurgler) est bas.",
+      "sources": [
+        {
+          "source_id": "S012",
+          "claim_id": "C-S012-08",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "actions (facteurs long-short)",
+      "conditions": "Signal mensuel par facteur : signe(r_{t−12→t}) ; régime de sentiment = indice Baker-Wurgler sous sa médiane historique connue en t.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Mensuel",
+      "donnees_necessaires": [
+        "French, AQR, Stambaugh (gratuits)",
+        "indice de sentiment Baker-Wurgler (gratuit)"
+      ],
+      "resultat_attendu": "Rendement moyen > 0 hors échantillon ; différence de rendement entre régimes de sentiment significative.",
+      "mecanisme": "Autocorrélation des rendements de facteurs (S012).",
+      "complexite": "faible",
+      "biais_potentiel": "Working paper non revu ; disponibilité retardée de l'indice de sentiment (R15).",
+      "testabilite": "Données gratuites. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H016",
+      "idee": "Un portefeuille multi-facteurs (value + momentum + basse volatilité, définitions figées a priori) produit une prime nette de coûts significative et plus stable par sous-période que chaque facteur isolé.",
+      "sources": [
+        {
+          "source_id": "S010",
+          "claim_id": "C-S010-13",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S011",
+          "claim_id": "C-S011-06",
+          "accord": "contredit_partiellement"
+        }
+      ],
+      "nb_sources": 2,
+      "nb_sources_independantes": 1,
+      "marche": "actions",
+      "conditions": "Définitions de facteurs figées avant le test ; coûts pessimistes (R13).",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Mensuel",
+      "donnees_necessaires": [
+        "Univers d'actions sans biais de survie (non gratuit)"
+      ],
+      "resultat_attendu": "Prime nette > 0 et plus stable.",
+      "mecanisme": "Diversification entre primes (S010).",
+      "complexite": "elevee",
+      "biais_potentiel": "Data snooping sur les définitions (C-S010-03) ; conflit sur les coûts (C-S011-06).",
+      "testabilite": "Bloquée : univers sans biais de survie non disponible gratuitement.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H017",
+      "idee": "Sur un univers récent, des paires sélectionnées par cointégration avec contrôle des comparaisons multiples produisent un rendement net de coûts et un taux de convergence supérieurs à des paires sélectionnées par distance (GGR) ; et la méthode distance reste-t-elle rentable nette de coûts après 2002 ?",
+      "sources": [
+        {
+          "source_id": "S007",
+          "claim_id": "C-S007-15",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S008",
+          "claim_id": "C-S008-14",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S008",
+          "claim_id": "C-S008-04",
+          "accord": "contredit_partiellement"
+        }
+      ],
+      "nb_sources": 2,
+      "nb_sources_independantes": 2,
+      "marche": "actions",
+      "conditions": "Formation 12 mois, trading 6 mois, ouverture à 2 écarts-types, exécution décalée d'un jour (R1).",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Quotidien",
+      "donnees_necessaires": [
+        "Univers d'actions sans biais de survie (non gratuit)"
+      ],
+      "resultat_attendu": "Comparaison des deux méthodes, nette de coûts.",
+      "mecanisme": "Retour à l'équilibre d'une relation de prix (S026 cointégration).",
+      "complexite": "elevee",
+      "biais_potentiel": "Fusion de deux candidats ; conflit temporel C-S007-06 / C-S008-04 ; fragilité paramétrique C-S008-07.",
+      "testabilite": "Bloquée : univers sans biais de survie (point connu, 05_roadmap.md).",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H018",
+      "idee": "Le déséquilibre d'ordres d'une journée prédit un rebond partiel le jour suivant (impact de liquidité temporaire).",
+      "sources": [
+        {
+          "source_id": "S003",
+          "claim_id": "C-S003-12",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "general",
+      "conditions": "Déséquilibre I_t = achats − ventes classés (Lee-Ready).",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Quotidien",
+      "donnees_necessaires": [
+        "Trades classés achat/vente (non gratuits)"
+      ],
+      "resultat_attendu": "Coefficient négatif sur I_{t−1}.",
+      "mecanisme": "Fourniture de liquidité (S003).",
+      "complexite": "elevee",
+      "biais_potentiel": "—",
+      "testabilite": "Données non gratuites pour les marchés envisagés.",
+      "statut": "non_testable",
+      "statut_en": "RETIRED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H019",
+      "idee": "Le POC (prix de plus forte activité TPO) d'une séance est retouché le lendemain plus souvent qu'un prix de référence de la value area situé à la même distance de la clôture, et d'autant plus que le POC est large.",
+      "sources": [
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-08",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-09",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures indices (ES)",
+      "conditions": "Profil TPO 30 min de la séance régulière (RTH) ; POC = prix avec le plus de lettres ; largeur relative = TPO(POC)/médiane des TPO de la séance ; baseline = prix de la VA à même distance de la clôture, côté opposé.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Intraday → lendemain",
+      "donnees_necessaires": [
+        "Futures ES 30 min avec séance de nuit et règlement officiel (non gratuits au-delà de 60 jours)"
+      ],
+      "resultat_attendu": "P(toucher POC | t+1) > P(toucher baseline | t+1), croissante avec la largeur.",
+      "mecanisme": "Prix jugé le plus juste (affirmation V001) ; alternative : simple retour vers la masse de la distribution.",
+      "complexite": "moyenne",
+      "biais_potentiel": "Exemples choisis a posteriori (V001) ; anomalies non définies (C-V001-09 non formalisé) ; non-stationnarité annoncée par l'inventeur (C-V004-01) → test par sous-période obligatoire.",
+      "testabilite": "Bloquée par les données intraday historiques.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03",
+      "contredit_par_claim": "C-V004-03"
+    },
+    {
+      "id": "H020",
+      "idee": "Un extrême de la première demi-heure (période A) situé à ±1 tick d'un niveau de référence mécanique (règlement de la veille, puis milieu du range, puis plus haut/bas de la nuit manqué de ≤2 ticks) est franchi en sens inverse dans la séance plus souvent qu'un extrême de période A situé ailleurs.",
+      "sources": [
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-11",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-22",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-17",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures indices (ES)",
+      "conditions": "Trois niveaux pré-déclarés, testés séparément avec correction pour 3 tests ; tick = 0,25 point (ES) ; perturbation : ±0, ±1, ±2 ticks.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Intraday",
+      "donnees_necessaires": [
+        "Futures ES 30 min avec séance de nuit et règlement officiel"
+      ],
+      "resultat_attendu": "Taux de franchissement significativement supérieur à la baseline (extrêmes de période A hors de ces niveaux).",
+      "mecanisme": "Selon V001 : traders les plus faibles agissent aux niveaux mécaniques (non observable, C-V001-12).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Rebond bid-ask sur 1-2 ticks (R1) ; contre-exemples reconnus par la source ; mécanisme non testable.",
+      "testabilite": "Bloquée par les données intraday historiques.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03",
+      "contredit_par_claim": "C-V004-03"
+    },
+    {
+      "id": "H021",
+      "idee": "Après l'ouverture de la séance régulière, le prix évolue d'abord en sens inverse de l'inventaire de nuit (« contre-enchère ») dans environ 65 % des cas, au-delà de ce qu'implique une baseline de retour vers le règlement.",
+      "sources": [
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-16",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures indices (ES)",
+      "conditions": "Inventaire de nuit long si le prix de nuit à l'ouverture RTH > règlement de la veille ; contre-enchère = le prix touche le règlement de la veille OU retrace ≥ 50 % du mouvement de nuit avant 11h00 ET.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Intraday (première heure et demie)",
+      "donnees_necessaires": [
+        "Futures ES avec séance de nuit et règlement officiel"
+      ],
+      "resultat_attendu": "Fréquence de contre-enchère > baseline (même mesure appliquée à des niveaux de référence placebo) ; 65 % n'est qu'une valeur annoncée, pas un seuil de validation.",
+      "mecanisme": "Traders de nuit plus faibles (affirmation, non observable).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Définition de « contre-enchère » fixée par nous (la source n'en donne pas) — à figer avant le test.",
+      "testabilite": "Bloquée par les données intraday historiques.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H022",
+      "idee": "Plus l'ouverture est éloignée du centre du range de la veille (et a fortiori en gap hors du range), plus le range de la journée est grand, au-delà de ce qu'explique la volatilité récente.",
+      "sources": [
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-18",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-05",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "indices actions (ES/SPY)",
+      "conditions": "x_t = |Open_t − milieu(H_{t−1},L_{t−1})| / (H_{t−1} − L_{t−1}) ; y_t = (H_t − L_t) / ATR_{20}(t−1). Variante : indicatrice de gap hors du range de la veille.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Quotidien",
+      "donnees_necessaires": [
+        "OHLC quotidien S&P 500 / SPY (gratuit, yfinance)"
+      ],
+      "resultat_attendu": "Coefficient positif de y sur x significatif après contrôle de la volatilité récente (ATR, |r_{t−1}|) ; testé par sous-périodes (dont avant/après 2000).",
+      "mecanisme": "Ouverture hors équilibre = déséquilibre accumulé (V001, V004).",
+      "complexite": "faible",
+      "biais_potentiel": "Persistance de la volatilité (le gap est lui-même un indicateur de volatilité) — contrôle obligatoire ; pour un indice cash, l'open peut être périmé (R1).",
+      "testabilite": "Données gratuites, infrastructure existante. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible).",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H023",
+      "idee": "Plus la proportion de TPO des périodes A-D situés au-dessus du haut de la value area de la veille est grande, plus la probabilité que la value area du jour soit entièrement au-dessus de celle de la veille est élevée, au-delà de l'inclusion mécanique de ces TPO.",
+      "sources": [
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-10",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures indices (ES)",
+      "conditions": "Value area 70 % TPO, construite à partir du POC.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Intraday",
+      "donnees_necessaires": [
+        "Futures ES 30 min"
+      ],
+      "resultat_attendu": "Pouvoir prédictif supérieur à un modèle de référence comptant uniquement l'inclusion mécanique.",
+      "mecanisme": "« Value changes slowly » (V001).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Quasi-tautologie à contrôler explicitement.",
+      "testabilite": "Bloquée par les données intraday historiques.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H024",
+      "idee": "Une séance en hausse continue par barres de 30 min (one-time framing haussier toute la séance) mais dont la value area finit chevauchante-à-plus-basse est suivie d'un rendement négatif le lendemain (et symétriquement).",
+      "sources": [
+        {
+          "source_id": "V001",
+          "claim_id": "C-V001-20",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures indices (ES)",
+      "conditions": "One-time framing défini en C-V001-03 ; VA 70 % TPO.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Lendemain",
+      "donnees_necessaires": [
+        "Futures ES 30 min"
+      ],
+      "resultat_attendu": "Rendement moyen du lendemain négatif vs baseline des séances one-time framing sans ce motif.",
+      "mecanisme": "Correction d'inventaire de court terme (V001).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Motif probablement rare → effectif à vérifier avant tout test (seuil 20 épisodes).",
+      "testabilite": "Bloquée par les données intraday ; rareté probable.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H025",
+      "idee": "Quand le profil à temps variable (minimum 12 barres de 30 min, nouveau profil si cassure du range des 9 dernières barres) est plus étroit que les précédents (accélération), le rendement des barres suivantes va dans le sens du mouvement.",
+      "sources": [
+        {
+          "source_id": "V004",
+          "claim_id": "C-V004-06",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V004",
+          "claim_id": "C-V004-07",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures (indices, devises, énergie)",
+      "conditions": "Algorithme 12/9 de C-V004-06 ; vitesse = largeur de la ligne TPO maximale du profil courant / médiane des 10 profils précédents ; perturbation 10/7, 12/9, 15/11.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Intraday",
+      "donnees_necessaires": [
+        "Futures 30 min avec volume, 24 h"
+      ],
+      "resultat_attendu": "Rendement suivant de même signe que le mouvement du profil, au-delà d'un momentum intraday simple de même horizon.",
+      "mecanisme": "Déséquilibre d'ordres (V004 ; cohérent qualitativement avec S003, S030).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Paramètres 12/9 choisis par expérience sur 18 ans (non documentés) ; confusion possible avec un simple effet de volatilité.",
+      "testabilite": "Bloquée par les données intraday historiques.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H026",
+      "idee": "Une barre de 30 min de volume extrême (top 20 des 300 dernières) accompagnée d'une faible variation de prix est suivie d'un mouvement en sens inverse de la pression supposée.",
+      "sources": [
+        {
+          "source_id": "V004",
+          "claim_id": "C-V004-10",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V004",
+          "claim_id": "C-V004-08",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S031",
+          "claim_id": "C-S031-01",
+          "accord": "contredit_partiellement"
+        }
+      ],
+      "nb_sources": 2,
+      "nb_sources_independantes": 1,
+      "marche": "futures",
+      "conditions": "Volume extrême = rang ≤ 20 sur 300 barres ; faible variation = |r| < médiane des |r| ; « pression » = signe de la barre précédente.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Intraday",
+      "donnees_necessaires": [
+        "Futures 30 min avec volume"
+      ],
+      "resultat_attendu": "Rendement suivant de signe opposé significatif.",
+      "mecanisme": "« La liquidité volontaire est plus grande que l'événement » (V004).",
+      "complexite": "moyenne",
+      "biais_potentiel": "S031 : signaux de volume intraday non concluants sur un marché ; risque de multiplicité des définitions.",
+      "testabilite": "Bloquée par les données intraday historiques.",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H027",
+      "idee": "Quand la position nette des commerciaux (rapport COT Legacy) atteint son extrême sur 52 semaines, la tendance de prix en cours s'inverse dans les semaines suivantes (commerciaux au plus court → baisse ; au plus long → hausse).",
+      "sources": [
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-09",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-07",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S017",
+          "claim_id": "C-S017-01",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S015",
+          "claim_id": "C-S015-08",
+          "accord": "contredit_partiellement"
+        }
+      ],
+      "nb_sources": 3,
+      "nb_sources_independantes": 2,
+      "marche": "futures (matières premières, financiers)",
+      "conditions": "Position nette commerciale = longs − shorts (futures only, figé a priori) ; extrême = plus haut/plus bas des 52 dernières semaines connues ; donnée datée au vendredi de publication (R15) ; univers de marchés figé avant le test.",
+      "entree": "Signal le lundi suivant la publication.",
+      "sortie": "Horizons fixes 4, 8, 13 semaines.",
+      "no_trade": null,
+      "timeframe": "Hebdomadaire",
+      "donnees_necessaires": [
+        "Rapports COT historiques CFTC (gratuits)",
+        "prix de futures continus quotidiens avec méthode de raccordement documentée (R3)"
+      ],
+      "resultat_attendu": "Rendement moyen dans le sens contrarien significatif, testé par marché et en panel avec correction pour tests multiples.",
+      "mecanisme": "Les commerciaux connaissent la valeur de leur marché (V002) — ou couvrent mécaniquement un stock (explication concurrente, même source).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Exemples choisis a posteriori (V002) ; multiplicité marchés × catégories ; S017 au niveau résumé (sélection de 6 marchés sur N).",
+      "testabilite": "Données gratuites (CFTC) ; prix de futures continus gratuits à vérifier (qualité, raccordement). Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03",
+      "contredit_hypothese": "H028"
+    },
+    {
+      "id": "H028",
+      "idee": "Une position nette courte des commerciaux est haussière (et longue baissière) : suivre la position des non-commerciaux (« smart money ») plutôt que la contrer.",
+      "sources": [
+        {
+          "source_id": "V003",
+          "claim_id": "C-V003-06",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V003",
+          "claim_id": "C-V003-05",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S015",
+          "claim_id": "C-S015-08",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "S018",
+          "claim_id": "C-S018-01",
+          "accord": "confirme_partiellement"
+        }
+      ],
+      "nb_sources": 3,
+      "nb_sources_independantes": 3,
+      "marche": "futures (matières premières, financiers)",
+      "conditions": "Mêmes données et datation que H027 ; signal = signe de la position nette des non-commerciaux (équivalent au signe opposé des commerciaux hors non reportables).",
+      "entree": "Signal le lundi suivant la publication.",
+      "sortie": "Horizons fixes 4, 8, 13 semaines.",
+      "no_trade": null,
+      "timeframe": "Hebdomadaire",
+      "donnees_necessaires": [
+        "Rapports COT historiques CFTC (gratuits)",
+        "prix de futures continus quotidiens (R3)"
+      ],
+      "resultat_attendu": "Rendement moyen dans le sens des non-commerciaux significatif.",
+      "mecanisme": "Les spéculateurs suivent la tendance et en profitent (S015) ; traders « informés » (S018).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Peut n'être qu'un momentum déguisé (les spéculateurs suivent la tendance) → contrôle par un momentum de prix de même horizon obligatoire.",
+      "testabilite": "Mêmes données que H027. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03",
+      "contredit_hypothese": "H027"
+    },
+    {
+      "id": "H029",
+      "idee": "Le changement de signe (net long ↔ net court) de la position nette d'une grande catégorie du rapport COT marque le début d'une nouvelle tendance dans le sens de la nouvelle position.",
+      "sources": [
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-10",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V003",
+          "claim_id": "C-V003-07",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 2,
+      "nb_sources_independantes": 2,
+      "marche": "futures",
+      "conditions": "Catégories testées figées a priori (commerciaux et non-commerciaux, Legacy) ; changement de signe entre deux rapports consécutifs ; datation à la publication (R15).",
+      "entree": "Lundi suivant la publication.",
+      "sortie": "Horizons 4, 8, 13 semaines.",
+      "no_trade": null,
+      "timeframe": "Hebdomadaire",
+      "donnees_necessaires": [
+        "COT CFTC",
+        "prix de futures continus (R3)"
+      ],
+      "resultat_attendu": "Rendement moyen dans le sens de la nouvelle position significatif.",
+      "mecanisme": "Arrivée d'un nouveau groupe directeur (V002).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Catégories structurellement d'un seul côté ne produisent jamais de signal (C-V002-10) ; recoupement avec H027/H028.",
+      "testabilite": "Données gratuites. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H030",
+      "idee": "Matrice open interest × tendance : une tendance accompagnée d'un OI croissant se poursuit, une tendance accompagnée d'un OI décroissant s'inverse.",
+      "sources": [
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-05",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-06",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 1,
+      "nb_sources_independantes": 1,
+      "marche": "futures",
+      "conditions": "Tendance = signe du rendement sur 20 jours ; ΔOI = variation de l'OI total sur 20 jours ; OI quotidien agrégé toutes échéances.",
+      "entree": null,
+      "sortie": "Horizon fixe 20 jours.",
+      "no_trade": null,
+      "timeframe": "Quotidien",
+      "donnees_necessaires": [
+        "Prix et open interest quotidiens de futures"
+      ],
+      "resultat_attendu": "Rendement suivant plus élevé dans le sens de la tendance quand ΔOI > 0 que quand ΔOI < 0.",
+      "mecanisme": "OI = engagement d'argent nouveau (V002).",
+      "complexite": "faible",
+      "biais_potentiel": "Règle classique largement diffusée ; famille volume avec preuves négatives (S031).",
+      "testabilite": "OI quotidien historique : disponibilité gratuite à vérifier (le COT donne l'OI hebdomadaire gratuitement — variante hebdomadaire possible).",
+      "statut": "non_testee",
+      "statut_en": "UNTESTED",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
+    },
+    {
+      "id": "H031",
+      "idee": "Filtrer une stratégie de tendance (croisement de moyenne mobile) par la variation hebdomadaire de la position nette des non-commerciaux (> +3 % pour les achats, < −3 % pour les ventes) améliore son rendement net hors échantillon.",
+      "sources": [
+        {
+          "source_id": "V003",
+          "claim_id": "C-V003-10",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V003",
+          "claim_id": "C-V003-09",
+          "accord": "confirme"
+        },
+        {
+          "source_id": "V002",
+          "claim_id": "C-V002-11",
+          "accord": "confirme"
+        }
+      ],
+      "nb_sources": 2,
+      "nb_sources_independantes": 2,
+      "marche": "futures",
+      "conditions": "Donnée COT datée à la publication (R15 — la démonstration de V003 antidatait au mercredi) ; seuils 3 % perturbés (2, 3, 5 %) ; coûts inclus.",
+      "entree": null,
+      "sortie": null,
+      "no_trade": null,
+      "timeframe": "Quotidien/hebdomadaire",
+      "donnees_necessaires": [
+        "COT CFTC",
+        "prix de futures continus non ajustés ou ajustés proportionnellement (R3)"
+      ],
+      "resultat_attendu": "Amélioration nette hors échantillon vs stratégie non filtrée, au-delà d'une réduction mécanique du nombre de trades (contrôle : filtre aléatoire de même fréquence, R8).",
+      "mecanisme": "Confirmation par le positionnement des grands spéculateurs (V003).",
+      "complexite": "moyenne",
+      "biais_potentiel": "Backtest de V003 non recevable (look-ahead, sans coûts, un marché) ; le filtre change la nature de la stratégie.",
+      "testabilite": "Données gratuites. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
+      "statut": "non_testee",
+      "statut_en": "TESTABLE",
+      "backtest": null,
+      "derniere_maj": "2026-10-03"
     }
   ]
 }
