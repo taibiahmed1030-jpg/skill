@@ -60,24 +60,31 @@ no-trade, risk management, timeframes, erreurs à éviter — voir
 `TRADING_KNOWLEDGE_BASE.md` comme gabarit). Ne pas répéter un concept déjà
 capturé ailleurs dans le même document — une seule formulation canonique.
 
-## Étape 4 — Formalisation en hypothèses testables
+## Étape 4 — Claims tracés (PAS d'écriture directe dans le registre)
 
-Pour chaque idée taguée [C] (et les [B] suffisamment précises et chiffrées
-pour être testées), créer une entrée dans `hypotheses/registry.json` suivant
-`hypotheses/schema.md`. Une hypothèse qui ne peut pas être formulée de façon
-objective et vérifiable (pas de seuil chiffré, pas de condition précise) est
-marquée `non_testable` avec le verdict expliquant pourquoi — ne pas forcer
-une formulation artificielle juste pour remplir le registre.
+Mise à jour 2026-10-04 (pipeline `research/07_knowledge_pipeline.md`) :
+l'ingestion s'arrête à l'étage **CLAIM**. Écrire un fichier
+`research/claims/VXXX.md` (une ligne par claim : ID `C-VXXX-NN`, tag
+[A]-[E], claim, timestamp, conditions/limites) et l'indexer dans
+`research/CLAIMS_REGISTRY.md` (fusions, corroborations, conflits).
+Signaler explicitement : contenu promotionnel, intérêt commercial,
+exemples choisis a posteriori, chiffres sans méthodologie, backtests
+montrés (et pourquoi ils sont recevables ou non).
 
-**Avant d'ajouter une hypothèse, vérifier qu'elle n'existe pas déjà** (même
-idée formulée différemment dans une autre vidéo) — si elle existe, ajouter la
-nouvelle source à `source` au lieu de dupliquer l'entrée.
+La formalisation en hypothèses dans `hypotheses/registry.json` est une
+étape **séparée et ultérieure**, commune à toutes les sources (écrites et
+vidéo) : dédoublonnage → formalisation → vérification de testabilité →
+filtrage → priorisation. Elle n'est jamais faite source par source.
+
+Accès aux sous-titres : clients officiels `yt-dlp` uniquement (`mweb` pour
+les métadonnées, `web_embedded` pour les sous-titres), sans cookies ni
+miroirs, requêtes espacées (voir `research/10_video_pipeline.md`).
 
 ## Étape 5 — Rapport court
 
 Ne jamais coller le contenu complet dans le chat. Donner uniquement :
 - Durée traitée / parties manquantes
-- Nombre d'hypothèses ajoutées / fusionnées avec des hypothèses existantes
+- Nombre de claims extraits, candidats [C], fusions/conflits signalés
 - Fichier(s) mis à jour
 
 ## Ce que ce process NE fait PAS

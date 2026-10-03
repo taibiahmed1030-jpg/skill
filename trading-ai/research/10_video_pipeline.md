@@ -75,3 +75,35 @@ l'intérêt commercial dans le fichier de claims.
   commune au corpus écrit et vidéo.
 - Aucun chiffre d'une vidéo (ex. "65 % of the time", C-V001-16) n'est
   repris comme fait : il devient au mieux un candidat [E] à mesurer.
+
+## 6. Clôture de la collecte vidéo (2026-10-04)
+
+| Source | Domaine | Claims | Candidats [C] |
+|---|---|---|---|
+| V001 Dalton (2014) | #13 Market Profile | 25 | 11 |
+| V002 Barchart (2022) | #17-18 COT | 15 | 4 |
+| V003 TradeStation (2025) | #17-18 COT | 10 | 1 |
+| V004 Steidlmayer (2013) | #13 Market Profile | 13 | 2 |
+| **Total** | | **63** | **18** |
+
+**Couverture après collecte vidéo** : #13 Market Profile MISSING →
+**PARTIAL** (deux praticiens indépendants, aucune preuve empirique, conflit
+sur la validité actuelle de la lecture classique) ; #17-18 COT PARTIAL →
+**COVERED** pour l'usage pratique et la mécanique des données (deux sources
+intégrales indépendantes + S015 empirique), la preuve empirique restant au
+niveau résumé (S017, S018).
+
+**Décision : la collecte vidéo s'arrête ici.** Les lacunes de priorité
+moyenne (sentiment #16, régimes #15) ne sont pas traitées par vidéo
+maintenant, pour trois raisons :
+1. Elles disposent déjà d'un point d'appui écrit (indice Baker-Wurgler
+   C-S012-05, corrélation moyenne C-S016-13, H008 positionnement retail) ;
+2. Chaque source supplémentaire ajoute des candidats et donc des tests :
+   multiplier les hypothèses avant d'en avoir testé une seule augmente le
+   fardeau de tests multiples (S027, R6) sans gain de rigueur ;
+3. Les vidéos de praticiens sur ces sujets apporteraient des affirmations
+   et non des preuves ; on y reviendra si une hypothèse de sentiment est
+   priorisée et nécessite une définition opérationnelle.
+
+Étape suivante : dédoublonnage et formalisation communs aux corpus écrit
+et vidéo (`11_formalization.md`).
