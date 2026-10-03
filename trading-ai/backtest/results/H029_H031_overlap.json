@@ -1,0 +1,153 @@
+{
+  "parametres": {
+    "persistance": 4,
+    "independance": 8,
+    "horizon": 8,
+    "seuil_h031_pct": 3.0
+  },
+  "indicateurs": {
+    "nc_flip_vs_h028_meme_position": {
+      "numerateur": 2587,
+      "denominateur": 3657,
+      "taux": 0.707
+    },
+    "c_flip_vs_h028_meme_sens": {
+      "numerateur": 155,
+      "denominateur": 466,
+      "taux": 0.333
+    },
+    "c_flip_avec_nc_flip_oppose_2": {
+      "numerateur": 231,
+      "denominateur": 466,
+      "taux": 0.496
+    },
+    "c_flip_avec_nc_flip_meme_sens_2": {
+      "numerateur": 4,
+      "denominateur": 466,
+      "taux": 0.009
+    },
+    "c_flip_pres_extreme_h027_4": {
+      "numerateur": 219,
+      "denominateur": 466,
+      "taux": 0.47
+    },
+    "nc_flip_pres_extreme_h027_4": {
+      "numerateur": 202,
+      "denominateur": 458,
+      "taux": 0.441
+    },
+    "h031_signal_meme_sens_que_h028": {
+      "numerateur": 6321,
+      "denominateur": 11641,
+      "taux": 0.543
+    }
+  },
+  "part_echantillon_h028_couverte_par_fenetres_h029_nc": 0.178,
+  "par_marche": {
+    "ZW=F": {
+      "flips_nc": 41,
+      "flips_c": 42,
+      "extremes_h027": 58,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.507
+    },
+    "ZC=F": {
+      "flips_nc": 39,
+      "flips_c": 47,
+      "extremes_h027": 58,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.559
+    },
+    "ZS=F": {
+      "flips_nc": 32,
+      "flips_c": 33,
+      "extremes_h027": 57,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.642
+    },
+    "NG=F": {
+      "flips_nc": 20,
+      "flips_c": 23,
+      "extremes_h027": 57,
+      "semaines": 1357,
+      "part_semaines_h031_actif": 0.315
+    },
+    "ZN=F": {
+      "flips_nc": 38,
+      "flips_c": 26,
+      "extremes_h027": 65,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.612
+    },
+    "LE=F": {
+      "flips_nc": 17,
+      "flips_c": 28,
+      "extremes_h027": 57,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.499
+    },
+    "CL=F": {
+      "flips_nc": 20,
+      "flips_c": 23,
+      "extremes_h027": 50,
+      "semaines": 1357,
+      "part_semaines_h031_actif": 0.458
+    },
+    "SB=F": {
+      "flips_nc": 31,
+      "flips_c": 34,
+      "extremes_h027": 65,
+      "semaines": 1357,
+      "part_semaines_h031_actif": 0.601
+    },
+    "KC=F": {
+      "flips_nc": 37,
+      "flips_c": 37,
+      "extremes_h027": 65,
+      "semaines": 1357,
+      "part_semaines_h031_actif": 0.61
+    },
+    "SI=F": {
+      "flips_nc": 13,
+      "flips_c": 3,
+      "extremes_h027": 55,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.602
+    },
+    "HG=F": {
+      "flips_nc": 34,
+      "flips_c": 35,
+      "extremes_h027": 58,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.562
+    },
+    "GC=F": {
+      "flips_nc": 8,
+      "flips_c": 5,
+      "extremes_h027": 49,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.595
+    },
+    "6J=F": {
+      "flips_nc": 45,
+      "flips_c": 46,
+      "extremes_h027": 58,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.772
+    },
+    "6E=F": {
+      "flips_nc": 33,
+      "flips_c": 27,
+      "extremes_h027": 69,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.619
+    },
+    "ES=F": {
+      "flips_nc": 50,
+      "flips_c": 57,
+      "extremes_h027": 62,
+      "semaines": 1358,
+      "part_semaines_h031_actif": 0.62
+    }
+  }
+}
