@@ -157,6 +157,31 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
 
+### 2026-10-04 (3) — Autonomie complète ; extraction du corpus écrit terminée
+- **Nouvelle consigne permanente** : l'utilisateur délègue toutes les
+  décisions de recherche/développement déjà autorisées (choix de sources,
+  ordre, méthodes, vidéos) selon l'ordre de priorité rigueur > traçabilité
+  > réduction des biais > reproductibilité > simplicité > coût nul >
+  rapidité. Arrêt seulement pour dépense, action irréversible, décision
+  verrouillée, ou étape exigeant réellement une approbation. Interdits
+  inchangés (ordres réels, wallet, capital réel, live, paper trading non
+  autorisé, contournement du Risk Manager, dépense).
+- **Décisions prises** : registre de claims découpé en un fichier par
+  source (`research/claims/`) ; S003 avancé pour remplacer S001 ; trois
+  sources ajoutées (S029, S030, S031) pour remplacer des livres
+  inaccessibles ; copies non autorisées écartées (S001, guide CBOT) ;
+  lacune "construction de portefeuille" comblée sans nouvelle source
+  (S026 lecture 14, S020 ch. 16).
+- **Résultat** : 31 sources examinées, 17 lues intégralement, 195 claims,
+  9 candidats hypothèses non formalisés, 14 règles méthodologiques
+  intégrées à `research/04_protocols.md` (R1-R14). Couverture : 20 domaines
+  COVERED, 11 PARTIAL, 1 MISSING (Market Profile, rétrogradé).
+  Synthèse : `research/09_written_corpus_synthesis.md`.
+- **Toujours aucun backtest, aucune hypothèse ajoutée au registre** :
+  formalisation après la collecte vidéo (ordre du pipeline).
+- Prochaine étape (autorisée) : pipeline vidéo, ciblé sur Market Profile
+  et COT/positioning (`research/10_video_pipeline.md`).
+
 ### 2026-10-04 (2) — Autonomie élargie accordée + premier lot d'extraction (S020/S026/S027)
 - **Nouvelle consigne permanente de l'utilisateur** : autonomie élargie
   pour ce projet — ne plus demander confirmation après chaque source/lot

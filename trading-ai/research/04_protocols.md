@@ -85,6 +85,36 @@ seulement après cette étape. **Mise en pause explicite pour l'instant** par
 consigne de l'utilisateur — ce protocole est documenté mais pas encore
 activé.
 
+## Règles ajoutées à partir du corpus écrit (2026-10-04)
+
+Chaque règle est tracée vers les claims qui la fondent (`CLAIMS_REGISTRY.md`,
+section "Notes méthodologiques transversales"). Elles s'ajoutent aux étapes
+A-E ci-dessus et s'appliquent à toute hypothèse issue du corpus.
+
+**Données (étage DATA VALIDATION)**
+- **R1 — Artefacts de microstructure** (N1 ; C-S003-07, C-S007-05, C-S015-10) : une autocorrélation négative à très court terme des prix de transaction peut n'être qu'un rebond bid-ask. Tester les hypothèses de retour à la moyenne court terme sur points milieux ou avec exécution décalée d'une période.
+- **R2 — Mouvements extrêmes sans information** (N10 ; C-S005-05) : signaler les épisodes de type flash crash plutôt que les traiter comme signaux.
+- **R3 — Contrats continus** (N14 ; C-S031-07) : documenter la méthode de raccordement aux dates de roulement.
+
+**Conception des tests**
+- **R4 — Validation chronologique** (N9 ; C-S020-01/02/04, C-S004-06) : jamais de k-fold standard sur séries temporelles ; validation chronologique avec purge et embargo dès que les horizons de labels se chevauchent.
+- **R5 — Période de test intouchable** (N8 ; C-S009-04) : la période de test n'intervient dans **aucune** décision de sélection (actifs, paires, paramètres, sous-univers).
+- **R6 — Journal de tous les essais** (N3 ; C-S027-08) : chaque configuration testée, y compris les échecs, est journalisée — condition pour calculer un PBO honnête.
+- **R7 — Le PBO n'est pas une cible** (N2 ; C-S027-08) : il évalue un processus de sélection, il ne sert jamais de fonction objectif.
+- **R8 — Placebo** (N5 ; C-S007-12) : comparer toute stratégie à la même règle appliquée à des sélections aléatoires.
+
+**Inférence statistique**
+- **R9 — Horizons chevauchants** (N4 ; C-S029-06) : erreurs standard corrigées (Hodrick 1992) ; un R² qui croît avec l'horizon sur un prédicteur persistant n'est pas une preuve.
+- **R10 — Queues épaisses** (N11 ; C-S030-06) : préférer permutation et bootstrap aux tests supposant la normalité des rendements quotidiens (déjà le cas dans `backtest/metrics.py`).
+
+**Coûts et économie de la stratégie**
+- **R11 — Filtre brut d'abord** (N13 ; C-S031-04, C-S021-10) : vérifier que le rendement brut par trade dépasse le coût aller-retour avant toute analyse statistique.
+- **R12 — Modèle de coûts minimal** (N7 ; C-S021-02/03) : coût fixe = demi-spread + frais par transaction ; termes d'impact seulement au-delà d'~1 % du volume journalier.
+- **R13 — Primes nettes** (N6 ; C-S010-08, C-S007-06, C-S011-06) : toute prime académique est recalculée nette de coûts, rotation et contraintes d'investissabilité ; à notre petite taille, retenir les estimations de coûts pessimistes de la littérature.
+
+**Critère de passage**
+- **R14 — Gabarit à cinq critères** (N12 ; C-S031-01) : t ≥ 2 sur rendements **nets** hors échantillon ; effectif minimal par pli ; rendement net positif après friction ; **même signe sur chaque année de test** ; p-value de permutation < 0,05. S'ajoute aux critères de l'étape D (indépendance des observations, ≥ 20 occurrences indépendantes, perturbation de paramètres).
+
 ## Ce que ces deux protocoles garantissent ensemble
 
 Une hypothèse ne peut jamais passer de "idée entendue dans une vidéo" à
