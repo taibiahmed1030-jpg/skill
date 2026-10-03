@@ -962,9 +962,25 @@
       "complexite": "moyenne",
       "biais_potentiel": "Exemples choisis a posteriori (V002) ; multiplicité marchés × catégories ; S017 au niveau résumé (sélection de 6 marchés sur N).",
       "testabilite": "Données gratuites (CFTC) ; prix de futures continus gratuits à vérifier (qualité, raccordement). Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H027_H028_preregistration.md",
+        "script": "backtest/strategies/h027_h028_cot.py",
+        "resultats_bruts": "backtest/results/H027_H028_results.json",
+        "periode_testee": "2000-01 / 2026-09 (COT Legacy futures-only, 15 marchés, prix Yahoo =F)",
+        "limites": "Séries continues Yahoo non ajustées (R3) : rendements démeanés par marché + sensibilité aux sauts (conclusions inchangées) ; prix négatif du WTI en avril 2020 (log indéfini → rendements de ces jours mis à 0) ; formalisation de nous (V002/V003 ne donnent ni horizon ni seuil) : réfute la version formalisée, pas nécessairement la pratique des formateurs ; 15 marchés seulement.",
+        "nb_occurrences": 876,
+        "metriques": {
+          "moyenne_s_r_8sem": -0.0042,
+          "moyenne_4sem": 0.003,
+          "moyenne_13sem": -0.0038,
+          "p_holm": 0.347
+        },
+        "p_value_permutation": 0.2512,
+        "verdict": "INCONCLUSIVE : 876 extrêmes indépendants des commerciaux sur 15 marchés ; rendement moyen à 8 semaines de signe opposé à la prédiction contrarienne (-0,42 %), non significatif (p=0,25) ; signe instable selon l'horizon (4 sem. +, 8 et 13 sem. −). Aucun pouvoir prédictif détecté pour la lecture de V002."
+      },
       "derniere_maj": "2026-10-03",
       "contredit_hypothese": "H028"
     },
@@ -1010,9 +1026,27 @@
       "complexite": "moyenne",
       "biais_potentiel": "Peut n'être qu'un momentum déguisé (les spéculateurs suivent la tendance) → contrôle par un momentum de prix de même horizon obligatoire.",
       "testabilite": "Mêmes données que H027. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H027_H028_preregistration.md",
+        "script": "backtest/strategies/h027_h028_cot.py",
+        "resultats_bruts": "backtest/results/H027_H028_results.json",
+        "periode_testee": "2000-01 / 2026-09 (COT Legacy futures-only, 15 marchés, prix Yahoo =F)",
+        "limites": "Séries continues Yahoo non ajustées (R3) : rendements démeanés par marché + sensibilité aux sauts (conclusions inchangées) ; prix négatif du WTI en avril 2020 (log indéfini → rendements de ces jours mis à 0) ; formalisation de nous (V002/V003 ne donnent ni horizon ni seuil) : réfute la version formalisée, pas nécessairement la pratique des formateurs ; 15 marchés seulement.",
+        "nb_occurrences": 1306,
+        "metriques": {
+          "moyenne_nette_hebdo": -0.00035,
+          "t_moyenne_nette": -0.96,
+          "alpha_vs_momentum": -0.00047,
+          "t_alpha": -1.36,
+          "correlation_avec_momentum": 0.53,
+          "t_alpha_2013_fin": -1.95
+        },
+        "p_value_permutation": null,
+        "verdict": "INCONCLUSIVE : suivre le signe de la position nette des non-commerciaux rapporte -0,04 %/semaine net (t=-0,96) ; fortement corrélé au momentum de prix (0,53) ; alpha négatif non significatif (t=-1,36 ; -1,95 sur 2013-fin). La lecture « smart money » de V003 n'est pas soutenue ; la forte corrélation avec le momentum est cohérente avec C-S015-08 (spéculateurs suiveurs de tendance) sans gain au-delà."
+      },
       "derniere_maj": "2026-10-03",
       "contredit_hypothese": "H027"
     },
