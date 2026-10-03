@@ -173,6 +173,115 @@ niveau B/C, non bloquantes.
 A à B dans `SOURCE_REGISTRY.md` (voir section Classification de ce
 fichier, mise à jour en conséquence).
 
+---
+
+## F. Vérification ciblée finale des 4 domaines signalés (2026-10-04)
+
+Validation reçue le 2026-10-04 : S027 ajouté au registre comme source
+validée, S028 maintenu en proposition B/future, S020 et S026 placés en
+priorité de lecture méthodologique. **Aucun nouveau statut de domaine
+n'est modifié ici** — les statuts `COVERED`/`PARTIAL`/`MISSING` de la
+partie A restent ceux déjà établis. Cette section répond uniquement à la
+question posée : ces 4 lacunes sont-elles bloquantes maintenant, et une
+source du registre les couvre-t-elle déjà raisonnablement ?
+
+### Regime detection
+
+- **Bloquant maintenant ? Non.** Aucune hypothèse du registre actuel
+  (`hypotheses/registry.json`) ne requiert une détection de régime
+  formalisée pour être testée — H003 a géré la question par un simple
+  cooldown de 180 jours entre épisodes, pas par un modèle de régime.
+- **Moment où il deviendrait nécessaire** : à l'étage ROBUSTNESS/NO-TRADE
+  ENGINE (`02_architecture.md`), quand une hypothèse validée devra être
+  vérifiée comme stable *across* plusieurs régimes de marché de façon
+  systématique plutôt qu'au cas par cas, ou quand le NO-TRADE ENGINE sera
+  codé (actuellement : zéro ligne de code, `PROJECT_MEMORY.md` §4).
+- **Source du registre qui le couvre déjà ?** Non, raisonnablement. S026
+  (MIT OCW) couvre "Time Series Analysis"/"Volatility Modeling" mais son
+  programme ne nomme pas explicitement un cours de regime-switching
+  (Markov-switching/Hamilton). Couverture adjacente, pas directe.
+- **Conclusion** : non bloquant, pas de nouvelle source — à rechercher
+  spécifiquement seulement si une hypothèse testée échoue précisément
+  parce qu'elle est régime-dépendante (cas réel à encoder plutôt que
+  deviné à l'avance, même logique que pour le Risk/No-Trade Engine).
+
+### Liquidity measurement
+
+- **Bloquant maintenant ? Non.** Aucun backtest actuel (H003, event study
+  VIX) ne dépend d'une mesure de liquidité — les données utilisées
+  (S&P500/VIX via yfinance) sont sur des instruments suffisamment liquides
+  pour que la question ne se pose pas encore.
+- **Moment où il deviendrait nécessaire** : à l'étage EXÉCUTION/coûts de
+  transaction réels (`04_protocols.md` étape C), ou dès qu'un marché/
+  instrument moins liquide sera testé (petites capitalisations, crypto,
+  marchés prédictifs).
+- **Source du registre qui le couvre déjà ?** Partiellement. S001 (O'Hara)
+  et S003 (Stoll) traitent la liquidité comme concept central de la
+  microstructure (spread, profondeur, rôle du market maker) — une fois
+  lus, ils donneront une compréhension conceptuelle solide. Mais aucun des
+  deux ne fournit une métrique calculable directement à partir de données
+  prix/volume (type ratio d'illiquidité d'Amihud) — ça reste absent.
+- **Conclusion** : non bloquant, pas de nouvelle source — la compréhension
+  conceptuelle via S001/S003 (déjà dans le registre) suffit pour l'instant ;
+  une métrique opérationnelle spécifique ne sera nécessaire qu'au moment
+  de coder l'étage exécution/coûts pour un marché moins liquide.
+
+### Formalized sentiment
+
+- **Bloquant maintenant ? Non.** Aucune hypothèse actuelle ne repose sur
+  un indice de sentiment ; H005 (positionnement/crowding) est déjà
+  marquée `non_testable` pour une raison différente (données de
+  positionnement retail non identifiées), pas pour l'absence de cette
+  source précise.
+- **Moment où il deviendrait nécessaire** : si le choix de marché final
+  se porte sur un marché où le sentiment est un moteur de premier ordre
+  (crypto, marchés prédictifs, actions "meme") — ou si les hypothèses COT
+  (S017/S018, une fois lues) montrent que le positionnement extrême
+  institutionnel mérite un complément retail/continu plutôt que des
+  rapports hebdomadaires discrets.
+- **Source du registre qui le couvre déjà ?** Non, pas raisonnablement.
+  S017/S018 couvrent le positionnement institutionnel (COT), un concept
+  voisin mais distinct du sentiment formalisé (put/call ratio, AAII
+  survey) — pas un substitut.
+- **Conclusion** : non bloquant, pas de nouvelle source — confirmé comme
+  lacune réelle mais non urgente ; à rouvrir seulement si le marché choisi
+  la rend pertinente ou si une hypothèse COT appelle explicitement un
+  complément.
+
+### Portfolio construction
+
+- **Bloquant maintenant ? Non.** Le projet teste une hypothèse à la fois
+  (event study), jamais une combinaison de positions — `PROJECT_MEMORY.md`
+  §4 confirme qu'aucune allocation multi-actifs n'existe encore, par
+  conception à ce stade.
+- **Moment où il deviendrait nécessaire** : seulement après que plusieurs
+  hypothèses atteignent `PROMISING`/`ROBUST` et que le projet doive
+  décider comment les combiner en un portefeuille réel — c'est-à-dire
+  après l'étage BACKTEST ENGINE/VALIDATION, avant PAPER TRADING
+  (`04_protocols.md` étape E, actuellement en pause).
+- **Source du registre qui le couvre déjà ?** Partiellement, à noter sans
+  changer le statut `MISSING` du domaine : le programme de S026 (MIT OCW)
+  nomme explicitement "Portfolio Theory" et "Portfolio Management" comme
+  sujets de cours — une fois lu, S026 donnera probablement une base
+  Markowitz-type exploitable, même si ce n'est pas un traitement dédié et
+  spécialisé. Observation à vérifier après lecture, pas une raison de
+  reclasser le domaine `COVERED`/`PARTIAL` aujourd'hui (rien n'a encore
+  été lu).
+- **Conclusion** : non bloquant, pas de nouvelle source — S026 (déjà en
+  priorité de lecture pour d'autres raisons) pourrait réduire cette
+  lacune une fois lu ; à réévaluer concrètement à ce moment plutôt qu'à
+  deviner maintenant.
+
+### Synthèse de la partie F
+
+**Aucune des 4 lacunes ne s'est révélée bloquante pour l'architecture
+actuelle. Aucune nouvelle source n'est ajoutée.** Les quatre deviennent
+pertinentes à des étages différents et postérieurs du pipeline
+(validation/robustesse pour regime detection, exécution/coûts pour
+liquidity measurement, choix de marché pour sentiment, post-validation
+pour portfolio construction) — aucun n'intervient avant ou pendant
+l'extraction de claims elle-même.
+
 **Rien n'a été extrait, aucun claim créé, aucune hypothèse formalisée,
 aucune source ajoutée au registre sans validation.** En attente de
 validation explicite avant de passer à l'étape suivante.

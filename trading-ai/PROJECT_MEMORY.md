@@ -54,8 +54,9 @@ présupposé comme cible finale (changement explicite de consigne le
 | `trading-ai/MISSING_CONTEXT.md` | Résultat de l'audit du 2026-10-02 | **Terminé** |
 | `trading-ai/research/06_domain_coverage.md` | Audit des 32 domaines de recherche demandés : 6 bien couverts, 16 effleurés, 10 totalement absents de la KB actuelle (microstructure, mean reversion, volume, order flow, market profile, liquidité, COT, options/IV, stat arb, pairs trading, factor investing, construction de portefeuille, market impact) | **Terminé** (2026-10) |
 | `trading-ai/research/07_knowledge_pipeline.md` | Formalise le pipeline SOURCE→CLAIM→HYPOTHÈSE, le rôle du registre de claims, la règle de dédoublonnage/préservation des contradictions, et la taxonomie de statut anglaise (UNTESTED/TESTABLE/TESTING/REJECTED/INCONCLUSIVE/PROMISING/ROBUST/RETIRED) | **Terminé** (2026-10) — aucune hypothèse encore créée via ce pipeline |
-| `trading-ai/research/SOURCE_REGISTRY.md` | 26 sources candidates réelles (papiers académiques, livres de référence, recherche institutionnelle, 1 cours MIT OCW), ciblées sur les domaines absents/effleurés, avec justification et évaluation de redondance par source | **Candidat — en attente de validation utilisateur**, aucune source encore lue en profondeur |
-| `trading-ai/research/CLAIMS_REGISTRY.md` | Squelette vide, format défini | **Pas encore rempli** — attend la validation du registre de sources |
+| `trading-ai/research/SOURCE_REGISTRY.md` | 27 sources **validées** (26 initiales + S027), S028 en proposition B/future non ajoutée ; ordre de lecture imposé (S020→S026→S027 avant tout contenu de marché) | **Validé (2026-10-04)**, aucune source encore lue en profondeur — extraction toujours en attente d'un feu vert séparé |
+| `trading-ai/research/08_final_coverage_audit.md` | Audit des 32 domaines + 22 concepts transversaux + vérification ciblée finale des 4 lacunes signalées (regime detection, liquidity measurement, sentiment, portfolio construction) | **Terminé** (2026-10-03/04) |
+| `trading-ai/research/CLAIMS_REGISTRY.md` | Squelette vide, format défini | **Pas encore rempli** — registre de sources validé mais extraction pas encore lancée |
 | `.claude/skills/watch/` | Skill vidéo (yt-dlp + frames + transcript) utilisé pour ingérer la formation Elliot | Fonctionnel, indépendant du projet trading |
 | `/home/user/skill/main.py` + `gemini_analyze.py` | Analyseur YouTube générique via Gemini (hors-sujet trading, projet séparé de la même conversation) | Fonctionnel, sans lien avec `trading-ai/` |
 
@@ -92,12 +93,29 @@ présupposé comme cible finale (changement explicite de consigne le
   suffisants pour le travail fait à ce jour ; ne pas ajouter d'outils sans
   besoin désigné (consigne explicite "pas 50 outils inutiles").
 
+### Décisions prises le 2026-10-04 (ajout à la liste ci-dessus)
+
+- Registre de sources **validé** : 27 sources acceptées (26 initiales +
+  S027, probability of backtest overfitting). S028 (market making) **non
+  ajouté**, reste proposition B/future.
+- Ordre de lecture imposé : **S020, S026, S027 lus en premier**, avant
+  toute source de contenu de marché — ce sont les 3 seules sources du
+  registre couvrant les lacunes transversales de niveau A (leakage,
+  validation purgée, stationarité, probability of backtest overfitting).
+- Les 4 lacunes regime detection / liquidity measurement / formalized
+  sentiment / portfolio construction sont confirmées **non bloquantes**
+  pour l'extraction (vérification ciblée dans
+  `research/08_final_coverage_audit.md` partie F) — aucune nouvelle
+  source ajoutée pour elles.
+- **L'extraction complète de claims reste en attente d'un feu vert
+  explicite séparé** — la validation du registre n'équivaut pas à un
+  lancement de l'extraction.
+
 ### Décisions explicitement en attente de l'utilisateur
 
-- **Valider ou ajuster la liste de 26 sources candidates**
-  (`research/SOURCE_REGISTRY.md`) avant toute lecture approfondie /
-  extraction de claims — consigne explicite du 2026-10 : montrer le plan et
-  la liste avant toute collecte massive.
+- **Lancer l'extraction de claims** (`CLAIMS_REGISTRY.md`) — registre et
+  ordre de lecture validés, mais l'extraction elle-même n'a pas reçu de
+  feu vert, consigne explicite du 2026-10-04.
 - **Quelle(s) catégorie(s) de marché étudier en premier** — voir
   `research/01_market_comparison.md` pour les éléments factuels, aucune
   recommandation n'y est donnée par consigne explicite.
@@ -137,6 +155,24 @@ présupposé comme cible finale (changement explicite de consigne le
 ---
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
+
+### 2026-10-04 — Validation du registre, S027 ajouté, extraction toujours en attente
+- L'utilisateur valide l'audit du 2026-10-03 et valide l'ajout de
+  **S027** (probability of backtest overfitting) au registre comme
+  source acceptée.
+- **S028 non ajouté** — reste proposition B/future, par consigne
+  explicite.
+- Ordre de lecture méthodologique imposé en tête de
+  `research/SOURCE_REGISTRY.md` : **S020, S026, S027 avant toute autre
+  source**.
+- Vérification ciblée finale des 4 lacunes signalées (regime detection,
+  liquidity measurement, formalized sentiment, portfolio construction) :
+  **aucune n'est bloquante**, aucune nouvelle source ajoutée pour elles —
+  détail dans `research/08_final_coverage_audit.md` partie F.
+- Statuts de domaines (`COVERED`/`PARTIAL`/`MISSING`) **non modifiés**,
+  conformément à la consigne explicite.
+- **L'extraction de claims n'a toujours pas commencé** — en attente d'un
+  feu vert explicite séparé de l'utilisateur.
 
 ### 2026-10-03 — Audit final de couverture avant extraction
 - Audit complet des 32 domaines + 22 concepts transversaux de recherche

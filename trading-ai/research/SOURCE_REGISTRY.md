@@ -1,11 +1,11 @@
 # Registre des sources candidates — phase multi-sources
 
-**Statut : liste candidate à valider par l'utilisateur. Aucune de ces
-sources n'a encore été lue/analysée en profondeur, aucun claim n'a encore
-été extrait.** Conformément à la consigne explicite, la collecte massive
-(lecture complète, extraction de claims) n'a pas commencé — ceci est
-l'étape "construire une liste de sources candidates" demandée avant toute
-analyse.
+**Statut (2026-10-04) : 27 sources VALIDÉES par l'utilisateur (26 sources
+initiales + S027). Aucune de ces sources n'a encore été lue/analysée en
+profondeur, aucun claim n'a encore été extrait.** La validation porte sur
+la *liste*, pas sur une lecture déjà faite — l'extraction complète reste
+en attente d'un feu vert explicite séparé. S028 reste une source **B,
+proposée/future, non ajoutée** — voir section dédiée plus bas.
 
 **Méthode** : recherche ciblée par domaine sous-couvert (voir
 `06_domain_coverage.md`), uniquement des sources réelles trouvées par
@@ -14,10 +14,25 @@ recherche web, aucune invention. Priorité donnée aux domaines ❌/🟡
 options/IV, stat arb/pairs trading, factor investing, ML/time-series,
 exécution/coûts/impact, finance comportementale, intermarché) plutôt qu'à
 une redite de price action/risk management déjà bien couverts par la
-formation Elliot. 26 sources retenues — qualité et diversité
-méthodologique privilégiées sur le volume (préférence explicite de
-l'utilisateur : peu de sources très pertinentes plutôt que beaucoup de
-répétitions).
+formation Elliot. 26 sources de contenu de marché + 1 source
+méthodologique (S027) — qualité et diversité méthodologique privilégiées
+sur le volume (préférence explicite de l'utilisateur : peu de sources très
+pertinentes plutôt que beaucoup de répétitions).
+
+## ⚠️ Ordre de lecture imposé — priorité méthodologique avant tout le reste
+
+**Avant de lire la moindre source de contenu de marché (clusters
+ci-dessous), lire dans cet ordre :**
+
+1. **S020** — *Advances in Financial Machine Learning* (Lopez de Prado) — couvre le leakage et la validation croisée purgée/embargo (lacune transversale A).
+2. **S026** — cours MIT 18.S096 — couvre la stationarité/non-stationarité des séries temporelles (lacune transversale A).
+3. **S027** — *The Probability of Backtest Overfitting* — seule source couvrant le biais de sélection parmi de multiples hypothèses testées (lacune transversale A, aucune autre source du corpus ne la couvre).
+
+Raison (voir `08_final_coverage_audit.md` parties B/C) : ces trois sources
+ne portent pas sur un domaine de marché mais sur la discipline de
+validation elle-même — les lire après, dans l'ordre normal par cluster,
+risquerait de reproduire à plus grande échelle l'erreur déjà corrigée sur
+H003 (biais de clustering) pendant l'extraction des 24 autres sources.
 
 Légende Type : `papier` (article académique/working paper), `livre`,
 `cours`, `recherche_institutionnelle` (banque/gérant/organisme).
@@ -117,18 +132,28 @@ Légende Type : `papier` (article académique/working paper), `livre`,
 
 ---
 
-## Sources supplémentaires proposées à l'issue de la revue du 2026-10-02 (non encore validées)
+## Validation statistique / overfitting (source validée le 2026-10-04)
 
-Deux lacunes critiques signalées par l'utilisateur n'avaient aucune source
-dans le lot initial de 26. Deux sources réelles, vérifiées, ont été
-identifiées pour les combler — ajoutées ici en **statut proposé**, pas
-encore actées comme membres du registre tant que l'utilisateur ne valide
-pas.
+S027 comble la seule lacune transversale de niveau A non déjà satisfaite
+par une source existante du registre (voir `08_final_coverage_audit.md`
+parties C/D). **Validée par l'utilisateur — fait maintenant partie du
+registre, à lire en priorité (voir section "Ordre de lecture" ci-dessus),
+pas encore lue/extraite.**
 
 | SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi l'analyser | Qualité apparente | Redondance |
 |---|---|---|---|---|---|---|---|---|
-| S027 (proposé) | The Probability of Backtest Overfitting | Bailey, Borwein, López de Prado, Zhu (2017), Journal of Computational Finance | papier | https://escholarship.org/uc/item/4w1110bb (miroir ouvert ; version citable aussi sur https://www.semanticscholar.org/paper/The-Probability-of-Backtest-Overfitting-Bailey-Borwein/b1233b4f5384f003e85c2e0eec1a2dfc08f624c5) | Overfitting, data snooping, validation statistique | **Directement lié à la leçon déjà apprise sur H003** (biais de clustering) — formalise un cadre général (PBO, cross-validation combinatoire) pour quantifier le risque d'avoir "trouvé" une stratégie par pur hasard de recherche multiple. Comble une lacune méthodologique critique non couverte par aucune des 26 sources initiales | Élevée — Lopez de Prado déjà retenu (S020), méthode largement implémentée (packages R/Python) | Nulle — aucune autre source du registre ne traite spécifiquement l'overfitting de backtest |
-| S028 (proposé) | High-Frequency Trading in a Limit Order Book | Avellaneda & Stoikov (2008), Quantitative Finance | papier | https://doi.org/10.1080/14697680701381228 (page éditeur payante — résumé libre ; voir GitHub d'implémentation : https://github.com/Ahkylez/Avellaneda-Stoikov-Market-Making-Model) | Market making | **Market making n'était couvert par aucune des 26 sources initiales** malgré sa mention explicite dans `03_model_approaches.md` comme un des rares cas d'usage réel et audité du RL/ML en trading — ce papier est le modèle de référence (gestion d'inventaire, cotation bid/ask optimale) sur lequel toute évaluation future de cette famille devra s'appuyer | Élevée — un des papiers fondateurs du market making algorithmique, très cité | Nulle |
+| S027 | The Probability of Backtest Overfitting | Bailey, Borwein, López de Prado, Zhu (2017), Journal of Computational Finance | papier | https://escholarship.org/uc/item/4w1110bb (miroir ouvert ; version citable aussi sur https://www.semanticscholar.org/paper/The-Probability-of-Backtest-Overfitting-Bailey-Borwein/b1233b4f5384f003e85c2e0eec1a2dfc08f624c5) | Overfitting, data snooping, validation statistique | **Directement lié à la leçon déjà apprise sur H003** (biais de clustering) — formalise un cadre général (PBO, cross-validation combinatoire) pour quantifier le risque d'avoir "trouvé" une stratégie par pur hasard de recherche multiple. Comble une lacune méthodologique critique non couverte par aucune des 26 autres sources | Élevée — Lopez de Prado déjà retenu (S020), méthode largement implémentée (packages R/Python) | Nulle — aucune autre source du registre ne traite spécifiquement l'overfitting de backtest |
+
+## Source B proposée / future — non ajoutée (S028)
+
+Ne pas ajouter maintenant, conformément à la consigne explicite du
+2026-10-04. Reste une source de qualité pour combler un domaine à 0 %
+(market making) mais non bloquante — voir `08_final_coverage_audit.md`
+partie C pour la justification du reclassement A→B.
+
+| SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi l'analyser (si activée plus tard) | Qualité apparente | Redondance |
+|---|---|---|---|---|---|---|---|---|
+| S028 (proposé, futur) | High-Frequency Trading in a Limit Order Book | Avellaneda & Stoikov (2008), Quantitative Finance | papier | https://doi.org/10.1080/14697680701381228 (page éditeur payante — résumé libre ; voir GitHub d'implémentation : https://github.com/Ahkylez/Avellaneda-Stoikov-Market-Making-Model) | Market making | Market making n'est couvert par aucune autre source ; ce papier est le modèle de référence (gestion d'inventaire, cotation bid/ask optimale). À activer seulement si un cas d'usage précis de market making/exécution apparaît | Élevée — un des papiers fondateurs du market making algorithmique, très cité | Nulle |
 
 ## Domaines encore sans source candidate identifiée (à rechercher dans un prochain tour si validé)
 
@@ -163,7 +188,7 @@ différent d'un lien mort.
 ## Classification en trois catégories
 
 **A — Prioritaires** (comblent un domaine actuellement à 0 % de couverture avec une source fondatrice et directement actionnable) :
-S001 (microstructure, texte fondateur), S007 (pairs trading, méthodologie réplicable), S010 (factor investing, base conceptuelle), S013 (options/IV, seule source du domaine), S017 (COT, seul test direct en stratégie), S021 (exécution/impact, modèle fondateur quantifié), S027 proposé (probability of backtest overfitting — **reconfirmé A après vérification indépendante le 2026-10-03**, voir `08_final_coverage_audit.md` partie C : aucune autre source du corpus, y compris S020, ne couvre ce cadre spécifique).
+S001 (microstructure, texte fondateur), S007 (pairs trading, méthodologie réplicable), S010 (factor investing, base conceptuelle), S013 (options/IV, seule source du domaine), S017 (COT, seul test direct en stratégie), S021 (exécution/impact, modèle fondateur quantifié), S027 (probability of backtest overfitting — **validée le 2026-10-04**, voir `08_final_coverage_audit.md` partie C : aucune autre source du corpus, y compris S020, ne couvre ce cadre spécifique — à lire en priorité, voir section "Ordre de lecture" en tête de fichier).
 
 **A → B reclassé le 2026-10-03** : **S028** (market making, Avellaneda-Stoikov) a été réexaminé indépendamment de sa proposition initiale (`08_final_coverage_audit.md` partie C) et **n'est plus classé A**. Raison : c'est un domaine de marché spécifique, pas un concept transversal de validation statistique — pas "indispensable avant extraction" au même sens que S027 ; `03_model_approaches.md` a déjà conclu que le ML/RL n'est pas justifié tant qu'aucun cas d'usage étroit précis n'est sur la table. Reclassé ci-dessous.
 
