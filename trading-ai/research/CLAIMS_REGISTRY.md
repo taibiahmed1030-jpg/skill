@@ -63,6 +63,7 @@ attaché à son échantillon d'origine.
 | Source | Fichier | Accès réel | Claims | Dont [C] | Domaine |
 |---|---|---|---|---|---|
 | V001 | `claims/V001.md` | Sous-titres auto intégraux (client officiel), 1:25:48 | 25 | 11 candidats (dont C-V001-16 [E] chiffré) | #13 Market Profile |
+| V002 | `claims/V002.md` | Sous-titres auto intégraux (client officiel), 1:01:54 | 15 | 4 candidats | #17-18 COT |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -75,6 +76,7 @@ attaché à son échantillon d'origine.
 | C-S027-09 (tests multiples → faux positifs) | C-S008-12 (cointégration testée paire par paire sans contrôle du taux d'erreur familial) | Corroboration **indépendante** du problème des comparaisons multiples dans la littérature pairs trading | **2** (Krauss sans lien avec Bailey/López de Prado) |
 | C-S007-09 (déclin de rentabilité jusqu'en 1997) | C-S008-04, C-S008-10 (déclin confirmé jusqu'en 2009 ; effet REIT disparu après 2000) | Corroboration et prolongation du déclin | **2** (Do & Faff indépendants de GGR) |
 | C-S015-07 | C-S016-07 (corroboration **non indépendante**) | Profil en "sourire" du trend-following face aux mouvements extrêmes du marché | **1** (équipe AQR commune, Ooi et Pedersen co-auteurs des deux) — la période 1880-1984 de S016 est en revanche un test hors échantillon *temporel* |
+| C-S015-08 (spéculateurs suiveurs de tendance, données CFTC 1986-2009) | C-V002-08 (corroboration) | Même affirmation : les non-commerciaux suivent la tendance | **2** (S015 empirique ; V002 affirmation de praticien, sans données) |
 
 ## Journal des conflits inter-sources
 
@@ -93,6 +95,9 @@ attaché à son échantillon d'origine.
 | C-S003-03 (spread d'information : les traders informés imposent un coût d'antisélection, Glosten-Milgrom) | C-S030-04 (sur marché anonyme, pas de distinction informé/non informé ; impact d'origine mécanique) | **Visions concurrentes de l'origine de l'impact et du spread** ; S030 reconnaît aller "à l'encontre de la vision dominante" | **Ouvert** — sans conséquence directe sur nos tests quotidiens |
 | C-S011-03 (krachs du momentum = exposition conditionnelle au bêta, jambe short) | C-S012-04 (krachs = retournement simultané des autocorrélations des facteurs) | Explications concurrentes (non exclusives) | **Ouvert** |
 | C-S015-08 (les spéculateurs **suivent** la tendance et profitent au détriment des hedgers, horizon 12 mois) | Lecture "contrarienne" du COT (C-S017-01 : stratégie de **renversement** court terme sur données COT, résumé seulement) | **Tension d'horizon**, pas contradiction démontrée : trend sur 12 mois vs renversement à court terme. Impossible à préciser sans le texte intégral de S017 | **Ouvert** — à départager par test (position spéculative nette comme signal de continuation vs de renversement, à plusieurs horizons) |
+| C-S015-08 (spéculateurs suivent la tendance avec profit, 12 mois) | C-V002-09 (positionnement extrême sur 52 semaines = fin de tendance probable) | **Prolonge la tension** C-S015-08 / C-S017-01 avec une source à accès intégral ; horizons différents (12 mois vs semaines) | **Ouvert** — à départager par test en séparant les horizons |
+| C-V002-07 (a) positions des commerciaux = information sur la valeur | C-V002-07 (b) = couverture mécanique d'un stock physique | Explications concurrentes données **par la même source** ; (a) rejoint C-S018-02, (b) rejoint la prime payée par les hedgers (S015) | **Ouvert** |
+| C-V002-05 (OI en hausse confirme la tendance) | C-S031 (preuves négatives sur les signaux de volume, un marché, 5 min) | Famille volume/OI : affirmation de praticien vs résultat négatif sur un autre signal et une autre fréquence | **Tension faible** (objets différents) — signalée, non arbitrée |
 
 ## Sources inaccessibles ou limitées
 

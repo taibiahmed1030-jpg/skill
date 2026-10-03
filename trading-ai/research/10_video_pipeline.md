@@ -56,7 +56,7 @@ l'intérêt commercial dans le fichier de claims.
 | ID | Vidéo | Auteur / chaîne | Durée | Domaine | Statut |
 |---|---|---|---|---|---|
 | V001 | The Market Profile: Trading Value versus Price (LgIPFsIjyLs, 2014) | James Dalton (chaîne officielle) | 1:25:48 | #13 | **Traitée** — `claims/V001.md`, 25 claims |
-| — | Commitment of Traders COT Report – What You Need to Know (W3jOAyaM6q4) | Barchart | 1:01:54 | #17-18 | À traiter |
+| V002 | Commitment of Traders COT Report – What You Need to Know (W3jOAyaM6q4, 2022) | Barchart | 1:01:54 | #17-18 | **Traitée** — `claims/V002.md`, 15 claims |
 | — | Futures Open Interest and Commitments of Traders Data (FZIxzsY14b0) | TradeStation | 43:19 | #17-18 | À traiter |
 | — | Profiling for Profits with Jim Dalton (_UvLP87BEs4) | Topstep | 58:11 | #13 | Candidat — même auteur que V001 : retenu seulement si contenu non redondant (non indépendant) |
 | — | Confessions of a Market Maker Ep. 91 (0WC54SmNrd0) | — | 53:13 | #13 | Candidat secondaire (même auteur) |
