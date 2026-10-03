@@ -144,6 +144,12 @@ pas encore lue/extraite.**
 |---|---|---|---|---|---|---|---|---|
 | S027 | The Probability of Backtest Overfitting | Bailey, Borwein, López de Prado, Zhu (2017), Journal of Computational Finance | papier | https://escholarship.org/uc/item/4w1110bb (miroir ouvert ; version citable aussi sur https://www.semanticscholar.org/paper/The-Probability-of-Backtest-Overfitting-Bailey-Borwein/b1233b4f5384f003e85c2e0eec1a2dfc08f624c5) | Overfitting, data snooping, validation statistique | **Directement lié à la leçon déjà apprise sur H003** (biais de clustering) — formalise un cadre général (PBO, cross-validation combinatoire) pour quantifier le risque d'avoir "trouvé" une stratégie par pur hasard de recherche multiple. Comble une lacune méthodologique critique non couverte par aucune des 26 autres sources | Élevée — Lopez de Prado déjà retenu (S020), méthode largement implémentée (packages R/Python) | Nulle — aucune autre source du registre ne traite spécifiquement l'overfitting de backtest |
 
+## Sources ajoutées pendant l'extraction (décisions autonomes documentées)
+
+| SOURCE_ID | Titre | Auteur | Type | URL | Sujet | Pourquoi ajoutée | Qualité apparente | Redondance |
+|---|---|---|---|---|---|---|---|---|
+| S029 | Expected Stock Returns and Variance Risk Premia | Bollerslev, Tauchen, Zhou (2009), Review of Financial Studies 22(11) | papier | https://public.econ.duke.edu/~boller/Published_Papers/rfs_09.pdf | Volatilité implicite, prime de variance, prédictibilité du marché actions | **Remplace S013 (Natenberg, inaccessible)** pour le domaine options/IV. Corpus vérifié d'abord : S026 ne couvre que la formule de Black-Scholes. Préférée à Carr & Wu (2009) car PDF légitime directement accessible (site de l'auteur) et lien direct avec H003 (VIX). Ajoutée le 2026-10-04 | Élevée — revue à comité de lecture de premier rang | Nulle |
+
 ## Source B proposée / future — non ajoutée (S028)
 
 Ne pas ajouter maintenant, conformément à la consigne explicite du

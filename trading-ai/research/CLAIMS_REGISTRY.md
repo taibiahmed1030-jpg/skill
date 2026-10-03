@@ -35,6 +35,8 @@ attaché à son échantillon d'origine.
 | S003 | `claims/S003.md` | Intégral (working paper 66 p.) | 14 | 1 candidat | 2 |
 | S007 | `claims/S007.md` | Intégral — **version NBER 1999** (1962-1997), pas la version RFS 2006 | 15 | 1 candidat | 2 |
 | S010 | `claims/S010.md` | Intégral (33 p.) — biais signalés : conflit d'intérêts commercial, historique probablement rétro-calculé | 13 | 1 candidat | 2 |
+| S013 | `claims/S013.md` | **Aucun** — livre sous copyright, aucune version légitime | 0 | 0 | 2 |
+| S029 | `claims/S029.md` | Intégral (30 p.) — **source ajoutée** pour remplacer S013 | 11 | 1 candidat | 2 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -48,13 +50,16 @@ attaché à son échantillon d'origine.
 
 | Claim A | Claim B | Nature | Statut |
 |---|---|---|---|
-| — | — | Aucun conflit détecté à ce stade | — |
+| H003 (registre, niveau du VIX > 45 → achat) | C-S029-04 (le niveau d'IV seul ne prédit pas ; seule la différence IV−RV prédit) | **Tension / spécification concurrente**, pas contradiction stricte : H003 porte sur des pics extrêmes (event study), S029 sur une régression linéaire continue. Les deux pointent dans le même sens (volatilité implicite élevée ↔ rendements futurs plus élevés) mais divergent sur la variable pertinente | **Ouvert** — à départager uniquement par test (H003 vs C-S029-11 sur mêmes données) |
+| C-S007-10 (a) concurrence a érodé les profits | C-S007-10 (b) profits plus élevés quand le marché baisse | Explications concurrentes au sein d'une même source | **Ouvert** — conservées toutes deux |
+| C-S010-06 (a) prime = risque systématique | C-S010-06 (b) prime = erreurs/contraintes | Explications concurrentes des primes factorielles | **Ouvert** — conservées toutes deux |
 
 ## Sources inaccessibles ou limitées
 
 | Source | Limitation | Décision |
 |---|---|---|
 | S001 | Livre sous droit d'auteur ; seules des copies non autorisées existent en ligne | Copies écartées ; 1 claim structurel depuis la table des matières ; substance confiée à S003, remonté dans l'ordre de lecture |
+| S013 | Livre sous droit d'auteur, aucune version légitime | Aucun claim ; remplacé par S029 (nouvelle source, justification dans `claims/S029.md`) |
 
 ## Notes méthodologiques transversales (à reporter dans `04_protocols.md` lors de la synthèse)
 
@@ -63,3 +68,6 @@ attaché à son échantillon d'origine.
 | N1 | C-S003-07 | Une autocorrélation négative à très court terme des prix de transaction peut être un artefact de rebond bid-ask : tester les hypothèses de retour à la moyenne court terme sur points milieux, pas sur derniers prix |
 | N2 | C-S027-08 (7) | Ne jamais utiliser le PBO comme fonction objectif de recherche de stratégie |
 | N3 | C-S027-08 (3) | Journaliser **tous** les essais (y compris les échecs) — condition nécessaire pour calculer un PBO honnête |
+| N4 | C-S029-06 | Régressions à horizons chevauchants : erreurs standard de Hodrick (1992) ; ne jamais interpréter un R² qui croît avec l'horizon sur un prédicteur persistant comme une preuve |
+| N5 | C-S007-12 | Benchmark placebo : comparer toute stratégie à la même règle appliquée à des sélections aléatoires (bootstrap) |
+| N6 | C-S010-08, C-S007-06 | Toute prime "académique" doit être recalculée nette de coûts, rotation et contraintes d'investissabilité avant toute conclusion |
