@@ -43,6 +43,9 @@ attaché à son échantillon d'origine.
 | S016 | `claims/S016.md` | Texte intégral ; **tableaux en image non extractibles** | 13 | 1 candidat | 3 |
 | S011 | `claims/S011.md` | Intégral (texte) ; **texte de plaidoyer d'auteurs AQR** | 11 | 1 candidat | 3 |
 | S012 | `claims/S012.md` | Intégral (NBER WP, non revu par les pairs) | 8 | 1 candidat | 3 |
+| S004 | `claims/S004.md` | Intégral — **requalifié : mémoire de Master**, k-fold non temporel | 6 | 0 | 3 |
+| S005 | `claims/S005.md` | Intégral — **pertinence faible** à notre échelle, extraction limitée | 5 | 0 | 3 |
+| S009 | `claims/S009.md` | Intégral — **résultats non recevables** (sélection sur la période de test) | 4 | 0 | 3 |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -64,6 +67,7 @@ attaché à son échantillon d'origine.
 | C-S011-06 (FIM 2013, données AQR : le momentum survit facilement aux coûts) | C-S011-06 (Korajczyk & Sadka 2004 ; Lesmond et al. 2003 : coûts bien plus élevés, viabilité compromise) | **Contradiction réelle**, réconciliée par S011 via la taille de l'investisseur (coûts de l'investisseur moyen ≈ 10× ceux d'un grand institutionnel). **Pour ce projet, petite taille → la littérature pessimiste est la plus pertinente** | **Ouvert** — à départager par nos propres coûts réels mesurés, pas par l'une ou l'autre source |
 | C-S011-05 (Novy-Marx 2012 : momentum US mieux mesuré sur t−12 à t−7) | C-S011-05 (Goyal & Wahal 2013 : 12 mois supérieur dans 35 pays sur 36) | Contradiction entre deux études citées de seconde main | **Ouvert** — à fixer *a priori* (12 mois, convention) plutôt qu'à choisir après test |
 | C-S015-05/06 (TSMOM rentable sur 58 contrats) | C-S012-07 (Goyal & Jegadeesh 2017 ; Huang et al. 2018 : TSMOM moins rentable qu'il n'y paraît, exposition nette au marché non nulle) | **Contradiction citée de seconde main** contre S015 | **Ouvert** — tout test de C-S015-11 devra comparer le TSMOM à une exposition passive de même volatilité et neutraliser l'exposition nette |
+| C-S021-02/04 (impact modélisé **linéaire** dans le rythme de trading, Almgren-Chriss) | C-S004-01 (impact **concave**, loi de la racine carrée σ·√(Q/V), Bouchaud et al. — cité de seconde main) | **Contradiction de modèle** ; S021 reconnaît lui-même que son approximation linéaire est "la plus douteuse" pour la composante η (C-S021-03) | **Ouvert, faible enjeu à notre échelle** : à petite taille, seul le coût fixe ε compte (N7) ; à trancher seulement si la taille des positions devient significative |
 | C-S011-03 (krachs du momentum = exposition conditionnelle au bêta, jambe short) | C-S012-04 (krachs = retournement simultané des autocorrélations des facteurs) | Explications concurrentes (non exclusives) | **Ouvert** |
 | C-S015-08 (les spéculateurs **suivent** la tendance et profitent au détriment des hedgers, horizon 12 mois) | Lecture "contrarienne" du COT (C-S017-01 : stratégie de **renversement** court terme sur données COT, résumé seulement) | **Tension d'horizon**, pas contradiction démontrée : trend sur 12 mois vs renversement à court terme. Impossible à préciser sans le texte intégral de S017 | **Ouvert** — à départager par test (position spéculative nette comme signal de continuation vs de renversement, à plusieurs horizons) |
 
@@ -86,3 +90,6 @@ attaché à son échantillon d'origine.
 | N5 | C-S007-12 | Benchmark placebo : comparer toute stratégie à la même règle appliquée à des sélections aléatoires (bootstrap) |
 | N6 | C-S010-08, C-S007-06 | Toute prime "académique" doit être recalculée nette de coûts, rotation et contraintes d'investissabilité avant toute conclusion |
 | N7 | C-S021-02/03/10 | Modèle de coûts minimal pour l'étape C : coût fixe ε = demi-spread + frais par transaction (dominant à petite taille) ; termes d'impact γ, η à ajouter seulement si la taille dépasse ~1 % du volume journalier |
+| N8 | C-S009-04 | La période de test ne doit intervenir dans **aucune** décision de sélection (paires, paramètres, sous-univers) — sinon elle cesse d'être hors échantillon |
+| N9 | C-S004-06, C-S020-04 | Pas de k-fold standard sur séries temporelles : validation chronologique, avec purge/embargo dès que les labels chevauchent |
+| N10 | C-S005-05 | Mouvements intrajournaliers extrêmes sans information (type flash crash) : à signaler dans l'étage DATA VALIDATION plutôt qu'à interpréter comme signaux |
