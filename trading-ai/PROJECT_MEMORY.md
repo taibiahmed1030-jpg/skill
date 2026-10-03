@@ -138,6 +138,32 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
 
+### 2026-10-03 — Audit final de couverture avant extraction
+- Audit complet des 32 domaines + 22 concepts transversaux de recherche
+  quantitative (overfitting, data snooping, leakage, stationarité,
+  regime detection, PBO, coûts/slippage/impact, position sizing,
+  portfolio construction, robustness testing...) :
+  `research/08_final_coverage_audit.md`.
+- Comptage final : 6 domaines `COVERED` (price action, technical
+  analysis, macro trading, trend following, indicateurs macro, risk
+  management), 1 `MISSING` (construction de portefeuille — downstream,
+  non bloquant), 25 `PARTIAL` (source candidate identifiée mais pas
+  encore lue — aucun n'est noté `COVERED` sans lecture réelle).
+- 5 lacunes transversales de niveau A identifiées ; 4 déjà couvertes par
+  des sources déjà présentes dans le registre (S020 pour
+  leakage/validation purgée, S026 pour stationarité) — correction =
+  **priorité de lecture**, pas nouvelle source. Une seule lacune A non
+  couverte : probability of backtest overfitting → **S027 reconfirmé
+  indispensable** après vérification indépendante.
+- **S028 (market making) reclassé de A à B** après réexamen — ce n'est
+  pas un concept transversal de validation, et `03_model_approaches.md`
+  a déjà conclu que le ML/RL n'est pas justifié sans cas d'usage précis.
+- Verdict : corpus nécessite 2 corrections avant extraction (valider
+  S027 ; prioriser la lecture de S020/S026 avant les autres clusters) —
+  aucune lacune de contenu de marché ne bloque.
+- **Toujours aucune extraction de claims, aucune hypothèse, aucun
+  backtest, aucune source ajoutée au registre sans validation.**
+
 ### 2026-10-02 — Revue de validation du registre de sources
 - Correction d'une erreur de comptage : le document annonçait "35
   domaines", le message original de l'utilisateur en nomme 32 — corrigé
