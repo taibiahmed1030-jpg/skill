@@ -56,7 +56,7 @@ présupposé comme cible finale (changement explicite de consigne le
 | `trading-ai/research/07_knowledge_pipeline.md` | Formalise le pipeline SOURCE→CLAIM→HYPOTHÈSE, le rôle du registre de claims, la règle de dédoublonnage/préservation des contradictions, et la taxonomie de statut anglaise (UNTESTED/TESTABLE/TESTING/REJECTED/INCONCLUSIVE/PROMISING/ROBUST/RETIRED) | **Terminé** (2026-10) — aucune hypothèse encore créée via ce pipeline |
 | `trading-ai/research/SOURCE_REGISTRY.md` | 27 sources **validées** (26 initiales + S027), S028 en proposition B/future non ajoutée ; ordre de lecture imposé (S020→S026→S027 avant tout contenu de marché) | **Validé (2026-10-04)**, aucune source encore lue en profondeur — extraction toujours en attente d'un feu vert séparé |
 | `trading-ai/research/08_final_coverage_audit.md` | Audit des 32 domaines + 22 concepts transversaux + vérification ciblée finale des 4 lacunes signalées (regime detection, liquidity measurement, sentiment, portfolio construction) | **Terminé** (2026-10-03/04) |
-| `trading-ai/research/CLAIMS_REGISTRY.md` | Squelette vide, format défini | **Pas encore rempli** — registre de sources validé mais extraction pas encore lancée |
+| `trading-ai/research/CLAIMS_REGISTRY.md` | **24 claims extraits** (S020 : 9, S026 : 5, S027 : 11, dont 1 fusion S020/S027) avec taxonomie FACT/EMPIRICAL FINDING/METHOD/HEURISTIC/AUTHOR CLAIM/HYPOTHESIS, traçabilité page/section réelle | **Lot 1/N terminé** (2026-10-04) — aucune hypothèse de trading créée (sources méthodologiques), en attente de validation avant le lot suivant |
 | `.claude/skills/watch/` | Skill vidéo (yt-dlp + frames + transcript) utilisé pour ingérer la formation Elliot | Fonctionnel, indépendant du projet trading |
 | `/home/user/skill/main.py` + `gemini_analyze.py` | Analyseur YouTube générique via Gemini (hors-sujet trading, projet séparé de la même conversation) | Fonctionnel, sans lien avec `trading-ai/` |
 
@@ -113,9 +113,10 @@ présupposé comme cible finale (changement explicite de consigne le
 
 ### Décisions explicitement en attente de l'utilisateur
 
-- **Lancer l'extraction de claims** (`CLAIMS_REGISTRY.md`) — registre et
-  ordre de lecture validés, mais l'extraction elle-même n'a pas reçu de
-  feu vert, consigne explicite du 2026-10-04.
+- **Passer au lot de sources suivant** (après S020/S026/S027) — consigne
+  explicite du 2026-10-04 : ne pas poursuivre sans validation de ce
+  premier lot, malgré l'autonomie élargie accordée pour les lots
+  ultérieurs (voir note ci-dessous).
 - **Quelle(s) catégorie(s) de marché étudier en premier** — voir
   `research/01_market_comparison.md` pour les éléments factuels, aucune
   recommandation n'y est donnée par consigne explicite.
@@ -155,6 +156,50 @@ présupposé comme cible finale (changement explicite de consigne le
 ---
 
 ## Journal (ajouter en haut, ne jamais réécrire l'historique)
+
+### 2026-10-04 (2) — Autonomie élargie accordée + premier lot d'extraction (S020/S026/S027)
+- **Nouvelle consigne permanente de l'utilisateur** : autonomie élargie
+  pour ce projet — ne plus demander confirmation après chaque source/lot
+  tant qu'une étape est déjà validée dans le pipeline. Arrêt seulement
+  si : décision réellement nouvelle, dépense financière, action
+  destructive/irréversible, info essentielle manquante, contradiction
+  avec une décision verrouillée, ou étape nécessitant réellement une
+  approbation selon le pipeline. S'applique aussi à l'étape YouTube
+  (dédoublonnage/classement/ajout à la KB en continu) et interdit tout
+  ordre réel, wallet, capital réel, paper trading non autorisé,
+  déploiement live, nouveau serveur payant, ou nouvel achat de source
+  sans vérification préalable qu'une source existante suffit.
+- **Point d'arrêt explicite honoré malgré cette autonomie** : le même
+  message fixait aussi un arrêt précis après S020→S026→S027
+  ("Ne passe pas aux autres sources sans validation de ma part" /
+  "Commence uniquement par..."). Lu comme la consigne opérante pour
+  *ce* lot précis (l'autonomie elargie régissant les lots suivants) —
+  donc extraction limitée à ces 3 sources puis arrêt, conformément à la
+  règle d'arrêt n°6 de l'autonomie elle-même (étape nécessitant une
+  réelle approbation du pipeline).
+- Installation locale et gratuite de `pypdf` (bibliothèque Python pure,
+  aucun coût, aucun service tiers) pour lire le texte réel des PDF — pas
+  d'outil superflu, strictement nécessaire à la traçabilité exigée.
+- Texte réel obtenu et lu pour les 3 sources (pas de reconstruction de
+  mémoire) : S027 intégral (35p, miroir ouvert eScholarship) ; S020 via
+  table des matières exacte (bibliothèque ETH Zurich) + extrait éditeur
+  légitime de 218p contenant du code/figures/équations réels des
+  chapitres 5, 6, 7, 11, 12 (le livre complet reste sous droit d'auteur,
+  non acheté) ; S026 via les notes de cours PDF réelles publiées par le
+  MIT OCW (lectures 8 et 12).
+- **24 claims extraits** dans `research/CLAIMS_REGISTRY.md`, nouvelle
+  taxonomie à 6 catégories (FACT/EMPIRICAL FINDING/METHOD/HEURISTIC/
+  AUTHOR CLAIM/HYPOTHESIS), chaque claim avec localisation précise et,
+  quand la prose originale n'était pas dans l'extrait disponible,
+  mention explicite "prose non confirmée, reconstruite de sources
+  secondaires concordantes" plutôt qu'une fausse certitude.
+- 1 fusion appliquée (C-S020-09/C-S027-09, même argument, mêmes auteurs)
+  — comptée comme une source, pas deux indépendantes.
+- **Zéro hypothèse de trading créée** (sources méthodologiques, résultat
+  attendu) ; **zéro backtest lancé** ; **zéro modification du moteur de
+  décision** ; **zéro déploiement**.
+- Prochaine étape bloquée : lot de sources suivant (A/B/C), en attente
+  de validation explicite comme demandé pour ce premier lot précis.
 
 ### 2026-10-04 — Validation du registre, S027 ajouté, extraction toujours en attente
 - L'utilisateur valide l'audit du 2026-10-03 et valide l'ajout de

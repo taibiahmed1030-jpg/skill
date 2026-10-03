@@ -76,7 +76,7 @@ Même logique : un tableau markdown, une ligne par claim atomique.
 |---|---|
 | `CLAIM_ID` | `C001`, `C002`, ... (jamais réutilisé) |
 | `SOURCE_ID` | Référence vers `SOURCE_REGISTRY.md` |
-| Tag | `[A]` affirmation du formateur/auteur · `[B]` règle explicite · `[C]` hypothèse testable · `[D]` opinion/interprétation · `[E]` info nécessitant validation externe (reprend le tagging déjà en place dans `ingestion/SKILL.md`) |
+| Tag | `[A]`-`[E]` pour une source narrative (formation/vidéo, reprend `ingestion/SKILL.md`) **ou**, pour une source académique/méthodologique, la taxonomie à 6 catégories `FACT`/`EMPIRICAL FINDING`/`METHOD`/`HEURISTIC`/`AUTHOR CLAIM`/`HYPOTHESIS` définie et appliquée pour la première fois dans `CLAIMS_REGISTRY.md` (lot S020/S026/S027, 2026-10-04) — plus précise pour ce type de source, voir ce fichier pour la table de correspondance |
 | Claim (texte court) | L'affirmation telle qu'extraite, reformulée de façon neutre |
 | Domaine | Un ou plusieurs domaines de `06_domain_coverage.md` |
 | Localisation | Timestamp vidéo / page / section |
