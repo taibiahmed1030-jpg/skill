@@ -28,8 +28,8 @@ attaché à son échantillon d'origine.
 
 | Source | Fichier | Accès réel au texte | Claims | Dont HYPOTHESIS | Lot |
 |---|---|---|---|---|---|
-| S020 | `claims/S020.md` | Partiel légitime (TOC exacte + extrait éditeur ch.5/6/7/11/12) | 9 | 0 | 1 |
-| S026 | `claims/S026.md` | Intégral (notes MIT OCW, lectures 8 et 12) | 5 | 0 | 1 |
+| S020 | `claims/S020.md` | Partiel légitime (TOC exacte + extrait éditeur ch.5/6/7/11/12/16) | 11 | 0 | 1 (+ synthèse) |
+| S026 | `claims/S026.md` | Intégral (notes MIT OCW, lectures 8, 12 et 14) | 9 | 0 | 1 (+ synthèse) |
 | S027 | `claims/S027.md` | Intégral (miroir ouvert eScholarship) | 11 | 0 | 1 |
 | S001 | `claims/S001.md` | **Limité** — table des matières seulement (copies non autorisées écartées) | 1 | 0 | 2 |
 | S003 | `claims/S003.md` | Intégral (working paper 66 p.) | 14 | 1 candidat | 2 |
@@ -57,6 +57,12 @@ attaché à son échantillon d'origine.
 | S014 | `claims/S014.md` | **Résumé seulement** (JSTOR) | 2 | 0 | 4 |
 | S019 | `claims/S019.md` | **Aucun** — livre ; pas de remplacement (non bloquant, partiellement couvert ailleurs) | 0 | 0 | 4 |
 | S024, S025 | `claims/S024_S025.md` | **Aucun** — livres ; **redondance documentée** avec S020/S027/S031 | 0 | 0 | 4 |
+
+### Sources vidéo (tags [A]-[E], voir `10_video_pipeline.md`)
+
+| Source | Fichier | Accès réel | Claims | Dont [C] | Domaine |
+|---|---|---|---|---|---|
+| V001 | `claims/V001.md` | Sous-titres auto intégraux (client officiel), 1:25:48 | 25 | 11 candidats (dont C-V001-16 [E] chiffré) | #13 Market Profile |
 
 ## Journal des fusions (dédoublonnage)
 
