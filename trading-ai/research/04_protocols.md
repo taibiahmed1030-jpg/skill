@@ -95,7 +95,7 @@ A-E ci-dessus et s'appliquent à toute hypothèse issue du corpus.
 - **R1 — Artefacts de microstructure** (N1 ; C-S003-07, C-S007-05, C-S015-10) : une autocorrélation négative à très court terme des prix de transaction peut n'être qu'un rebond bid-ask. Tester les hypothèses de retour à la moyenne court terme sur points milieux ou avec exécution décalée d'une période.
 - **R2 — Mouvements extrêmes sans information** (N10 ; C-S005-05) : signaler les épisodes de type flash crash plutôt que les traiter comme signaux.
 - **R3 — Contrats continus** (N14 ; C-S031-07) : documenter la méthode de raccordement aux dates de roulement.
-- **R15 — Datation à la publication** (C-V002-01) : toute variable publiée avec retard (rapport COT : positions du mardi publiées le vendredi) est datée à sa **date de publication**, jamais à sa date d'observation. Ajoutée le 2026-10-04 pendant le pipeline vidéo.
+- **R15 — Datation à la publication** (C-V002-01) : toute variable publiée avec retard (rapport COT : positions du mardi publiées le vendredi) est datée à sa **date de publication**, jamais à sa date d'observation. Ajoutée le 2026-10-04 pendant le pipeline vidéo. Cas concret : une plateforme de courtage antidate la donnée COT au mercredi alors qu'elle n'est publiée que le vendredi (C-V003-02) — ne jamais utiliser l'horodatage d'un fournisseur sans le vérifier contre le calendrier de publication officiel.
 
 **Conception des tests**
 - **R4 — Validation chronologique** (N9 ; C-S020-01/02/04, C-S004-06) : jamais de k-fold standard sur séries temporelles ; validation chronologique avec purge et embargo dès que les horizons de labels se chevauchent.

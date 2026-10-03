@@ -64,6 +64,7 @@ attaché à son échantillon d'origine.
 |---|---|---|---|---|---|
 | V001 | `claims/V001.md` | Sous-titres auto intégraux (client officiel), 1:25:48 | 25 | 11 candidats (dont C-V001-16 [E] chiffré) | #13 Market Profile |
 | V002 | `claims/V002.md` | Sous-titres auto intégraux (client officiel), 1:01:54 | 15 | 4 candidats | #17-18 COT |
+| V003 | `claims/V003.md` | Sous-titres auto intégraux (client officiel), 43:19 | 10 | 1 candidat (+ 1 backtest non recevable) | #17-18 COT |
 
 ## Journal des fusions (dédoublonnage)
 
@@ -77,6 +78,8 @@ attaché à son échantillon d'origine.
 | C-S007-09 (déclin de rentabilité jusqu'en 1997) | C-S008-04, C-S008-10 (déclin confirmé jusqu'en 2009 ; effet REIT disparu après 2000) | Corroboration et prolongation du déclin | **2** (Do & Faff indépendants de GGR) |
 | C-S015-07 | C-S016-07 (corroboration **non indépendante**) | Profil en "sourire" du trend-following face aux mouvements extrêmes du marché | **1** (équipe AQR commune, Ooi et Pedersen co-auteurs des deux) — la période 1880-1984 de S016 est en revanche un test hors échantillon *temporel* |
 | C-S015-08 (spéculateurs suiveurs de tendance, données CFTC 1986-2009) | C-V002-08 (corroboration) | Même affirmation : les non-commerciaux suivent la tendance | **2** (S015 empirique ; V002 affirmation de praticien, sans données) |
+| C-V002-01 (calendrier COT mardi → vendredi) | C-V003-01 (corroboration) | Même fait de structure, deux organisations indépendantes ; à confirmer sur la source primaire CFTC | **2** |
+| R3 / C-S031-07 (raccordement des contrats continus) | C-V003-08 (corroboration) | Les séries ajustées décalent les prix historiques | **2** |
 
 ## Journal des conflits inter-sources
 
@@ -98,6 +101,7 @@ attaché à son échantillon d'origine.
 | C-S015-08 (spéculateurs suivent la tendance avec profit, 12 mois) | C-V002-09 (positionnement extrême sur 52 semaines = fin de tendance probable) | **Prolonge la tension** C-S015-08 / C-S017-01 avec une source à accès intégral ; horizons différents (12 mois vs semaines) | **Ouvert** — à départager par test en séparant les horizons |
 | C-V002-07 (a) positions des commerciaux = information sur la valeur | C-V002-07 (b) = couverture mécanique d'un stock physique | Explications concurrentes données **par la même source** ; (a) rejoint C-S018-02, (b) rejoint la prime payée par les hedgers (S015) | **Ouvert** |
 | C-V002-05 (OI en hausse confirme la tendance) | C-S031 (preuves négatives sur les signaux de volume, un marché, 5 min) | Famille volume/OI : affirmation de praticien vs résultat négatif sur un autre signal et une autre fréquence | **Tension faible** (objets différents) — signalée, non arbitrée |
+| C-V002-07 / C-V002-09 (commerciaux informés ; commerciaux au plus court = prix trop hauts) | C-V003-05 / C-V003-06 (non-commerciaux = "smart money" ; commerciaux nets courts = haussier) | **Contradiction directe entre praticiens** sur la même donnée | **Ouvert** — à départager uniquement par test ; ni l'une ni l'autre lecture n'est retenue par défaut |
 
 ## Sources inaccessibles ou limitées
 
