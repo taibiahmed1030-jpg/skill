@@ -1151,10 +1151,36 @@
       "complexite": "moyenne",
       "biais_potentiel": "Catégories structurellement d'un seul côté ne produisent jamais de signal (C-V002-10) ; recoupement avec H027/H028.",
       "testabilite": "Données gratuites. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
-      "derniere_maj": "2026-10-03"
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H029_H031_preregistration.md",
+        "analyse_chevauchement": "backtest/results/H029_H031_overlap.json",
+        "script": "backtest/strategies/h029_h031_cot.py",
+        "resultats_bruts": "backtest/results/H029_H031_results.json",
+        "periode_testee": "2000-01 / 2026-09, 15 futures (COT Legacy, datation R15)",
+        "nb_occurrences": {
+          "H029-NC": 454,
+          "H029-C": 462
+        },
+        "metriques": {
+          "NC_moyenne_8sem": 0.0091,
+          "NC_p_holm": 0.108,
+          "NC_2013_fin": -0.002,
+          "C_moyenne_8sem": -0.0098,
+          "C_p_holm": 0.108,
+          "NC_p_brut_sans_sauts": 0.4038
+        },
+        "p_value_permutation": {
+          "NC": 0.057,
+          "C": 0.0538
+        },
+        "verdict": "INCONCLUSIVE : suivre le flip des non-commerciaux = +0,9 % à 8 semaines (p brut 0,057, Holm 0,108), concentré sur 2000-2012 (négatif après 2013), p=0,40 une fois les sauts de raccordement neutralisés ; le côté commerciaux en est le miroir (-1,0 %), comme l'annonçait l'analyse de chevauchement.",
+        "limites": "Mêmes réserves que H027/H028 (séries Yahoo non ajustées, WTI négatif 2020) ; H029-NC recouvre H028 à 71 % de position dans ses fenêtres."
+      },
+      "derniere_maj": "2026-10-03",
+      "scission": "Scindée avant test en H029-NC / H029-C : contradictoire en interne (49,6 % des flips des commerciaux s'accompagnent d'un flip opposé des non-commerciaux à ±2 rapports)."
     },
     {
       "id": "H030",
@@ -1229,9 +1255,31 @@
       "complexite": "moyenne",
       "biais_potentiel": "Backtest de V003 non recevable (look-ahead, sans coûts, un marché) ; le filtre change la nature de la stratégie.",
       "testabilite": "Données gratuites. Accès vérifié le 2026-10-03 (CFTC, K. French, Yahoo Finance répondent ; Stooq inaccessible). Réserve R3 : les séries continues =F de Yahoo ne documentent pas leur méthode de raccordement — sauts aux roulements à détecter et neutraliser, à défaut limite documentée.",
-      "statut": "non_testee",
-      "statut_en": "TESTABLE",
-      "backtest": null,
+      "statut": "en_test",
+      "statut_en": "INCONCLUSIVE",
+      "backtest": {
+        "date_execution": "2026-10-03",
+        "preenregistrement": "backtest/results/H029_H031_preregistration.md",
+        "analyse_chevauchement": "backtest/results/H029_H031_overlap.json",
+        "script": "backtest/strategies/h029_h031_cot.py",
+        "resultats_bruts": "backtest/results/H029_H031_results.json",
+        "periode_testee": "2000-01 / 2026-09, 15 futures (COT Legacy, datation R15)",
+        "nb_occurrences": 6760,
+        "metriques": {
+          "diff_B_moins_A_annualisee_pct": 3.16,
+          "t_nw": 2.24,
+          "sharpe_net_A": -0.33,
+          "sharpe_net_B": -0.04,
+          "t_2013_fin": 0.55,
+          "mais_B_R15_vs_antidate_pct_an": [
+            -0.3,
+            3.53
+          ]
+        },
+        "p_value_permutation": 0.652,
+        "verdict": "INCONCLUSIVE : le filtre améliore la stratégie de tendance de +3,2 %/an (t=2,24, positif sur les deux moitiés et pour SMA 20/100), mais des filtres placebo (même série Δ permutée) font aussi bien (p=0,65) : l'amélioration vient de la réduction des transactions d'une stratégie perdante, pas de l'information COT. Sharpe net de la version filtrée ≈ 0 (-0,04). Diagnostic : sur le maïs 2015-2025, antidater la donnée au mercredi comme V003 fait passer la version filtrée de -0,3 %/an à +3,5 %/an.",
+        "limites": "Rendements démeanés (mesure de la capacité de timing, pas du rendement absolu) ; SMA et seuil de 3 % fixés par nous (V003 ne donne pas la longueur) ; significativité statistique de la différence sans valeur économique ni attribution au signal."
+      },
       "derniere_maj": "2026-10-03"
     }
   ]

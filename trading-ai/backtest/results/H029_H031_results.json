@@ -1,0 +1,1272 @@
+{
+  "runs": [
+    {
+      "horodatage_utc": "2026-10-03T13:32:49+00:00",
+      "resultat": {
+        "preenregistrement": "results/H029_H031_preregistration.md",
+        "H029": {
+          "H029-NC": {
+            "h=4": {
+              "h_semaines": 4,
+              "n_evenements": 456,
+              "moyenne_s_r": 0.0035662149927721677,
+              "p_permutation_bilateral": 0.3278,
+              "moitie": {
+                "2000_2012": {
+                  "n": 267,
+                  "moyenne": 0.004220032457820913
+                },
+                "2013_fin": {
+                  "n": 189,
+                  "moyenne": 0.0026425680977033047
+                }
+              },
+              "par_marche": {
+                "ZC=F": {
+                  "n_min": 20,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.0223143582500265
+                },
+                "ZS=F": {
+                  "n_min": 16,
+                  "n_max": 16,
+                  "moyenne_s_r": 0.0008862811425535382
+                },
+                "ZW=F": {
+                  "n_min": 18,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.0025788299442638745
+                },
+                "LE=F": {
+                  "n_min": 12,
+                  "n_max": 5,
+                  "moyenne_s_r": 0.03894527486963553
+                },
+                "CL=F": {
+                  "n_min": 13,
+                  "n_max": 7,
+                  "moyenne_s_r": -0.01706392307438092
+                },
+                "NG=F": {
+                  "n_min": 9,
+                  "n_max": 11,
+                  "moyenne_s_r": 0.0507420409227158
+                },
+                "GC=F": {
+                  "n_min": 4,
+                  "n_max": 4,
+                  "moyenne_s_r": -0.012804658290201075
+                },
+                "SI=F": {
+                  "n_min": 10,
+                  "n_max": 3,
+                  "moyenne_s_r": -0.002592206549196812
+                },
+                "HG=F": {
+                  "n_min": 14,
+                  "n_max": 20,
+                  "moyenne_s_r": -0.006681715727258377
+                },
+                "ES=F": {
+                  "n_min": 24,
+                  "n_max": 26,
+                  "moyenne_s_r": 0.007592167549831406
+                },
+                "ZN=F": {
+                  "n_min": 19,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.005448418229423367
+                },
+                "6E=F": {
+                  "n_min": 20,
+                  "n_max": 13,
+                  "moyenne_s_r": 0.012955849627134725
+                },
+                "6J=F": {
+                  "n_min": 20,
+                  "n_max": 24,
+                  "moyenne_s_r": -4.231123059752156e-06
+                },
+                "SB=F": {
+                  "n_min": 16,
+                  "n_max": 15,
+                  "moyenne_s_r": -0.017935835821956052
+                },
+                "KC=F": {
+                  "n_min": 15,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.016205019065147836
+                }
+              }
+            },
+            "h=8": {
+              "h_semaines": 8,
+              "n_evenements": 454,
+              "moyenne_s_r": 0.009123226948423399,
+              "p_permutation_bilateral": 0.057,
+              "moitie": {
+                "2000_2012": {
+                  "n": 267,
+                  "moyenne": 0.016897264317263284
+                },
+                "2013_fin": {
+                  "n": 187,
+                  "moyenne": -0.001976601808155479
+                }
+              },
+              "par_marche": {
+                "ZC=F": {
+                  "n_min": 20,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.029540509586598557
+                },
+                "ZS=F": {
+                  "n_min": 16,
+                  "n_max": 16,
+                  "moyenne_s_r": 0.0204498190850232
+                },
+                "ZW=F": {
+                  "n_min": 18,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.01647618738778021
+                },
+                "LE=F": {
+                  "n_min": 12,
+                  "n_max": 5,
+                  "moyenne_s_r": 0.046312456556286345
+                },
+                "CL=F": {
+                  "n_min": 13,
+                  "n_max": 7,
+                  "moyenne_s_r": -0.01398949463493281
+                },
+                "NG=F": {
+                  "n_min": 9,
+                  "n_max": 11,
+                  "moyenne_s_r": 0.020677815832433753
+                },
+                "GC=F": {
+                  "n_min": 4,
+                  "n_max": 4,
+                  "moyenne_s_r": -0.03706542677035014
+                },
+                "SI=F": {
+                  "n_min": 10,
+                  "n_max": 3,
+                  "moyenne_s_r": -0.005090439309057718
+                },
+                "HG=F": {
+                  "n_min": 14,
+                  "n_max": 20,
+                  "moyenne_s_r": -0.0050547662395578966
+                },
+                "ES=F": {
+                  "n_min": 24,
+                  "n_max": 25,
+                  "moyenne_s_r": 0.009707003590077402
+                },
+                "ZN=F": {
+                  "n_min": 19,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.005940606281784871
+                },
+                "6E=F": {
+                  "n_min": 20,
+                  "n_max": 13,
+                  "moyenne_s_r": 0.012720940038667706
+                },
+                "6J=F": {
+                  "n_min": 20,
+                  "n_max": 24,
+                  "moyenne_s_r": 0.05702542724708013
+                },
+                "SB=F": {
+                  "n_min": 16,
+                  "n_max": 14,
+                  "moyenne_s_r": -0.010993520907904916
+                },
+                "KC=F": {
+                  "n_min": 15,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.018715918111244647
+                }
+              }
+            },
+            "h=13": {
+              "h_semaines": 13,
+              "n_evenements": 453,
+              "moyenne_s_r": 0.006528702929995766,
+              "p_permutation_bilateral": 0.2866,
+              "moitie": {
+                "2000_2012": {
+                  "n": 267,
+                  "moyenne": 0.011553682974996832
+                },
+                "2013_fin": {
+                  "n": 186,
+                  "moyenne": -0.0006845748765380257
+                }
+              },
+              "par_marche": {
+                "ZC=F": {
+                  "n_min": 20,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.03167925086577229
+                },
+                "ZS=F": {
+                  "n_min": 16,
+                  "n_max": 16,
+                  "moyenne_s_r": 0.011186476924898629
+                },
+                "ZW=F": {
+                  "n_min": 18,
+                  "n_max": 22,
+                  "moyenne_s_r": 0.008686283892135821
+                },
+                "LE=F": {
+                  "n_min": 12,
+                  "n_max": 5,
+                  "moyenne_s_r": 0.03514997828566154
+                },
+                "CL=F": {
+                  "n_min": 13,
+                  "n_max": 7,
+                  "moyenne_s_r": 0.0029872343807306827
+                },
+                "NG=F": {
+                  "n_min": 9,
+                  "n_max": 11,
+                  "moyenne_s_r": -0.016986326386762902
+                },
+                "GC=F": {
+                  "n_min": 4,
+                  "n_max": 4,
+                  "moyenne_s_r": -0.028259876337349808
+                },
+                "SI=F": {
+                  "n_min": 10,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.009412201514213129
+                },
+                "HG=F": {
+                  "n_min": 14,
+                  "n_max": 20,
+                  "moyenne_s_r": -0.01136903222505639
+                },
+                "ES=F": {
+                  "n_min": 24,
+                  "n_max": 25,
+                  "moyenne_s_r": 0.01553436872544461
+                },
+                "ZN=F": {
+                  "n_min": 19,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.008359183441183771
+                },
+                "6E=F": {
+                  "n_min": 19,
+                  "n_max": 13,
+                  "moyenne_s_r": 0.017853857463816666
+                },
+                "6J=F": {
+                  "n_min": 20,
+                  "n_max": 24,
+                  "moyenne_s_r": 0.005259882117427662
+                },
+                "SB=F": {
+                  "n_min": 16,
+                  "n_max": 14,
+                  "moyenne_s_r": 0.0028682195335305197
+                },
+                "KC=F": {
+                  "n_min": 15,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.021036355517716744
+                }
+              }
+            }
+          },
+          "H029-C": {
+            "h=4": {
+              "h_semaines": 4,
+              "n_evenements": 463,
+              "moyenne_s_r": 0.001156130908509822,
+              "p_permutation_bilateral": 0.7468,
+              "moitie": {
+                "2000_2012": {
+                  "n": 277,
+                  "moyenne": 0.0009836048088029653
+                },
+                "2013_fin": {
+                  "n": 186,
+                  "moyenne": 0.0014130649387184195
+                }
+              },
+              "par_marche": {
+                "ZC=F": {
+                  "n_min": 24,
+                  "n_max": 23,
+                  "moyenne_s_r": -0.008821820023631934
+                },
+                "ZS=F": {
+                  "n_min": 14,
+                  "n_max": 19,
+                  "moyenne_s_r": -0.003402626986527589
+                },
+                "ZW=F": {
+                  "n_min": 20,
+                  "n_max": 21,
+                  "moyenne_s_r": 0.0110186693463406
+                },
+                "LE=F": {
+                  "n_min": 14,
+                  "n_max": 14,
+                  "moyenne_s_r": -0.004984964752005807
+                },
+                "CL=F": {
+                  "n_min": 10,
+                  "n_max": 13,
+                  "moyenne_s_r": 0.004988666910866221
+                },
+                "NG=F": {
+                  "n_min": 12,
+                  "n_max": 11,
+                  "moyenne_s_r": -0.007451314227567107
+                },
+                "GC=F": {
+                  "n_min": 2,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.007585896844650719
+                },
+                "SI=F": {
+                  "n_min": 0,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.07122241198926703
+                },
+                "HG=F": {
+                  "n_min": 20,
+                  "n_max": 15,
+                  "moyenne_s_r": 0.0037647364175364246
+                },
+                "ES=F": {
+                  "n_min": 20,
+                  "n_max": 36,
+                  "moyenne_s_r": 0.001688994942015092
+                },
+                "ZN=F": {
+                  "n_min": 16,
+                  "n_max": 10,
+                  "moyenne_s_r": -0.002876106552687002
+                },
+                "6E=F": {
+                  "n_min": 13,
+                  "n_max": 14,
+                  "moyenne_s_r": -0.008909873897389902
+                },
+                "6J=F": {
+                  "n_min": 23,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.0029173380990903997
+                },
+                "SB=F": {
+                  "n_min": 15,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.01027554300744307
+                },
+                "KC=F": {
+                  "n_min": 12,
+                  "n_max": 25,
+                  "moyenne_s_r": 0.01151260018092421
+                }
+              }
+            },
+            "h=8": {
+              "h_semaines": 8,
+              "n_evenements": 462,
+              "moyenne_s_r": -0.00978080398371527,
+              "p_permutation_bilateral": 0.0538,
+              "moitie": {
+                "2000_2012": {
+                  "n": 277,
+                  "moyenne": -0.013108826296669408
+                },
+                "2013_fin": {
+                  "n": 185,
+                  "moyenne": -0.004797765169183936
+                }
+              },
+              "par_marche": {
+                "ZC=F": {
+                  "n_min": 24,
+                  "n_max": 23,
+                  "moyenne_s_r": -0.019254794673094665
+                },
+                "ZS=F": {
+                  "n_min": 14,
+                  "n_max": 19,
+                  "moyenne_s_r": -0.007306493154389429
+                },
+                "ZW=F": {
+                  "n_min": 20,
+                  "n_max": 21,
+                  "moyenne_s_r": 0.011351382664832127
+                },
+                "LE=F": {
+                  "n_min": 14,
+                  "n_max": 14,
+                  "moyenne_s_r": -0.006041692895304874
+                },
+                "CL=F": {
+                  "n_min": 10,
+                  "n_max": 13,
+                  "moyenne_s_r": 0.02254467501715746
+                },
+                "NG=F": {
+                  "n_min": 12,
+                  "n_max": 11,
+                  "moyenne_s_r": -0.07566792747928287
+                },
+                "GC=F": {
+                  "n_min": 2,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.01749301492199597
+                },
+                "SI=F": {
+                  "n_min": 0,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.06490012182515732
+                },
+                "HG=F": {
+                  "n_min": 20,
+                  "n_max": 15,
+                  "moyenne_s_r": -0.0018320436536526025
+                },
+                "ES=F": {
+                  "n_min": 20,
+                  "n_max": 36,
+                  "moyenne_s_r": -0.002820792664117024
+                },
+                "ZN=F": {
+                  "n_min": 16,
+                  "n_max": 10,
+                  "moyenne_s_r": -0.0012136588343623102
+                },
+                "6E=F": {
+                  "n_min": 13,
+                  "n_max": 14,
+                  "moyenne_s_r": -0.013230134927488276
+                },
+                "6J=F": {
+                  "n_min": 23,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.05647880769540038
+                },
+                "SB=F": {
+                  "n_min": 14,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.023485731166320897
+                },
+                "KC=F": {
+                  "n_min": 12,
+                  "n_max": 25,
+                  "moyenne_s_r": -0.009509184615780472
+                }
+              }
+            },
+            "h=13": {
+              "h_semaines": 13,
+              "n_evenements": 461,
+              "moyenne_s_r": 0.003252241904579507,
+              "p_permutation_bilateral": 0.61,
+              "moitie": {
+                "2000_2012": {
+                  "n": 277,
+                  "moyenne": 0.003173305782299826
+                },
+                "2013_fin": {
+                  "n": 184,
+                  "moyenne": 0.003371075088663596
+                }
+              },
+              "par_marche": {
+                "ZC=F": {
+                  "n_min": 24,
+                  "n_max": 23,
+                  "moyenne_s_r": -0.010887689613492508
+                },
+                "ZS=F": {
+                  "n_min": 14,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.008942244999230879
+                },
+                "ZW=F": {
+                  "n_min": 20,
+                  "n_max": 21,
+                  "moyenne_s_r": 0.0023650130326737834
+                },
+                "LE=F": {
+                  "n_min": 14,
+                  "n_max": 14,
+                  "moyenne_s_r": -0.01792374952659801
+                },
+                "CL=F": {
+                  "n_min": 10,
+                  "n_max": 13,
+                  "moyenne_s_r": 0.06641237884658821
+                },
+                "NG=F": {
+                  "n_min": 12,
+                  "n_max": 11,
+                  "moyenne_s_r": 0.011202341347610063
+                },
+                "GC=F": {
+                  "n_min": 2,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.023795441339546523
+                },
+                "SI=F": {
+                  "n_min": 0,
+                  "n_max": 3,
+                  "moyenne_s_r": 0.1495701306540286
+                },
+                "HG=F": {
+                  "n_min": 20,
+                  "n_max": 15,
+                  "moyenne_s_r": 0.0141736184047836
+                },
+                "ES=F": {
+                  "n_min": 20,
+                  "n_max": 36,
+                  "moyenne_s_r": -0.005620623426026085
+                },
+                "ZN=F": {
+                  "n_min": 16,
+                  "n_max": 10,
+                  "moyenne_s_r": 0.0015229291393992809
+                },
+                "6E=F": {
+                  "n_min": 13,
+                  "n_max": 13,
+                  "moyenne_s_r": -0.024644809437767982
+                },
+                "6J=F": {
+                  "n_min": 23,
+                  "n_max": 22,
+                  "moyenne_s_r": -0.0059384197754780025
+                },
+                "SB=F": {
+                  "n_min": 14,
+                  "n_max": 19,
+                  "moyenne_s_r": 0.016936833311098125
+                },
+                "KC=F": {
+                  "n_min": 12,
+                  "n_max": 25,
+                  "moyenne_s_r": -0.002806900534396879
+                }
+              }
+            }
+          }
+        },
+        "H031": {
+          "principal_sma50": {
+            "periode": "2000-01-04 / 2026-10-02",
+            "n_jours": 6760,
+            "diff_moyenne_annualisee_pct": 3.1583128293098275,
+            "t_nw_diff": 2.23840632676195,
+            "sharpe_net_A": -0.32782189320048827,
+            "sharpe_net_B": -0.042059481153594404,
+            "rendement_annualise_A_pct": -3.611090258249735,
+            "rendement_annualise_B_pct": -0.45277742893990647
+          },
+          "moitie_2000_2012": {
+            "periode": "2000-01-04 / 2012-12-31",
+            "n_jours": 3300,
+            "diff_moyenne_annualisee_pct": 5.313282561432934,
+            "t_nw_diff": 2.7140637815367534,
+            "sharpe_net_A": -0.11093875329486176,
+            "sharpe_net_B": 0.3068338858017272,
+            "rendement_annualise_A_pct": -1.417117468258749,
+            "rendement_annualise_B_pct": 3.896165093174185
+          },
+          "moitie_2013_fin": {
+            "periode": "2013-01-02 / 2026-10-02",
+            "n_jours": 3460,
+            "diff_moyenne_annualisee_pct": 1.1029948767068658,
+            "t_nw_diff": 0.5456420227431856,
+            "sharpe_net_A": -0.6320164694546541,
+            "sharpe_net_B": -0.5401998911646115,
+            "rendement_annualise_A_pct": -5.703607659108189,
+            "rendement_annualise_B_pct": -4.600612782401322
+          },
+          "sma20": {
+            "periode": "2000-01-04 / 2026-10-02",
+            "n_jours": 6760,
+            "diff_moyenne_annualisee_pct": 4.856801207188197,
+            "t_nw_diff": 2.182003158799153,
+            "sharpe_net_A": -0.4289199568848533,
+            "sharpe_net_B": -0.005039841919277657,
+            "rendement_annualise_A_pct": -4.912033821298441,
+            "rendement_annualise_B_pct": -0.05523261411024391
+          },
+          "sma100": {
+            "periode": "2000-01-04 / 2026-10-02",
+            "n_jours": 6760,
+            "diff_moyenne_annualisee_pct": 2.3426779650358522,
+            "t_nw_diff": 1.881657568455915,
+            "sharpe_net_A": -0.2992646596322963,
+            "sharpe_net_B": -0.08370985221128202,
+            "rendement_annualise_A_pct": -3.247063925107559,
+            "rendement_annualise_B_pct": -0.9043859600717057
+          },
+          "placebo": {
+            "diff_observee_quotidienne": 0.00012532987417896143,
+            "moyenne_placebo": 0.00010667187902257632,
+            "p_bilateral": 0.652,
+            "n_tirages": 1000
+          },
+          "diagnostic_lookahead_mais": {
+            "date_publication_R15": {
+              "rendement_annualise_B_pct": -0.296847525228045,
+              "sharpe_B": -0.011446501689473532,
+              "rendement_annualise_A_pct": -10.115931854610816,
+              "sharpe_A": -0.3881301394219945,
+              "nb_changements_position_B": 56
+            },
+            "antidate_mercredi_comme_V003": {
+              "rendement_annualise_B_pct": 3.534967447565033,
+              "sharpe_B": 0.1363384550815947,
+              "rendement_annualise_A_pct": -10.115931854610816,
+              "sharpe_A": -0.3881301394219945,
+              "nb_changements_position_B": 66
+            }
+          }
+        },
+        "sensibilite_sauts_neutralises": {
+          "H029": {
+            "H029-NC": {
+              "h=4": {
+                "h_semaines": 4,
+                "n_evenements": 456,
+                "moyenne_s_r": 0.002539117438001233,
+                "p_permutation_bilateral": 0.441,
+                "moitie": {
+                  "2000_2012": {
+                    "n": 267,
+                    "moyenne": 0.003551781095842407
+                  },
+                  "2013_fin": {
+                    "n": 189,
+                    "moyenne": 0.0011085290959716363
+                  }
+                },
+                "par_marche": {
+                  "ZC=F": {
+                    "n_min": 20,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.017305876185510844
+                  },
+                  "ZS=F": {
+                    "n_min": 16,
+                    "n_max": 16,
+                    "moyenne_s_r": -0.0023934772659221556
+                  },
+                  "ZW=F": {
+                    "n_min": 18,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.002540931735675192
+                  },
+                  "LE=F": {
+                    "n_min": 12,
+                    "n_max": 5,
+                    "moyenne_s_r": 0.040668606362904765
+                  },
+                  "CL=F": {
+                    "n_min": 13,
+                    "n_max": 7,
+                    "moyenne_s_r": -0.016470509056724904
+                  },
+                  "NG=F": {
+                    "n_min": 9,
+                    "n_max": 11,
+                    "moyenne_s_r": 0.05191863464907733
+                  },
+                  "GC=F": {
+                    "n_min": 4,
+                    "n_max": 4,
+                    "moyenne_s_r": -0.012804658290201068
+                  },
+                  "SI=F": {
+                    "n_min": 10,
+                    "n_max": 3,
+                    "moyenne_s_r": -0.00012305642280340513
+                  },
+                  "HG=F": {
+                    "n_min": 14,
+                    "n_max": 20,
+                    "moyenne_s_r": -0.007009117133921645
+                  },
+                  "ES=F": {
+                    "n_min": 24,
+                    "n_max": 26,
+                    "moyenne_s_r": 0.0073717208299301515
+                  },
+                  "ZN=F": {
+                    "n_min": 19,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.00552701365099903
+                  },
+                  "6E=F": {
+                    "n_min": 20,
+                    "n_max": 13,
+                    "moyenne_s_r": 0.012974189655160439
+                  },
+                  "6J=F": {
+                    "n_min": 20,
+                    "n_max": 24,
+                    "moyenne_s_r": 8.683357822946417e-05
+                  },
+                  "SB=F": {
+                    "n_min": 16,
+                    "n_max": 15,
+                    "moyenne_s_r": -0.019759694176863372
+                  },
+                  "KC=F": {
+                    "n_min": 15,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.02148313221699953
+                  }
+                }
+              },
+              "h=8": {
+                "h_semaines": 8,
+                "n_evenements": 454,
+                "moyenne_s_r": 0.003791805757864361,
+                "p_permutation_bilateral": 0.4038,
+                "moitie": {
+                  "2000_2012": {
+                    "n": 267,
+                    "moyenne": 0.008650036792778202
+                  },
+                  "2013_fin": {
+                    "n": 187,
+                    "moyenne": -0.0031448128855687684
+                  }
+                },
+                "par_marche": {
+                  "ZC=F": {
+                    "n_min": 20,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.023928131434078407
+                  },
+                  "ZS=F": {
+                    "n_min": 16,
+                    "n_max": 16,
+                    "moyenne_s_r": 0.01240992639663786
+                  },
+                  "ZW=F": {
+                    "n_min": 18,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.011474818413039028
+                  },
+                  "LE=F": {
+                    "n_min": 12,
+                    "n_max": 5,
+                    "moyenne_s_r": 0.04227486489034619
+                  },
+                  "CL=F": {
+                    "n_min": 13,
+                    "n_max": 7,
+                    "moyenne_s_r": -0.005471528367832916
+                  },
+                  "NG=F": {
+                    "n_min": 9,
+                    "n_max": 11,
+                    "moyenne_s_r": 0.022270596089748056
+                  },
+                  "GC=F": {
+                    "n_min": 4,
+                    "n_max": 4,
+                    "moyenne_s_r": -0.02524159821401977
+                  },
+                  "SI=F": {
+                    "n_min": 10,
+                    "n_max": 3,
+                    "moyenne_s_r": -0.00013749620896826554
+                  },
+                  "HG=F": {
+                    "n_min": 14,
+                    "n_max": 20,
+                    "moyenne_s_r": -0.00774730615789776
+                  },
+                  "ES=F": {
+                    "n_min": 24,
+                    "n_max": 25,
+                    "moyenne_s_r": 0.010111018686735283
+                  },
+                  "ZN=F": {
+                    "n_min": 19,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.005452445380932186
+                  },
+                  "6E=F": {
+                    "n_min": 20,
+                    "n_max": 13,
+                    "moyenne_s_r": 0.012757728856931291
+                  },
+                  "6J=F": {
+                    "n_min": 20,
+                    "n_max": 24,
+                    "moyenne_s_r": 0.005300144188352884
+                  },
+                  "SB=F": {
+                    "n_min": 16,
+                    "n_max": 14,
+                    "moyenne_s_r": -0.0028864367313176137
+                  },
+                  "KC=F": {
+                    "n_min": 15,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.027232939636718644
+                  }
+                }
+              },
+              "h=13": {
+                "h_semaines": 13,
+                "n_evenements": 453,
+                "moyenne_s_r": 0.007318770553430518,
+                "p_permutation_bilateral": 0.2028,
+                "moitie": {
+                  "2000_2012": {
+                    "n": 267,
+                    "moyenne": 0.01290007308511592
+                  },
+                  "2013_fin": {
+                    "n": 186,
+                    "moyenne": -0.0006930992097952979
+                  }
+                },
+                "par_marche": {
+                  "ZC=F": {
+                    "n_min": 20,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.024006749257894786
+                  },
+                  "ZS=F": {
+                    "n_min": 16,
+                    "n_max": 16,
+                    "moyenne_s_r": 0.0017560695710529296
+                  },
+                  "ZW=F": {
+                    "n_min": 18,
+                    "n_max": 22,
+                    "moyenne_s_r": 0.013735625672757773
+                  },
+                  "LE=F": {
+                    "n_min": 12,
+                    "n_max": 5,
+                    "moyenne_s_r": 0.03442735610605539
+                  },
+                  "CL=F": {
+                    "n_min": 13,
+                    "n_max": 7,
+                    "moyenne_s_r": 0.012129140255614271
+                  },
+                  "NG=F": {
+                    "n_min": 9,
+                    "n_max": 11,
+                    "moyenne_s_r": -0.0054233599518405395
+                  },
+                  "GC=F": {
+                    "n_min": 4,
+                    "n_max": 4,
+                    "moyenne_s_r": -0.012648513596103372
+                  },
+                  "SI=F": {
+                    "n_min": 10,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.018642016230083096
+                  },
+                  "HG=F": {
+                    "n_min": 14,
+                    "n_max": 20,
+                    "moyenne_s_r": -0.010521940681614758
+                  },
+                  "ES=F": {
+                    "n_min": 24,
+                    "n_max": 25,
+                    "moyenne_s_r": 0.020998527496475357
+                  },
+                  "ZN=F": {
+                    "n_min": 19,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.00781817674718461
+                  },
+                  "6E=F": {
+                    "n_min": 19,
+                    "n_max": 13,
+                    "moyenne_s_r": 0.017906896919169628
+                  },
+                  "6J=F": {
+                    "n_min": 20,
+                    "n_max": 24,
+                    "moyenne_s_r": 0.007092193053878704
+                  },
+                  "SB=F": {
+                    "n_min": 16,
+                    "n_max": 14,
+                    "moyenne_s_r": 0.00826756026312907
+                  },
+                  "KC=F": {
+                    "n_min": 15,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.03211877729356527
+                  }
+                }
+              }
+            },
+            "H029-C": {
+              "h=4": {
+                "h_semaines": 4,
+                "n_evenements": 463,
+                "moyenne_s_r": 0.002107612502165341,
+                "p_permutation_bilateral": 0.528,
+                "moitie": {
+                  "2000_2012": {
+                    "n": 277,
+                    "moyenne": 0.002099608085115563
+                  },
+                  "2013_fin": {
+                    "n": 186,
+                    "moyenne": 0.002119533058739474
+                  }
+                },
+                "par_marche": {
+                  "ZC=F": {
+                    "n_min": 24,
+                    "n_max": 23,
+                    "moyenne_s_r": -0.005543308371684908
+                  },
+                  "ZS=F": {
+                    "n_min": 14,
+                    "n_max": 19,
+                    "moyenne_s_r": -0.0010939080592120467
+                  },
+                  "ZW=F": {
+                    "n_min": 20,
+                    "n_max": 21,
+                    "moyenne_s_r": 0.011027912811850015
+                  },
+                  "LE=F": {
+                    "n_min": 14,
+                    "n_max": 14,
+                    "moyenne_s_r": -0.00441805183924478
+                  },
+                  "CL=F": {
+                    "n_min": 10,
+                    "n_max": 13,
+                    "moyenne_s_r": 0.011055169499035867
+                  },
+                  "NG=F": {
+                    "n_min": 12,
+                    "n_max": 11,
+                    "moyenne_s_r": -0.007755783686172998
+                  },
+                  "GC=F": {
+                    "n_min": 2,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.0075890020261946784
+                  },
+                  "SI=F": {
+                    "n_min": 0,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.06663684746882163
+                  },
+                  "HG=F": {
+                    "n_min": 20,
+                    "n_max": 15,
+                    "moyenne_s_r": 0.00618728357353648
+                  },
+                  "ES=F": {
+                    "n_min": 20,
+                    "n_max": 36,
+                    "moyenne_s_r": -0.003138783753156247
+                  },
+                  "ZN=F": {
+                    "n_min": 16,
+                    "n_max": 10,
+                    "moyenne_s_r": -0.002851043577528557
+                  },
+                  "6E=F": {
+                    "n_min": 13,
+                    "n_max": 14,
+                    "moyenne_s_r": -0.009637394787021407
+                  },
+                  "6J=F": {
+                    "n_min": 23,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.0025148519996200853
+                  },
+                  "SB=F": {
+                    "n_min": 15,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.012066491267201152
+                  },
+                  "KC=F": {
+                    "n_min": 12,
+                    "n_max": 25,
+                    "moyenne_s_r": 0.016938920058697796
+                  }
+                }
+              },
+              "h=8": {
+                "h_semaines": 8,
+                "n_evenements": 462,
+                "moyenne_s_r": -0.0030471086577586806,
+                "p_permutation_bilateral": 0.4908,
+                "moitie": {
+                  "2000_2012": {
+                    "n": 277,
+                    "moyenne": -0.0033529368412629516
+                  },
+                  "2013_fin": {
+                    "n": 185,
+                    "moyenne": -0.0025891929451603915
+                  }
+                },
+                "par_marche": {
+                  "ZC=F": {
+                    "n_min": 24,
+                    "n_max": 23,
+                    "moyenne_s_r": -0.01235257863837691
+                  },
+                  "ZS=F": {
+                    "n_min": 14,
+                    "n_max": 19,
+                    "moyenne_s_r": -0.0006441882863568415
+                  },
+                  "ZW=F": {
+                    "n_min": 20,
+                    "n_max": 21,
+                    "moyenne_s_r": 0.011369924412547843
+                  },
+                  "LE=F": {
+                    "n_min": 14,
+                    "n_max": 14,
+                    "moyenne_s_r": -0.005887676546606068
+                  },
+                  "CL=F": {
+                    "n_min": 10,
+                    "n_max": 13,
+                    "moyenne_s_r": 0.028327974446970265
+                  },
+                  "NG=F": {
+                    "n_min": 12,
+                    "n_max": 11,
+                    "moyenne_s_r": -0.07035106634583314
+                  },
+                  "GC=F": {
+                    "n_min": 2,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.011829110881132417
+                  },
+                  "SI=F": {
+                    "n_min": 0,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.055701798924991164
+                  },
+                  "HG=F": {
+                    "n_min": 20,
+                    "n_max": 15,
+                    "moyenne_s_r": 0.0009732495411169424
+                  },
+                  "ES=F": {
+                    "n_min": 20,
+                    "n_max": 36,
+                    "moyenne_s_r": -0.006205899580989646
+                  },
+                  "ZN=F": {
+                    "n_min": 16,
+                    "n_max": 10,
+                    "moyenne_s_r": 0.00019101348455538062
+                  },
+                  "6E=F": {
+                    "n_min": 13,
+                    "n_max": 14,
+                    "moyenne_s_r": -0.013960877034462912
+                  },
+                  "6J=F": {
+                    "n_min": 23,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.005378717431505221
+                  },
+                  "SB=F": {
+                    "n_min": 14,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.02048218743486584
+                  },
+                  "KC=F": {
+                    "n_min": 12,
+                    "n_max": 25,
+                    "moyenne_s_r": -0.003118716609506814
+                  }
+                }
+              },
+              "h=13": {
+                "h_semaines": 13,
+                "n_evenements": 461,
+                "moyenne_s_r": 0.004090213720767122,
+                "p_permutation_bilateral": 0.494,
+                "moitie": {
+                  "2000_2012": {
+                    "n": 277,
+                    "moyenne": 0.00356406047333243
+                  },
+                  "2013_fin": {
+                    "n": 184,
+                    "moyenne": 0.004882303120437828
+                  }
+                },
+                "par_marche": {
+                  "ZC=F": {
+                    "n_min": 24,
+                    "n_max": 23,
+                    "moyenne_s_r": -0.006652521311826881
+                  },
+                  "ZS=F": {
+                    "n_min": 14,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.017961771058617078
+                  },
+                  "ZW=F": {
+                    "n_min": 20,
+                    "n_max": 21,
+                    "moyenne_s_r": -0.002409961909987579
+                  },
+                  "LE=F": {
+                    "n_min": 14,
+                    "n_max": 14,
+                    "moyenne_s_r": -0.012436617754026777
+                  },
+                  "CL=F": {
+                    "n_min": 10,
+                    "n_max": 13,
+                    "moyenne_s_r": 0.06559989150325757
+                  },
+                  "NG=F": {
+                    "n_min": 12,
+                    "n_max": 11,
+                    "moyenne_s_r": 0.008083878915783264
+                  },
+                  "GC=F": {
+                    "n_min": 2,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.012075413244316721
+                  },
+                  "SI=F": {
+                    "n_min": 0,
+                    "n_max": 3,
+                    "moyenne_s_r": 0.13456724852045163
+                  },
+                  "HG=F": {
+                    "n_min": 20,
+                    "n_max": 15,
+                    "moyenne_s_r": 0.015334808266231586
+                  },
+                  "ES=F": {
+                    "n_min": 20,
+                    "n_max": 36,
+                    "moyenne_s_r": -0.006289493186708651
+                  },
+                  "ZN=F": {
+                    "n_min": 16,
+                    "n_max": 10,
+                    "moyenne_s_r": 0.0029563298625989933
+                  },
+                  "6E=F": {
+                    "n_min": 13,
+                    "n_max": 13,
+                    "moyenne_s_r": -0.02539698651038066
+                  },
+                  "6J=F": {
+                    "n_min": 23,
+                    "n_max": 22,
+                    "moyenne_s_r": -0.006718517197318815
+                  },
+                  "SB=F": {
+                    "n_min": 14,
+                    "n_max": 19,
+                    "moyenne_s_r": 0.010106815308059553
+                  },
+                  "KC=F": {
+                    "n_min": 12,
+                    "n_max": 25,
+                    "moyenne_s_r": 0.007067717748372718
+                  }
+                }
+              }
+            }
+          },
+          "H031": {
+            "principal_sma50": {
+              "periode": "2000-01-04 / 2026-10-02",
+              "n_jours": 6760,
+              "diff_moyenne_annualisee_pct": 2.677706129645868,
+              "t_nw_diff": 2.057377001553384,
+              "sharpe_net_A": -0.33503493533999373,
+              "sharpe_net_B": -0.05666315143371025,
+              "rendement_annualise_A_pct": -3.203431878038881,
+              "rendement_annualise_B_pct": -0.5257257483930123
+            },
+            "moitie_2000_2012": {
+              "periode": "2000-01-04 / 2012-12-31",
+              "n_jours": 3300,
+              "diff_moyenne_annualisee_pct": 4.0021038197104435,
+              "t_nw_diff": 2.318117773262704,
+              "sharpe_net_A": -0.057678183144814564,
+              "sharpe_net_B": 0.3163020736464274,
+              "rendement_annualise_A_pct": -0.6220657388672619,
+              "rendement_annualise_B_pct": 3.3800380808431814
+            },
+            "moitie_2013_fin": {
+              "periode": "2013-01-02 / 2026-10-02",
+              "n_jours": 3460,
+              "diff_moyenne_annualisee_pct": 1.4145522633993073,
+              "t_nw_diff": 0.7309584759222467,
+              "sharpe_net_A": -0.6887880477250885,
+              "sharpe_net_B": -0.5525500728914375,
+              "rendement_annualise_A_pct": -5.665428484763256,
+              "rendement_annualise_B_pct": -4.250876221363948
+            },
+            "sma20": {
+              "periode": "2000-01-04 / 2026-10-02",
+              "n_jours": 6760,
+              "diff_moyenne_annualisee_pct": 3.421199993054721,
+              "t_nw_diff": 1.6380049606999325,
+              "sharpe_net_A": -0.37275464212810516,
+              "sharpe_net_B": -0.01676382437887526,
+              "rendement_annualise_A_pct": -3.5759698609406247,
+              "rendement_annualise_B_pct": -0.1547698678859036
+            },
+            "sma100": {
+              "periode": "2000-01-04 / 2026-10-02",
+              "n_jours": 6760,
+              "diff_moyenne_annualisee_pct": 1.4119770065539927,
+              "t_nw_diff": 1.2999581679710042,
+              "sharpe_net_A": -0.25575378560586376,
+              "sharpe_net_B": -0.10740773678272156,
+              "rendement_annualise_A_pct": -2.411344859621506,
+              "rendement_annualise_B_pct": -0.9993678530675143
+            }
+          }
+        },
+        "verdicts_regle_preenregistree": {
+          "p_holm_NC": 0.1076,
+          "p_holm_C": 0.1076,
+          "H029": "INCONCLUSIVE",
+          "H031": "INCONCLUSIVE"
+        }
+      }
+    }
+  ]
+}
