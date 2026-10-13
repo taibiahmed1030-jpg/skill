@@ -170,7 +170,7 @@ def index():
              (3, 'Bras et poignets', 'Coudes, avant-bras et poignets sollicités par le sport ou le travail.'),
              (4, 'Hanches et bassin', 'Raideurs, douleurs et rééducation de la hanche.'),
              (5, 'Genoux et jambes', 'Entorses, ligaments, rééducation du genou et jambes lourdes.')]
-    zl = ''.join(f'<div><span class="n">0{r + 1}</span><h3>{t}</h3><p>{d}</p></div>' for r, t, d in zones)
+    zl = ''.join(f'<li class="zone" data-region="{r}"><span class="n">0{r + 1}</span><h3>{t}</h3><p>{d}</p></li>' for r, t, d in zones)
     team = ''.join(f'''<a class="card rv" href="equipe.html#{m['id']}"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><span class="more">Voir l'équipe {ic('arrow-right')}</span></a>''' for m in TEAM)
     return head('index.html', 'ABmoment | Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles',
                 'ABmoment, centre de kinésithérapie et de bien-être à Schaerbeek (Bruxelles) : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.') + header('index.html') + f'''
@@ -199,7 +199,11 @@ def index():
 <section style="padding-top:0" aria-labelledby="zones-title">
   <div class="wrap">
     <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
-    <div class="zone-grid rv">{zl}</div>
+    <p class="sub rv">Faites défiler : la zone décrite apparaît sur le modèle anatomique.</p>
+    <div class="zones">
+      <div class="zones-3d"><canvas data-3d="anatomy" role="img" aria-label="Modèle anatomique 3D du corps humain dont la zone décrite se colore en bleu"></canvas><p class="model-loading" aria-hidden="true">Chargement du modèle anatomique...</p><p class="credit">Modèle anatomique : <a href="https://www.z-anatomy.com/" target="_blank" rel="noopener">Z-Anatomy</a>, licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a></p></div>
+      <ul class="zone-list">{zl}</ul>
+    </div>
   </div>
 </section>
 
@@ -338,6 +342,7 @@ def legal():
   <p class="lead">Éditeur : ABmoment, {CENTRE['street']}, {CENTRE['zip']} {CENTRE['city']}, Belgique. Téléphone : {CENTRE['tel_h']}. E-mail : {CENTRE['email']}.</p>
   <!-- TODO : numéro d'entreprise (BCE), numéros INAMI des praticiens, hébergeur -->
   <p class="sub">Numéro d'entreprise et hébergeur : à compléter.</p>
+  <p class="sub">Modèle anatomique 3D : Z-Anatomy (dérivé de BodyParts3D), utilisé sous licence CC BY-SA 4.0.</p>
   <p class="sub">Ce site n'utilise aucun cookie ni outil de mesure d'audience. Les informations publiées ont un but informatif et ne remplacent pas une consultation.</p>
 </div></section>
 ''' + footer()
