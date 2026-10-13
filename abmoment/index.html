@@ -17,7 +17,7 @@
 <meta property="og:image" content="assets/img/og.jpg">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/bodoni-moda-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{
  "@context": "https://schema.org",
@@ -135,7 +135,7 @@
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
       <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>60 €</strong>la séance d'1 heure</div><div><strong>Schaerbeek</strong>Rue Hancart 12</div></div>
     </div>
-    <div class="hero-3d"><canvas data-3d="logo" role="img" aria-label="Le monogramme AB d’ABmoment en 3D, sur un socle en marbre"></canvas></div>
+    <figure class="hero-photo rv"><img src="assets/img/equipe-simon.jpg" alt="Simon Cano, kinésithérapeute, et Aydin Bozok au centre ABmoment" width="1040" height="1300" fetchpriority="high"></figure>
   </div>
 </section>
 
@@ -150,11 +150,8 @@
 <section style="padding-top:0" aria-labelledby="zones-title">
   <div class="wrap">
     <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
-    <p class="sub rv">Faites défiler : la zone décrite apparaît sur le modèle anatomique.</p>
-    <div class="zones">
-      <div class="zones-3d"><canvas data-3d="anatomy" role="img" aria-label="Modèle anatomique 3D du corps humain dont la zone décrite se colore en bleu"></canvas><p class="model-loading" aria-hidden="true">Chargement du modèle anatomique...</p><p class="credit">Modèle anatomique : <a href="https://www.z-anatomy.com/" target="_blank" rel="noopener">Z-Anatomy</a>, licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a></p></div>
-      <ul class="zone-list"><li class="zone" data-region="0"><span class="n">01</span><h3>Nuque et tête</h3><p>Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.</p></li><li class="zone" data-region="1"><span class="n">02</span><h3>Épaules</h3><p>Douleurs, tendinites et manque de mobilité de l’épaule.</p></li><li class="zone" data-region="2"><span class="n">03</span><h3>Dos</h3><p>Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.</p></li><li class="zone" data-region="3"><span class="n">04</span><h3>Bras et poignets</h3><p>Coudes, avant-bras et poignets sollicités par le sport ou le travail.</p></li><li class="zone" data-region="4"><span class="n">05</span><h3>Hanches et bassin</h3><p>Raideurs, douleurs et rééducation de la hanche.</p></li><li class="zone" data-region="5"><span class="n">06</span><h3>Genoux et jambes</h3><p>Entorses, ligaments, rééducation du genou et jambes lourdes.</p></li></ul>
-    </div>
+    <p class="sub rv">Les douleurs que nous prenons en charge le plus souvent.</p>
+    <div class="zone-grid"><div class="rv"><span class="n">01</span><h3>Nuque et tête</h3><p>Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.</p></div><div class="rv"><span class="n">02</span><h3>Épaules</h3><p>Douleurs, tendinites et manque de mobilité de l’épaule.</p></div><div class="rv"><span class="n">03</span><h3>Dos</h3><p>Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.</p></div><div class="rv"><span class="n">04</span><h3>Bras et poignets</h3><p>Coudes, avant-bras et poignets sollicités par le sport ou le travail.</p></div><div class="rv"><span class="n">05</span><h3>Hanches et bassin</h3><p>Raideurs, douleurs et rééducation de la hanche.</p></div><div class="rv"><span class="n">06</span><h3>Genoux et jambes</h3><p>Entorses, ligaments, rééducation du genou et jambes lourdes.</p></div></div>
   </div>
 </section>
 
@@ -196,7 +193,6 @@
     <div class="legal"><span>© 2026 ABmoment. <a href="mentions-legales.html">Mentions légales</a></span><span>Site conçu par <a href="https://webxl.be" target="_blank" rel="noopener">WEBXL</a></span></div>
   </div>
 </footer>
-<script type="importmap">{ "imports": { "three": "./assets/vendor/three.module.min.js" } }</script>
 <script type="module" src="assets/site.js"></script>
 </body>
 </html>
