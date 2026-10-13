@@ -49,7 +49,7 @@ def schema():
     data = {
         '@context': 'https://schema.org', '@type': ['Physiotherapy', 'MedicalBusiness'],
         'name': 'ABmoment', 'description': 'Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.',
-        'url': SITE, 'telephone': CENTRE['tel'], 'email': CENTRE['email'],
+        'url': SITE, 'logo': SITE + '/assets/img/logo.png', 'telephone': CENTRE['tel'], 'email': CENTRE['email'],
         'address': {'@type': 'PostalAddress', 'streetAddress': CENTRE['street'], 'postalCode': CENTRE['zip'], 'addressLocality': CENTRE['city'], 'addressRegion': 'Bruxelles', 'addressCountry': 'BE'},
         'areaServed': ['Schaerbeek', 'Bruxelles', 'Saint-Josse-ten-Noode', 'Evere', 'Bruxelles-Ville'],
         'medicalSpecialty': ['Physiotherapy', 'Neurologic'],
@@ -79,7 +79,8 @@ def head(file, title, desc):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="assets/img/og.jpg">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{schema()}</script>
@@ -97,7 +98,7 @@ def header(file):
     mlinks = ''.join(f'<a href="{f}">{n}</a>' for f, n in PAGES)
     return f'''<header class="hdr">
   <div class="wrap">
-    <a href="index.html" class="brand" aria-label="ABmoment, accueil"><span class="brand-mark" aria-hidden="true">AB</span><span>ABmoment<small>Kinésithérapie et bien-être</small></span></a>
+    <a href="index.html" class="brand" aria-label="ABmoment, accueil"><img class="brand-logo" src="assets/img/logo.png" alt="" width="56" height="48"><span>ABmoment<small>Kinésithérapie et bien-être</small></span></a>
     <nav aria-label="Navigation principale"><ul class="nav">{links}</ul></nav>
     <a href="contact.html" class="btn btn-accent btn-sm">Prendre rendez-vous</a>
     <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mnav">{ic('list')}</button>
@@ -121,7 +122,7 @@ def footer():
   <div class="wrap">
     <div class="ftr-grid">
       <div>
-        <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">AB</span><span>ABmoment<small>Kinésithérapie et bien-être</small></span></a>
+        <a href="index.html" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="" width="56" height="48"><span>ABmoment<small>Kinésithérapie et bien-être</small></span></a>
         <p style="margin-top:16px;max-width:34ch">Centre de kinésithérapie et de bien-être à Schaerbeek, au service des patients de tout Bruxelles.</p>
       </div>
       <div><h2>Le centre</h2><ul>{''.join(f'<li><a href="{f}">{n}</a></li>' for f, n in PAGES[1:])}</ul></div>

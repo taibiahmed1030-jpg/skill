@@ -39,7 +39,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hdr .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 20px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 600; font-size: 1.25rem; letter-spacing: -.02em; }
 .brand-mark { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--accent); color: #12090a; font-weight: 700; font-size: .9rem; letter-spacing: -.04em; }
-.brand-logo { height: 40px; width: auto; }
+.brand-logo { height: 48px; width: auto; background: #fff; border-radius: 12px; padding: 4px 6px; }
 .brand small { display: block; font-family: "Hanken Grotesk", sans-serif; font-weight: 400; font-size: .72rem; color: var(--muted); letter-spacing: .02em; margin-top: -2px; }
 .nav { display: flex; gap: 2px; list-style: none; }
 .nav a { display: block; padding: 9px 14px; border-radius: 999px; color: var(--muted); font-weight: 500; font-size: .96rem; transition: color 200ms var(--ease-out), background-color 200ms var(--ease-out); }
