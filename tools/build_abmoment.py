@@ -72,7 +72,7 @@ def head(file, title, desc):
 <!-- Maquette WEBXL : retirer noindex et le bandeau .demo-bar à la mise en ligne réelle -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="{SITE}/{'' if file == 'index.html' else file}">
-<meta name="theme-color" content="#0b1214">
+<meta name="theme-color" content="#f7f6f3">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_BE">
 <meta property="og:site_name" content="ABmoment">
@@ -81,7 +81,7 @@ def head(file, title, desc):
 <meta property="og:image" content="assets/img/og.jpg">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bodoni-moda-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{schema()}</script>
 </head>
@@ -163,28 +163,28 @@ SOINS = [
 
 def index():
     cards = ''.join(f'''<a class="card rv" href="soins.html#{s[0]}">{ic(s[1])}<h3>{s[2]}</h3><p>{s[3]}</p><span class="more">Découvrir {ic('arrow-right')}</span></a>''' for s in SOINS)
-    cards += f'''<a class="card blue rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><p>Bilans de la mémoire, de l’attention et de la concentration, et accompagnement adapté.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
+    cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><p>Bilans de la mémoire, de l’attention et de la concentration, et accompagnement adapté.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
     zones = [(0, 'Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.'),
              (1, 'Épaules', 'Douleurs, tendinites et manque de mobilité de l’épaule.'),
              (2, 'Dos', 'Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.'),
              (3, 'Bras et poignets', 'Coudes, avant-bras et poignets sollicités par le sport ou le travail.'),
              (4, 'Hanches et bassin', 'Raideurs, douleurs et rééducation de la hanche.'),
              (5, 'Genoux et jambes', 'Entorses, ligaments, rééducation du genou et jambes lourdes.')]
-    zl = ''.join(f'<li class="zone" data-region="{r}"><h3>{t}</h3><p>{d}</p></li>' for r, t, d in zones)
-    team = ''.join(f'''<a class="card rv" href="equipe.html#{m['id']}"><span class="role{' blue-role' if m['id'] == 'kubra' else ''}">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><span class="more">Voir l'équipe {ic('arrow-right')}</span></a>''' for m in TEAM)
+    zl = ''.join(f'<div><span class="n">0{r + 1}</span><h3>{t}</h3><p>{d}</p></div>' for r, t, d in zones)
+    team = ''.join(f'''<a class="card rv" href="equipe.html#{m['id']}"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><span class="more">Voir l'équipe {ic('arrow-right')}</span></a>''' for m in TEAM)
     return head('index.html', 'ABmoment | Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles',
                 'ABmoment, centre de kinésithérapie et de bien-être à Schaerbeek (Bruxelles) : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.') + header('index.html') + f'''
 <section class="hero" style="padding:0" aria-labelledby="hero-title">
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div>
-      <p class="kicker rv">Schaerbeek, Bruxelles</p>
-      <h1 id="hero-title" class="rv">Centre de kinésithérapie et de <em>bien-être</em></h1>
+      <p class="kicker rv">ABmoment, Bruxelles</p>
+      <h1 id="hero-title" class="rv">Centre de kinésithérapie et de <em>bien-être</em> à Schaerbeek</h1>
       <p class="lead rv">Kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie, réunies dans un même centre.</p>
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
       <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
     </div>
-    <div class="hero-3d"><canvas data-3d="body" role="img" aria-label="Corps humain en 3D représenté par ses fibres musculaires"></canvas></div>
+    <div class="hero-3d"><canvas data-3d="logo" role="img" aria-label="Le monogramme AB d’ABmoment en 3D, sur un socle en marbre"></canvas></div>
   </div>
 </section>
 
@@ -199,9 +199,18 @@ def index():
 <section style="padding-top:0" aria-labelledby="zones-title">
   <div class="wrap">
     <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
-    <div class="zones">
-      <div class="zones-3d"><canvas data-3d="body" data-zones role="img" aria-label="Corps en 3D dont la zone décrite s'illumine"></canvas></div>
-      <ul class="zone-list">{zl}</ul>
+    <div class="zone-grid rv">{zl}</div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="centre-title">
+  <div class="wrap photo-split">
+    <img class="rv" src="assets/img/equipe-julie.jpg" alt="Julie Thiebaut, kinésithérapeute, et Aydin Bozok dans le centre ABmoment" width="1040" height="1298" loading="lazy">
+    <div>
+      <p class="kicker rv">Le centre</p>
+      <h2 class="h2 rv" id="centre-title">Le savoir-faire, l’écoute et la précision</h2>
+      <p class="sub rv">Un centre lumineux et apaisant à Schaerbeek, où chaque patient est pris en charge dans sa globalité : sportifs, personnes qui souffrent de douleurs, ou simple besoin de récupérer.</p>
+      <p class="quote rv" style="margin-top:32px">« Le corps s’apaise lorsque l’on écoute enfin ce qu’il murmure. »</p>
     </div>
   </div>
 </section>
@@ -218,7 +227,7 @@ def index():
 
 def soins():
     blocks = ''.join(f'''<article class="soin rv" id="{s[0]}"><h2>{ic(s[1])}{s[2]}</h2><div><p>{s[3]}</p><ul>{''.join(f'<li>{x}</li>' for x in s[4])}</ul></div></article>''' for s in SOINS)
-    blocks += f'''<article class="soin blue rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><p>Bilans et accompagnement des fonctions cognitives : mémoire, attention, concentration et organisation.</p><ul><li>Bilan neuropsychologique</li><li>Suivi et remédiation cognitive</li><li>Avec Kubra Bozok, neuropsychologue</li></ul><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
+    blocks += f'''<article class="soin rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><p>Bilans et accompagnement des fonctions cognitives : mémoire, attention, concentration et organisation.</p><ul><li>Bilan neuropsychologique</li><li>Suivi et remédiation cognitive</li><li>Avec Kubra Bozok, neuropsychologue</li></ul><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
     return head('soins.html', 'Nos soins | Kinésithérapie, ventouses, pressothérapie à Schaerbeek | ABmoment',
                 'Kinésithérapie, thérapie par ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie au centre ABmoment à Schaerbeek, Bruxelles.') + header('soins.html') + f'''
 <section style="padding-bottom:40px">
@@ -241,33 +250,34 @@ def soins():
 def neuro():
     k = TEAM[2]
     return head('neuropsychologie.html', 'Neuropsychologue à Schaerbeek, Bruxelles | Bilan neuropsychologique | ABmoment',
-                'Kubra Bozok, neuropsychologue au centre ABmoment à Schaerbeek : bilans neuropsychologiques de la mémoire, de l’attention et de la concentration, et accompagnement.').replace('<body>', '<body class="blue-page">') + header('neuropsychologie.html') + f'''
-<section class="hero" style="padding:0" aria-labelledby="hero-title">
-  <div class="hero-glow blue" aria-hidden="true"></div>
+                'Kubra Bozok, neuropsychologue au centre ABmoment à Schaerbeek : bilans neuropsychologiques de la mémoire, de l’attention et de la concentration, et accompagnement.') + header('neuropsychologie.html') + f'''
+<section style="padding:0" aria-labelledby="hero-title">
   <div class="wrap">
-    <div>
-      <p class="kicker rv">Neuropsychologie</p>
-      <h1 id="hero-title" class="rv">Comprendre le fonctionnement de votre <em>cerveau</em></h1>
-      <p class="lead rv">La neuropsychologie évalue et accompagne les fonctions cognitives : mémoire, attention, concentration, langage et organisation.</p>
-      <div class="cta rv"><a href="tel:{k['tel']}" class="btn btn-accent" style="background:var(--blue);color:#04121c">{ic('phone')} Appeler Kubra</a><a href="{wa(k['tel'])}" class="btn btn-line" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div>
+    <div class="neuro-hero rv">
+      <div>
+      <p class="kicker">Neuropsychologie</p>
+      <h1 id="hero-title">Comprendre le fonctionnement de votre <em>cerveau</em></h1>
+      <p class="lead">La neuropsychologie évalue et accompagne les fonctions cognitives : mémoire, attention, concentration, langage et organisation.</p>
+      <div class="cta"><a href="tel:{k['tel']}" class="btn btn-accent">{ic('phone')} Appeler Kubra Bozok</a><a href="{wa(k['tel'])}" class="btn btn-line" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div>
+      </div>
+      <ul class="neuro-list" aria-label="Fonctions évaluées"><li>Mémoire</li><li>Attention</li><li>Concentration</li><li>Langage</li><li>Organisation</li></ul>
     </div>
-    <div class="hero-3d"><canvas data-3d="brain" role="img" aria-label="Cerveau en 3D avec ses connexions neuronales en bleu"></canvas></div>
   </div>
 </section>
 <section aria-labelledby="why-title">
   <div class="wrap">
     <h2 class="h2 rv" id="why-title">Quand consulter ?</h2>
     <div class="cards">
-      <div class="card blue rv">{ic('brain')}<h3>Mémoire</h3><p>Oublis fréquents, difficulté à retenir de nouvelles informations ou inquiétude face à des changements.</p></div>
-      <div class="card blue rv">{ic('sparkle')}<h3>Attention et concentration</h3><p>Difficulté à rester concentré, distractibilité, fatigue mentale au travail ou à l'école.</p></div>
-      <div class="card blue rv">{ic('heartbeat')}<h3>Après un événement neurologique</h3><p>Évaluation et accompagnement après un traumatisme crânien, un AVC ou une autre atteinte neurologique.</p></div>
+      <div class="card rv">{ic('brain')}<h3>Mémoire</h3><p>Oublis fréquents, difficulté à retenir de nouvelles informations ou inquiétude face à des changements.</p></div>
+      <div class="card rv">{ic('sparkle')}<h3>Attention et concentration</h3><p>Difficulté à rester concentré, distractibilité, fatigue mentale au travail ou à l'école.</p></div>
+      <div class="card rv">{ic('heartbeat')}<h3>Après un événement neurologique</h3><p>Évaluation et accompagnement après un traumatisme crânien, un AVC ou une autre atteinte neurologique.</p></div>
     </div>
   </div>
 </section>
 <section style="padding-top:0" aria-labelledby="bilan-title">
   <div class="wrap">
-    <article class="soin blue rv"><h2 id="bilan-title">{ic('calendar-check')}Le bilan neuropsychologique</h2><div><p>Un entretien, puis des tests adaptés permettent de dresser un profil précis de vos forces et de vos difficultés. Les résultats vous sont expliqués et orientent la suite de l'accompagnement.</p><ul><li>Entretien et anamnèse</li><li>Tests standardisés</li><li>Restitution et conseils</li><li>Suivi et remédiation cognitive si nécessaire</li></ul></div></article>
-    <article class="soin blue rv"><h2>{ic('phone')}{k['name']}</h2><div><p>{k['bio']}</p><div class="cta" style="margin-top:20px"><a href="tel:{k['tel']}" class="chip">{ic('phone')} {k['tel_h']}</a><a href="{wa(k['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>
+    <article class="soin rv"><h2 id="bilan-title">{ic('calendar-check')}Le bilan neuropsychologique</h2><div><p>Un entretien, puis des tests adaptés permettent de dresser un profil précis de vos forces et de vos difficultés. Les résultats vous sont expliqués et orientent la suite de l'accompagnement.</p><ul><li>Entretien et anamnèse</li><li>Tests standardisés</li><li>Restitution et conseils</li><li>Suivi et remédiation cognitive si nécessaire</li></ul></div></article>
+    <article class="soin rv"><h2>{ic('phone')}{k['name']}</h2><div><p>{k['bio']}</p><div class="cta" style="margin-top:20px"><a href="tel:{k['tel']}" class="chip">{ic('phone')} {k['tel_h']}</a><a href="{wa(k['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>
   </div>
 </section>
 ''' + book_band('Un rendez-vous en neuropsychologie', f"Contactez directement Kubra Bozok au {k['tel_h']}, ou le centre au {CENTRE['tel_h']}.") + footer()
@@ -278,7 +288,7 @@ def equipe():
     for m in TEAM:
         blue = m['id'] == 'kubra'
         fig = f'<figure><img src="{m["img"]}" alt="{m["name"]}, {m["role"].lower()}, avec {FOUNDER["name"]}, fondateur d\'ABmoment" width="1040" height="1300" loading="lazy"></figure><p class="caption">{m["name"]} (à droite) avec {FOUNDER["name"]}</p>' if m['img'] else f'<div class="monogram" aria-hidden="true">KB</div>'
-        cards += f'''<article class="member rv" id="{m['id']}">{fig}<div class="info"><span class="role{' blue-role' if blue else ''}">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><div class="contacts"><a href="tel:{m['tel']}" class="chip">{ic('phone')} {m['tel_h']}</a><a href="{wa(m['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
+        cards += f'''<article class="member rv" id="{m['id']}">{fig}<div class="info"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><div class="contacts"><a href="tel:{m['tel']}" class="chip">{ic('phone')} {m['tel_h']}</a><a href="{wa(m['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
     founder = f'''<article class="founder rv"><div><span class="role">{FOUNDER['role']}</span><h3>{FOUNDER['name']}</h3></div><div><p class="sub" style="margin-top:0">{FOUNDER['name']} a fondé ABmoment pour réunir, dans un même lieu, des praticiens qui partagent la même exigence : le savoir-faire, l'écoute et la précision.</p><div class="contacts" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px"><a href="tel:{CENTRE['tel']}" class="chip">{ic('phone')} {CENTRE['tel_h']}</a><a href="{wa(CENTRE['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
     return head('equipe.html', "L'équipe | Kinésithérapeutes et neuropsychologue à Schaerbeek | ABmoment",
                 "Découvrez l'équipe du centre ABmoment à Schaerbeek : Simon Cano et Julie Thiebaut, kinésithérapeutes, et Kubra Bozok, neuropsychologue.") + header('equipe.html') + f'''

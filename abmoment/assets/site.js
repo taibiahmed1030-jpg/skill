@@ -20,24 +20,8 @@ if (!reduce) {
   document.querySelectorAll('.rv').forEach(el => io.observe(el));
 } else document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
 
-const bodies = document.querySelectorAll('canvas[data-3d="body"]');
-const brains = document.querySelectorAll('canvas[data-3d="brain"]');
-if (bodies.length || brains.length) {
-  const load = () => import('./scene3d.js').then(m => {
-    bodies.forEach(c => {
-      const api = m.mountBody(c, { reduce, mobile });
-      // Section « zones » : la zone lue s'illumine sur le corps
-      if (api && c.dataset.zones !== undefined) {
-        const zones = document.querySelectorAll('.zone');
-        const zio = new IntersectionObserver(es => es.forEach(e => {
-          if (!e.isIntersecting) return;
-          zones.forEach(z => z.classList.toggle('on', z === e.target));
-          api.setRegion(+e.target.dataset.region);
-        }), { rootMargin: '-45% 0px -45% 0px' });
-        zones.forEach(z => zio.observe(z));
-      }
-    });
-    brains.forEach(c => m.mountBrain(c, { reduce, mobile }));
-  }).catch(() => {});
-  'requestIdleCallback' in window ? requestIdleCallback(load, { timeout: 1000 }) : setTimeout(load, 200);
+const logos = document.querySelectorAll('canvas[data-3d="logo"]');
+if (logos.length) {
+  const load = () => import('./logo3d.js').then(m => logos.forEach(c => m.mountLogo(c, { reduce, mobile }))).catch(() => {});
+  'requestIdleCallback' in window ? requestIdleCallback(load, { timeout: 800 }) : setTimeout(load, 150);
 }
