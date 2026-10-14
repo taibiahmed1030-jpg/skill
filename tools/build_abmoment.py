@@ -163,18 +163,10 @@ SOINS = [
 def index():
     cards = ''.join(f'''<a class="card rv" href="soins.html#{s[0]}">{ic(s[1])}<h3>{s[2]}</h3><p>{s[3]}</p><span class="more">Découvrir {ic('arrow-right')}</span></a>''' for s in SOINS)
     cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><p>Bilans de la mémoire, de l’attention et de la concentration, et accompagnement adapté.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
-    zones = [(0, 'Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.'),
-             (1, 'Épaules', 'Douleurs, tendinites et manque de mobilité de l’épaule.'),
-             (2, 'Dos', 'Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.'),
-             (3, 'Bras et poignets', 'Coudes, avant-bras et poignets sollicités par le sport ou le travail.'),
-             (4, 'Hanches et bassin', 'Raideurs, douleurs et rééducation de la hanche.'),
-             (5, 'Genoux et jambes', 'Entorses, ligaments, rééducation du genou et jambes lourdes.')]
-    zl = ''.join(f'<div class="rv"><span class="n">0{r + 1}</span><h3>{t}</h3><p>{d}</p></div>' for r, t, d in zones)
     team = ''.join(f'''<a class="card rv" href="equipe.html#{m['id']}"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><span class="more">Voir l'équipe {ic('arrow-right')}</span></a>''' for m in TEAM)
     return head('index.html', 'ABmoment | Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles',
                 'ABmoment, centre de kinésithérapie et de bien-être à Schaerbeek (Bruxelles) : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.') + header('index.html') + f'''
 <section class="hero" style="padding:0" aria-labelledby="hero-title">
-  <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div>
       <p class="kicker rv">ABmoment, Bruxelles</p>
@@ -183,7 +175,7 @@ def index():
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
       <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
     </div>
-    <figure class="hero-photo rv"><img src="assets/img/equipe-simon.jpg" alt="Simon Cano, kinésithérapeute, et Aydin Bozok au centre ABmoment" width="1040" height="1300" fetchpriority="high"></figure>
+    <div class="body3d" data-tilt><div class="body3d-in"><img src="assets/img/corps-muscles.jpg" alt="Corps humain anatomique avec les fibres musculaires" width="1000" height="1294" fetchpriority="high"><span class="body3d-glow" aria-hidden="true"></span></div></div>
   </div>
 </section>
 
@@ -192,14 +184,6 @@ def index():
     <h2 class="h2 rv" id="soins-title">Des soins pour tout le corps</h2>
     <p class="sub rv">Une approche globale qui associe techniques modernes et traditionnelles, adaptée à chaque patient : sportifs, personnes souffrant de douleurs ou simple besoin de récupérer.</p>
     <div class="cards">{cards}</div>
-  </div>
-</section>
-
-<section style="padding-top:0" aria-labelledby="zones-title">
-  <div class="wrap">
-    <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
-    <p class="sub rv">Les douleurs que nous prenons en charge le plus souvent.</p>
-    <div class="zone-grid">{zl}</div>
   </div>
 </section>
 
@@ -225,6 +209,31 @@ def index():
 ''' + book_band() + footer()
 
 
+ZONES = [('Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.', [(50, 17)]),
+         ('Épaules', 'Douleurs, tendinites et manque de mobilité de l’épaule.', [(36, 22.5), (64, 22.5)]),
+         ('Dos', 'Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.', [(41, 40), (59, 40)]),
+         ('Bras et poignets', 'Coudes, avant-bras et poignets sollicités par le sport ou le travail.', [(27, 41), (73, 41)]),
+         ('Hanches et bassin', 'Raideurs, douleurs et rééducation de la hanche.', [(42, 48), (58, 48)]),
+         ('Genoux et jambes', 'Entorses, ligaments, rééducation du genou et jambes lourdes.', [(44.5, 69), (55.5, 69)])]
+
+
+def zones_block():
+    spots = ''.join(f'<i class="spot" data-z="{i}" style="--x:{x}%;--y:{y}%"></i>' for i, z in enumerate(ZONES) for x, y in z[2])
+    items = ''.join(f'<li><button type="button" class="zbtn" data-z="{i}" aria-pressed="{str(i == 0).lower()}"><span class="n">0{i + 1}</span><span><b>{t}</b><span>{d}</span></span></button></li>' for i, (t, d, _) in enumerate(ZONES))
+    return f'''<section style="padding-top:40px" aria-labelledby="zones-title">
+  <div class="wrap zones2">
+    <div class="zbody rv"><img src="assets/img/corps-muscles.jpg" alt="Corps humain anatomique : la zone choisie s’éclaire" width="1000" height="1294" loading="lazy">{spots}</div>
+    <div class="zhead">
+      <p class="kicker rv">Zones traitées</p>
+      <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
+      <p class="sub rv">Choisissez une zone : elle s’éclaire sur le corps.</p>
+    </div>
+    <ul class="zlist rv">{items}</ul>
+  </div>
+</section>
+'''
+
+
 def soins():
     blocks = ''.join(f'''<article class="soin rv" id="{s[0]}"><h2>{ic(s[1])}{s[2]}</h2><div><p>{s[3]}</p><ul>{''.join(f'<li>{x}</li>' for x in s[4])}</ul></div></article>''' for s in SOINS)
     blocks += f'''<article class="soin rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><p>Bilans et accompagnement des fonctions cognitives : mémoire, attention, concentration et organisation.</p><ul><li>Bilan neuropsychologique</li><li>Suivi et remédiation cognitive</li><li>Avec Kubra Bozok, neuropsychologue</li></ul><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
@@ -244,7 +253,7 @@ def soins():
     {blocks}
   </div>
 </section>
-''' + book_band() + footer()
+''' + zones_block() + book_band() + footer()
 
 
 def neuro():
@@ -258,9 +267,10 @@ def neuro():
       <p class="kicker">Neuropsychologie</p>
       <h1 id="hero-title">Comprendre le fonctionnement de votre <em>cerveau</em></h1>
       <p class="lead">La neuropsychologie évalue et accompagne les fonctions cognitives : mémoire, attention, concentration, langage et organisation.</p>
+      <ul class="chips" aria-label="Fonctions évaluées"><li>Mémoire</li><li>Attention</li><li>Concentration</li><li>Langage</li><li>Organisation</li></ul>
       <div class="cta"><a href="tel:{k['tel']}" class="btn btn-accent">{ic('phone')} Appeler Kubra Bozok</a><a href="{wa(k['tel'])}" class="btn btn-line" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div>
       </div>
-      <ul class="neuro-list" aria-label="Fonctions évaluées"><li>Mémoire</li><li>Attention</li><li>Concentration</li><li>Langage</li><li>Organisation</li></ul>
+      <div class="brain" data-tilt><div class="brain-in"><img src="assets/img/cerveau.jpg" alt="Cerveau humain parcouru de connexions neuronales bleues" width="1100" height="1275"><span class="brain-glow" aria-hidden="true"></span></div></div>
     </div>
   </div>
 </section>
