@@ -175,7 +175,7 @@ def index():
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
       <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
     </div>
-    <div class="body3d" data-tilt><div class="body3d-in"><img src="assets/img/corps-muscles.jpg" alt="Corps humain anatomique avec les fibres musculaires" width="1000" height="1294" fetchpriority="high"><span class="body3d-glow" aria-hidden="true"></span></div></div>
+    <div class="turn" data-frames="32" data-src="assets/img/corps-360/"><img src="assets/img/corps-360/00.webp" alt="Corps humain anatomique en fibres musculaires, en rotation à 360°" width="600" height="1430" fetchpriority="high"><canvas width="600" height="1430" aria-hidden="true"></canvas><p class="turn-hint" aria-hidden="true">{ic("hand-palm")} Faites-le pivoter</p></div>
   </div>
 </section>
 
@@ -209,20 +209,20 @@ def index():
 ''' + book_band() + footer()
 
 
-ZONES = [('Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.', [(50, 17)]),
-         ('Épaules', 'Douleurs, tendinites et manque de mobilité de l’épaule.', [(36, 22.5), (64, 22.5)]),
-         ('Dos', 'Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.', [(41, 40), (59, 40)]),
-         ('Bras et poignets', 'Coudes, avant-bras et poignets sollicités par le sport ou le travail.', [(27, 41), (73, 41)]),
-         ('Hanches et bassin', 'Raideurs, douleurs et rééducation de la hanche.', [(42, 48), (58, 48)]),
-         ('Genoux et jambes', 'Entorses, ligaments, rééducation du genou et jambes lourdes.', [(44.5, 69), (55.5, 69)])]
+ZONES = [('Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.', 'f', [(50, 17.5)]),
+         ('Épaules', 'Douleurs, tendinites et manque de mobilité de l’épaule.', 'f', [(32, 22.5), (68, 22.5)]),
+         ('Dos', 'Lombalgies, dorsalgies et douleurs liées à la posture ou au travail.', 'b', [(50, 30), (50, 42)]),
+         ('Bras et poignets', 'Coudes, avant-bras et poignets sollicités par le sport ou le travail.', 'f', [(16, 44), (84, 44)]),
+         ('Hanches et bassin', 'Raideurs, douleurs et rééducation de la hanche.', 'f', [(39, 51), (61, 51)]),
+         ('Genoux et jambes', 'Entorses, ligaments, rééducation du genou et jambes lourdes.', 'f', [(41, 70), (59, 70)])]
 
 
 def zones_block():
-    spots = ''.join(f'<i class="spot" data-z="{i}" style="--x:{x}%;--y:{y}%"></i>' for i, z in enumerate(ZONES) for x, y in z[2])
-    items = ''.join(f'<li><button type="button" class="zbtn" data-z="{i}" aria-pressed="{str(i == 0).lower()}"><span class="n">0{i + 1}</span><span><b>{t}</b><span>{d}</span></span></button></li>' for i, (t, d, _) in enumerate(ZONES))
+    spots = ''.join(f'<i class="spot" data-z="{i}" data-v="{z[2]}" style="--x:{x}%;--y:{y}%"></i>' for i, z in enumerate(ZONES) for x, y in z[3])
+    items = ''.join(f'<li><button type="button" class="zbtn" data-z="{i}" data-v="{v}" aria-pressed="{str(i == 0).lower()}"><span class="n">0{i + 1}</span><span><b>{t}</b><span>{d}</span></span></button></li>' for i, (t, d, v, _) in enumerate(ZONES))
     return f'''<section style="padding-top:40px" aria-labelledby="zones-title">
   <div class="wrap zones2">
-    <div class="zbody rv"><img src="assets/img/corps-muscles.jpg" alt="Corps humain anatomique : la zone choisie s’éclaire" width="1000" height="1294" loading="lazy">{spots}</div>
+    <div class="zbody rv"><img src="assets/img/corps-360/00.webp" alt="Corps humain anatomique vu de face : la zone choisie s’éclaire" width="600" height="1430" loading="lazy"><img class="zback" src="assets/img/corps-360/16.webp" alt="" width="600" height="1430" loading="lazy">{spots}</div>
     <div class="zhead">
       <p class="kicker rv">Zones traitées</p>
       <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
