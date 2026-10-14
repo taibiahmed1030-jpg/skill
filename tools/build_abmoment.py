@@ -132,6 +132,7 @@ def footer():
     <div class="legal"><span>© 2026 ABmoment. <a href="mentions-legales.html">Mentions légales</a></span><span>Site conçu par <a href="https://webxl.be" target="_blank" rel="noopener">WEBXL</a></span></div>
   </div>
 </footer>
+<script type="importmap">{{ "imports": {{ "three": "./assets/vendor/three.module.min.js" }} }}</script>
 <script type="module" src="assets/site.js"></script>
 </body>
 </html>
@@ -175,7 +176,7 @@ def index():
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
       <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
     </div>
-    <div class="turn" data-frames="32" data-src="assets/img/corps-360/"><img src="assets/img/corps-360/00.webp" alt="Corps humain anatomique en fibres musculaires, en rotation à 360°" width="600" height="1430" fetchpriority="high"><canvas width="600" height="1430" aria-hidden="true"></canvas><p class="turn-hint" aria-hidden="true">{ic("hand-palm")} Faites-le pivoter</p></div>
+    <div class="body3d" data-body3d="hero"><img src="assets/img/corps-3d.webp" alt="Corps humain anatomique en 3D, muscles et tendons" width="700" height="1300" fetchpriority="high"><canvas aria-hidden="true"></canvas><p class="turn-hint" aria-hidden="true">{ic("hand-palm")} Faites-le pivoter</p></div>
   </div>
 </section>
 
@@ -218,15 +219,14 @@ ZONES = [('Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux d
 
 
 def zones_block():
-    spots = ''.join(f'<i class="spot" data-z="{i}" data-v="{z[2]}" style="--x:{x}%;--y:{y}%"></i>' for i, z in enumerate(ZONES) for x, y in z[3])
     items = ''.join(f'<li><button type="button" class="zbtn" data-z="{i}" data-v="{v}" aria-pressed="{str(i == 0).lower()}"><span class="n">0{i + 1}</span><span><b>{t}</b><span>{d}</span></span></button></li>' for i, (t, d, v, _) in enumerate(ZONES))
     return f'''<section style="padding-top:40px" aria-labelledby="zones-title">
   <div class="wrap zones2">
-    <div class="zbody rv"><img src="assets/img/corps-360/00.webp" alt="Corps humain anatomique vu de face : la zone choisie s’éclaire" width="600" height="1430" loading="lazy"><img class="zback" src="assets/img/corps-360/16.webp" alt="" width="600" height="1430" loading="lazy">{spots}</div>
+    <div class="zbody rv body3d" data-body3d="zones"><img src="assets/img/corps-3d.webp" alt="Corps humain anatomique en 3D : les muscles de la zone choisie s’éclairent" width="700" height="1300" loading="lazy"><canvas aria-hidden="true"></canvas></div>
     <div class="zhead">
       <p class="kicker rv">Zones traitées</p>
       <h2 class="h2 rv" id="zones-title">Là où vous avez mal</h2>
-      <p class="sub rv">Choisissez une zone : elle s’éclaire sur le corps.</p>
+      <p class="sub rv">Choisissez une zone : les muscles concernés s’éclairent sur le corps.</p>
     </div>
     <ul class="zlist rv">{items}</ul>
   </div>
@@ -348,6 +348,7 @@ def legal():
   <p class="lead">Éditeur : ABmoment, {CENTRE['street']}, {CENTRE['zip']} {CENTRE['city']}, Belgique. Téléphone : {CENTRE['tel_h']}. E-mail : {CENTRE['email']}.</p>
   <!-- TODO : numéro d'entreprise (BCE), numéros INAMI des praticiens, hébergeur -->
   <p class="sub">Numéro d'entreprise et hébergeur : à compléter.</p>
+  <p class="sub">Modèle anatomique 3D : <a href="https://github.com/lucgrn3/anatomy-models" target="_blank" rel="noopener">anatomy-models</a> (d’après Z-Anatomy, BodyParts3D et NIH 3D), licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>, couleurs modifiées.</p>
   <p class="sub">Ce site n'utilise aucun cookie ni outil de mesure d'audience. Les informations publiées ont un but informatif et ne remplacent pas une consultation.</p>
 </div></section>
 ''' + footer()

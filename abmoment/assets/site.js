@@ -44,68 +44,34 @@ if (tilts.length && !reduce) {
   requestAnimationFrame(tick);
 }
 
-// Zones du corps : la zone choisie s'éclaire, défilement automatique tant qu'on n'a pas cliqué
+// Corps anatomique 3D : chargé après l'affichage, quand il approche de l'écran
+const bodies = document.querySelectorAll('[data-body3d]');
 const zbtns = document.querySelectorAll('.zbtn');
-if (zbtns.length) {
-  const spots = document.querySelectorAll('.spot'), zbody = document.querySelector('.zbody');
-  let cur = 0, auto = !reduce, timer;
-  const show = i => {
-    cur = i;
-    zbtns.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.z === i)));
-    spots.forEach(s => s.classList.toggle('on', +s.dataset.z === i));
-    zbody.classList.toggle('back', zbtns[i].dataset.v === 'b');
-  };
-  zbtns.forEach(b => {
-    b.addEventListener('click', () => { auto = false; show(+b.dataset.z); });
-    b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { auto = false; show(+b.dataset.z); } });
-  });
-  show(0);
-  new IntersectionObserver(([e]) => {
-    clearInterval(timer);
-    if (e.isIntersecting) timer = setInterval(() => auto && show((cur + 1) % zbtns.length), 2600);
-  }, { threshold: .3 }).observe(document.querySelector('.zones2'));
-}
+let zoneApi = null, cur = 0, auto = !reduce, timer;
+const showZone = i => {
+  cur = i;
+  zbtns.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.z === i)));
+  zoneApi?.setZone(i, zbtns[i].dataset.v === 'b');
+};
+zbtns.forEach(b => {
+  b.addEventListener('click', () => { auto = false; showZone(+b.dataset.z); });
+  b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { auto = false; showZone(+b.dataset.z); } });
+});
+const zones2 = document.querySelector('.zones2');
+if (zones2) new IntersectionObserver(([e]) => {
+  clearInterval(timer);
+  if (e.isIntersecting) timer = setInterval(() => auto && showZone((cur + 1) % zbtns.length), 3200);
+}, { threshold: .3 }).observe(zones2);
 
-// Corps à 360° : images préparées, fondu entre deux vues voisines, rotation auto + glisser
-const turn = document.querySelector('.turn');
-if (turn) {
-  const n = +turn.dataset.frames, base = turn.dataset.src, cv = turn.querySelector('canvas'), ctx = cv.getContext('2d');
-  const imgs = Array.from({ length: n }, (_, i) => { const im = new Image(); im.decoding = 'async'; im.src = base + String(i).padStart(2, '0') + '.webp'; return im; });
-  let pos = 0, vel = reduce ? 0 : n / 16, drag = null, last = performance.now(), idle = 0;
-  // En rotation auto : courte pause sur chaque vue nette (face, 3/4, profil...), puis transition douce
-  const K = 4, hold = .3, ease = x => x * x * x * (x * (x * 6 - 15) + 10);
-  const shown = () => {
-    if (drag || Math.abs(vel) > n / 10) return pos;
-    const s = Math.floor(pos / K), f = pos / K - s;
-    return (s + ease(Math.max(0, (f - hold) / (1 - hold)))) * K;
-  };
-  let disp = 0;
-  const draw = () => {
-    const q = disp, p = ((q % n) + n) % n, a = Math.floor(p), f = p - a, A = imgs[a], B = imgs[(a + 1) % n];
-    ctx.globalAlpha = 1; ctx.drawImage(A, 0, 0, cv.width, cv.height);
-    if (f > .01 && B.complete) { ctx.globalAlpha = f; ctx.drawImage(B, 0, 0, cv.width, cv.height); }
-  };
-  const loop = t => {
-    const dt = Math.min(.05, (t - last) / 1000); last = t;
-    if (!drag) {
-      idle += dt;
-      const auto = reduce ? 0 : n / 16;
-      vel += ((idle > 1.2 ? auto : 0) - vel) * Math.min(1, dt * 2.5);
-      pos += vel * dt;
-    }
-    disp += (shown() - disp) * Math.min(1, dt * (drag ? 25 : 8));
-    draw(); requestAnimationFrame(loop);
-  };
-  Promise.all(imgs.map(im => im.decode().catch(() => {}))).then(() => {
-    turn.classList.add('ready'); requestAnimationFrame(t => { last = t; loop(t); });
-  });
-  turn.addEventListener('pointerdown', e => { drag = { x: e.clientX, p: pos, t: e.timeStamp, lx: e.clientX }; turn.classList.add('drag', 'touched'); turn.setPointerCapture(e.pointerId); });
-  turn.addEventListener('pointermove', e => {
-    if (!drag) return;
-    const k = n / turn.clientWidth * 1.1;
-    pos = drag.p - (e.clientX - drag.x) * k;
-    const dt = Math.max(1, e.timeStamp - drag.t) / 1000; vel = -(e.clientX - drag.lx) * k / dt; drag.t = e.timeStamp; drag.lx = e.clientX;
-  });
-  const end = () => { if (!drag) return; drag = null; idle = 0; turn.classList.remove('drag'); vel = Math.max(-n * 1.5, Math.min(n * 1.5, vel)); };
-  turn.addEventListener('pointerup', end); turn.addEventListener('pointercancel', end);
-}
+const webgl = (() => { try { return !!document.createElement('canvas').getContext('webgl2'); } catch { return false; } })();
+bodies.forEach(box => {
+  if (!webgl) return;
+  const zones = box.dataset.body3d === 'zones';
+  new IntersectionObserver(([e], o) => {
+    if (!e.isIntersecting) return; o.disconnect();
+    import('./body3d.js').then(m => m.mountBody(box.querySelector('canvas'), { reduce, onReady: () => box.classList.add('ready') }))
+      .then(api => { if (zones) { zoneApi = api; showZone(cur); } })
+      .catch(() => {});
+  }, { rootMargin: '300px 0px' }).observe(box);
+  box.addEventListener('touched', () => { box.classList.add('touched'); if (zones) auto = false; });
+});
