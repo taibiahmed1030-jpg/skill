@@ -67,6 +67,7 @@ def head(file, title, desc):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <!-- Maquette WEBXL : retirer noindex et le bandeau .demo-bar à la mise en ligne réelle -->
@@ -82,6 +83,7 @@ def head(file, title, desc):
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">{schema()}</script>
 </head>
@@ -98,7 +100,7 @@ def header(file):
     mlinks = ''.join(f'<a href="{f}">{n}</a>' for f, n in PAGES)
     return f'''<header class="hdr">
   <div class="wrap">
-    <a href="index.html" class="brand" aria-label="ABmoment, accueil"><img class="brand-logo" src="assets/img/logo.png" alt="" width="56" height="48"><span>ABmoment<small>Kinésithérapie et bien-être</small></span></a>
+    <a href="index.html" class="brand" aria-label="ABmoment, accueil"><img class="brand-logo" src="assets/img/logo.png" alt="" width="56" height="48"><span>ABmoment<small>Kinésithérapie et <span class="nw">bien-être</span></small></span></a>
     <nav aria-label="Navigation principale"><ul class="nav">{links}</ul></nav>
     <a href="contact.html" class="btn btn-accent btn-sm">Prendre rendez-vous</a>
     <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mnav">{ic('list')}</button>
@@ -122,7 +124,7 @@ def footer():
   <div class="wrap">
     <div class="ftr-grid">
       <div>
-        <a href="index.html" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="" width="56" height="48"><span>ABmoment<small>Kinésithérapie et bien-être</small></span></a>
+        <a href="index.html" class="brand"><img class="brand-logo" src="assets/img/logo.png" alt="" width="56" height="48"><span>ABmoment<small>Kinésithérapie et <span class="nw">bien-être</span></small></span></a>
         <p style="margin-top:16px;max-width:34ch">Centre de kinésithérapie et de bien-être à Schaerbeek, au service des patients de tout Bruxelles.</p>
       </div>
       <div><h2>Le centre</h2><ul>{''.join(f'<li><a href="{f}">{n}</a></li>' for f, n in PAGES[1:])}</ul></div>
@@ -139,7 +141,7 @@ def footer():
 '''
 
 
-def book_band(title='Prenez rendez-vous', text="Appelez le centre ou contactez directement votre praticien, par téléphone ou WhatsApp."):
+def book_band(title='Prenez <span class="nw">rendez-vous</span>', text="Appelez le centre ou contactez directement votre praticien, par téléphone ou WhatsApp."):
     return f'''<section style="padding-top:0"><div class="wrap"><div class="band rv">
   <div><h2 class="h2">{title}</h2><p class="sub">{text}</p></div>
   <div class="cta" style="margin-top:0"><a href="tel:{CENTRE['tel']}" class="btn btn-accent">{ic('phone')} {CENTRE['tel_h']}</a><a href="contact.html" class="btn btn-line">Tous les contacts</a></div>
@@ -171,7 +173,7 @@ def index():
   <div class="wrap">
     <div>
       <p class="kicker rv">ABmoment, Bruxelles</p>
-      <h1 id="hero-title" class="rv">Centre de kinésithérapie et de <em>bien-être</em> à Schaerbeek</h1>
+      <h1 id="hero-title" class="rv">Centre de kinésithérapie et de <em class="nw">bien-être</em> à Schaerbeek</h1>
       <p class="lead rv">Kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie, réunies dans un même centre.</p>
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
       <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
@@ -242,7 +244,7 @@ def soins():
 <section style="padding-bottom:40px">
   <div class="wrap">
     <p class="kicker rv">Nos soins</p>
-    <h1 class="rv">Kinésithérapie et <em>bien-être</em> à Schaerbeek</h1>
+    <h1 class="rv">Kinésithérapie et <em class="nw">bien-être</em> à Schaerbeek</h1>
     <p class="lead rv">Chaque séance commence par un échange sur vos douleurs et vos objectifs. Le traitement est ensuite adapté à vous.</p>
     <div class="price rv"><div><b>{PRICE['amount']}</b><p>La séance d'{PRICE['duration']}, au même tarif chez chacun de nos praticiens.</p></div><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a></div>
   </div>
@@ -290,7 +292,7 @@ def neuro():
     <article class="soin rv"><h2>{ic('phone')}{k['name']}</h2><div><p>{k['bio']}</p><div class="cta" style="margin-top:20px"><a href="tel:{k['tel']}" class="chip">{ic('phone')} {k['tel_h']}</a><a href="{wa(k['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>
   </div>
 </section>
-''' + book_band('Un rendez-vous en neuropsychologie', f"Contactez directement Kubra Bozok au {k['tel_h']}, ou le centre au {CENTRE['tel_h']}.") + footer()
+''' + book_band('Un <span class="nw">rendez-vous</span> en neuropsychologie', f"Contactez directement Kubra Bozok au {k['tel_h']}, ou le centre au {CENTRE['tel_h']}.") + footer()
 
 
 def equipe():
