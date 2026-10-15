@@ -75,3 +75,12 @@ bodies.forEach(box => {
   }, { rootMargin: '300px 0px' }).observe(box);
   box.addEventListener('touched', () => { box.classList.add('touched'); if (zones) auto = false; });
 });
+
+// Colonne vertébrale 3D (section « Le centre »)
+document.querySelectorAll('[data-spine3d]').forEach(box => {
+  if (!webgl) return;
+  new IntersectionObserver(([e], o) => {
+    if (!e.isIntersecting) return; o.disconnect();
+    import('./spine3d.js').then(m => m.mountSpine(box.querySelector('canvas'), { reduce, onReady: () => box.classList.add('ready') })).catch(() => {});
+  }, { rootMargin: '300px 0px' }).observe(box);
+});

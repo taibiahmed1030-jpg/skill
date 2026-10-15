@@ -268,3 +268,10 @@ section { padding: 110px 0; }
   .brain-in { width: min(80%, 340px); }
 }
 @media (prefers-reduced-motion: reduce) { .brain-glow { animation: none; } }
+.spine3d { position: relative; aspect-ratio: 3 / 4; width: 100%; max-width: 520px; justify-self: center; border-radius: var(--r); background: radial-gradient(60% 55% at 50% 48%, #ffffff, rgb(255 255 255 / 0) 75%); }
+.spine3d img, .spine3d canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.spine3d canvas { opacity: 0; transition: opacity 600ms var(--ease-out); cursor: grab; touch-action: pan-y; }
+.spine3d canvas.drag { cursor: grabbing; }
+.spine3d.ready canvas { opacity: 1; }
+.spine3d.ready img { opacity: 0; transition: opacity 600ms var(--ease-out) 200ms; }
+@media (max-width: 960px) { .spine3d { max-width: 340px; } }
