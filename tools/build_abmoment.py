@@ -190,7 +190,7 @@ def index():
 
 <section style="padding-top:0" aria-labelledby="centre-title">
   <div class="wrap photo-split">
-    <img class="rv" src="assets/img/equipe-julie.jpg" alt="Julie Thiebaut, kinésithérapeute, et Aydin Bozok dans le centre ABmoment" width="1040" height="1298" loading="lazy">
+    <img class="rv" src="assets/img/kine-seance.jpg" alt="Séance de kinésithérapie : exercice de mobilité de la jambe guidé par le kinésithérapeute" width="1600" height="1067" loading="lazy" style="aspect-ratio:3/2">
     <div>
       <p class="kicker rv">Le centre</p>
       <h2 class="h2 rv" id="centre-title">Le savoir-faire, l’écoute et la précision</h2>
