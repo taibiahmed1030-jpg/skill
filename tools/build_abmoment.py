@@ -26,8 +26,8 @@ TEAM = [
      'bio': "Rééducation, douleurs musculaires et articulaires, récupération après une blessure : Simon vous accompagne avec un suivi adapté à votre corps et à vos objectifs."},
     {'id': 'julie', 'name': 'Julie Thiebaut', 'role': 'Kinésithérapeute', 'tel': '+32456953798', 'tel_h': '+32 456 95 37 98', 'img': 'assets/img/equipe-julie.jpg',
      'bio': "Julie prend en charge vos douleurs et votre rééducation avec écoute et précision, pour vous aider à retrouver une mobilité confortable au quotidien."},
-    {'id': 'kubra', 'name': 'Kubra Bozok', 'role': 'Neuropsychologue', 'tel': '+32488839401', 'tel_h': '+32 488 83 94 01', 'img': '',
-     'bio': "Kubra réalise des bilans neuropsychologiques et accompagne les patients dont la mémoire, l'attention ou la concentration posent difficulté."},
+    {'id': 'kubra', 'name': 'Kübra Bozok', 'role': 'Neuropsychologue et psychologue clinicienne', 'tel': '+32488839401', 'tel_h': '+32 488 83 94 01', 'img': '',
+     'bio': "Neuropsychologue et psychologue clinicienne, Kübra réalise des bilans neuropsychologiques, des bilans TDAH et des bilans de QI, et accompagne les patients dont la mémoire, l'attention ou la concentration posent difficulté."},
 ]
 FOUNDER = {'name': 'Aydin Bozok', 'role': "Fondateur d'ABmoment"}
 # Horaires provisoires (maquette) : à remplacer par les horaires réels du centre
@@ -163,9 +163,34 @@ SOINS = [
 ]
 
 
+GEO = (50.86402, 4.37245)
+MAPS_URL = 'https://www.google.com/maps/search/?api=1&amp;query=Rue+Hancart+12,+1030+Schaerbeek'
+
+
+def map_frame(h=340):
+    lat, lon = GEO
+    src = f'https://www.openstreetmap.org/export/embed.html?bbox={lon - .006:.5f},{lat - .0032:.5f},{lon + .006:.5f},{lat + .0032:.5f}&amp;layer=mapnik&amp;marker={lat},{lon}'
+    return f'<div class="map rv" style="--h:{h}px"><iframe src="{src}" title="Carte : centre ABmoment, {CENTRE["street"]}, {CENTRE["zip"]} {CENTRE["city"]}" loading="lazy" referrerpolicy="no-referrer"></iframe></div>'
+
+
+def find_us():
+    return f'''<section style="padding-top:0" aria-labelledby="map-title">
+  <div class="wrap find-us">
+    <div>
+      <p class="kicker rv">Nous trouver</p>
+      <h2 class="h2 rv" id="map-title">Au cœur de Schaerbeek</h2>
+      <p class="sub rv">{CENTRE['street']}, {CENTRE['zip']} {CENTRE['city']}. Facile d’accès en transports en commun.</p>
+      <div class="cta rv"><a class="btn btn-accent" href="{MAPS_URL}" target="_blank" rel="noopener">{ic('map-pin')} Itinéraire</a><a class="btn btn-line" href="contact.html">Tous les contacts</a></div>
+    </div>
+    {map_frame(380)}
+  </div>
+</section>
+'''
+
+
 def index():
     cards = ''.join(f'''<a class="card rv" href="soins.html#{s[0]}">{ic(s[1])}<h3>{s[2]}</h3><p>{s[3]}</p><span class="more">Découvrir {ic('arrow-right')}</span></a>''' for s in SOINS)
-    cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><p>Bilans de la mémoire, de l’attention et de la concentration, et accompagnement adapté.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
+    cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><p>Bilans TDAH, bilans de QI et bilans neuropsychologiques, avec un accompagnement adapté.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
     team = ''.join(f'''<a class="card rv" href="equipe.html#{m['id']}"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><span class="more">Voir l'équipe {ic('arrow-right')}</span></a>''' for m in TEAM)
     return head('index.html', 'ABmoment | Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles',
                 'ABmoment, centre de kinésithérapie et de bien-être à Schaerbeek (Bruxelles) : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.') + header('index.html') + f'''
@@ -205,11 +230,11 @@ def index():
 <section style="padding-top:0" aria-labelledby="team-title">
   <div class="wrap">
     <h2 class="h2 rv" id="team-title">Une équipe de spécialistes</h2>
-    <p class="sub rv">Deux kinésithérapeutes et une neuropsychologue, réunis par {FOUNDER['name']}, fondateur du centre.</p>
+    <p class="sub rv">Deux kinésithérapeutes et une neuropsychologue et psychologue clinicienne, réunis par {FOUNDER['name']}, fondateur du centre.</p>
     <div class="cards">{team}</div>
   </div>
 </section>
-''' + book_band() + footer()
+''' + find_us() + book_band() + footer()
 
 
 ZONES = [('Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.', 'f', [(50, 17.5)]),
@@ -238,7 +263,7 @@ def zones_block():
 
 def soins():
     blocks = ''.join(f'''<article class="soin rv" id="{s[0]}"><h2>{ic(s[1])}{s[2]}</h2><div><p>{s[3]}</p><ul>{''.join(f'<li>{x}</li>' for x in s[4])}</ul></div></article>''' for s in SOINS)
-    blocks += f'''<article class="soin rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><p>Bilans et accompagnement des fonctions cognitives : mémoire, attention, concentration et organisation.</p><ul><li>Bilan neuropsychologique</li><li>Suivi et remédiation cognitive</li><li>Avec Kubra Bozok, neuropsychologue</li></ul><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
+    blocks += f'''<article class="soin rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><p>Bilans et accompagnement des fonctions cognitives : bilan neuropsychologique, bilan TDAH, bilan de QI, mémoire, attention et concentration.</p><ul><li>Bilan neuropsychologique</li><li>Bilan TDAH</li><li>Bilan de QI</li><li>Suivi et remédiation cognitive</li><li>Avec Kübra Bozok, neuropsychologue et psychologue clinicienne</li></ul><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
     return head('soins.html', 'Nos soins | Kinésithérapie, ventouses, pressothérapie à Schaerbeek | ABmoment',
                 'Kinésithérapie, thérapie par ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie au centre ABmoment à Schaerbeek, Bruxelles.') + header('soins.html') + f'''
 <section style="padding-bottom:40px">
@@ -260,23 +285,34 @@ def soins():
 
 def neuro():
     k = TEAM[2]
-    return head('neuropsychologie.html', 'Neuropsychologue à Schaerbeek, Bruxelles | Bilan neuropsychologique | ABmoment',
-                'Kubra Bozok, neuropsychologue au centre ABmoment à Schaerbeek : bilans neuropsychologiques de la mémoire, de l’attention et de la concentration, et accompagnement.') + header('neuropsychologie.html') + f'''
+    return head('neuropsychologie.html', 'Neuropsychologue à Schaerbeek, Bruxelles | Bilan TDAH, bilan de QI | ABmoment',
+                'Kübra Bozok, neuropsychologue et psychologue clinicienne au centre ABmoment à Schaerbeek : bilan neuropsychologique, bilan TDAH, bilan de QI et accompagnement.') + header('neuropsychologie.html') + f'''
 <section style="padding:0" aria-labelledby="hero-title">
   <div class="wrap">
     <div class="neuro-hero rv">
       <div>
       <p class="kicker">Neuropsychologie</p>
       <h1 id="hero-title">Comprendre le fonctionnement de votre <em>cerveau</em></h1>
-      <p class="lead">La neuropsychologie évalue et accompagne les fonctions cognitives : mémoire, attention, concentration, langage et organisation.</p>
-      <ul class="chips" aria-label="Fonctions évaluées"><li>Mémoire</li><li>Attention</li><li>Concentration</li><li>Langage</li><li>Organisation</li></ul>
-      <div class="cta"><a href="tel:{k['tel']}" class="btn btn-accent">{ic('phone')} Appeler Kubra Bozok</a><a href="{wa(k['tel'])}" class="btn btn-line" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div>
+      <p class="lead">Avec Kübra Bozok, neuropsychologue et psychologue clinicienne : bilans neuropsychologiques, bilans TDAH et bilans de QI, pour comprendre et accompagner la mémoire, l’attention et la concentration.</p>
+      <ul class="chips" aria-label="Bilans proposés"><li>Bilan TDAH</li><li>Bilan de QI</li><li>Bilan neuropsychologique</li><li>Mémoire</li><li>Attention</li></ul>
+      <div class="cta"><a href="tel:{k['tel']}" class="btn btn-accent">{ic('phone')} Appeler Kübra Bozok</a><a href="{wa(k['tel'])}" class="btn btn-line" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div>
       </div>
       <div class="brain" data-tilt><div class="brain-in"><img src="assets/img/cerveau.jpg" alt="Cerveau humain parcouru de connexions neuronales bleues" width="1100" height="1275"><span class="brain-glow" aria-hidden="true"></span></div></div>
     </div>
   </div>
 </section>
-<section aria-labelledby="why-title">
+<section aria-labelledby="bilans-title">
+  <div class="wrap">
+    <h2 class="h2 rv" id="bilans-title">Les bilans proposés</h2>
+    <p class="sub rv">Chaque bilan commence par un entretien, se poursuit par des tests standardisés et se termine par une restitution claire des résultats.</p>
+    <div class="cards">
+      <div class="card rv">{ic('lightning')}<h3>Bilan TDAH</h3><p>Évaluation de l’attention, de l’impulsivité et de l’agitation, pour objectiver un trouble du déficit de l’attention avec ou sans hyperactivité.</p></div>
+      <div class="card rv">{ic('chart-bar')}<h3>Bilan de QI</h3><p>Évaluation du fonctionnement intellectuel par des tests reconnus : difficultés scolaires, suspicion de haut potentiel ou orientation.</p></div>
+      <div class="card rv">{ic('brain')}<h3>Bilan neuropsychologique</h3><p>Profil complet de la mémoire, de l’attention, du langage et des fonctions exécutives, avec des pistes d’accompagnement.</p></div>
+    </div>
+  </div>
+</section>
+<section style="padding-top:0" aria-labelledby="why-title">
   <div class="wrap">
     <h2 class="h2 rv" id="why-title">Quand consulter ?</h2>
     <div class="cards">
@@ -292,7 +328,7 @@ def neuro():
     <article class="soin rv"><h2>{ic('phone')}{k['name']}</h2><div><p>{k['bio']}</p><div class="cta" style="margin-top:20px"><a href="tel:{k['tel']}" class="chip">{ic('phone')} {k['tel_h']}</a><a href="{wa(k['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>
   </div>
 </section>
-''' + book_band('Un <span class="nw">rendez-vous</span> en neuropsychologie', f"Contactez directement Kubra Bozok au {k['tel_h']}, ou le centre au {CENTRE['tel_h']}.") + footer()
+''' + book_band('Un <span class="nw">rendez-vous</span> en neuropsychologie', f"Contactez directement Kübra Bozok au {k['tel_h']}, ou le centre au {CENTRE['tel_h']}.") + footer()
 
 
 def equipe():
@@ -303,7 +339,7 @@ def equipe():
         cards += f'''<article class="member rv" id="{m['id']}">{fig}<div class="info"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><div class="contacts"><a href="tel:{m['tel']}" class="chip">{ic('phone')} {m['tel_h']}</a><a href="{wa(m['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
     founder = f'''<article class="founder rv"><div><span class="role">{FOUNDER['role']}</span><h3>{FOUNDER['name']}</h3></div><div><p class="sub" style="margin-top:0">{FOUNDER['name']} a fondé ABmoment pour réunir, dans un même lieu, des praticiens qui partagent la même exigence : le savoir-faire, l'écoute et la précision.</p><div class="contacts" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px"><a href="tel:{CENTRE['tel']}" class="chip">{ic('phone')} {CENTRE['tel_h']}</a><a href="{wa(CENTRE['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
     return head('equipe.html', "L'équipe | Kinésithérapeutes et neuropsychologue à Schaerbeek | ABmoment",
-                "Découvrez l'équipe du centre ABmoment à Schaerbeek : Simon Cano et Julie Thiebaut, kinésithérapeutes, et Kubra Bozok, neuropsychologue.") + header('equipe.html') + f'''
+                "Découvrez l'équipe du centre ABmoment à Schaerbeek : Simon Cano et Julie Thiebaut, kinésithérapeutes, et Kübra Bozok, neuropsychologue.") + header('equipe.html') + f'''
 <section style="padding-bottom:20px">
   <div class="wrap">
     <p class="kicker rv">L'équipe</p>
@@ -322,7 +358,7 @@ def contact():
     soc = f'<a class="chip" href="{CENTRE["insta"]}" target="_blank" rel="noopener">{ic("instagram-logo")} @ab.moment_</a><a class="chip" href="{CENTRE["tiktok"]}" target="_blank" rel="noopener">{ic("tiktok-logo")} TikTok</a>'
     if CENTRE['facebook']:
         soc += f'<a class="chip" href="{CENTRE["facebook"]}" target="_blank" rel="noopener">{ic("facebook-logo")} Facebook</a>'
-    maps = 'https://www.google.com/maps/search/?api=1&amp;query=Rue+Hancart+12,+1030+Schaerbeek'
+    maps = MAPS_URL
     return head('contact.html', 'Prendre rendez-vous | Kinésithérapeute à Schaerbeek | ABmoment',
                 f"Prenez rendez-vous au centre ABmoment, {CENTRE['street']}, {CENTRE['zip']} {CENTRE['city']} : par téléphone ou WhatsApp, au {CENTRE['tel_h']} ou directement avec votre praticien.") + header('contact.html') + f'''
 <section>
@@ -333,7 +369,7 @@ def contact():
     <div class="contact-grid">
       <div class="panel rv"><h3>Par téléphone ou WhatsApp</h3><div class="people">{people}</div></div>
       <div style="display:grid;gap:24px">
-        <div class="panel rv"><h3>Adresse</h3><p>{CENTRE['street']}<br>{CENTRE['zip']} {CENTRE['city']}, Bruxelles</p><p style="margin-top:14px"><a class="chip" href="{maps}" target="_blank" rel="noopener">{ic('map-pin')} Itinéraire</a></p></div>
+        <div class="panel rv"><h3>Adresse</h3><p>{CENTRE['street']}<br>{CENTRE['zip']} {CENTRE['city']}, Bruxelles</p>{map_frame(260)}<p style="margin-top:14px"><a class="chip" href="{maps}" target="_blank" rel="noopener">{ic('map-pin')} Itinéraire</a></p></div>
         <div class="panel rv"><h3>Horaires</h3><div class="hours">{hours}</div><p class="note">Sur rendez-vous.</p></div>
         <div class="panel rv"><h3>Réseaux sociaux</h3><div class="socials">{soc}</div></div>
       </div>
@@ -351,6 +387,7 @@ def legal():
   <!-- TODO : numéro d'entreprise (BCE), numéros INAMI des praticiens, hébergeur -->
   <p class="sub">Numéro d'entreprise et hébergeur : à compléter.</p>
   <p class="sub">Modèle anatomique 3D : <a href="https://github.com/lucgrn3/anatomy-models" target="_blank" rel="noopener">anatomy-models</a> (d’après Z-Anatomy, BodyParts3D et NIH 3D), licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>, couleurs modifiées.</p>
+  <p class="sub">Carte : © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">contributeurs OpenStreetMap</a>.</p>
   <p class="sub">Ce site n'utilise aucun cookie ni outil de mesure d'audience. Les informations publiées ont un but informatif et ne remplacent pas une consultation.</p>
 </div></section>
 ''' + footer()
