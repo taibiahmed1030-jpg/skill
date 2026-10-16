@@ -30,8 +30,8 @@ TEAM = [
      'bio': "Neuropsychologue et psychologue clinicienne, Kübra réalise des bilans neuropsychologiques, des bilans TDAH et des bilans de QI, et accompagne les patients dont la mémoire, l'attention ou la concentration posent difficulté."},
 ]
 FOUNDER = {'name': 'Aydin Bozok', 'role': "Fondateur d'ABmoment"}
-# Horaires provisoires (maquette) : à remplacer par les horaires réels du centre
-HOURS = [('Lundi au vendredi', '8h00 à 20h00'), ('Samedi', '9h00 à 14h00'), ('Dimanche', 'Fermé')]
+# Horaires réels (fiche Google du centre)
+HOURS = [('Lundi au samedi', '10h00 à 18h00'), ('Dimanche', 'Fermé')]
 PRICE = {'amount': '60 €', 'duration': '1 heure'}
 
 PAGES = [('index.html', 'Accueil'), ('soins.html', 'Nos soins'), ('neuropsychologie.html', 'Neuropsychologie'), ('equipe.html', "L'équipe"), ('contact.html', 'Rendez-vous')]
@@ -55,6 +55,7 @@ def schema():
         'medicalSpecialty': ['Physiotherapy', 'Neurologic'],
         'availableService': [{'@type': 'MedicalTherapy', 'name': n} for n in ['Kinésithérapie', 'Thérapie par ventouses', 'Techniques ostéopathiques', 'Pressothérapie', 'Massothérapie', 'Bilan neuropsychologique']],
         'founder': {'@type': 'Person', 'name': FOUNDER['name']},
+        'openingHoursSpecification': [{'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 'opens': '10:00', 'closes': '18:00'}],
         'employee': [{'@type': 'Person', 'name': m['name'], 'jobTitle': m['role'], 'telephone': m['tel']} for m in TEAM],
         'sameAs': [CENTRE['insta'], CENTRE['tiktok']],
     }
@@ -90,7 +91,7 @@ def head(file, title, desc):
 <body>
 <script>document.documentElement.classList.add('js');</script>
 <a class="skip" href="#main">Aller au contenu</a>
-<div class="demo-bar">Maquette conçue par <strong>WEBXL</strong>. Horaires et certains textes provisoires.</div>
+<div class="demo-bar">Maquette conçue par <strong>WEBXL</strong>. Certains textes sont provisoires.</div>
 '''
 
 
