@@ -168,9 +168,7 @@ MAPS_URL = 'https://www.google.com/maps/search/?api=1&amp;query=Rue+Hancart+12,+
 
 
 def map_frame(h=340):
-    lat, lon = GEO
-    src = f'https://www.openstreetmap.org/export/embed.html?bbox={lon - .006:.5f},{lat - .0032:.5f},{lon + .006:.5f},{lat + .0032:.5f}&amp;layer=mapnik&amp;marker={lat},{lon}'
-    return f'<div class="map rv" style="--h:{h}px"><iframe src="{src}" title="Carte : centre ABmoment, {CENTRE["street"]}, {CENTRE["zip"]} {CENTRE["city"]}" loading="lazy" referrerpolicy="no-referrer"></iframe></div>'
+    return f'<a class="map rv" style="--h:{h}px" href="{MAPS_URL}" target="_blank" rel="noopener" aria-label="Ouvrir l’itinéraire vers ABmoment, {CENTRE["street"]}, dans Google Maps"><img src="assets/img/carte-abmoment.webp" alt="Plan du quartier : le centre ABmoment au {CENTRE["street"]}, {CENTRE["zip"]} {CENTRE["city"]}" width="1400" height="900" loading="lazy"><span class="map-cta">{ic("map-pin")} Ouvrir dans Google Maps</span></a>'
 
 
 def find_us():
@@ -369,7 +367,7 @@ def contact():
     <div class="contact-grid">
       <div class="panel rv"><h3>Par téléphone ou WhatsApp</h3><div class="people">{people}</div></div>
       <div style="display:grid;gap:24px">
-        <div class="panel rv"><h3>Adresse</h3><p>{CENTRE['street']}<br>{CENTRE['zip']} {CENTRE['city']}, Bruxelles</p>{map_frame(260)}<p style="margin-top:14px"><a class="chip" href="{maps}" target="_blank" rel="noopener">{ic('map-pin')} Itinéraire</a></p></div>
+        <div class="panel rv"><h3>Adresse</h3><p>{CENTRE['street']}<br>{CENTRE['zip']} {CENTRE['city']}, Bruxelles</p>{map_frame(260)}</div>
         <div class="panel rv"><h3>Horaires</h3><div class="hours">{hours}</div><p class="note">Sur rendez-vous.</p></div>
         <div class="panel rv"><h3>Réseaux sociaux</h3><div class="socials">{soc}</div></div>
       </div>
@@ -387,8 +385,7 @@ def legal():
   <!-- TODO : numéro d'entreprise (BCE), numéros INAMI des praticiens, hébergeur -->
   <p class="sub">Numéro d'entreprise et hébergeur : à compléter.</p>
   <p class="sub">Modèle anatomique 3D : <a href="https://github.com/lucgrn3/anatomy-models" target="_blank" rel="noopener">anatomy-models</a> (d’après Z-Anatomy, BodyParts3D et NIH 3D), licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>, couleurs modifiées.</p>
-  <p class="sub">Carte : © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">contributeurs OpenStreetMap</a>.</p>
-  <p class="sub">Ce site n'utilise aucun cookie ni outil de mesure d'audience. Les informations publiées ont un but informatif et ne remplacent pas une consultation.</p>
+  <p class="sub">Ce site n'utilise aucun cookie ni outil de mesure d'audience. Plan : © contributeurs OpenStreetMap. Les informations publiées ont un but informatif et ne remplacent pas une consultation.</p>
 </div></section>
 ''' + footer()
 
