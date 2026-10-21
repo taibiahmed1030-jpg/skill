@@ -298,3 +298,49 @@ a[href^="tel:"] { color: inherit; text-decoration: none; }
 .panel .map { margin-top: 16px; }
 .find-us { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 48px; align-items: center; }
 @media (max-width: 960px) { .find-us { grid-template-columns: minmax(0, 1fr); gap: 24px; } .find-us .map { height: 300px; } }
+
+/* Photos réelles : équipe, galerie, séances */
+.tcards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 44px; }
+.tcard { display: grid; gap: 6px; }
+.tcard figure { aspect-ratio: 4 / 5; border-radius: var(--r); overflow: hidden; background: var(--surface-2, #ecebe6); margin-bottom: 10px; }
+.tcard figure img { width: 100%; height: 100%; object-fit: cover; object-position: 70% 20%; transition: transform 600ms var(--ease-out); }
+.tcard .monogram { aspect-ratio: auto; height: 100%; }
+.tcard h3 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; color: var(--accent); }
+.tcard .role { font-size: .7rem; }
+@media (hover: hover) and (pointer: fine) { .tcard:hover figure img { transform: scale(1.04); } }
+.card .role { font-size: .72rem; margin-top: -4px; }
+.member figure img { object-position: 70% 20%; }
+.refund { display: flex; gap: 8px; align-items: flex-start; color: var(--accent) !important; font-weight: 600; font-size: .92rem; margin-top: 10px; }
+.refund .ic { width: 18px; height: 18px; flex: none; margin-top: 2px; }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.gallery figure { border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; background: var(--surface-2, #ecebe6); }
+.gallery .g-wide { grid-column: span 3; aspect-ratio: 16 / 9; }
+.gallery img { width: 100%; height: 100%; object-fit: cover; }
+.gallery .g-wide img { object-position: 50% 35%; }
+.team-photo { border-radius: var(--r); overflow: hidden; aspect-ratio: 16 / 8; margin: 36px 0 20px; }
+.team-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.founder2 { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 0; background: var(--accent); color: #fff; border-radius: var(--r); overflow: hidden; margin-bottom: 20px; }
+.founder2 figure { min-height: 100%; }
+.founder2 figure img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 20%; }
+.founder2 > div { padding: clamp(28px, 4vw, 52px); display: grid; gap: 12px; align-content: center; }
+.founder2 .role { color: #9fb0c6; }
+.founder2 .h2 { color: #fff; }
+.founder2 .bio p { color: #d6dfea; margin-top: 10px; }
+.founder2 .refund { color: #fff !important; }
+.founder2 .contacts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.founder2 .chip { border-color: rgb(255 255 255 / .3); color: #fff; }
+.soin-photo { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr) !important; align-items: start; }
+.soin-photo figure { border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; }
+.soin-photo figure img { width: 100%; height: 100%; object-fit: cover; }
+.soin-photo .role { display: block; margin: 6px 0 10px; }
+@media (max-width: 960px) {
+  .tcards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gallery .g-wide { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .gallery figure:last-child { display: none; }
+  .team-photo { aspect-ratio: 4 / 3; }
+  .founder2 { grid-template-columns: minmax(0, 1fr); }
+  .founder2 figure { aspect-ratio: 4 / 4.2; }
+  .soin-photo { grid-template-columns: minmax(0, 1fr) !important; }
+  .soin-photo figure { aspect-ratio: 4 / 3; }
+}

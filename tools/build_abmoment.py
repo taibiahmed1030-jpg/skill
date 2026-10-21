@@ -22,14 +22,19 @@ CENTRE = {
     'facebook': '',
 }
 TEAM = [
-    {'id': 'simon', 'name': 'Simon Cano', 'role': 'Kinésithérapeute', 'tel': '+32471627142', 'tel_h': '+32 471 62 71 42', 'img': 'assets/img/equipe-simon.jpg',
+    {'id': 'simon', 'name': 'Simon Cano', 'role': 'Kinésithérapeute', 'tel': '+32471627142', 'tel_h': '+32 471 62 71 42', 'img': 'assets/img/portrait-simon.jpg',
      'bio': "Rééducation, douleurs musculaires et articulaires, récupération après une blessure : Simon vous accompagne avec un suivi adapté à votre corps et à vos objectifs."},
-    {'id': 'julie', 'name': 'Julie Thiebaut', 'role': 'Kinésithérapeute', 'tel': '+32456953798', 'tel_h': '+32 456 95 37 98', 'img': 'assets/img/equipe-julie.jpg',
+    {'id': 'julie', 'name': 'Julie Thiebaut', 'role': 'Kinésithérapeute', 'tel': '+32456953798', 'tel_h': '+32 456 95 37 98', 'img': 'assets/img/portrait-julie.jpg',
      'bio': "Julie prend en charge vos douleurs et votre rééducation avec écoute et précision, pour vous aider à retrouver une mobilité confortable au quotidien."},
     {'id': 'kubra', 'name': 'Kübra Bozok', 'role': 'Neuropsychologue et psychologue clinicienne', 'tel': '+32488839401', 'tel_h': '+32 488 83 94 01', 'img': '',
      'bio': "Neuropsychologue et psychologue clinicienne, Kübra réalise des bilans neuropsychologiques, des bilans TDAH et des bilans de QI, et accompagne les patients dont la mémoire, l'attention ou la concentration posent difficulté."},
 ]
-FOUNDER = {'name': 'Aydin Bozok', 'role': "Fondateur d'ABmoment"}
+FOUNDER = {'id': 'aydin', 'name': 'Aydin Bozok', 'role': 'Fondateur · séance ABmoment', 'tel': '+32487137651', 'tel_h': '0487 13 76 51', 'img': 'assets/img/portrait-aydin.jpg',
+           'bio': [
+               "Créateur d’ABmoment, je m’investis chaque jour avec passion, détermination et engagement pour faire de notre centre un lieu où chaque patient se sent écouté, accompagné et en confiance.",
+               "Toujours présent et attentif, j’ai à cœur d’offrir à chacun la meilleure prise en charge possible, en plaçant l’humain, la qualité des soins et le bien-être au centre de mes priorités.",
+               "ABmoment, c’est avant tout une vision : celle d’une approche pluridisciplinaire où compétence, écoute et bienveillance se rencontrent.",
+               "Merci à tous nos patients pour leur confiance et à toute notre équipe de faire vivre cette belle aventure au quotidien. Et ce n’est que le début !"]}
 # Horaires réels (fiche Google du centre)
 HOURS = [('Lundi au samedi', '10h00 à 18h00'), ('Dimanche', 'Fermé')]
 PRICE = {'amount': '60 €', 'duration': '1 heure'}
@@ -48,15 +53,15 @@ def wa(tel):
 def schema():
     data = {
         '@context': 'https://schema.org', '@type': ['Physiotherapy', 'MedicalBusiness'],
-        'name': 'ABmoment', 'description': 'Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.',
+        'name': 'ABmoment', 'description': 'Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles : kinésithérapie conventionnée, séance ABmoment (techniques ostéopathiques, ventouses, pressothérapie et massage) et neuropsychologie.',
         'url': SITE, 'logo': SITE + '/assets/img/logo.png', 'telephone': CENTRE['tel'], 'email': CENTRE['email'],
         'address': {'@type': 'PostalAddress', 'streetAddress': CENTRE['street'], 'postalCode': CENTRE['zip'], 'addressLocality': CENTRE['city'], 'addressRegion': 'Bruxelles', 'addressCountry': 'BE'},
         'areaServed': ['Schaerbeek', 'Bruxelles', 'Saint-Josse-ten-Noode', 'Evere', 'Bruxelles-Ville'],
         'medicalSpecialty': ['Physiotherapy', 'Neurologic'],
-        'availableService': [{'@type': 'MedicalTherapy', 'name': n} for n in ['Kinésithérapie', 'Thérapie par ventouses', 'Techniques ostéopathiques', 'Pressothérapie', 'Massothérapie', 'Bilan neuropsychologique']],
+        'availableService': [{'@type': 'MedicalTherapy', 'name': n} for n in ['Kinésithérapie', 'Séance ABmoment : techniques ostéopathiques, ventouses, pressothérapie et massage', 'Bilan neuropsychologique', 'Bilan TDAH', 'Bilan de QI']],
         'founder': {'@type': 'Person', 'name': FOUNDER['name']},
         'openingHoursSpecification': [{'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 'opens': '10:00', 'closes': '18:00'}],
-        'employee': [{'@type': 'Person', 'name': m['name'], 'jobTitle': m['role'], 'telephone': m['tel']} for m in TEAM],
+        'employee': [{'@type': 'Person', 'name': m['name'], 'jobTitle': m['role'], 'telephone': m['tel']} for m in TEAM + [FOUNDER]],
         'sameAs': [CENTRE['insta'], CENTRE['tiktok']],
     }
     return json.dumps(data, ensure_ascii=False, indent=1)
@@ -151,16 +156,14 @@ def book_band(title='Prenez <span class="nw">rendez-vous</span>', text="Appelez 
 
 
 SOINS = [
-    ('kine', 'person-simple-run', 'Kinésithérapie', "Rééducation et traitement des douleurs musculaires et articulaires, après une blessure, une opération ou en cas de douleurs installées.",
-     ['Mal de dos, nuque et épaules', 'Rééducation après blessure ou opération', 'Entorses, tendinites et douleurs articulaires', 'Récupération des sportifs']),
-    ('ventouses', 'drop-half', 'Thérapie par ventouses', "Technique traditionnelle qui aspire doucement la peau pour relâcher les tensions musculaires et favoriser la récupération.",
-     ['Tensions du dos et des épaules', 'Récupération après l’effort', 'Associée aux techniques manuelles']),
-    ('osteo', 'hand-palm', 'Techniques ostéopathiques', "Mobilisations et techniques manuelles de déblocage articulaire pour retrouver de l’aisance dans le mouvement.",
-     ['Raideurs et blocages articulaires', 'Mobilité du dos et du bassin', 'Approche manuelle et précise']),
-    ('presso', 'wind', 'Pressothérapie', "Des bottes à compression pneumatique massent les jambes par vagues successives, pour une sensation de légèreté.",
-     ['Jambes lourdes', 'Récupération sportive', 'Moment de détente']),
-    ('masso', 'sparkle', 'Massothérapie', "Massages de détente ou massages sportifs, adaptés à vos tensions et à votre rythme.",
-     ['Massage de détente', 'Massage sportif', 'Relâchement des tensions musculaires']),
+    ('kine', 'person-simple-run', 'Séance de kinésithérapie', 'Avec Julie Thiebaut et Simon Cano',
+     "Rééducation et traitement des douleurs musculaires et articulaires, après une blessure, une opération ou en cas de douleurs installées.",
+     ['Mal de dos, nuque et épaules', 'Rééducation après blessure ou opération', 'Entorses, tendinites et douleurs articulaires', 'Récupération des sportifs'],
+     'Conventionnée INAMI : remboursement par la mutuelle sur prescription médicale.', 'assets/img/seance-kine.jpg', 'Julie Thiebaut, kinésithérapeute, mobilise la jambe d’une patiente au centre ABmoment'),
+    ('seance', 'hand-palm', 'Séance ABmoment', 'Avec Aydin Bozok',
+     "Un soin complet en une seule séance : techniques ostéopathiques, thérapie par ventouses, pressothérapie et massage, combinés selon vos besoins pour relâcher les tensions et retrouver de la mobilité.",
+     ['Techniques ostéopathiques : déblocage articulaire', 'Thérapie par ventouses', 'Pressothérapie des jambes', 'Massage de détente ou sportif'],
+     'Séance non conventionnée : pas de remboursement INAMI.', 'assets/img/centre-salle.jpg', 'Salle de soin du centre ABmoment avec table de traitement'),
 ]
 
 
@@ -188,19 +191,22 @@ def find_us():
 
 
 def index():
-    cards = ''.join(f'''<a class="card rv" href="soins.html#{s[0]}">{ic(s[1])}<h3>{s[2]}</h3><p>{s[3]}</p><span class="more">Découvrir {ic('arrow-right')}</span></a>''' for s in SOINS)
-    cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><p>Bilans TDAH, bilans de QI et bilans neuropsychologiques, avec un accompagnement adapté.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
-    team = ''.join(f'''<a class="card rv" href="equipe.html#{m['id']}"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><span class="more">Voir l'équipe {ic('arrow-right')}</span></a>''' for m in TEAM)
+    cards = ''.join(f'''<a class="card rv" href="soins.html#{s[0]}">{ic(s[1])}<h3>{s[2]}</h3><span class="role">{s[3]}</span><p>{s[4]}</p><span class="more">Découvrir {ic('arrow-right')}</span></a>''' for s in SOINS)
+    cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><span class="role">Avec Kübra Bozok</span><p>Bilans TDAH, bilans de QI et bilans neuropsychologiques, avec un accompagnement adapté. Consultations conventionnées.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
+    def tcard(m):
+        fig = f'<img src="{m["img"]}" alt="{m["name"]}, {m["role"].lower()}" width="880" height="1100" loading="lazy">' if m['img'] else '<div class="monogram" aria-hidden="true">KB</div>'
+        return f'''<a class="tcard rv" href="equipe.html#{m['id']}"><figure>{fig}</figure><span class="role">{m['role']}</span><h3>{m['name']}</h3></a>'''
+    team = ''.join(tcard(m) for m in [FOUNDER] + TEAM)
     return head('index.html', 'ABmoment | Centre de kinésithérapie et de bien-être à Schaerbeek, Bruxelles',
-                'ABmoment, centre de kinésithérapie et de bien-être à Schaerbeek (Bruxelles) : kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie.') + header('index.html') + f'''
+                'ABmoment, centre de kinésithérapie et de bien-être à Schaerbeek (Bruxelles) : kinésithérapie conventionnée, séance ABmoment (ostéopathie, ventouses, pressothérapie, massage) et neuropsychologie.') + header('index.html') + f'''
 <section class="hero" style="padding:0" aria-labelledby="hero-title">
   <div class="wrap">
     <div>
       <p class="kicker rv">ABmoment, Bruxelles</p>
       <h1 id="hero-title" class="rv">Centre de kinésithérapie et de <em class="nw">bien-être</em> à Schaerbeek</h1>
-      <p class="lead rv">Kinésithérapie, ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie, réunies dans un même centre.</p>
+      <p class="lead rv">Kinésithérapie conventionnée, séance ABmoment et neuropsychologie, réunies dans un même centre lumineux à Schaerbeek.</p>
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
-      <div class="facts rv"><div><strong>3 praticiens</strong>Kinés et neuropsychologue</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
+      <div class="facts rv"><div><strong>4 praticiens</strong>Kinés, soins et psychologie</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
     </div>
     <div class="body3d" data-body3d="hero"><img src="assets/img/corps-3d.webp" alt="Corps humain anatomique en 3D, muscles et tendons" width="700" height="1300" fetchpriority="high"><canvas aria-hidden="true"></canvas><p class="turn-hint" aria-hidden="true">{ic("hand-palm")} Faites-le pivoter</p></div>
   </div>
@@ -226,11 +232,23 @@ def index():
   </div>
 </section>
 
+<section style="padding-top:0" aria-labelledby="gal-title">
+  <div class="wrap">
+    <h2 class="h2 rv" id="gal-title">Le centre en images</h2>
+    <div class="gallery">
+      <figure class="g-wide rv"><img src="assets/img/equipe-groupe.jpg" alt="Julie Thiebaut, Aydin Bozok et Simon Cano dans le centre ABmoment" width="1170" height="1040" loading="lazy"></figure>
+      <figure class="rv"><img src="assets/img/seance-kine.jpg" alt="Séance de kinésithérapie au centre ABmoment" width="900" height="1200" loading="lazy"></figure>
+      <figure class="rv"><img src="assets/img/centre-salle.jpg" alt="Salle de soin avec table de traitement" width="1000" height="1190" loading="lazy"></figure>
+      <figure class="rv"><img src="assets/img/centre-exercice.jpg" alt="Espace d’exercices : espalier, élastiques, ballon et kettlebells" width="1000" height="1230" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
 <section style="padding-top:0" aria-labelledby="team-title">
   <div class="wrap">
     <h2 class="h2 rv" id="team-title">Une équipe de spécialistes</h2>
-    <p class="sub rv">Deux kinésithérapeutes et une neuropsychologue et psychologue clinicienne, réunis par {FOUNDER['name']}, fondateur du centre.</p>
-    <div class="cards">{team}</div>
+    <p class="sub rv">Deux kinésithérapeutes conventionnés, une neuropsychologue et psychologue clinicienne, et {FOUNDER['name']}, fondateur du centre.</p>
+    <div class="tcards">{team}</div>
   </div>
 </section>
 ''' + find_us() + book_band() + footer()
@@ -261,22 +279,33 @@ def zones_block():
 
 
 def soins():
-    blocks = ''.join(f'''<article class="soin rv" id="{s[0]}"><h2>{ic(s[1])}{s[2]}</h2><div><p>{s[3]}</p><ul>{''.join(f'<li>{x}</li>' for x in s[4])}</ul></div></article>''' for s in SOINS)
-    blocks += f'''<article class="soin rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><p>Bilans et accompagnement des fonctions cognitives : bilan neuropsychologique, bilan TDAH, bilan de QI, mémoire, attention et concentration.</p><ul><li>Bilan neuropsychologique</li><li>Bilan TDAH</li><li>Bilan de QI</li><li>Suivi et remédiation cognitive</li><li>Avec Kübra Bozok, neuropsychologue et psychologue clinicienne</li></ul><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
-    return head('soins.html', 'Nos soins | Kinésithérapie, ventouses, pressothérapie à Schaerbeek | ABmoment',
-                'Kinésithérapie, thérapie par ventouses, techniques ostéopathiques, pressothérapie, massothérapie et neuropsychologie au centre ABmoment à Schaerbeek, Bruxelles.') + header('soins.html') + f'''
+    blocks = ''
+    for sid, icon, title, who, desc, items, refund, img, alt in SOINS:
+        blocks += f'''<article class="soin soin-photo rv" id="{sid}"><figure><img src="{img}" alt="{alt}" width="900" height="1200" loading="lazy"></figure><div><h2>{ic(icon)}{title}</h2><span class="role">{who}</span><p>{desc}</p><ul>{''.join(f'<li>{x}</li>' for x in items)}</ul><p class="refund">{ic('check')} {refund}</p></div></article>'''
+    blocks += f'''<article class="soin rv" id="neuro"><h2>{ic('brain')}Neuropsychologie</h2><div><span class="role">Avec Kübra Bozok, neuropsychologue et psychologue clinicienne</span><p>Bilans et accompagnement des fonctions cognitives : mémoire, attention et concentration.</p><ul><li>Bilan neuropsychologique</li><li>Bilan TDAH</li><li>Bilan de QI</li><li>Suivi et remédiation cognitive</li></ul><p class="refund">{ic('check')} Consultations conventionnées : remboursement selon les conditions de votre mutuelle.</p><p style="margin-top:16px"><a href="neuropsychologie.html" class="btn btn-line btn-sm">En savoir plus</a></p></div></article>'''
+    return head('soins.html', 'Nos soins | Kinésithérapie conventionnée et séance ABmoment à Schaerbeek | ABmoment',
+                'Kinésithérapie conventionnée avec Julie Thiebaut et Simon Cano, séance ABmoment avec Aydin Bozok (techniques ostéopathiques, ventouses, pressothérapie et massage) et neuropsychologie à Schaerbeek, Bruxelles.') + header('soins.html') + f'''
 <section style="padding-bottom:40px">
   <div class="wrap">
     <p class="kicker rv">Nos soins</p>
     <h1 class="rv">Kinésithérapie et <em class="nw">bien-être</em> à Schaerbeek</h1>
     <p class="lead rv">Chaque séance commence par un échange sur vos douleurs et vos objectifs. Le traitement est ensuite adapté à vous.</p>
-    <div class="price rv"><div><b>{PRICE['amount']}</b><p>La séance d'{PRICE['duration']}, au même tarif chez chacun de nos praticiens.</p></div><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a></div>
+    <div class="price rv"><div><b>{PRICE['amount']}</b><p>La séance d'{PRICE['duration']}.</p></div><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a></div>
   </div>
 </section>
 <section style="padding-top:20px">
   <div class="wrap">
-    <article class="soin rv" id="seance"><h2>{ic('heartbeat')}La séance ABmoment</h2><div><p>Notre traitement signature : la thérapie par ventouses associée aux techniques manuelles de déblocage articulaire, en une séance d'{PRICE['duration']}.</p><ul><li>Relâchement des tensions musculaires</li><li>Mobilité articulaire</li><li>Récupération et bien-être</li></ul></div></article>
     {blocks}
+  </div>
+</section>
+<section style="padding-top:0" aria-labelledby="refund-title">
+  <div class="wrap">
+    <h2 class="h2 rv" id="refund-title">Remboursement et prescription</h2>
+    <div class="cards">
+      <div class="card rv">{ic('person-simple-run')}<h3>Kinésithérapie</h3><p><strong>Conventionnée INAMI.</strong> Avec une prescription de votre médecin, une partie de la séance est remboursée par votre mutuelle. Pensez à apporter votre prescription et votre carte d’identité.</p></div>
+      <div class="card rv">{ic('brain')}<h3>Psychologie et neuropsychologie</h3><p><strong>Conventionnée.</strong> Les conditions de remboursement dépendent de votre mutuelle : renseignez-vous auprès d’elle ou posez la question à Kübra Bozok.</p></div>
+      <div class="card rv">{ic('hand-palm')}<h3>Séance ABmoment</h3><p><strong>Non conventionnée.</strong> La séance avec Aydin Bozok n’est pas remboursée par l’INAMI. Aucune prescription n’est nécessaire.</p></div>
+    </div>
   </div>
 </section>
 ''' + zones_block() + book_band() + footer()
@@ -333,19 +362,21 @@ def neuro():
 def equipe():
     cards = ''
     for m in TEAM:
-        blue = m['id'] == 'kubra'
-        fig = f'<figure><img src="{m["img"]}" alt="{m["name"]}, {m["role"].lower()}, avec {FOUNDER["name"]}, fondateur d\'ABmoment" width="1040" height="1300" loading="lazy"></figure><p class="caption">{m["name"]} (à droite) avec {FOUNDER["name"]}</p>' if m['img'] else f'<div class="monogram" aria-hidden="true">KB</div>'
-        cards += f'''<article class="member rv" id="{m['id']}">{fig}<div class="info"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><div class="contacts"><a href="tel:{m['tel']}" class="chip">{ic('phone')} {m['tel_h']}</a><a href="{wa(m['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
-    founder = f'''<article class="founder rv"><div><span class="role">{FOUNDER['role']}</span><h3>{FOUNDER['name']}</h3></div><div><p class="sub" style="margin-top:0">{FOUNDER['name']} a fondé ABmoment pour réunir, dans un même lieu, des praticiens qui partagent la même exigence : le savoir-faire, l'écoute et la précision.</p><div class="contacts" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px"><a href="tel:{CENTRE['tel']}" class="chip">{ic('phone')} {CENTRE['tel_h']}</a><a href="{wa(CENTRE['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
-    return head('equipe.html', "L'équipe | Kinésithérapeutes et neuropsychologue à Schaerbeek | ABmoment",
-                "Découvrez l'équipe du centre ABmoment à Schaerbeek : Simon Cano et Julie Thiebaut, kinésithérapeutes, et Kübra Bozok, neuropsychologue.") + header('equipe.html') + f'''
+        fig = f'<figure><img src="{m["img"]}" alt="{m["name"]}, {m["role"].lower()} au centre ABmoment" width="880" height="1100" loading="lazy"></figure>' if m['img'] else f'<div class="monogram" aria-hidden="true">KB</div>'
+        cards += f'''<article class="member rv" id="{m['id']}">{fig}<div class="info"><span class="role">{m['role']}</span><h3>{m['name']}</h3><p>{m['bio']}</p><p class="refund">{ic('check')} Conventionné{'e' if m['id'] != 'simon' else ''}</p><div class="contacts"><a href="tel:{m['tel']}" class="chip">{ic('phone')} {m['tel_h']}</a><a href="{wa(m['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
+    f = FOUNDER
+    bio = ''.join(f'<p>{x}</p>' for x in f['bio'])
+    founder = f'''<article class="founder2 rv" id="{f['id']}"><figure><img src="{f['img']}" alt="{f['name']}, fondateur d’ABmoment" width="880" height="1100" loading="lazy"></figure><div><span class="role">{f['role']}</span><h2 class="h2">{f['name']}</h2><div class="bio">{bio}</div><p class="refund">{ic('hand-palm')} Séance ABmoment : techniques ostéopathiques, ventouses, pressothérapie et massage, en un seul soin. Non conventionnée.</p><div class="contacts"><a href="tel:{f['tel']}" class="chip">{ic('phone')} {f['tel_h']}</a><a href="{wa(f['tel'])}" class="chip" target="_blank" rel="noopener">{ic('whatsapp-logo')} WhatsApp</a></div></div></article>'''
+    return head('equipe.html', "L'équipe | Kinésithérapeutes, neuropsychologue et séance ABmoment à Schaerbeek | ABmoment",
+                "Découvrez l'équipe du centre ABmoment à Schaerbeek : Aydin Bozok, fondateur, Simon Cano et Julie Thiebaut, kinésithérapeutes conventionnés, et Kübra Bozok, neuropsychologue et psychologue clinicienne.") + header('equipe.html') + f'''
 <section style="padding-bottom:20px">
   <div class="wrap">
     <p class="kicker rv">L'équipe</p>
     <h1 class="rv">Des praticiens à votre <em>écoute</em></h1>
-    <p class="lead rv">Trois spécialistes réunis dans un même centre, pour une prise en charge cohérente de votre corps et de votre esprit.</p>
-    <div class="team">{cards}</div>
+    <p class="lead rv">Quatre professionnels réunis dans un même centre, pour une prise en charge cohérente de votre corps et de votre esprit.</p>
+    <figure class="team-photo rv"><img src="assets/img/equipe-groupe.jpg" alt="Julie Thiebaut, Aydin Bozok et Simon Cano dans le centre ABmoment" width="1170" height="1040" fetchpriority="high"></figure>
     {founder}
+    <div class="team">{cards}</div>
   </div>
 </section>
 ''' + book_band() + footer()
