@@ -16,9 +16,8 @@ CENTRE = {
     'street': 'Rue Hancart 12', 'zip': '1030', 'city': 'Schaerbeek',
     'tel': '+32487137651', 'tel_h': '0487 13 76 51',
     'email': 'Aydinbozok1000@gmail.com',
-    'insta': 'https://www.instagram.com/ab.moment_/',
+    'insta': 'https://www.instagram.com/centre.abmoment/',
     'tiktok': 'https://www.tiktok.com/@aydinbozokk_',
-    # TODO : lien de la page Facebook du centre (non fourni)
     'facebook': '',
 }
 TEAM = [
@@ -37,7 +36,6 @@ FOUNDER = {'id': 'aydin', 'name': 'Aydin Bozok', 'role': 'Fondateur · séance A
                "Merci à tous nos patients pour leur confiance et à toute notre équipe de faire vivre cette belle aventure au quotidien. Et ce n’est que le début !"]}
 # Horaires réels (fiche Google du centre)
 HOURS = [('Lundi au samedi', '10h00 à 18h00'), ('Dimanche', 'Fermé')]
-PRICE = {'amount': '60 €', 'duration': '1 heure'}
 
 PAGES = [('index.html', 'Accueil'), ('soins.html', 'Nos soins'), ('neuropsychologie.html', 'Neuropsychologie'), ('equipe.html', "L'équipe"), ('contact.html', 'Rendez-vous')]
 
@@ -77,7 +75,7 @@ def head(file, title, desc):
 <meta name="format-detection" content="telephone=no">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<!-- Maquette WEBXL : retirer noindex et le bandeau .demo-bar à la mise en ligne réelle -->
+<!-- Retirer noindex une fois le site en ligne sur abmoment.com -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="{SITE}/{'' if file == 'index.html' else file}">
 <meta name="theme-color" content="#f7f6f3">
@@ -97,7 +95,6 @@ def head(file, title, desc):
 <body>
 <script>document.documentElement.classList.add('js');</script>
 <a class="skip" href="#main">Aller au contenu</a>
-<div class="demo-bar">Maquette conçue par <strong>WEBXL</strong>. Certains textes sont provisoires.</div>
 '''
 
 
@@ -207,7 +204,7 @@ def index():
       <h1 id="hero-title" class="rv">Centre de kinésithérapie et de <em class="nw">bien-être</em> à Schaerbeek</h1>
       <p class="lead rv">Kinésithérapie conventionnée, séance ABmoment et neuropsychologie, réunies dans un même centre lumineux à Schaerbeek.</p>
       <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="soins.html" class="btn btn-line">Nos soins</a></div>
-      <div class="facts rv"><div><strong>4 praticiens</strong>Kinés, soins et psychologie</div><div><strong>{PRICE['amount']}</strong>la séance d'{PRICE['duration']}</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
+      <div class="facts rv"><div><strong>4 praticiens</strong>Kinés, soins et psychologie</div><div><strong>Conventionné</strong>Kiné et psychologie</div><div><strong>Schaerbeek</strong>{CENTRE['street']}</div></div>
     </div>
     <div class="body3d" data-body3d="hero"><img src="assets/img/corps-3d.webp" alt="Corps humain anatomique en 3D, muscles et tendons" width="700" height="1300" fetchpriority="high"><canvas aria-hidden="true"></canvas><p class="turn-hint" aria-hidden="true">{ic("hand-palm")} Faites-le pivoter</p></div>
   </div>
@@ -291,7 +288,7 @@ def soins():
     <p class="kicker rv">Nos soins</p>
     <h1 class="rv">Kinésithérapie et <em class="nw">bien-être</em> à Schaerbeek</h1>
     <p class="lead rv">Chaque séance commence par un échange sur vos douleurs et vos objectifs. Le traitement est ensuite adapté à vous.</p>
-    <div class="price rv"><div><b>{PRICE['amount']}</b><p>La séance d'{PRICE['duration']}.</p></div><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a></div>
+    <div class="cta rv"><a href="contact.html" class="btn btn-accent">Prendre rendez-vous</a><a href="#refund-title" class="btn btn-line">Remboursement</a></div>
   </div>
 </section>
 <section style="padding-top:20px">
@@ -386,7 +383,7 @@ def equipe():
 def contact():
     people = ''.join(f'''<div class="person"><div><strong>{m['name']}</strong><small>{m['role']} · {m['tel_h']}</small></div><div class="acts"><a class="icon-btn" href="tel:{m['tel']}" aria-label="Appeler {m['name']}">{ic('phone')}</a><a class="icon-btn" href="{wa(m['tel'])}" target="_blank" rel="noopener" aria-label="WhatsApp {m['name']}">{ic('whatsapp-logo')}</a></div></div>''' for m in [{'name': 'Le centre ABmoment', 'role': 'Accueil', 'tel': CENTRE['tel'], 'tel_h': CENTRE['tel_h']}] + TEAM)
     hours = ''.join(f'<span>{d}</span><span>{h}</span>' for d, h in HOURS)
-    soc = f'<a class="chip" href="{CENTRE["insta"]}" target="_blank" rel="noopener">{ic("instagram-logo")} @ab.moment_</a><a class="chip" href="{CENTRE["tiktok"]}" target="_blank" rel="noopener">{ic("tiktok-logo")} TikTok</a>'
+    soc = f'<a class="chip" href="{CENTRE["insta"]}" target="_blank" rel="noopener">{ic("instagram-logo")} @centre.abmoment</a><a class="chip" href="{CENTRE["tiktok"]}" target="_blank" rel="noopener">{ic("tiktok-logo")} TikTok</a>'
     if CENTRE['facebook']:
         soc += f'<a class="chip" href="{CENTRE["facebook"]}" target="_blank" rel="noopener">{ic("facebook-logo")} Facebook</a>'
     maps = MAPS_URL
