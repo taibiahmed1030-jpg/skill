@@ -63,6 +63,7 @@ def schema():
         'openingHoursSpecification': [{'@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], 'opens': '10:00', 'closes': '18:00'}],
         'employee': [{'@type': 'Person', 'name': m['name'], 'jobTitle': m['role'], 'telephone': m['tel']} for m in TEAM + [FOUNDER]],
         'sameAs': [CENTRE['insta'], CENTRE['tiktok']],
+        'vatID': 'BE1021837986',
     }
     return json.dumps(data, ensure_ascii=False, indent=1)
 
@@ -137,7 +138,7 @@ def footer():
       <div><h2>Contact</h2><ul><li>{CENTRE['street']}</li><li>{CENTRE['zip']} {CENTRE['city']}</li><li><a href="tel:{CENTRE['tel']}">{CENTRE['tel_h']}</a></li><li><a href="mailto:{CENTRE['email']}">E-mail</a></li></ul></div>
       <div><h2>Suivez-nous</h2><ul>{soc}</ul></div>
     </div>
-    <div class="legal"><span>© 2026 ABmoment. <a href="mentions-legales.html">Mentions légales</a></span><span>Site conçu par <a href="https://webxl.be" target="_blank" rel="noopener">WEBXL</a></span></div>
+    <div class="legal"><span>© 2026 ABmoment · BCE 1021.837.986 · <a href="mentions-legales.html">Mentions légales</a></span><span>Site conçu par <a href="https://webxl.be" target="_blank" rel="noopener">WEBXL</a></span></div>
   </div>
 </footer>
 <script type="importmap">{{ "imports": {{ "three": "./assets/vendor/three.module.min.js" }} }}</script>
@@ -414,8 +415,8 @@ def legal():
 <section><div class="wrap" style="max-width:760px">
   <h1>Mentions légales</h1>
   <p class="lead">Éditeur : ABmoment, {CENTRE['street']}, {CENTRE['zip']} {CENTRE['city']}, Belgique. Téléphone : {CENTRE['tel_h']}. E-mail : {CENTRE['email']}.</p>
-  <!-- TODO : numéro d'entreprise (BCE), numéros INAMI des praticiens, hébergeur -->
-  <p class="sub">Numéro d'entreprise et hébergeur : à compléter.</p>
+  <p class="sub">Numéro d'entreprise (BCE) : BE 1021.837.986.</p>
+  <p class="sub">Hébergement : Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.</p>
   <p class="sub">Modèle anatomique 3D : <a href="https://github.com/lucgrn3/anatomy-models" target="_blank" rel="noopener">anatomy-models</a> (d’après Z-Anatomy, BodyParts3D et NIH 3D), licence <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" target="_blank" rel="noopener">CC BY-SA 4.0</a>, couleurs modifiées.</p>
   <p class="sub">Ce site n'utilise aucun cookie ni outil de mesure d'audience. Plan : © contributeurs OpenStreetMap. Les informations publiées ont un but informatif et ne remplacent pas une consultation.</p>
 </div></section>
