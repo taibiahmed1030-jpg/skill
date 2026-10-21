@@ -188,6 +188,27 @@ def find_us():
 '''
 
 
+GOOGLE_REVIEWS = 'https://share.google/crhWTFDIozYlheTbz'
+REVIEWS = [
+    ('Aurélien Tieleman', 'Bon praticien et bel humain. Je recommande.'),
+    ('Serhat Yvz', 'Tres profesionnel, resultat garantie apres traitement'),
+]
+
+
+def reviews_block():
+    stars = '<span class="stars" aria-label="5 étoiles sur 5">★★★★★</span>'
+    cards = ''.join(f'''<figure class="review rv">{stars}<blockquote>« {t} »</blockquote><figcaption><span class="avatar" aria-hidden="true">{n[0]}</span>{n}<small>Avis Google</small></figcaption></figure>''' for n, t in REVIEWS)
+    return f'''<section style="padding-top:0" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <p class="kicker rv">Avis Google</p>
+    <h2 class="h2 rv" id="reviews-title">Ce que disent nos patients</h2>
+    <div class="reviews">{cards}</div>
+    <p class="rv" style="margin-top:28px"><a class="btn btn-line" href="{GOOGLE_REVIEWS}" target="_blank" rel="noopener">Voir tous nos avis sur Google {ic('arrow-up-right')}</a></p>
+  </div>
+</section>
+'''
+
+
 def index():
     cards = ''.join(f'''<a class="card rv" href="soins.html#{s[0]}">{ic(s[1])}<h3>{s[2]}</h3><span class="role">{s[3]}</span><p>{s[4]}</p><span class="more">Découvrir {ic('arrow-right')}</span></a>''' for s in SOINS)
     cards += f'''<a class="card rv" href="neuropsychologie.html">{ic('brain')}<h3>Neuropsychologie</h3><span class="role">Avec Kübra Bozok</span><p>Bilans TDAH, bilans de QI et bilans neuropsychologiques, avec un accompagnement adapté. Consultations conventionnées.</p><span class="more">Découvrir {ic('arrow-right')}</span></a>'''
@@ -249,7 +270,7 @@ def index():
     <div class="tcards">{team}</div>
   </div>
 </section>
-''' + find_us() + book_band() + footer()
+''' + reviews_block() + find_us() + book_band() + footer()
 
 
 ZONES = [('Nuque et tête', 'Tensions cervicales, raideurs de la nuque et maux de tête liés aux tensions musculaires.', 'f', [(50, 17.5)]),
