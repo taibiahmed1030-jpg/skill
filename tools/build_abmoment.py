@@ -190,6 +190,7 @@ def find_us():
 
 GOOGLE_REVIEWS = 'https://share.google/crhWTFDIozYlheTbz'
 REVIEWS = [
+    ('Anissa', "Habituée à venir une fois par mois au cabinet, je tenais à te remercier sincèrement pour ton accompagnement et pour toutes ces séances qui m’ont fait énormément de bien. Mais par-dessus tout, je tiens à te remercier pour ta gentillesse, ton accueil chaleureux, ta bienveillance et ton écoute. C’est toujours un plaisir de venir au cabinet. Un grand merci pour tout !"),
     ('Aurélien Tieleman', 'Bon praticien et bel humain. Je recommande.'),
     ('Serhat Yvz', 'Tres profesionnel, resultat garantie apres traitement'),
 ]
